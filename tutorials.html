@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to zStudio</title>
+    <style>
+        
+
+        .video-item {
+            display: flex;
+            margin-bottom: 20px;
+            background-color: #333;
+            /* Darker background for video cards */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            /* Slightly darker shadow for depth */
+            overflow: hidden;
+        }
+
+        .video-description {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-description h3 {
+            margin-top: 0;
+            color: #fbbb1a;
+            /* Lighter color for headings */
+        }
+
+        .video-description p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #bbb;
+            /* Lighter text for description */
+        }
+
+        .video-embed {
+            width: 560px;
+            height: 315px;
+            border: 0;
+            background-color: #1f1f1f;
+            /* Dark background for embedded videos */
+        }
+
+        .video-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tutorials.html">Tutorials</a>
+    </nav>
+
+    <div class="container">
+        <h2>Help Videos</h2>
+
+
+
+    </div>
+
+    <script>
+        // JavaScript code can be added here for additional functionality
+        var videos = [
+            {
+                title: "Navigation, Basic controls & Transforms",
+                description: "In this video, we will get started with Z Studio by setting up a new canvas and exploring the workspace layout. We’ll cover how to import and manipulate assets—moving, rotating, scaling, and adjusting pivot points. We'll also take a look at the attributes panel to rename instances, tweak positioning, and modify visual properties like size and transparency.",
+                url: "https://youtu.be/fxLInmEM_YE"
+            },
+            {
+                title: "Templates & instances",
+                description: "In this video, we will explore how templates work in Z Studio. We'll learn how instances are created from templates, how they appear in the hierarchy and templates panels, and how changes to a template affect all its instances. We'll also see how to rename templates, edit their content, and replace images to update all linked instances at once.",
+                url: "https://youtu.be/pFVMLkjSmwg"
+            },
+            {
+                title: "Advanced Transforms",
+                description: "In this video, we will learn how to work with multiple selections in Z Studio. We'll explore how to manipulate multiple assets together by rotating and scaling them, both around a shared temporary pivot point and around their individual pivots. We'll also see how to adjust registration points using the attributes and pivot panels for more precise control during transformations.",
+                url: "https://youtu.be/wzIaxiN2xpM"
+            },
+            {
+                title: "Hierarchies",
+                description: "In this video, we will learn how to group multiple elements under a parent using a wrap container, allowing for easier hierarchy management and reusable instances. We'll also explore creating empty containers to build flexible hierarchies without images, and how to work within their local context to organize and position elements relative to their parent.",
+                url: "https://youtu.be/bjyxarB-Ca4"
+            },
+            {
+                title: "Working with Text",
+                description: "In this video, we will explore how to add and organize text elements within a scene. We'll cover renaming, customizing text appearance through the attributes panel, and turning text components into reusable templates that can be instantiated multiple times, including at runtime.",
+                url: "https://youtu.be/r4toIx81RWs"
+            },
+
+            {
+                title: "Animations",
+                description: "In this video, we explore Z Studio's animation capabilities. We see how to create animations for assets like robots by setting keyframes on their body parts, and we learn how to apply different easing functions to the transitions between keyframes. The animation is based on transformations like rotation and movement, and we can manipulate these assets directly in the timeline. The video also demonstrates how to adjust the scale and rotation of animated instances while preserving their local animations.",
+                url: "https://youtu.be/w1aCYeFqjDA"
+            },
+            {
+                title: "Testing your project",
+                description: "In this video, we'll see how to test your work on Z Studio before exporting.",
+                url: "https://youtu.be/XS_3zIWa-9o"
+            },
+            {
+                title: "Saving and Loading",
+                description: "In this video, we will learn how to save a project, understand what the saved file contains, and how to reopen it later to restore the scene. We'll also cover important considerations to avoid breaking the project when moving files.",
+                url: "https://youtu.be/w_iNph38Pho"
+            },
+            {
+                title: "Exporting your project",
+                description: "In this video, we will learn how to export a project from Z Studio. ",
+                url: "https://youtu.be/7wKhNPT_J0A"
+            },
+            {
+                title: "Importing into your App",
+                description: "In this video, we will learn how to import and run Z Studio graphics in a custom project using the zImporter_PIXI library. We'll go through installing the library, setting up a basic PixiJS project, and loading a scene exported from Z Studio. We'll see how to use templates, instantiate them dynamically, and run animations within a game loop, resulting in a scene rendered with multiple animated instances.",
+                url: "https://youtu.be/wZnZirDzOGA"
+            }
+        ];
+
+
+        for (var i = 0; i < videos.length; i++) {
+            var video = videos[i];
+            var videoItem = document.createElement("div");
+            videoItem.className = "video-item";
+
+            var videoDescription = document.createElement("div");
+            videoDescription.className = "video-description";
+            var title = document.createElement("h3");
+            title.textContent = video.title;
+            var description = document.createElement("p");
+            description.textContent = video.description;
+
+            videoDescription.appendChild(title);
+            videoDescription.appendChild(description);
+
+            var videoEmbed = document.createElement("div");
+            videoEmbed.className = "video-embed";
+            var iframe = document.createElement("iframe");
+            iframe.width = "560";
+            iframe.height = "315";
+
+            // Extract the video ID from youtu.be URL
+            var videoIdMatch = video.url.match(/(?:youtu\.be\/|v=)([\w\-]+)/);
+            var videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+            if (videoId) {
+                iframe.src = "https://www.youtube.com/embed/" + videoId;
+            } else {
+                console.warn("Invalid YouTube URL: " + video.url);
+                continue;
+            }
+
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+
+            videoEmbed.appendChild(iframe);
+            videoItem.appendChild(videoDescription);
+            videoItem.appendChild(videoEmbed);
+
+            document.querySelector(".container").appendChild(videoItem);
+        }
+    </script>
+
+    <footer class="footer">
+        <p>© 2025 zStudio - All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
