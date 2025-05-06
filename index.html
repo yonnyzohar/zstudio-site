@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>zStudio</title>
-  <link rel="stylesheet" href="style.css?v=1.0" />
+  <link rel="stylesheet" href="style.css?v=120" />
 </head>
+
+  
 <body>
   <nav class="navbar">
     <div class="nav-logo">
@@ -14,9 +16,9 @@
     </div>
     <div class="nav-links">
         
-    <a href="index.html?v=1.0" class="nav-link">Home</a>
-    <a href="about.html?v=1.0" class="nav-link">About</a>
-    <a href="tutorials.html?v=1.0" class="nav-link">Tutorials</a>
+    <a href="index.html?v=120" class="nav-link">Home</a>
+    <a href="about.html?v=120" class="nav-link">About</a>
+    <a href="tutorials.html?v=120" class="nav-link">Tutorials</a>
     </div>
   </nav>
 
@@ -36,10 +38,43 @@
         <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">Donate / Pay What You Want</a>
       </div>
     </section>
+    <section class="screenshots">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="assets/1_scene_creation_and_layout.png" alt="Screenshot 1" class="carousel-image" />
+            <img src="assets/2_asset_management.png" alt="Screenshot 2" class="carousel-image" />
+            <img src="assets/3_Hierarchical_Composition.png" alt="Screenshot 3" class="carousel-image" />
+            <img src="assets/4_transform_controls.png" alt="Screenshot 4" class="carousel-image" />
+            <img src="assets/5_Information_panels.png" alt="Screenshot 5" class="carousel-image" />
+            <img src="assets/6_template_system.png" alt="Screenshot 6" class="carousel-image" />
+            <img src="assets/7_animation.png" alt="Screenshot 7" class="carousel-image" />
+          </div>
+        </div>
+      </section>
+      
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="Expanded View" />
+      </div>
   </main>
 
   <footer class="footer">
     <p>© 2025 zStudio – All Rights Reserved</p>
   </footer>
 </body>
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+  
+    document.querySelectorAll(".carousel-image").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
+  
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
 </html>
