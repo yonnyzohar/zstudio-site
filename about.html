@@ -1,37 +1,141 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>About - zStudio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>About - zStudio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <nav class="navbar">
-        <div class="nav-logo">zStudio</div>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="tutorials.html" class="nav-link">Tutorials</a>
+        <div class="nav-logo">
+            <img src="assets/logo.webp" alt="zStudio Logo" class="logo-icon" />
+            zStudio
         </div>
-      </nav>
-  <div class="container">
-  <h1>About zStudio</h1>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="tutorials.html" class="nav-link">Tutorials</a>
+        </div>
+    </nav>
 
-  <h2>Key Features</h2>
-  <ul>
-    <li><strong>Scene Creation and Layout</strong>: Create and manage scenes...</li>
-    <li><strong>Asset Management</strong>: Drag and drop image assets...</li>
-    <!-- Add more list items from your description as needed -->
-  </ul>
+    <div class="container">
+        <h1>About zStudio</h1>
 
-  <h2>Workflow Summary</h2>
-  <p>Start a Scene: Open a new canvas...<br/>Import Assets: Drag in visual assets...</p>
+        <h2>Introduction</h2>
+        <p>
+            zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and
+            integration of 2D visual assets in web game development pipelines. It is particularly geared towards
+            developers, animators, and technical artists working with rendering libraries such as Pixi.js.
+            zStudio enables teams to build, edit, and manage complex graphical hierarchies with ease. Its intuitive
+            interface and structured export capabilities make it a powerful addition to any game or interactive media
+            workflow.
+        </p>
 
-  <h2>Conclusion</h2>
-  <p>zStudio bridges the gap between design and development...</p>
-</div>
-  <footer class="footer">
-    <p>© 2025 zStudio - All Rights Reserved</p>
-  </footer>
+        <h2>Key Features</h2>
+
+        <h3>Scene Creation and Layout</h3>
+        <ul>
+            <li>Create and manage scenes via a flexible canvas interface</li>
+            <li>Support for various aspect ratios and resolutions (portrait, landscape, etc.)</li>
+            <li>Default layout configurations for rapid scene composition</li>
+        </ul>
+
+        <h3>Asset Management</h3>
+        <ul>
+            <li>Drag and drop image assets directly into the scene</li>
+            <li>Images are wrapped in containers for hierarchy management</li>
+            <li>Each asset and container can be named for easy reference in code</li>
+        </ul>
+
+        <h3>Hierarchical Composition</h3>
+        <ul>
+            <li>Wrap elements in parent containers to organize elements into logical groups</li>
+            <li>Duplicate, instantiate, or templetize assets for scalable scene building</li>
+            <li>Containers can be nested and edited contextually</li>
+            <li>View and organize the structure of all scene elements</li>
+            <li>Easily select, rename, and reparent containers and assets</li>
+            <li>Empty containers can be used to group and transform other objects</li>
+            <li>Ideal for creating logical hierarchies without visual components</li>
+        </ul>
+
+        <h3>Transform Controls</h3>
+        <ul>
+            <li>Move, scale, rotate assets with intuitive keyboard shortcuts</li>
+            <li>Edit pivot points dynamically for precise transformation behavior</li>
+            <li>Multi-select and apply transformations across multiple assets</li>
+            <li>Shared and individual pivot handling for group transformations</li>
+            <li>Drill inside containers to edit child elements without affecting others</li>
+            <li>Supports create, copy, paste, break, undo operations</li>
+        </ul>
+
+        <h3>Information Panels</h3>
+        <ul>
+            <li>Adjust transform values numerically (position, rotation, scale, alpha)</li>
+            <li>Set and edit instance names for code integration</li>
+            <li>Customize pivot points using GUI or preset selector</li>
+        </ul>
+
+        <h3>Template System</h3>
+        <ul>
+            <li>Create reusable templates from graphical assets</li>
+            <li>Templates retain internal structure and behavior</li>
+            <li>Edit templates to propagate changes to all instances</li>
+            <li>Instance names remain unique while sharing a template</li>
+        </ul>
+
+        <h3>Animations</h3>
+        <ul>
+            <li>Tween-based animation system for manipulating asset transformations across multiple frames</li>
+            <li>Supports nested animations to accommodate complex animation hierarchies</li>
+        </ul>
+
+        <h3>Export System</h3>
+        <ul>
+            <li>Export entire scenes or selected templates</li>
+            <li>Export includes JSON structure with instance names, hierarchy, transforms</li>
+            <li>Create texture atlases for optimized rendering</li>
+            <li>Create and export bitmap fonts from font assets</li>
+            <li>Export regular font definitions for runtime rendering</li>
+        </ul>
+
+        <h3>Import and Integration</h3>
+        <ul>
+            <li>Graphical importer package for external projects</li>
+            <li>Seamlessly bring zStudio artifacts into Pixi.js or other renderers</li>
+            <li>Maintain template and instance relationships during import</li>
+        </ul>
+
+        <h3>Test Mode</h3>
+        <ul>
+            <li>Run an integrated preview/test mode to simulate game environments</li>
+            <li>Preview animations, hierarchies, and transformations before export</li>
+        </ul>
+
+        <h2>Workflow Summary</h2>
+        <ol>
+            <li>Start a Scene: Open a new canvas and select the desired resolution.</li>
+            <li>Import Assets: Drag in visual assets, which are wrapped in containers.</li>
+            <li>Manipulate Assets: Move, rotate, scale, and organize assets using transform tools.</li>
+            <li>Create Hierarchies: Group elements in containers; use templates for reuse.</li>
+            <li>Animate: Manipulate the transform of assets over multiple frames.</li>
+            <li>Preview: Use test mode to validate design and behavior.</li>
+            <li>Export: Export assets as JSON, texture atlases, or fonts.</li>
+            <li>Integrate: Use the importer package to bring assets into your rendering engine.</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>
+            zStudio bridges the gap between design and development by enabling a fast, visual-first workflow while
+            maintaining technical control and integration capabilities. Its templating system, hierarchy tools, and
+            export options make it an indispensable part of modern 2D game pipelines.
+        </p>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 zStudio - All Rights Reserved</p>
+    </footer>
 </body>
+
 </html>
