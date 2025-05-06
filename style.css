@@ -1,59 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset basics */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #2f2f2f, #111); /* Darker gradient for background */
-    color: white;
   }
   
-  header {
-    background: linear-gradient(to bottom, #2f2f2f, #111); /* Same gradient for header */
-    color: white;
-    text-align: center;
-    padding: 20px;
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #2f2f2f, #111);
+    color: #ffffff;
+    line-height: 1.6;
   }
-  nav {
-    padding: 20px;
-    text-align: center;
+  
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #444;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  nav a {
-    margin: 0 10px;
-    text-decoration: none;
+  
+  .nav-logo {
+    font-size: 1.5em;
     color: #fbbb1a;
     font-weight: bold;
   }
-  a.button {
-    display: inline-block;
-    padding: 12px 20px;
-    margin: 10px;
-    background: #007acc;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-  }
-
-
-  h1, h2 {
-    color: #fbbb1a; /* Consistent color for headings */
-  }
-
-  .footer {
-    background: linear-gradient(to bottom, #2f2f2f, #111); /* Consistent footer background */
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .container {
-    padding: 50px;
-    width: 90%;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px;
-}
   
+  .nav-links .nav-link {
+    color: #fbbb1a;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  
+  /* Hero Section */
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fbbb1a;
+  }
+  
+  .intro {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Download Buttons */
+  .downloads {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .downloads h2 {
+    color: #fbbb1a;
+    margin-bottom: 30px;
+    font-size: 2em;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  a.button {
+    background-color: #007acc;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  a.button:hover {
+    background-color: #005fa3;
+    transform: translateY(-2px);
+  }
+  
+  a.button.donate {
+    background: #fbbb1a;
+    color: #111;
+  }
+  
+  a.button.donate:hover {
+    background: #ffcc44;
+  }
+  
+  /* Footer */
+  .footer {
+    background: #111;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9em;
+    color: #888;
+    border-top: 1px solid #333;
+    margin-top: 60px;
+  }
   
