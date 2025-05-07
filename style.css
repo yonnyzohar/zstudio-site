@@ -4,6 +4,10 @@
     margin: 0;
     padding: 0;
   }
+
+  html, body {
+    background-color: #000; /* or any color you want */
+  }
   
   body {
     font-family: 'Segoe UI', sans-serif;
@@ -99,6 +103,10 @@
     font-size: 1em;
     text-decoration: none;
     transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  a {
+    text-decoration: none;
   }
   
   a.button:hover {
