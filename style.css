@@ -125,6 +125,11 @@
     border-top: 1px solid #333;
     margin-top: 60px;
   }
+
+  .footer a {
+    color: #fbbb1a;
+    text-decoration: none;
+  }
   
   ul, ol {
     padding-left: 20px;
