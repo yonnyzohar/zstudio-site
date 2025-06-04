@@ -60,7 +60,7 @@
   .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 0px 20px;
   }
   
   /* Hero Section */
@@ -69,11 +69,24 @@
     margin-bottom: 20px;
     color: #fbbb1a;
   }
+
+  .topVid {
+    background: #000;
+    /* background: linear-gradient(to bottom, #2f2f2f00, #111);*/
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+  }
   
   .intro {
-    font-size: 1.2em;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 1.1em;
+    max-width: 900px;
+    margin: 10px auto;
+    text-align: center;
+    
   }
   
   /* Download Buttons */
