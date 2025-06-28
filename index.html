@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>zStudio</title>
   <link rel="stylesheet" href="style.css?v=1.4" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+
 </head>
 
   
@@ -39,6 +41,8 @@
       <p class="intro">
         zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries.
       </p>
+
+      
       
     </section>
 
@@ -52,6 +56,22 @@
         <a class="button" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
         <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">Donate / Pay What You Want</a>
       </div>
+
+      
+      <pre><code class="language-typescript">
+        let scene: ZScene = new ZScene("myScene");
+        scene.load(loadPath, () => {
+            ZSceneStack.push(scene);
+            scene.loadStage(this.stage);
+            let sceneStage:ZContainer = scene.sceneStage;
+            
+            let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
+            myBTN.setText("Click Me");
+            myBTN.setCallback(() => {
+                console.log("Button clicked!");
+            });
+        });
+    </code></pre>
     </section>
     <section class="screenshots">
         <div class="carousel">
@@ -65,19 +85,27 @@
             <img src="assets/7_animation.png" alt="Screenshot 7" class="carousel-image" />
           </div>
         </div>
+
+        
       </section>
       
       <!-- Lightbox -->
       <div id="lightbox" class="lightbox">
         <img id="lightbox-img" src="" alt="Expanded View" />
       </div>
+
+      
   </main>
 
   <footer class="footer">
     <p>© 2025 zStudio – All Rights Reserved</p>
     
-    <p>Created by <a href="mailto:zoharyonnyuk@gmail.com" target="_blank" rel="noopener noreferrer">Yonny Zohar</a></p>
+    <p>Created by <a href="mailto:yonnyzohar@gmail.com" target="_blank" rel="noopener noreferrer">Yonny Zohar</a></p>
   </footer>
+  <!-- Add Prism.js before closing </body> tag -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
+
 </body>
 <script>
     const lightbox = document.getElementById("lightbox");
