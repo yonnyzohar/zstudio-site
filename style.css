@@ -93,6 +93,7 @@
   .downloads {
     margin-top: 60px;
     text-align: center;
+    
   }
   
   .downloads h2 {
@@ -106,6 +107,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    margin-bottom: 50px;
   }
   
   a.button {
