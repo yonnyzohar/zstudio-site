@@ -56,11 +56,16 @@ By using this software, you agree to these terms. This license is governed by th
 </p>
 
 
-    <footer class="footer">
-        <p>2025 zStudio - All Rights Reserved</p>
-        <p>Created by <a href="mailto:yonnyzohar@gmail.com" target="_blank" rel="noopener noreferrer">Yonny Zohar</a></p>
-        <p> <a href="tc.html">T&C</a> </p>
-    </footer>
+    <div id="footer-placeholder"></div>
+
+<script>
+    fetch('footer.html?v=1.4')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        })
+        .catch(err => console.error('Failed to load footer:', err));
+</script>
 </body>
 
 </html>
