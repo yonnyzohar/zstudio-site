@@ -53,14 +53,33 @@
         
         <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI" target="_blank">Get zImporter</a>
         <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">Examples</a>
+<!-- 
         <a class="button" href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk" target="_blank">Download zStudio for macOS</a>
         <a class="button" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
+ -->
+        <a class="button" id="dmgFile" href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk" target="_blank">Download zStudio for macOS</a>
+        <a class="button" id="exeFile" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
+        
+        <script>
+          const url = './latest-release.json';
+
+          fetch(url)
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+              let dmgFile = document.getElementById('dmgFile');
+              let exeFile = document.getElementById('exeFile');
+              dmgFile.href = data.mac;
+              exeFile.href = data.windows;
+            })
+            .catch(err => console.error(err));
+        </script>
+
+
         <!-- 
-        <a class="button" id="dmgFile" href="https://github.com/yonnyzohar/graphicsIDE/releases/download/latest/zStudio-latest.dmg" target="_blank">Download zStudio for macOS</a>
-        <a class="button" id="exeFile" href="https://github.com/yonnyzohar/graphicsIDE/releases/download/latest/zStudio-latest.exe" target="_blank">Download zStudio for PC</a>
         
 
-         
+        
         <script>
           const proxy = 'https://corsproxy.io/?';
           const url = 'https://drive.google.com/uc?export=download&id=1oLG74uogR-KSBSn8NnVVP7WxOjGofmEX';
