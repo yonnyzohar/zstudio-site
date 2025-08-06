@@ -61,7 +61,7 @@
         <a class="button" id="exeFile" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
         
         <script>
-          const url = './latest-release.json';
+          const url = './latest-release.json?date=' + new Date().getTime();
 
           fetch(url)
             .then(res => res.json())
