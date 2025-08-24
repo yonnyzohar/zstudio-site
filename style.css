@@ -101,6 +101,12 @@
     margin-bottom: 30px;
     font-size: 2em;
   }
+
+  p a 
+  {
+    color: #fbbb1a;
+    text-decoration: underline;
+  }
   
   .buttons {
     display: flex;
