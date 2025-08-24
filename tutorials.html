@@ -3,7 +3,8 @@
 
 <head>
     <meta property="og:title" content="zStudio" />
-    <meta property="og:description" content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
+    <meta property="og:description"
+        content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
     <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
     <meta property="og:url" content="https://yonnyzohar.github.io/zstudio-site/" />
     <meta property="og:type" content="website" />
@@ -11,8 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to zStudio</title>
     <style>
-        
-
         .video-item {
             display: flex;
             margin-bottom: 20px;
@@ -65,14 +64,14 @@
 
     <div id="navbar-placeholder"></div>
 
-<script>
-    fetch('navbar.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('navbar-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load navbar:', err));
-</script>
+    <script>
+        fetch('navbar.html?v=1.4')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Failed to load navbar:', err));
+    </script>
 
     <div class="container">
         <h2>Help Videos</h2>
@@ -122,9 +121,9 @@
                 url: "https://youtu.be/HgIVYzN7JWE"
             },
 
-            
 
-             {
+
+            {
                 title: "Rigging, Animating, Setting Cue Points",
                 description: "In this video, we explore Z Studio's animation capabilities. We see how to create animations for assets like robots by setting keyframes on their body parts, and we learn how to apply different easing functions to the transitions between keyframes. The animation is based on transformations like rotation and movement, and we can manipulate these assets directly in the timeline. The video also demonstrates how to adjust the scale and rotation of animated instances while preserving their local animations.",
                 url: "https://youtu.be/6kYR-U61-nI"
@@ -134,16 +133,18 @@
                 description: "In this video we'll take a semi baked scene and adjust it for portrait. We'll then see how to export it.",
                 url: "https://youtu.be/jlNaCsANgcc"
             },
+            /*
             {
                 title: "Importing into your App",
                 description: "In this video, we will learn how to import and run Z Studio graphics in a custom project using the zImporter_PIXI library. We'll go through installing the library, setting up a basic PixiJS project, and loading a scene exported from zStudio.",
                 url: "https://youtu.be/Fhh8ObeE-HU"
               },
+              */
             {
                 title: "Using templates, Buttons and States at runtime",
                 description: "In this video we'll create a simple scene with button interaction. We'll see how to create buttons, states, and templates. We'll then instantiate everything at runtime.",
                 url: "https://youtu.be/Bc13idckTv0"
-              }
+            }
         ];
 
 
@@ -192,14 +193,14 @@
 
     <div id="footer-placeholder"></div>
 
-<script>
-    fetch('footer.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('footer-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load footer:', err));
-</script>
+    <script>
+        fetch('footer.html?v=1.4')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Failed to load footer:', err));
+    </script>
 
 </body>
 
