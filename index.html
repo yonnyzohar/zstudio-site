@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta property="og:title" content="zStudio" />
-    <meta property="og:description" content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
-    <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
-    <meta property="og:url" content="https://yonnyzohar.github.io/zstudio-site/" />
-    <meta property="og:type" content="website" />
+  <meta property="og:title" content="zStudio" />
+  <meta property="og:description"
+    content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
+  <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
+  <meta property="og:url" content="https://yonnyzohar.github.io/zstudio-site/" />
+  <meta property="og:type" content="website" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>zStudio</title>
   <link rel="stylesheet" href="style.css?v=1.4" />
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 
 </head>
 
-  
+
 <body>
   <div id="navbar-placeholder"></div>
 
-<script>
+  <script>
     fetch('navbar.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('navbar-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load navbar:', err));
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-placeholder').innerHTML = html;
+      })
+      .catch(err => console.error('Failed to load navbar:', err));
 
-    
 
-</script>
+
+  </script>
 
   <main class="container">
     <section class="hero">
       <div class="topVid" style="display: flex; justify-content: center; padding-bottom: 20px;">
-        <iframe width="435" height="245" src="https://www.youtube.com/embed/Wcm7J7zvcAA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="435" height="245" src="https://www.youtube.com/embed/Wcm7J7zvcAA" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-    </div>
-      
+      </div>
+
       <p class="intro">
-        zStudio makes creation of UI and 2D game scenes easy and intuitive. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries.
+        zStudio makes creation of UI and 2D game scenes easy and intuitive. Built for developers, animators, and
+        technical artists, it works seamlessly with Pixi.js and similar rendering libraries.
       </p>
 
-      
-      
+
+
     </section>
 
     <section class="downloads">
       <h2>Download zStudio</h2>
       <div class="buttons">
-        
-        <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI" target="_blank">Get zImporter</a>
-        <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">Examples</a>
-<!-- 
+
+        <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">Get zImporter</a>
+        <!-- 
         <a class="button" href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk" target="_blank">Download zStudio for macOS</a>
         <a class="button" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
  -->
-        <a class="button" id="dmgFile" href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk" target="_blank">Download zStudio for macOS</a>
-        <a class="button" id="exeFile" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
-        
+        <a class="button" id="dmgFile"
+          href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk"
+          target="_blank">Download zStudio for macOS</a>
+        <a class="button" id="exeFile"
+          href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9"
+          target="_blank">Download zStudio for PC</a>
+
         <script>
           const url = './latest-release.json?date=' + new Date().getTime();
 
@@ -101,11 +109,12 @@
         
         
         -->
-          
-        <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">Donate / Pay What You Want</a>
+
+        <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">Donate / Pay What You
+          Want</a>
       </div>
 
-      
+
       <pre><code class="language-typescript">
         let scene: ZScene = new ZScene("myScene");
         scene.load(loadPath, () => {
@@ -122,57 +131,58 @@
     </code></pre>
     </section>
     <section class="screenshots">
-        <div class="carousel">
-          <div class="carousel-track">
-            <img src="assets/1_scene_creation_and_layout.png" alt="Screenshot 1" class="carousel-image" />
-            <img src="assets/2_asset_management.png" alt="Screenshot 2" class="carousel-image" />
-            <img src="assets/3_Hierarchical_Composition.png" alt="Screenshot 3" class="carousel-image" />
-            <img src="assets/4_transform_controls.png" alt="Screenshot 4" class="carousel-image" />
-            <img src="assets/5_Information_panels.png" alt="Screenshot 5" class="carousel-image" />
-            <img src="assets/6_template_system.png" alt="Screenshot 6" class="carousel-image" />
-            <img src="assets/7_animation.png" alt="Screenshot 7" class="carousel-image" />
-          </div>
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="assets/1_scene_creation_and_layout.png" alt="Screenshot 1" class="carousel-image" />
+          <img src="assets/2_asset_management.png" alt="Screenshot 2" class="carousel-image" />
+          <img src="assets/3_Hierarchical_Composition.png" alt="Screenshot 3" class="carousel-image" />
+          <img src="assets/4_transform_controls.png" alt="Screenshot 4" class="carousel-image" />
+          <img src="assets/5_Information_panels.png" alt="Screenshot 5" class="carousel-image" />
+          <img src="assets/6_template_system.png" alt="Screenshot 6" class="carousel-image" />
+          <img src="assets/7_animation.png" alt="Screenshot 7" class="carousel-image" />
         </div>
-
-        
-      </section>
-      
-      <!-- Lightbox -->
-      <div id="lightbox" class="lightbox">
-        <img id="lightbox-img" src="" alt="Expanded View" />
       </div>
 
-      
+
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <img id="lightbox-img" src="" alt="Expanded View" />
+    </div>
+
+
   </main>
 
   <div id="footer-placeholder"></div>
 
-<script>
+  <script>
     fetch('footer.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('footer-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load footer:', err));
-</script>
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      })
+      .catch(err => console.error('Failed to load footer:', err));
+  </script>
 
-<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
 
 </body>
 <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-  
-    document.querySelectorAll(".carousel-image").forEach(img => {
-      img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex";
-      });
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.querySelectorAll(".carousel-image").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
     });
-  
-    lightbox.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-  </script>
+  });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+</script>
+
 </html>
