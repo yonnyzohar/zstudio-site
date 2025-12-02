@@ -3,7 +3,8 @@
 
 <head>
     <meta property="og:title" content="zStudio" />
-    <meta property="og:description" content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
+    <meta property="og:description"
+        content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
     <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
     <meta property="og:url" content="https://yonnyzohar.github.io/zstudio-site/" />
     <meta property="og:type" content="website" />
@@ -15,14 +16,14 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-<script>
-    fetch('navbar.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('navbar-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load navbar:', err));
-</script>
+    <script>
+        fetch('navbar.html?v=1.4')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Failed to load navbar:', err));
+    </script>
 
     <div class="container">
         <h1>About zStudio</h1>
@@ -89,12 +90,14 @@
             <li>Instance names remain unique while sharing a template</li>
         </ul>
 
+        <!-- Animations Section 
         <h3>Animations</h3>
         <ul>
             <li>Tween-based animation system for manipulating asset transformations across multiple frames</li>
             <li>Supports nested animations to accommodate complex animation hierarchies</li>
             <li>Add cue points to given frames to capture them later at runtime</li>
         </ul>
+        End of Animations Section -->
 
         <h3>Orientations</h3>
         <ul>
@@ -104,7 +107,8 @@
 
         <h3>Anchoring System</h3>
         <ul>
-            <li>Anchor containers to any point on the screen to have them maintain their position regardless of device size</li>
+            <li>Anchor containers to any point on the screen to have them maintain their position regardless of device
+                size</li>
         </ul>
 
         <h3>Spine support</h3>
@@ -133,7 +137,7 @@
             <li>Maintain template and instance relationships during import</li>
         </ul>
 
-        
+
 
         <h3>Test Mode</h3>
         <ul>
@@ -163,14 +167,14 @@
 
     <div id="footer-placeholder"></div>
 
-<script>
-    fetch('footer.html?v=1.4')
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('footer-placeholder').innerHTML = html;
-        })
-        .catch(err => console.error('Failed to load footer:', err));
-</script>
+    <script>
+        fetch('footer.html?v=1.4')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            })
+            .catch(err => console.error('Failed to load footer:', err));
+    </script>
 </body>
 
 </html>
