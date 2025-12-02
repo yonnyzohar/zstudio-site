@@ -85,65 +85,72 @@
         var videos = [
             {
                 title: "Navigation, Basic controls & Transforms",
-                description: "In this video, we will get started with Z Studio by setting up a new canvas and exploring the workspace layout. We’ll cover how to import and manipulate assets—moving, rotating, scaling, and adjusting pivot points. We'll also take a look at the attributes panel to rename instances, tweak positioning, and modify visual properties like size and transparency.",
-                url: "https://youtu.be/bElV1EFi76I"
+                description: "This video covers navigating the workspace, adjusting stage size and orientation, importing assets, and using core transform tools like move, scale, rotate, and pivot. Learn how to set different layouts for portrait and landscape scenes.",
+                url: "https://youtu.be/6Onv-P2Fjyo"
             },
             {
-                title: "Templates & instances",
-                description: "In this video, we will explore how templates work in Z Studio. We'll learn how instances are created from templates, how they appear in the hierarchy and templates panels, and how changes to a template affect all its instances. We'll also see how to rename templates, edit their content, and replace images to update all linked instances at once.",
-                url: "https://youtu.be/7IxIChVB3Do"
-            },
-            {
-                title: "Adding Spine assets",
-                description: "In this video, we will learn how to add Spine assets to our scene, and then manipulate them like regular assets.",
-                url: "https://youtu.be/qv8SFoLTBiE"
+                title: "Panels Overview",
+                description: "This video explores zStudio’s key panels—Templates, Hierarchy, and Attributes—showing how templates work, how instances are managed, and how the Attributes panel adapts to different asset types. It covers core options like naming, Z-index, portrait/landscape imprinting, transforms, rotation, scaling, width/height editing, alpha, pivot controls, alignment tools, and basic filter effects like drop shadows",
+                url: "https://youtu.be/qsiRDy4g-MU"
             },
             {
                 title: "Containers & Hierarchies",
-                description: "In this video, we will learn how to group multiple elements under a parent using a wrap container, allowing for easier hierarchy management and reusable instances. We'll also explore creating empty containers to build flexible hierarchies without images, and how to work within their local context to organize and position elements relative to their parent.",
-                url: "https://youtu.be/RdABGDsjevk"
+                description: "This video explains how zStudio handles hierarchies and templates—how to wrap assets into containers, create nested templates, and edit any instance to update all others automatically. It also shows how to move items within hierarchies, re-parent assets, and break instances back into standalone elements, demonstrating the flexibility and power of Zed Studio’s template-based workflow.",
+                url: "https://youtu.be/IPQCnAhPSzA"
             },
+            {
+                title: "Instantiation, Copying or Duplicating Assets",
+                description: "In this video, we will learn how to group multiple elements under a parent using a wrapThis video covers how to instantiate, copy, and duplicate assets in zStudio. It explains the difference between creating new instances of a template, copying an existing instance with its transformations, and duplicating an asset into a brand-new template to edit independently. It also demonstrates copying/pasting properties between assets and transferring assets seamlessly between scenes while preserving their layout. container, allowing for easier hierarchy management and reusable instances. We'll also explore creating empty containers to build flexible hierarchies without images, and how to work within their local context to organize and position elements relative to their parent.",
+                url: "https://youtu.be/sNgDMoHZpj0"
+            },
+            {
+                title: "Images & Nine slice",
+                description: "In this video, we will explore how to add and This video shows how to replace images in zStudio, either by selecting a new file or dragging one directly into the asset field. It also introduces nine-slice support—how to switch an image to a nine-slice, adjust its borders, and scale it cleanly. The video also highlights that images and nine-slices can have different sizes in portrait vs. landscape layouts. text elements within a scene. We'll cover renaming, customizing text appearance through the attributes panel, and turning text components into reusable templates that can be instantiated multiple times, including at runtime.",
+                url: "https://youtu.be/EusxLV6eV1M"
+            },
+
+            {
+                title: "Testing your Scene",
+                description: "This video demonstrates testing a full zStudio scene—showing a slot machine layout built with images, nine-slices, buttons, and a portrait/landscape setup. It explains how the built-in test window loads the exported scene through the zStudio importer (currently supporting Pixi), allowing artists to preview exactly how their UI will look and behave on a real device without needing a developer.",
+                url: "https://youtu.be/BHWw6DEsxyA"
+            },
+
             {
                 title: "Working with Text",
-                description: "In this video, we will explore how to add and organize text elements within a scene. We'll cover renaming, customizing text appearance through the attributes panel, and turning text components into reusable templates that can be instantiated multiple times, including at runtime.",
-                url: "https://youtu.be/-HeOc3xfXlw"
+                description: "This video covers how to create and edit text in zStudio. It shows how to add text fields, adjust font size, weight, color, spacing, alignment, and apply strokes and shadows. It also demonstrates using the external text editor workflow, switching between text fields and input fields, naming text containers for code access, and setting a default font so new text fields automatically use your preferred style.",
+                url: "https://youtu.be/qA4nFa-R1ek"
             },
-
-            {
-                title: "PIXI Particles",
-                description: "In this video we'll look into the required format for pixi particles supported in zStudio.",
-                url: "https://youtu.be/6TkSKpKM4W0"
-            },
-
             {
                 title: "Pivots & Anchors",
-                description: "In this video we'll see how to play around with pivot points, and how to anchor containers to specific areas of the screen regardless of screen dimensions.",
-                url: "https://youtu.be/HgIVYzN7JWE"
-            },
-
-
-
-            {
-                title: "Rigging, Animating, Setting Cue Points",
-                description: "In this video, we explore Z Studio's animation capabilities. We see how to create animations for assets like robots by setting keyframes on their body parts, and we learn how to apply different easing functions to the transitions between keyframes. The animation is based on transformations like rotation and movement, and we can manipulate these assets directly in the timeline. The video also demonstrates how to adjust the scale and rotation of animated instances while preserving their local animations.",
-                url: "https://youtu.be/6kYR-U61-nI"
+                description: "This video explains how to use pivots and anchors in zStudio to create dynamic, responsive layouts. It covers adjusting pivot points for rotation and scaling, using anchor presets to position elements relative to the stage or parent containers, and setting custom anchor values for precise control. The video also demonstrates how pivots and anchors work together to ensure assets maintain their intended positions across different screen sizes and orientations.",
+                url: "https://youtu.be/zi-UmLR_bmY"
             },
             {
-                title: "Designing for Portrait and Landscape, Saving and Loading",
-                description: "In this video we'll take a semi baked scene and adjust it for portrait. We'll then see how to export it.",
-                url: "https://youtu.be/jlNaCsANgcc"
+                title: "Adding Spine assets",
+                description: "This video shows how zStudio supports Spine animations. It explains how to import Spine files (JSON, PNG, and Atlas), set them up as containers, adjust positions, templates, and instance names, and configure animations and skins. You can preview the Spine assets in your scene just like any other zStudio element.",
+                url: "https://youtu.be/qSuXF1vQe_M"
             },
-            /*
+
             {
-                title: "Importing into your App",
-                description: "In this video, we will learn how to import and run Z Studio graphics in a custom project using the zImporter_PIXI library. We'll go through installing the library, setting up a basic PixiJS project, and loading a scene exported from zStudio.",
-                url: "https://youtu.be/Fhh8ObeE-HU"
-              },
-              */
+                title: "Adding Particles",
+                description: "This video demonstrates zStudio’s support for particles using Pixie Particles v5. It shows how to create particle containers, adjust parameters like movement, acceleration, rotation, spawn, and burst, and assign images to emitters. You can fully configure and preview particles within zStudio, leveraging the same options available in Pixie Particles.",
+                url: "https://youtu.be/t2zMi8RMG5Y"
+            },
+
             {
-                title: "Using templates, Buttons and States at runtime",
-                description: "In this video we'll create a simple scene with button interaction. We'll see how to create buttons, states, and templates. We'll then instantiate everything at runtime.",
-                url: "https://youtu.be/Bc13idckTv0"
+                title: "Saving and Loading",
+                description: "This video explains how to save and load scenes in zStudio. It covers three options: standard save (JSON file referencing assets on disk), save with exported images (copies all images for safer project portability), and export as a texture atlas (creates a single atlas with JSON references for runtime). It also highlights how the scene hierarchy and templates are saved, ensuring assets and layouts can be reliably loaded and tested across devices.",
+                url: "https://youtu.be/AZob2lf7Aw8"
+            },
+            {
+                title: "Designing for Portrait and Landscape",
+                description: "This video This video demonstrates designing a responsive slot machine scene from scratch in zStudio. It covers importing and organizing assets, creating templates for backgrounds, buttons, reels, and text fields, and setting up portrait and landscape layouts. The video also shows how to use full-screen backgrounds, pivot points, anchoring, and guides to create dynamic, pixel-perfect layouts that adapt to different screen sizes and orientations. through the export options in zStudio. It covers exporting as individual images (with JSON placement data), exporting as a texture atlas (single PNG with JSON references), and exporting for different rendering libraries like Pixi.js. The video also highlights settings for optimizing exports, such as trimming images, adjusting scale, and choosing file formats to ensure efficient loading in your game projects.",
+                url: "https://youtu.be/EypJ2ZRc4DI"
+            },
+            {
+                title: "Components - buttons, toggles, sliders, scrollbars...",
+                description: "This video explains Z Studio’s asset types and components, showing how to make interactive UI elements",
+                url: "https://youtu.be/_GE3LhaHCno"
             }
         ];
 
