@@ -20,6 +20,41 @@
 
 
 <body>
+  <div id="video-background">
+    <div id="player"></div>
+  </div>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'EypJ2ZRc4DI', // your video
+        playerVars: {
+          autoplay: 1,
+          mute: 1,              // important for autoplay
+          controls: 0,
+          showinfo: 0,
+          rel: 0,
+          loop: 1,
+          playlist: 'EypJ2ZRc4DI', // required for loop
+          modestbranding: 1,
+          playsinline: 1
+        },
+        events: {
+          onReady: (e) => {
+            e.target.mute();
+            e.target.setPlaybackRate(2); // ← control speed here
+            e.target.playVideo();
+          }
+        }
+      });
+      player.setPlaybackRate(2);
+    }
+
+
+  </script>
+
+
   <div id="navbar-placeholder"></div>
 
   <script>
@@ -36,13 +71,14 @@
 
   <main class="container">
     <section class="hero">
+
+      <!-- Embedded YouTube video 
       <div class="topVid" style="display: flex; justify-content: center; padding-bottom: 20px;">
         <iframe width="435" height="245" src="https://www.youtube.com/embed/Wcm7J7zvcAA" title="" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-      </div>
-
+      -->
       <p class="intro">
         zStudio makes creation of UI and 2D game scenes easy and intuitive. Built for developers, animators, and
         technical artists, it works seamlessly with Pixi.js and similar rendering libraries.
@@ -130,6 +166,7 @@
         });
     </code></pre>
     </section>
+    <!-- Lightbox 
     <section class="screenshots">
       <div class="carousel">
         <div class="carousel-track">
@@ -146,11 +183,11 @@
 
     </section>
 
-    <!-- Lightbox -->
+    
     <div id="lightbox" class="lightbox">
       <img id="lightbox-img" src="" alt="Expanded View" />
     </div>
-
+-->
 
   </main>
 
