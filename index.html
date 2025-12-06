@@ -47,25 +47,28 @@
             e.target.mute();
             e.target.setPlaybackRate(2);
             e.target.playVideo();
+
+            //listen to screen resize to adjust video size
+            window.addEventListener("resize", () => {
+              const width = window.innerWidth;
+              const height = window.innerHeight;
+              const aspectRatio = 16 / 9;
+
+              let videoBg = document.querySelector("#video-background iframe");
+              if (width / height > aspectRatio) {
+                videoBg.style.width = width + "px";
+                videoBg.style.height = (width / aspectRatio) + "px";
+              } else {
+                videoBg.style.width = (height * aspectRatio) + "px";
+                videoBg.style.height = height + "px";
+              }
+            });
+            window.dispatchEvent(new Event("resize"));
           }
         }
       });
     }
-    //listen to screen resize to adjust video size
-    window.addEventListener("resize", () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const aspectRatio = 16 / 9;
 
-      let videoBg = document.querySelector("#video-background iframe");
-      if (width / height > aspectRatio) {
-        videoBg.style.width = width + "px";
-        videoBg.style.height = (width / aspectRatio) + "px";
-      } else {
-        videoBg.style.width = (height * aspectRatio) + "px";
-        videoBg.style.height = height + "px";
-      }
-    });
   </script>
 
   <!-- Navbar -->
@@ -81,7 +84,9 @@
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Build UI & 2D Scenes for Web Games — Visually.</h1>
+      <h1>Build UI & 2D Scenes for Web Games <br>
+        <span style="color: #ffffff; font-size: 1.5em; text-shadow: 5px 5px #000; blur(5px)">Visually</span>
+      </h1>
 
       <p class="intro">
         zStudio is a standalone visual layout and UI authoring tool for web game developers.
@@ -138,7 +143,7 @@ scene.load(loadPath, () => {
     let sceneStage: ZContainer = scene.sceneStage;
     let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
 
-    myBTN.setText("Click Me");
+    myBTN.setLabel("Click Me");
     myBTN.setCallback(() => {
         console.log("Button clicked!");
     });
