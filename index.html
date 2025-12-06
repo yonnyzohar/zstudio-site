@@ -2,233 +2,149 @@
 <html lang="en">
 
 <head>
-
-  <meta property="og:title" content="zStudio" />
-  <meta property="og:description"
-    content="zStudio is a streamlined graphics authoring tool designed to simplify and accelerate the creation and integration of 2D visual assets in web game development pipelines. Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering libraries." />
-  <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
-  <meta property="og:url" content="https://yonnyzohar.github.io/zstudio-site/" />
-  <meta property="og:type" content="website" />
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>zStudio</title>
-  <link rel="stylesheet" href="style.css?v=1.4" />
-  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 
+  <title>zStudio – UI & Layout Creation Tool for Web Games</title>
+
+  <meta property="og:title" content="zStudio – Web Game UI Creation Tool" />
+  <meta property="og:description"
+    content="zStudio is a streamlined graphics authoring tool for creating responsive UI and 2D scenes for web games. Used commercially in real production games. Supports Pixi.js and more." />
+  <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
+  <meta property="og:url" content="https://zstudiosltd.com" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css?v=1.5" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" />
 </head>
 
-
 <body>
+
+  <!-- Video Background -->
   <div id="video-background">
     <div id="player"></div>
   </div>
+
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     let player;
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: 'EypJ2ZRc4DI', // your video
+      player = new YT.Player("player", {
+        videoId: "EypJ2ZRc4DI",
         playerVars: {
           autoplay: 1,
-          mute: 1,              // important for autoplay
+          mute: 1,
           controls: 0,
-          showinfo: 0,
           rel: 0,
           loop: 1,
-          playlist: 'EypJ2ZRc4DI', // required for loop
+          playlist: "EypJ2ZRc4DI",
           modestbranding: 1,
           playsinline: 1,
-          start: 70,
+          start: 70
         },
         events: {
           onReady: (e) => {
             e.target.mute();
-            e.target.setPlaybackRate(2); // ← control speed here
+            e.target.setPlaybackRate(2);
             e.target.playVideo();
           }
         }
       });
     }
-
-
   </script>
 
-
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
-
   <script>
-    fetch('navbar.html?v=1.4')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
-      })
-      .catch(err => console.error('Failed to load navbar:', err));
-
-
-
+    fetch("navbar.html?v=1.5")
+      .then(r => r.text())
+      .then(h => document.getElementById("navbar-placeholder").innerHTML = h)
+      .catch(() => console.error("Failed to load navbar"));
   </script>
 
   <main class="container">
-    <section class="hero">
 
-      <!-- Embedded YouTube video 
-      <div class="topVid" style="display: flex; justify-content: center; padding-bottom: 20px;">
-        <iframe width="435" height="245" src="https://www.youtube.com/embed/Wcm7J7zvcAA" title="" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      -->
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Build UI & 2D Scenes for Web Games — Visually.</h1>
+
       <p class="intro">
-        zStudio makes creation of UI and 2D game scenes easy and intuitive.
-        Built for developers, animators, and technical artists, it works seamlessly with Pixi.js and similar rendering
-        libraries.
+        zStudio is a standalone visual layout and UI authoring tool for web game developers.
+        It integrates seamlessly with Pixi.js and other 2D rendering engines.
+        Designed for developers, technical artists, and animators.
       </p>
 
-
-
+      <p class="intro" style="margin-top: 20px; font-weight: 600; color: #fbbb1a;">
+        ✔ Used commercially in multiple real-money casino games
+      </p>
     </section>
 
+    <!-- DOWNLOADS -->
     <section class="downloads">
       <h2>Download zStudio</h2>
+
       <div class="buttons">
 
-        <!-- 
-        <a class="button" href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk" target="_blank">Download zStudio for macOS</a>
-        <a class="button" href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9" target="_blank">Download zStudio for PC</a>
- -->
         <div class="button-row">
-          <a class="button" id="dmgFile"
-            href="https://drive.google.com/uc?export=download&id=1rEa0iSohl90fyua144C6S1ns6ah9hhpk"
-            target="_blank">Download zStudio for macOS</a>
-          <a class="button" id="exeFile"
-            href="https://drive.google.com/uc?export=download&id=1wtcBDqB4pEM_qO2XfFbu44nfUpl1XlP9"
-            target="_blank">Download zStudio for PC</a>
-
-          <script>
-            const url = './latest-release.json?date=' + new Date().getTime();
-
-            fetch(url)
-              .then(res => res.json())
-              .then(data => {
-                console.log(data);
-                let dmgFile = document.getElementById('dmgFile');
-                let exeFile = document.getElementById('exeFile');
-                dmgFile.href = data.mac;
-                exeFile.href = data.windows;
-              })
-              .catch(err => console.error(err));
-          </script>
+          <a class="button" id="dmgFile" href="#" target="_blank">Download for macOS</a>
+          <a class="button" id="exeFile" href="#" target="_blank">Download for Windows</a>
         </div>
 
-        <!-- 
-        
-
-        
         <script>
-          const proxy = 'https://corsproxy.io/?';
-          const url = 'https://drive.google.com/uc?export=download&id=1oLG74uogR-KSBSn8NnVVP7WxOjGofmEX';
-
-          fetch(proxy + url)
+          fetch("./latest-release.json?d=" + Date.now())
             .then(res => res.json())
             .then(data => {
-              console.log(data);
-              let dmgFile = document.getElementById('dmgFile');
-              let exeFile = document.getElementById('exeFile');
-              dmgFile.href = data.mac;
-              exeFile.href = data.windows;
+              document.getElementById("dmgFile").href = data.mac;
+              document.getElementById("exeFile").href = data.windows;
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error("Failed to load release info:", err));
         </script>
-    
-        
 
-        
-        
-        -->
         <div class="button-row">
-          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI" target="_blank">Get zImporter (PIXI)</a>
-          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">zImporter
-            example project (PIXI)</a>
+          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI" target="_blank">zImporter (PIXI)</a>
+          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">
+            Example Project
+          </a>
         </div>
+
         <div class="button-row">
-          <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">Donate / Pay What
-            You
-            Want</a>
+          <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">
+            Donate / Pay What You Want
+          </a>
         </div>
       </div>
-
-
 
       <pre><code class="language-typescript">
-        let scene: ZScene = new ZScene("myScene");
-        scene.load(loadPath, () => {
-            ZSceneStack.push(scene);
-            scene.loadStage(this.stage);
-            let sceneStage:ZContainer = scene.sceneStage;
-            
-            let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
-            myBTN.setText("Click Me");
-            myBTN.setCallback(() => {
-                console.log("Button clicked!");
-            });
-        });
-    </code></pre>
+let scene: ZScene = new ZScene("myScene");
+scene.load(loadPath, () => {
+    ZSceneStack.push(scene);
+    scene.loadStage(this.stage);
+
+    let sceneStage: ZContainer = scene.sceneStage;
+    let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
+
+    myBTN.setText("Click Me");
+    myBTN.setCallback(() => {
+        console.log("Button clicked!");
+    });
+});
+      </code></pre>
     </section>
-    <!-- Lightbox 
-    <section class="screenshots">
-      <div class="carousel">
-        <div class="carousel-track">
-          <img src="assets/1_scene_creation_and_layout.png" alt="Screenshot 1" class="carousel-image" />
-          <img src="assets/2_asset_management.png" alt="Screenshot 2" class="carousel-image" />
-          <img src="assets/3_Hierarchical_Composition.png" alt="Screenshot 3" class="carousel-image" />
-          <img src="assets/4_transform_controls.png" alt="Screenshot 4" class="carousel-image" />
-          <img src="assets/5_Information_panels.png" alt="Screenshot 5" class="carousel-image" />
-          <img src="assets/6_template_system.png" alt="Screenshot 6" class="carousel-image" />
-          <img src="assets/7_animation.png" alt="Screenshot 7" class="carousel-image" />
-        </div>
-      </div>
-
-
-    </section>
-
-    
-    <div id="lightbox" class="lightbox">
-      <img id="lightbox-img" src="" alt="Expanded View" />
-    </div>
--->
 
   </main>
 
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
-
   <script>
-    fetch('footer.html?v=1.4')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-      })
-      .catch(err => console.error('Failed to load footer:', err));
+    fetch("footer.html?v=1.5")
+      .then(r => r.text())
+      .then(h => document.getElementById("footer-placeholder").innerHTML = h)
+      .catch(() => console.error("Failed to load footer"));
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
 
 </body>
-<script>
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  document.querySelectorAll(".carousel-image").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightbox.style.display = "flex";
-    });
-  });
-
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-</script>
 
 </html>
