@@ -105,7 +105,7 @@
         <img src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square" alt="Total downloads">
       </a>
       <h2>Download zStudio</h2>
-
+      <p id="latest-release" style="margin-bottom: 10px; margin-top: -30px;"> Latest stable release: -- </p>
 
       <div class="buttons">
 
@@ -120,6 +120,7 @@
             .then(data => {
               document.getElementById("dmgFile").href = data.mac;
               document.getElementById("exeFile").href = data.windows;
+              document.getElementById("latest-release").innerText = `Latest stable release: v${data.version}`;
             })
             .catch(err => console.error("Failed to load release info:", err));
         </script>
