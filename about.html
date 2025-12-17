@@ -30,86 +30,96 @@
 
         <h2>What is zStudio?</h2>
         <p>
-            zStudio is a lightweight visual authoring tool built to make 2D web game production faster, cleaner, and far
-            more efficient. Designed by a game development lead with over 15 years of industry experience, it gives
-            teams a
-            powerful way to build UI layouts, scene structures, templates, and multi-resolution game interfaces — all
-            visually, all in one place.
+            zStudio is the ultimate visual authoring tool for 2D web game development. Designed to revolutionize your
+            workflow, zStudio empowers developers, technical artists, and UI/UX teams to create stunning game
+            interfaces,
+            responsive layouts, and dynamic scenes — all in one intuitive platform. Whether you're building with
+            Pixi.js, Phaser, or a custom engine, zStudio makes production faster, cleaner, and more efficient.
         </p>
         <p>
-            Originally created to solve real workflow bottlenecks inside a commercial game studio, zStudio is now used
-            in
-            production on multiple web-based titles, including games currently deployed to international operators.
-            It is actively used by professional developers and continues to evolve through real-world feedback.
-        </p>
-
-        <h2>Why zStudio was built</h2>
-        <p>
-            Modern web games rely on responsive layouts, reusable UI systems, and efficient pipelines. But many studios
-            still build and manage scenes manually — causing slow iteration, inconsistent layouts, and extra engineering
-            overhead.
-        </p>
-        <p>
-            zStudio was created to bridge the gap between design and implementation. It gives developers, technical
-            artists, and animators a unified space to compose scenes, control layout behavior, test responsiveness, and
-            export clean, structured data directly into Pixi.js or similar engines.
+            Built by a game development veteran with over 15 years of industry experience, zStudio was crafted to solve
+            real-world bottlenecks. Today, it’s a production-proven tool actively used in commercial studios to power
+            games deployed worldwide.
         </p>
 
-        <h2>What zStudio enables</h2>
-        <ul>
-            <li><strong>Rapid UI/Layout creation</strong> — Build scenes visually instead of coding containers by hand.
-            </li>
-            <li><strong>Automatic multi-resolution support</strong> — Preview and optimize layout for portrait,
-                landscape,
-                and custom ratios.</li>
-            <li><strong>Hierarchical scene building</strong> — Create, group, nest, and organize complex structures with
-                ease.</li>
-            <li><strong>Template-based workflows</strong> — Build reusable components that update all instances when
-                changed.</li>
-            <li><strong>Integrated test mode</strong> — Preview animations, hierarchies, and layout behavior instantly.
-            </li>
-            <li><strong>Efficient exporting</strong> — Generate JSON scene files, texture atlases, and font definitions
-                ready
-                for runtime.</li>
-            <li><strong>Import pipeline</strong> — Bring zStudio scenes directly into your rendering environment.</li>
-        </ul>
-
-        <h2>Who it's for</h2>
+        <h2>Why Choose zStudio?</h2>
         <p>
-            zStudio is ideal for:
+            Modern web games demand responsive layouts, reusable components, and streamlined pipelines. Yet, many teams
+            still rely on manual processes that slow iteration, create inconsistencies, and add unnecessary engineering
+            overhead. zStudio changes the game by bridging the gap between design and implementation.
+        </p>
+        <p>
+            With zStudio, you can:
         </p>
         <ul>
-            <li>Web game developers building Pixi.js, Phaser, or custom 2D engines</li>
-            <li>Technical artists who need precise control without writing boilerplate code</li>
-            <li>UI/UX teams creating dynamic, responsive interfaces</li>
-            <li>Studios looking to streamline iteration and reduce integration time</li>
+            <li><strong>Design visually:</strong> Build layouts, scenes, and templates without writing boilerplate code.
+            </li>
+            <li><strong>Iterate faster:</strong> Test responsiveness, animations, and hierarchies instantly.</li>
+            <li><strong>Export efficiently:</strong> Generate clean, structured data ready for runtime.</li>
         </ul>
-
-        <h2>A production-proven tool</h2>
         <p>
-            zStudio is not a prototype — it is actively used in a commercial studio and has already powered multiple
-            shipped and soon-to-launch titles. With continuous input from full-time game developers, the tool is shaped
-            by
-            real production needs, not theoretical use cases.
+            zStudio isn’t just a tool — it’s your partner in creating polished, professional web games.
         </p>
 
-        <h2>The vision</h2>
+        <h2>What Makes zStudio Special?</h2>
+        <ul>
+            <li><strong>Visual Scene Building:</strong> Drag, drop, and organize assets with ease. Say goodbye to manual
+                coding.</li>
+            <li><strong>Multi-Resolution Support:</strong> Optimize layouts for portrait, landscape, and custom aspect
+                ratios.</li>
+            <li><strong>Photoshop Integration:</strong> Import layers, bones, and slots directly from Photoshop for
+                seamless iteration.</li>
+            <li><strong>Reusable Templates:</strong> Create components once and update all instances instantly.</li>
+            </li>
+            <li><strong>Non-Destructive Editing:</strong> Undo/redo functionality ensures safe experimentation.</li>
+            <li><strong>Cross-Platform:</strong> Available as a desktop app for macOS and Windows.</li>
+        </ul>
+
+        <h2>Who is zStudio For?</h2>
         <p>
-            zStudio aims to become the standard visual layout and scene-building tool for web game development — a fast,
-            accessible, and scalable environment that integrates seamlessly into modern pipelines.
+            zStudio is perfect for:
+        </p>
+        <ul>
+            <li>Web Game Developers: Building with Pixi.js, Phaser, or custom 2D engines.</li>
+            <li>Technical Artists: Needing precise control without the hassle of boilerplate code.</li>
+            <li>UI/UX Teams: Crafting dynamic, responsive interfaces.</li>
+            <li>Studios: Looking to streamline workflows and reduce integration time.</li>
+        </ul>
+
+        <h2>Proven in Production</h2>
+        <p>
+            zStudio isn’t just a concept — it’s a battle-tested tool actively used in commercial game studios. It has
+            already powered multiple shipped titles and continues to evolve through real-world feedback from
+            professional developers.
+        </p>
+
+        <h2>Our Vision</h2>
+        <p>
+            We believe zStudio is the future of web game development. Our mission is to make zStudio the standard for
+            visual layout and scene-building — a fast, accessible, and scalable solution that integrates seamlessly into
+            modern pipelines.
+        </p>
+        <p>
+            Join the growing community of developers who trust zStudio to bring their games to life.
         </p>
     </div>
 
-
     <div id="footer-placeholder"></div>
-
     <script>
-        fetch('footer.html?v=1.4')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('footer-placeholder').innerHTML = html;
+        fetch("footer.html?v=" + Date.now())
+            .then(r => r.text())
+            .then(h => {
+                const footerPlaceholder = document.getElementById("footer-placeholder");
+                footerPlaceholder.innerHTML = h;
+
+                // Evaluate any inline scripts in the loaded footer
+                footerPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
             })
-            .catch(err => console.error('Failed to load footer:', err));
+            .catch(() => console.error("Failed to load footer"));
     </script>
 </body>
 
