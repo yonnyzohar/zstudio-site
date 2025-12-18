@@ -1,7 +1,72 @@
-<footer class="footer">
-    <p> <a href="tc.html">T&C</a> </p>
-    <script>
-        const year = new Date().getFullYear();
-        document.querySelector('.footer').insertAdjacentHTML('afterbegin', `© ${year} zStudio - All Rights Reserved`);
-    </script>
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .brxe-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            /* Adjust spacing between icons */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .brxe-social-icons li {
+            display: inline-block;
+        }
+
+        .brxe-social-icons a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your content here -->
+
+    <footer class="footer">
+        <p>Follow Us</p>
+        <ul id="brxe-rjwxku" class="brxe-social-icons">
+            <!--  
+            <li class="repeater-item has-link"><a href="https://www.facebook.com/zstudiosltd/" target="_blank"><i
+                        class="fab fa-facebook-f icon"></i></a></li>
+            <li class="repeater-item has-link"><a href="https://www.instagram.com/zstudiosltd/" target="_blank"><i
+                        class="fab fa-instagram icon"></i></a></li>
+                -->
+            <li class="repeater-item has-link"><a href="https://www.linkedin.com/company/zstudiosltd" target="_blank"><i
+                        class="fab fa-linkedin-in icon"></i></a></li>
+            <li class="repeater-item has-link"><a href="https://x.com/ZoharYonny41440" target="_blank"><i
+                        class="fab fa-twitter icon"></i></a></li>
+            <li class="repeater-item has-link"><a href="https://www.youtube.com/@zStudio-f9r" target="_blank"><i
+                        class="fab fa-youtube icon"></i></a></li>
+            <!--  
+            <li class="repeater-item has-link"><a href="https://bsky.app/profile/zstudiosltd.bsky.social"
+                    target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 12h8M12 8v8"></path>
+                    </svg>
+                </a></li>
+                 -->
+        </ul>
+
+        <div id="timestamp"></div>
+        <p> <a href="tc.html">T&amp;C</a> </p>
+        <script>
+            const year = new Date().getFullYear();
+            document.getElementById('timestamp').innerHTML = `© ${year} zStudio - All Rights Reserved`;
+        </script>
+    </footer>
+</body>
+
+</html>
