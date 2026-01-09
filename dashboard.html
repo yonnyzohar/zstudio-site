@@ -121,14 +121,24 @@
             }
 
             async function cancelLicense(id) {
-                const licenses = JSON.parse(localStorage.getItem('licenses') || '[]');
-                const license = licenses.find(l => l.id == id);
-                if (license) {
-                    license.status = 'Expired';
-                    localStorage.setItem('licenses', JSON.stringify(licenses));
-                    // Reload the table
-                    const licensesData = await window.apiGetLicenses();
-                    loadLicensesTable(licensesData);
+                try {
+                    const result = await window.Auth.apiRevokeLicense(id);
+                    if (result.success) {
+                        const licenses = JSON.parse(localStorage.getItem('licenses') || '[]');
+                        const license = licenses.find(l => l.id == id);
+                        if (license) {
+                            license.status = 'Expired';
+                            localStorage.setItem('licenses', JSON.stringify(licenses));
+                        }
+                        // Reload the table
+                        const licensesData = await window.apiGetLicenses();
+                        loadLicensesTable(licensesData);
+                    } else {
+                        alert('Failed to cancel license');
+                    }
+                } catch (error) {
+                    console.error('Cancel error:', error);
+                    alert('Failed to cancel license');
                 }
             }
 

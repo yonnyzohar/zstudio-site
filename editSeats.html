@@ -158,9 +158,19 @@
 
         function deleteUser(index) {
             const users = JSON.parse(localStorage.getItem('license_users_' + currentLicenseId) || '[]');
-            users.splice(index, 1);
-            localStorage.setItem('license_users_' + currentLicenseId, JSON.stringify(users));
-            loadUsers();
+            const email = users[index];
+            window.Auth.apiRemoveLicenseEmail(currentLicenseId, email).then(result => {
+                if (result.success) {
+                    users.splice(index, 1);
+                    localStorage.setItem('license_users_' + currentLicenseId, JSON.stringify(users));
+                    loadUsers();
+                } else {
+                    alert('Failed to remove user from license');
+                }
+            }).catch(error => {
+                console.error('Delete error:', error);
+                alert('Failed to remove user');
+            });
         }
 
         function showModal() {
@@ -212,7 +222,7 @@
             });
 
             // Modal buttons
-            document.getElementById('ok-btn').addEventListener('click', () => {
+            document.getElementById('ok-btn').addEventListener('click', async () => {
                 const email = document.getElementById('user-email-input').value.trim();
                 if (!email) {
                     alert('Please enter an email');
@@ -220,6 +230,22 @@
                 }
                 if (!isValidEmail(email)) {
                     alert('Please enter a valid email address');
+                    return;
+                }
+                try {
+                    const validation = await window.Auth.apiValidateEmailLicense(email);
+                    if (!validation.success) {
+                        alert('Email does not have an active license');
+                        return;
+                    }
+                    const addResult = await window.Auth.apiAddLicenseEmail(currentLicenseId, email);
+                    if (!addResult.success) {
+                        alert('Failed to add user to license');
+                        return;
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to add user');
                     return;
                 }
                 const users = JSON.parse(localStorage.getItem('license_users_' + currentLicenseId) || '[]');

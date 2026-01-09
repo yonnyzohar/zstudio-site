@@ -62,7 +62,7 @@
                 const storedPassword = localStorage.getItem('storedPassword');
                 if (storedEmail && storedPassword) {
                     try {
-                        const result = await window.apiLogin(storedEmail, storedPassword);
+                        const result = await window.Auth.apiLogin(storedEmail, storedPassword);
                         if (result.success) {
                             window.setLoggedIn(true);
                             window.setUserEmail(storedEmail);
