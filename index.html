@@ -79,7 +79,16 @@
   <script>
     fetch("navbar.html?v=1.5")
       .then(r => r.text())
-      .then(h => document.getElementById("navbar-placeholder").innerHTML = h)
+      .then(h => {
+        const navbarPlaceholder = document.getElementById("navbar-placeholder");
+        navbarPlaceholder.innerHTML = h;
+        // Evaluate any inline scripts in the loaded navbar
+        navbarPlaceholder.querySelectorAll("script").forEach(script => {
+          const newScript = document.createElement("script");
+          newScript.textContent = script.textContent;
+          document.body.appendChild(newScript).parentNode.removeChild(newScript);
+        });
+      })
       .catch(() => console.error("Failed to load navbar"));
   </script>
 

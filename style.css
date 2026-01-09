@@ -190,6 +190,104 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* Auth Forms */
+.auth-section {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-section h2 {
+  text-align: center;
+}
+
+.auth-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-section label {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.auth-section input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background: #2a2a2a;
+  color: #ffffff;
+}
+
+.auth-section input:focus {
+  outline: none;
+  border-color: #fbbb1a;
+}
+
+.auth-section .button {
+  background-color: #007acc;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+.auth-section .button:hover {
+  background-color: #005fa3;
+}
+
+.auth-section p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-section a {
+  color: #fbbb1a;
+  text-decoration: none;
+}
+
+.auth-section a:hover {
+  text-decoration: underline;
+}
+
+/* Dashboard */
+.dashboard-block {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+#licenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#licenses-table th, #licenses-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+  color: #ffffff;
+}
+
+#licenses-table th {
+  background: #333;
+  color: #fbbb1a;
+}
+
+#licenses-table a {
+  color: #fbbb1a;
+  text-decoration: none;
+}
+
+#licenses-table a:hover {
+  text-decoration: underline;
+}
+
 /* Small devices: Portrait phones (< 600px) */
 @media (max-width: 599px) {
   .navbar {

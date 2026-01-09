@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - zStudio</title>
+    <link rel="stylesheet" href="style.css?v=1.5" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch("navbar.html?v=1.5")
+            .then(r => r.text())
+            .then(h => {
+                const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                navbarPlaceholder.innerHTML = h;
+                // Evaluate any inline scripts in the loaded navbar
+                navbarPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load navbar"));
+    </script>
+
+    <main class="container">
+        <h1>Dashboard</h1>
+        <p>Welcome, <span id="user-email"></span>!</p>
+
+        <!-- Licenses Block -->
+        <div class="dashboard-block">
+            <h2>Your Licenses</h2>
+            <table id="licenses-table">
+                <thead>
+                    <tr>
+                        <th>License Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Licenses will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Buy License Button -->
+        <div class="dashboard-block">
+            <a href="buyLicense.html" class="button">Buy a License</a>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="dashboard-block">
+            <button id="logout-btn" class="button">Logout</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("footer.html?v=" + Date.now())
+            .then(r => r.text())
+            .then(h => {
+                const footerPlaceholder = document.getElementById("footer-placeholder");
+                footerPlaceholder.innerHTML = h;
+                footerPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load footer"));
+    </script>
+
+    <script>
+        // Inline auth functions for reliability
+        if (!window.isLoggedIn) {
+            window.isLoggedIn = () => {
+                return localStorage.getItem('loggedIn') === 'true';
+            };
+            window.getUserEmail = () => {
+                return localStorage.getItem('userEmail') || '';
+            };
+            window.apiGetLicenses = async () => {
+                console.log('Fetching licenses');
+                return [
+                    { id: 1, name: 'License 1', status: 'Active' },
+                    { id: 2, name: 'License 2', status: 'Expired' }
+                ];
+            };
+            window.apiLogout = async () => {
+                console.log('Logging out');
+                return { success: true };
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check if logged in
+            if (!window.isLoggedIn()) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Display user email
+            document.getElementById('user-email').textContent = window.getUserEmail();
+
+            // Load licenses
+            try {
+                const licenses = await window.apiGetLicenses();
+                const tbody = document.querySelector('#licenses-table tbody');
+                tbody.innerHTML = '';
+                licenses.forEach(license => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+            <td><a href="license.html?id=${license.id}">${license.name}</a></td>
+            <td>${license.status}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading licenses:', error);
+                document.querySelector('#licenses-table tbody').innerHTML = '<tr><td colspan="2">Error loading licenses</td></tr>';
+            }
+
+            // Logout
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', async () => {
+                    try {
+                        await window.apiLogout();
+                        localStorage.setItem('loggedIn', 'false');
+                        localStorage.setItem('userEmail', '');
+                        localStorage.removeItem('storedEmail');
+                        localStorage.removeItem('storedPassword');
+                        window.location.href = 'index.html';
+                    } catch (error) {
+                        console.error('Logout error:', error);
+                        // Still logout locally
+                        localStorage.setItem('loggedIn', 'false');
+                        localStorage.setItem('userEmail', '');
+                        localStorage.removeItem('storedEmail');
+                        localStorage.removeItem('storedPassword');
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

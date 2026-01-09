@@ -20,7 +20,14 @@
         fetch('navbar.html?v=1.4')
             .then(res => res.text())
             .then(html => {
-                document.getElementById('navbar-placeholder').innerHTML = html;
+                const navbarPlaceholder = document.getElementById('navbar-placeholder');
+                navbarPlaceholder.innerHTML = html;
+                // Evaluate any inline scripts in the loaded navbar
+                navbarPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
             })
             .catch(err => console.error('Failed to load navbar:', err));
     </script>

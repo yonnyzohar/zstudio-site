@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy License - zStudio</title>
+    <link rel="stylesheet" href="style.css?v=1.5" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch("navbar.html?v=1.5")
+            .then(r => r.text())
+            .then(h => {
+                const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                navbarPlaceholder.innerHTML = h;
+                // Evaluate any inline scripts in the loaded navbar
+                navbarPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load navbar"));
+    </script>
+
+    <main class="container">
+        <h1>Buy a License</h1>
+        <p>This is a placeholder page for purchasing a license. Implement payment integration and license creation here.
+        </p>
+        <a href="dashboard.html" class="button">Back to Dashboard</a>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("footer.html?v=" + Date.now())
+            .then(r => r.text())
+            .then(h => {
+                const footerPlaceholder = document.getElementById("footer-placeholder");
+                footerPlaceholder.innerHTML = h;
+                footerPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load footer"));
+    </script>
+</body>
+
+</html>

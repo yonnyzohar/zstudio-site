@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - zStudio</title>
+    <link rel="stylesheet" href="style.css?v=1.5" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+    <script>
+        fetch("navbar.html?v=1.5")
+            .then(r => r.text())
+            .then(h => {
+                const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                navbarPlaceholder.innerHTML = h;
+                // Evaluate any inline scripts in the loaded navbar
+                navbarPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load navbar"));
+    </script>
+
+    <main class="container">
+        <h1 id="auth-title">Login</h1>
+
+        <div class="auth-section">
+            <h2 id="auth-subtitle">Log In</h2>
+            <form id="auth-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit" class="button" id="auth-button">Log In</button>
+            </form>
+            <p id="auth-toggle"><span id="toggle-text">Don't have an account?</span> <a href="#" id="toggle-link">Sign
+                    up</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("footer.html?v=" + Date.now())
+            .then(r => r.text())
+            .then(h => {
+                const footerPlaceholder = document.getElementById("footer-placeholder");
+                footerPlaceholder.innerHTML = h;
+                footerPlaceholder.querySelectorAll("script").forEach(script => {
+                    const newScript = document.createElement("script");
+                    newScript.textContent = script.textContent;
+                    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+                });
+            })
+            .catch(() => console.error("Failed to load footer"));
+    </script>
+
+    <script src="auth.js"></script>
+    <script>
+        let isLogin = true;
+
+        function updateUI() {
+            const title = document.getElementById('auth-title');
+            const subtitle = document.getElementById('auth-subtitle');
+            const button = document.getElementById('auth-button');
+            const toggleText = document.getElementById('toggle-text');
+            const toggleLink = document.getElementById('toggle-link');
+
+            if (isLogin) {
+                title.textContent = 'Login';
+                subtitle.textContent = 'Log In';
+                button.textContent = 'Log In';
+                toggleText.textContent = 'Don\'t have an account?';
+                toggleLink.textContent = 'Sign up';
+            } else {
+                title.textContent = 'Sign Up';
+                subtitle.textContent = 'Sign Up';
+                button.textContent = 'Sign Up';
+                toggleText.textContent = 'Already have an account?';
+                toggleLink.textContent = 'Log in';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+
+            document.getElementById('toggle-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                isLogin = !isLogin;
+                updateUI();
+            });
+
+            document.getElementById('auth-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    let result;
+                    if (isLogin) {
+                        result = await window.Auth.apiLogin(email, password);
+                    } else {
+                        result = await window.Auth.apiSignup(email, password);
+                    }
+
+                    if (result.success) {
+                        window.Auth.setLoggedIn(true);
+                        window.Auth.setUserEmail(email);
+                        // Store credentials for auto-login
+                        localStorage.setItem('storedEmail', email);
+                        localStorage.setItem('storedPassword', password);
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        alert(isLogin ? 'Login failed' : 'Sign up failed');
+                    }
+                } catch (error) {
+                    console.error(isLogin ? 'Login error:' : 'Sign up error:', error);
+                    alert(isLogin ? 'Login failed' : 'Sign up failed');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
