@@ -112,10 +112,10 @@ export const apiGetLicenses = async (): Promise<License[]> => {
             return data.licenses.map((license: any) => ({
                 id: license.id.toString(),
                 name: license.license_key,
-                status: new Date(license.expiry_date) > new Date() ? 'Active' : 'Expired',
+                status: license.status,
                 seatsTotal: license.max_emails,
                 expiry: license.expiry_date,
-                licenseKey: license.license_key || license.id.toString()
+                licenseKey: license.license_key
             }));
         }
         return [];

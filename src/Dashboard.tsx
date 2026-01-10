@@ -98,6 +98,7 @@ const Dashboard: React.FC = () => {
             <th>Status</th>
             <th>Seats</th>
             <th>Action</th>
+            <th>Expiry Date</th>
           </tr>
         </thead>
         <tbody>
@@ -129,6 +130,9 @@ const Dashboard: React.FC = () => {
                     Cancel
                   </button>
                 )}
+              </td>
+              <td>
+                {new Date(license.expiry).toLocaleDateString()}
               </td>
             </tr>
           ))}
