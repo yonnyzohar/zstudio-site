@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetLicenses, apiRevokeLicense, apiGenerateLicense } from './api';
+import { apiGetLicenses, apiRevokeLicense, apiGenerateLicense, getLicenseTypes } from './api';
 import type { License } from './api';
 
 const Dashboard: React.FC = () => {
   const { isLoggedIn } = useAuth();
   const [licenses, setLicenses] = useState<License[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [licenseTypes, setLicenseTypes] = useState<string[]>([]);
+  const [licenseDurations, setLicenseDurations] = useState<string[]>([]);
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedDuration, setSelectedDuration] = useState('');
+  const [seatsMap, setSeatsMap] = useState<Record<string, number>>({});
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -29,6 +35,23 @@ const Dashboard: React.FC = () => {
     ));
   };
 
+  const handleBuyLicense = async () => {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      alert('User not logged in');
+      return;
+    }
+
+    const result = await apiGenerateLicense(userId, selectedType, selectedDuration);
+    if (result.success) {
+      alert('License generated successfully!');
+      setShowPopup(false);
+      loadLicenses();
+    } else {
+      alert(`Failed to generate license: ${result.message || 'Unknown error'}`);
+    }
+  };
+
   const handleCancel = async (id: string) => {
     const result = await apiRevokeLicense(id);
     if (result.success) {
@@ -41,19 +64,19 @@ const Dashboard: React.FC = () => {
   };
 
   const handleGenerateLicense = async () => {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-      alert('User not logged in');
-      return;
-    }
-
-    const result = await apiGenerateLicense(userId, 3, '2026-12-31');
+    const result = await getLicenseTypes();
     if (result.success) {
-      alert('License generated successfully!');
-      // Refresh the licenses list
-      loadLicenses();
+      setSeatsMap(result.seatsMap);
+      setLicenseTypes(Object.keys(result.seatsMap));
+      setLicenseDurations(result.licenseDurations);
+      // Preselect first options
+      let licenseTypeKeys = Object.keys(result.seatsMap);
+      
+      setSelectedType(licenseTypeKeys[0] || '');
+      setSelectedDuration(result.licenseDurations[0] || '');
+      setShowPopup(true);
     } else {
-      alert(`Failed to generate license: ${result.message || 'Unknown error'}`);
+      alert('Failed to load license types');
     }
   };
 
@@ -116,6 +139,37 @@ const Dashboard: React.FC = () => {
       <div style={{ marginTop: '30px', textAlign: 'center' }}>
         <button onClick={handleGenerateLicense} className="button">Buy a License</button>
       </div>
+
+      {/* License Purchase Popup */}
+      {showPopup && (
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Buy a License</h2>
+            <div className="popup-form">
+              <label>
+                License Type:
+                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
+                  {licenseTypes.map(type => (
+                    <option key={type + " - " + seatsMap[type] + " seats"} value={type}>{type} - {seatsMap[type]} seats</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Duration:
+                <select value={selectedDuration} onChange={(e) => setSelectedDuration(e.target.value)}>
+                  {licenseDurations.map(duration => (
+                    <option key={duration} value={duration}>{duration}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div className="popup-buttons">
+              <button onClick={() => setShowPopup(false)} className="button cancel">Cancel</button>
+              <button onClick={handleBuyLicense} className="button">Buy</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

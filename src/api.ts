@@ -21,6 +21,8 @@ export interface User {
 
 const API_BASE = 'http://127.0.0.1:4000';
 
+//login and sign up. -get jwt token and user id
+
 export const apiLogin = async (email: string, password: string): Promise<LoginResponse> => {
     try {
         const response = await fetch(`${API_BASE}/login`, {
@@ -59,17 +61,20 @@ export const apiSignup = async (email: string, password: string): Promise<LoginR
     }
 };
 
-export const apiGenerateLicense = async (userId: string, maxEmails: number, expiryDate: string): Promise<{ success: boolean; licenseKey?: string; id?: string; message?: string }> => {
+//need to send jwt token
+
+export const apiGenerateLicense = async (userId: string, licenseType: string, licenseDuration: string): Promise<{ success: boolean; licenseKey?: string; id?: string; message?: string }> => {
     try {
         const response = await fetch(`${API_BASE}/generate-license`, {
             method: 'POST',
             headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 userId,
-                maxEmails,
-                expiry_date: expiryDate
+                licenseType,
+                licenseDuration
             })
         });
         return await response.json();
@@ -79,11 +84,29 @@ export const apiGenerateLicense = async (userId: string, maxEmails: number, expi
     }
 };
 
+export const getLicenseTypes = async (): Promise<{ success: boolean; seatsMap: Record<string, number>; licenseDurations: string[], message?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/license-types`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Get license types error:', error);
+        return { success: false, message: 'Network error', seatsMap: {}, licenseDurations: [] };
+    }
+};
+
 export const apiGetLicenses = async (): Promise<License[]> => {
     const userId = localStorage.getItem('userId');
     if (!userId) return [];
     try {
-        const response = await fetch(`${API_BASE}/user-licenses?userId=${userId}`);
+        const response = await fetch(`${API_BASE}/user-licenses?userId=${userId}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         const data = await response.json();
         if (data.success) {
             return data.licenses.map((license: any) => ({
@@ -106,7 +129,10 @@ export const apiValidateEmailLicense = async (email: string): Promise<{ success:
     try {
         const response = await fetch(`${API_BASE}/validate-email-license`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
             body: JSON.stringify({ email })
         });
         return await response.json();
@@ -121,7 +147,8 @@ export const apiAddLicenseEmail = async (licenseKey: string, email: string): Pro
         const response = await fetch(`${API_BASE}/add-license-email`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify({ licenseKey, email })
         });
@@ -137,7 +164,8 @@ export const apiRemoveLicenseEmail = async (licenseKey: string, email: string): 
         const response = await fetch(`${API_BASE}/remove-license-email`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify({ licenseKey, email })
         });
@@ -153,7 +181,8 @@ export const apiRevokeLicense = async (licenseKey: string): Promise<{ success: b
         const response = await fetch(`${API_BASE}/revoke-license`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify({ licenseKey })
         });
@@ -166,7 +195,11 @@ export const apiRevokeLicense = async (licenseKey: string): Promise<{ success: b
 
 export const apiGetLicenseEmails = async (licenseKey: string): Promise<{ success: boolean; emails?: { email: string; added_at: string }[]; error?: string }> => {
     try {
-        const response = await fetch(`${API_BASE}/license-emails?licenseKey=${encodeURIComponent(licenseKey)}`);
+        const response = await fetch(`${API_BASE}/license-emails?licenseKey=${encodeURIComponent(licenseKey)}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         return await response.json();
     } catch (error) {
         console.error('Get license emails error:', error);
