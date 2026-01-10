@@ -1,200 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/webp" href="/assets/logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>zStudio – UI & Layout Creation Tool for Web Games</title>
-
-
   <meta name="description" content="zStudio - Innovative solutions for your creative needs">
   <meta name="keywords" content="zStudio, creative solutions, design, development">
   <meta property="og:title" content="zStudio">
   <meta property="og:description" content="Innovative solutions for your creative needs">
-
-  <meta property="og:image" content="https://yonnyzohar.github.io/zstudio-site/assets/logo.webp" />
+  <meta property="og:image" content="/assets/logo.webp" />
   <meta property="og:url" content="https://zstudiosltd.com" />
   <meta property="og:type" content="website" />
-
-  <link rel="stylesheet" href="style.css?v=1.5" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
 </head>
 
 <body>
-
-  <!-- Video Background -->
-  <div id="video-background">
-    <div id="player"></div>
-  </div>
-
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    let player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player("player", {
-        videoId: "EypJ2ZRc4DI",
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          rel: 0,
-          loop: 1,
-          playlist: "EypJ2ZRc4DI",
-          modestbranding: 1,
-          playsinline: 1,
-          start: 70
-        },
-        events: {
-          onReady: (e) => {
-            e.target.mute();
-            e.target.setPlaybackRate(2);
-            e.target.playVideo();
-
-            //listen to screen resize to adjust video size
-            window.addEventListener("resize", () => {
-              const width = window.innerWidth;
-              const height = window.innerHeight;
-              const aspectRatio = 16 / 9;
-
-              let videoBg = document.querySelector("#video-background iframe");
-              if (width / height > aspectRatio) {
-                videoBg.style.width = width + "px";
-                videoBg.style.height = (width / aspectRatio) + "px";
-              } else {
-                videoBg.style.width = (height * aspectRatio) + "px";
-                videoBg.style.height = height + "px";
-              }
-            });
-            window.dispatchEvent(new Event("resize"));
-          }
-        }
-      });
-    }
-
-  </script>
-
-  <!-- Navbar -->
-  <div id="navbar-placeholder"></div>
-  <script>
-    fetch("navbar.html?v=1.5")
-      .then(r => r.text())
-      .then(h => {
-        const navbarPlaceholder = document.getElementById("navbar-placeholder");
-        navbarPlaceholder.innerHTML = h;
-        // Evaluate any inline scripts in the loaded navbar
-        navbarPlaceholder.querySelectorAll("script").forEach(script => {
-          const newScript = document.createElement("script");
-          newScript.textContent = script.textContent;
-          document.body.appendChild(newScript).parentNode.removeChild(newScript);
-        });
-      })
-      .catch(() => console.error("Failed to load navbar"));
-  </script>
-
-  <main class="container">
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Build UI & 2D Scenes for Web Games <br>
-        <span style="color: #ffffff; font-size: 1.5em; text-shadow: 5px 5px #000; blur(5px)">Visually</span>
-      </h1>
-
-      <p class="intro">
-        zStudio is a standalone visual layout and UI authoring tool for web game developers.
-        It integrates seamlessly with Pixi.js and other 2D rendering engines.
-        Designed for developers, technical artists, and animators.
-      </p>
-
-      <p class="intro" style="margin-top: 20px; font-weight: 600; color: #fbbb1a;">
-        ✔ Used commercially in multiple real-money casino games
-      </p>
-    </section>
-
-    <!-- DOWNLOADS -->
-    <section class="downloads">
-      <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank">
-        <img src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square" alt="Total downloads">
-      </a>
-      <h2>Download zStudio</h2>
-      <p id="latest-release" style="margin-bottom: 10px; margin-top: -30px;"> Latest stable release: -- </p>
-
-      <div class="buttons">
-
-        <div class="button-row">
-          <a class="button" id="dmgFile" href="#" target="_blank">Download for macOS</a>
-          <a class="button" id="exeFile" href="#" target="_blank">Download for Windows</a>
-        </div>
-
-        <script>
-          fetch("./latest-release.json?d=" + Date.now())
-            .then(res => res.json())
-            .then(data => {
-              document.getElementById("dmgFile").href = data.mac;
-              document.getElementById("exeFile").href = data.windows;
-              document.getElementById("latest-release").innerText = `Latest stable release: v${data.version}`;
-            })
-            .catch(err => console.error("Failed to load release info:", err));
-        </script>
-
-        <div class="button-row">
-          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI" target="_blank">zImporter (PIXI)</a>
-          <a class="button" href="https://github.com/yonnyzohar/zImporter_PIXI_Example" target="_blank">
-            Example Project
-          </a>
-
-
-
-        </div>
-
-        <div class="button-row">
-          <a class="button donate" href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank">
-            Donate / Pay What You Want
-          </a>
-        </div>
-      </div>
-
-      <pre><code class="language-typescript">
-let scene: ZScene = new ZScene("myScene");
-scene.load(loadPath, () => {
-    ZSceneStack.push(scene);
-    scene.loadStage(this.stage);
-
-    let sceneStage: ZContainer = scene.sceneStage;
-    let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
-
-    myBTN.setLabel("Click Me");
-    myBTN.setCallback(() => {
-        console.log("Button clicked!");
-    });
-});
-      </code></pre>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch("footer.html?v=" + Date.now())
-      .then(r => r.text())
-      .then(h => {
-        const footerPlaceholder = document.getElementById("footer-placeholder");
-        footerPlaceholder.innerHTML = h;
-
-        // Evaluate any inline scripts in the loaded footer
-        footerPlaceholder.querySelectorAll("script").forEach(script => {
-          const newScript = document.createElement("script");
-          newScript.textContent = script.textContent;
-          document.body.appendChild(newScript).parentNode.removeChild(newScript);
-        });
-      })
-      .catch(() => console.error("Failed to load footer"));
-  </script>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
 </body>
 
 </html>
