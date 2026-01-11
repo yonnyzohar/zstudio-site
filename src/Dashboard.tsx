@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetLicenses, apiRevokeLicense, apiGenerateLicense, getLicenseTypes, apiUnrevokeLicense } from './api';
+import { apiGetLicenses, apiGenerateLicense, getLicenseTypes, apiUnrevokeLicense, apiCencelLicense } from './api';
 import type { License } from './api';
 
 const Dashboard: React.FC = () => {
@@ -60,11 +60,21 @@ const Dashboard: React.FC = () => {
   };
 
 
-  const handleCancel = async (licenseKey: string) => {
-    const result = await apiRevokeLicense(licenseKey);
+  const handleCancel = async (licenseKey: string, expiry: string) => {
+
+    const date = new Date(expiry);
+                  const day = date.getDate().toString().padStart(2, '0');
+                  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                  const year = date.getFullYear();
+                  let expDate=  `${day}/${month}/${year}`;
+                
+    //show a popup saying we will not bill you beyond your current billing cycle at license.expiryDate
+    alert('We will not bill you beyond your current billing cycle. ' + expDate);
+
+    const result = await apiCencelLicense(licenseKey);
     if (result.success) {
       setLicenses(prev => prev.map(license =>
-        license.licenseKey === licenseKey ? { ...license, status: 'revoked' } : license
+        license.licenseKey === licenseKey ? { ...license, status: 'cacelled' } : license
       ));
     } else {
       alert('Failed to cancel license');
@@ -123,7 +133,7 @@ const Dashboard: React.FC = () => {
                 {license.seatsTotal}
               </td>
               <td>
-                {license.status === 'revoked' ? (
+                {license.status === 'cacelled' ? (
                   <button
                   onClick={() => handleRenew(license.licenseKey)}
                   className="action-btn renew-btn"
@@ -132,7 +142,7 @@ const Dashboard: React.FC = () => {
                   </button>
                 ) : license.status === 'active' ? (
                   <button
-                  onClick={() => handleCancel(license.licenseKey)}
+                  onClick={() => handleCancel(license.licenseKey, license.expiry)}
                   className="action-btn cancel-btn"
                   >
                   Cancel
