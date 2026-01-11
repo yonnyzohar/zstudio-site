@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetLicenses, apiRevokeLicense, apiGenerateLicense, getLicenseTypes } from './api';
+import { apiGetLicenses, apiRevokeLicense, apiGenerateLicense, getLicenseTypes, apiUnrevokeLicense } from './api';
 import type { License } from './api';
 
 const Dashboard: React.FC = () => {
@@ -28,13 +28,7 @@ const Dashboard: React.FC = () => {
     setLoading(false);
   };
 
-  const handleRenew = (id: string) => {
-    // For now, just update status locally
-    setLicenses(prev => prev.map(license =>
-      license.id === id ? { ...license, status: 'Active' } : license
-    ));
-  };
-
+  
   const handleBuyLicense = async () => {
     const userId = localStorage.getItem('userId');
     if (!userId) {
@@ -52,11 +46,25 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  const handleCancel = async (id: string) => {
-    const result = await apiRevokeLicense(id);
+  const handleRenew = async (licenseKey: string) => {
+    // For now, just update status locally
+    const result = await apiUnrevokeLicense(licenseKey);
+    if (result.success) {
+
+    setLicenses(prev => prev.map(license =>
+      license.licenseKey === licenseKey ? { ...license, status: 'active' } : license
+    ));
+  } else {
+    alert('Failed to renew license'); 
+  }
+  };
+
+
+  const handleCancel = async (licenseKey: string) => {
+    const result = await apiRevokeLicense(licenseKey);
     if (result.success) {
       setLicenses(prev => prev.map(license =>
-        license.id === id ? { ...license, status: 'Expired' } : license
+        license.licenseKey === licenseKey ? { ...license, status: 'revoked' } : license
       ));
     } else {
       alert('Failed to cancel license');
@@ -108,28 +116,28 @@ const Dashboard: React.FC = () => {
                 <Link to={`/edit-seats/${license.licenseKey}`} state={{ license }}>
                   {license.name} </Link>
               </td>
-              <td style={{ color: license.status === 'Active' ? '#4caf50' : '#ff6b6b' }}>
+              <td style={{ color: license.status === 'active' ? '#4caf50' : '#ff6b6b' }}>
                 {license.status}
               </td>
               <td>
                 {license.seatsTotal}
               </td>
               <td>
-                {license.status === 'Expired' ? (
+                {license.status === 'revoked' ? (
                   <button
-                    onClick={() => handleRenew(license.id)}
-                    className="action-btn renew-btn"
+                  onClick={() => handleRenew(license.licenseKey)}
+                  className="action-btn renew-btn"
                   >
-                    Renew
+                  Renew
                   </button>
-                ) : (
+                ) : license.status === 'active' ? (
                   <button
-                    onClick={() => handleCancel(license.id)}
-                    className="action-btn cancel-btn"
+                  onClick={() => handleCancel(license.licenseKey)}
+                  className="action-btn cancel-btn"
                   >
-                    Cancel
+                  Cancel
                   </button>
-                )}
+                ) : null}
               </td>
               <td>
                 {new Date(license.expiry).toLocaleDateString()}

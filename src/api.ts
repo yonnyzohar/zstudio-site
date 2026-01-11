@@ -9,7 +9,7 @@ export interface LoginResponse {
 export interface License {
     id: string;
     name: string;
-    status: 'Active' | 'Expired';
+    status: 'active' | 'expired' | 'revoked';
     seatsTotal: number;
     expiry: string;
     licenseKey: string;
@@ -192,6 +192,23 @@ export const apiRevokeLicense = async (licenseKey: string): Promise<{ success: b
         return { success: false, message: 'Network error' };
     }
 };
+
+export const apiUnrevokeLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/unrevoke-license`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({ licenseKey })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Unrevoke license error:', error);
+        return { success: false, message: 'Network error' };
+    }
+}
 
 export const apiGetLicenseEmails = async (licenseKey: string): Promise<{ success: boolean; emails?: { email: string; added_at: string }[]; error?: string }> => {
     try {
