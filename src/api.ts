@@ -9,7 +9,7 @@ export interface LoginResponse {
 export interface License {
     id: string;
     name: string;
-    status: 'active' | 'expired' | 'cacelled';
+    status: 'active' | 'expired' | 'cancelled';
     seatsTotal: number;
     expiry: string;
     licenseKey: string;
@@ -193,9 +193,9 @@ export const apiCencelLicense = async (licenseKey: string): Promise<{ success: b
     }
 };
 
-export const apiUnrevokeLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
+export const apiUnCancelLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
     try {
-        const response = await fetch(`${API_BASE}/unrevoke-license`, {
+        const response = await fetch(`${API_BASE}/uncancel-license`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
