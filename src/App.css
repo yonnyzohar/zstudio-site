@@ -82,6 +82,19 @@ body {
   color: #ffffff;
 }
 
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fbbb1a;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.burger:hover {
+  color: #ffffff;
+}
+
 /* Main Container */
 .container {
   max-width: 1000px;
@@ -400,14 +413,29 @@ h2 {
 /* Small devices: Portrait phones (< 600px) */
 @media (max-width: 599px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px 20px;
   }
+  .burger {
+    display: block;
+  }
   .nav-links {
-    margin-top: 10px;
+    display: none;
+  }
+  .nav-links.open {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     gap: 8px;
+  }
+  .nav-links.open .nav-link {
+    margin-left: 0;
   }
   .container {
     padding: 20px;
