@@ -31,10 +31,10 @@ const Home: React.FC = () => {
   return (
     <div>
       {/* Video Background */}
-      <div id="video-background">
+      <div id="video-background" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', overflow: 'hidden', zIndex: -1 }}>
         <iframe
           src="https://www.youtube.com/embed/EypJ2ZRc4DI?autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=EypJ2ZRc4DI&modestbranding=1&playsinline=1&start=70&enablejsapi=1"
-          frameBorder="0"
+          style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 'calc(100vh * 16 / 9)', height: '100vh' }}
           allow="autoplay; encrypted-media"
           allowFullScreen
           title="zStudio Background Video"
