@@ -50,7 +50,7 @@ const EditSeats: React.FC = () => {
   const loadUsers = async (licenseKey: string) => {
     const result = await apiGetLicenseEmails(licenseKey);
     if (result.success && result.emails) {
-      setUsers(result.emails.map(e => e.email));
+      setUsers(result.emails.map((e: { email: string; added_at: string }) => e.email));
     } else {
       setUsers([]);
     }

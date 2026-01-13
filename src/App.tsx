@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Home from './Home';
 import Login from './Login';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
 import Dashboard from './Dashboard';
 import EditSeats from './EditSeats';
 import About from './About';
@@ -24,6 +26,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/edit-seats/:id" element={<EditSeats />} />
               <Route path="/about" element={<About />} />

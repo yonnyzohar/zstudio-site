@@ -69,6 +69,13 @@ const Login: React.FC = () => {
             {isLogin ? 'Sign up' : 'Log in'}
           </a>
         </p>
+        {isLogin && (
+          <p>
+            <a href="#" onClick={(e) => { e.preventDefault(); navigate('/forgot-password'); }}>
+              Forgot Password?
+            </a>
+          </p>
+        )}
       </div>
     </div>
   );

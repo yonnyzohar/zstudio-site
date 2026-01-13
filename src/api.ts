@@ -208,7 +208,7 @@ export const apiUnCancelLicense = async (licenseKey: string): Promise<{ success:
         console.error('Unrevoke license error:', error);
         return { success: false, message: 'Network error' };
     }
-}
+};
 
 export const apiGetLicenseEmails = async (licenseKey: string): Promise<{ success: boolean; emails?: { email: string; added_at: string }[]; error?: string }> => {
     try {
@@ -221,6 +221,34 @@ export const apiGetLicenseEmails = async (licenseKey: string): Promise<{ success
     } catch (error) {
         console.error('Get license emails error:', error);
         return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiForgotPassword = async (email: string): Promise<{ success: boolean; message?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Forgot password error:', error);
+        return { success: false, message: 'Network error' };
+    }
+};
+
+export const apiResetPassword = async (token: string, newPassword: string): Promise<{ success: boolean; message?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/reset-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token, newPassword })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Reset password error:', error);
+        return { success: false, message: 'Network error' };
     }
 };
 
