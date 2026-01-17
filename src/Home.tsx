@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings } from 'react-icons/fi';
 
@@ -6,6 +6,12 @@ declare global {
   interface Window {
     Prism: any;
   }
+}
+
+interface ReleaseData {
+  version: string;
+  mac: string;
+  windows: string;
 }
 
 interface YouTubeVideoProps {
@@ -40,10 +46,17 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
 );
 
 const Home: React.FC = () => {
+  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    // Fetch latest release data
+    fetch('/latest-release.json')
+      .then(res => res.json())
+      .then(data => setReleaseData(data))
+      .catch(err => console.error('Failed to load release info:', err));
+
     // Initialize Prism.js highlighting
     if (window.Prism) {
       window.Prism.highlightAll();
@@ -115,6 +128,34 @@ const Home: React.FC = () => {
                       <span>Frees developers to focus on what they do best</span>
                     </div>
                   </div>
+                </div>
+
+                <div className="hero-downloads">
+                  <div className="download-header" style={{ textAlign: 'center' }}>
+                    <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square"
+                        alt="Total downloads"
+                        style={{ height: '28px' }}
+                      />
+                    </a>
+                    <p className="latest-release">
+                      Latest stable release: {releaseData ? `v${releaseData.version}` : '--'}
+                    </p>
+                  </div>
+
+                  <div className="downloads-buttons">
+                    <a className="button primary cta-main" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
+                      🚀 Download for macOS
+                    </a>
+                    <a className="button primary cta-main" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
+                      🚀 Download for Windows
+                    </a>
+                  </div>
+
+                  <p className="urgency-text">
+                    ⚡ Build games better and faster
+                  </p>
                 </div>
               </div>
             </div>

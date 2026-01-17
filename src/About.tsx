@@ -1,9 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+interface ReleaseData {
+  version: string;
+  mac: string;
+  windows: string;
+}
 
 const About: React.FC = () => {
+  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
+
+  useEffect(() => {
+    // Fetch latest release data
+    fetch('/latest-release.json')
+      .then(res => res.json())
+      .then(data => setReleaseData(data))
+      .catch(err => console.error('Failed to load release info:', err));
+  }, []);
   return (
     <div className="container">
-      <h1>About zStudio</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+        <h1 style={{ margin: '0' }}>About zStudio</h1>
+        
+        <div style={{ 
+          backgroundColor: '#1e293b', 
+          borderRadius: '12px', 
+          padding: '1rem', 
+          border: '1px solid rgba(20, 184, 166, 0.3)', 
+          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
+          display: 'flex',
+          gap: '0.5rem'
+        }}>
+          <a 
+            className="button primary cta-main" 
+            href={releaseData?.mac || '#'} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ fontSize: '0.9em', padding: '0.5rem 1rem' }}
+          >
+            macOS
+          </a>
+          <a 
+            className="button primary cta-main" 
+            href={releaseData?.windows || '#'} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ fontSize: '0.9em', padding: '0.5rem 1rem' }}
+          >
+            Windows
+          </a>
+        </div>
+      </div>
 
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem' }}>
         <img 
