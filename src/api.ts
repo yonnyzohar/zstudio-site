@@ -125,15 +125,15 @@ export const apiGetLicenses = async (): Promise<License[]> => {
     }
 };
 
-export const apiValidateEmailLicense = async (email: string): Promise<{ success: boolean }> => {
+export const apiValidateEmailLicense = async (email: string, licenseKey: string): Promise<{ success: boolean }> => {
     try {
-        const response = await fetch(`${API_BASE}/validate-email-license`, {
+        const response = await fetch(`${API_BASE}/validate-email-for-license`, {  // Fixed URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify({ email })
+            body: JSON.stringify({ email, licenseKey })  // Added licenseKey
         });
         return await response.json();
     } catch (error) {
