@@ -36,7 +36,10 @@ const Navbar: React.FC = () => {
             <button onClick={handleLogout} className="button">Logout</button>
           </>
         ) : (
-          <Link to="/login" className="nav-link" onClick={closeMenu}>Login</Link>
+          <>
+            <a href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank" rel="noopener noreferrer" className="button donate-nav">Donate</a>
+            <Link to="/login" className="nav-link" onClick={closeMenu}>Login</Link>
+          </>
         )}
       </div>
     </nav>
