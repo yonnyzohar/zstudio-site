@@ -9,8 +9,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
-    group: "pages"
-    cancel-in-progress: false
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
     build:
