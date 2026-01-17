@@ -16,58 +16,74 @@ const ZImporter: React.FC = () => {
   return (
     <div className="container">
       {/* HERO SECTION */}
-      <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h1 style={{ fontSize: '3em', marginBottom: '1rem', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+      <section style={{ marginBottom: '3rem' }}>
+        <h1 style={{ fontSize: '3em', marginBottom: '1rem', textAlign: 'center', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
           zImporter
         </h1>
-        <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+        <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
           The second part of zStudio - seamlessly load your designed scenes into your Pixi.js games. Export from zStudio, import with zImporter, and bring your UI to life in code.
         </p>
         
-        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', maxWidth: '600px', margin: '0 auto', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-          <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Download for Pixi.js Environment</h2>
-          <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
-            Get the zImporter package and example project to start integrating zStudio scenes into your games.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a 
-              href="https://github.com/yonnyzohar/zImporter_PIXI" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                backgroundColor: '#14b8a6', 
-                color: '#0f172a', 
-                padding: '0.75rem 1.5rem', 
-                borderRadius: '8px', 
-                textDecoration: 'none', 
-                fontWeight: '600', 
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
-            >
-              📦 zImporter Package
-            </a>
-            <a 
-              href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ 
-                backgroundColor: '#f59e0b', 
-                color: '#0f172a', 
-                padding: '0.75rem 1.5rem', 
-                borderRadius: '8px', 
-                textDecoration: 'none', 
-                fontWeight: '600', 
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
-            >
-              🚀 Example Project
-            </a>
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
+          {/* VIDEO SECTION */}
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h2 style={{ color: '#14b8a6', marginBottom: '1rem', textAlign: 'center' }}>Quick Start Tutorial</h2>
+            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
+              <iframe
+                src="https://www.youtube.com/embed/ZINRf2fgfQs"
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+                allowFullScreen
+                title="zImporter - Importing zStudio scenes"
+              />
+            </div>
+          </div>
+          
+          {/* DOWNLOAD SECTION */}
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Download for Pixi.js Environment</h2>
+            <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
+              Get the zImporter package and example project to start integrating zStudio scenes into your games.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a 
+                href="https://github.com/yonnyzohar/zImporter_PIXI" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ 
+                  backgroundColor: '#14b8a6', 
+                  color: '#0f172a', 
+                  padding: '0.75rem 1.5rem', 
+                  borderRadius: '8px', 
+                  textDecoration: 'none', 
+                  fontWeight: '600', 
+                  transition: 'all 0.3s ease',
+                  display: 'inline-block'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+              >
+                📦 zImporter Package
+              </a>
+              <a 
+                href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ 
+                  backgroundColor: '#f59e0b', 
+                  color: '#0f172a', 
+                  padding: '0.75rem 1.5rem', 
+                  borderRadius: '8px', 
+                  textDecoration: 'none', 
+                  fontWeight: '600', 
+                  transition: 'all 0.3s ease',
+                  display: 'inline-block'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+              >
+                🚀 Example Project
+              </a>
+            </div>
           </div>
         </div>
       </section>
