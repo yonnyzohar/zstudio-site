@@ -3,27 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
 const Login: React.FC = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin] = useState(true); // Always login mode
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login, signup } = useAuth();
+  const { login } = useAuth(); // Removed signup
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    // if signup - Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character.
-    if (!isLogin) {
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!passwordRegex.test(password)) {
-        setError('Password must be at least 8 characters long and include a lowercase letter, an uppercase letter, a number, and a special character.');
-        return;
-      }
-    }
 
     try {
-      const result = isLogin ? await login(email, password) : await signup(email, password);
+      const result = await login(email, password);
       if (result.success) {
         navigate('/dashboard');
       } else {
@@ -34,15 +26,15 @@ const Login: React.FC = () => {
     }
   };
 
-  const toggleMode = () => {
-    setIsLogin(!isLogin);
-    setError('');
-  };
+  // const toggleMode = () => {
+  //   setIsLogin(!isLogin);
+  //   setError('');
+  // };
 
   return (
     <div className="container">
       <div className="auth-section">
-        <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit}>
           <label>Email:</label>
           <input
@@ -60,15 +52,15 @@ const Login: React.FC = () => {
           />
           {error && <p style={{ color: '#ff6b6b', marginBottom: '1rem' }}>{error}</p>}
           <button type="submit" className="button">
-            {isLogin ? 'Log In' : 'Sign Up'}
+            Log In
           </button>
         </form>
-        <p>
+        {/* <p>
           {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
           <a href="#" onClick={(e) => { e.preventDefault(); toggleMode(); }}>
             {isLogin ? 'Sign up' : 'Log in'}
           </a>
-        </p>
+        </p> */}
         {isLogin && (
           <p>
             <a href="#" onClick={(e) => { e.preventDefault(); navigate('/forgot-password'); }}>
