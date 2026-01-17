@@ -1222,6 +1222,11 @@ h2 {
     flex-direction: column;
     gap: 15px;
   }
+  .button.cta-main {
+    min-width: 180px;
+    font-size: 1em;
+    padding: 14px 24px;
+  }
   .additional-links {
     flex-direction: column;
     gap: 10px;
