@@ -28,11 +28,10 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
     >
       <iframe
         ref={iframeRef}
-        src={`https://www.youtube-nocookie.com/embed/${videoId}?start=${startTime}&autoplay=1&controls=0&disablekb=1&enablejsapi=1&fs=0&iv_load_policy=3&loop=1&modestbranding=1&mute=1&playsinline=1&rel=0&cc_load_policy=0&autohide=1&playlist=${videoId}&hl=en&showinfo=0&theme=dark&color=white&wmode=opaque&playerapiid=ytplayer`}
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?start=${startTime}&autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&modestbranding=1&rel=0`}
         frameBorder="0"
         allow="autoplay; encrypted-media"
-        allowFullScreen={false}
-        playbackRate={2}
+        allowFullScreen={true}
       />
     </div>
   );
@@ -259,6 +258,49 @@ const Home: React.FC = () => {
             </div>
           </section>
 
+          {/* WORKFLOW */}
+          <section className="workflow">
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Creative Workflow</h2>
+            <div className="workflow-row" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch' }}>
+              <div className="workflow-item" style={{ flex: 1, padding: '2rem', backgroundColor: '#f9f9f9', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textAlign: 'center' }}>
+                <h3 style={{ marginBottom: '1rem', color: '#333' }}>Designer</h3>
+                <p style={{ marginBottom: '1.5rem', color: '#666' }}>Focuses on his creative vision</p>
+                <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
+              </div>
+              <div className="workflow-item" style={{ flex: 1, padding: '2rem', backgroundColor: '#f9f9f9', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textAlign: 'center' }}>
+                <h3 style={{ marginBottom: '1rem', color: '#333' }}>Developer</h3>
+                <p style={{ marginBottom: '1.5rem', color: '#666' }}>focuses on game logic.</p>
+                <pre style={{
+                  backgroundColor: '#2d2d2d',
+                  padding: '1.5rem',
+                  borderRadius: '8px',
+                  overflow: 'auto',
+                  textAlign: 'left',
+                  margin: '0',
+                  fontSize: '0.9rem',
+                  width: '100%',
+                  boxSizing: 'border-box'
+                }}>
+                  <code className="language-typescript">
+{`let scene: ZScene = new ZScene("myScene");
+scene.load(loadPath, () => {
+    ZSceneStack.push(scene);
+    scene.loadStage(this.stage);
+
+    let sceneStage: ZContainer = scene.sceneStage;
+    let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
+
+    myBTN.setLabel("Click Me");
+    myBTN.setCallback(() => {
+        console.log("Button clicked!");
+    });
+});`}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </section>
+
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
@@ -281,38 +323,6 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* CODE EXAMPLE */}
-          <section className="code-example">
-            <h2>Focus on game logic</h2>
-            <p>Import complete scene into your project and focus only on logic.</p>
-            <pre style={{
-              backgroundColor: '#2d2d2d',
-              padding: '1.5rem',
-              borderRadius: '8px',
-              overflow: 'auto',
-              textAlign: 'left',
-              margin: '0 auto',
-              maxWidth: '600px',
-              fontSize: '0.9rem'
-            }}>
-              <code className="language-typescript">
-{`let scene: ZScene = new ZScene("myScene");
-scene.load(loadPath, () => {
-    ZSceneStack.push(scene);
-    scene.loadStage(this.stage);
-
-    let sceneStage: ZContainer = scene.sceneStage;
-    let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
-
-    myBTN.setLabel("Click Me");
-    myBTN.setCallback(() => {
-        console.log("Button clicked!");
-    });
-});`}
-              </code>
-            </pre>
           </section>
         </div>
       </main>
