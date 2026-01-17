@@ -15,118 +15,189 @@ const ZImporter: React.FC = () => {
   }, []);
   return (
     <div className="container">
-      <h1>Loading zStudio scene in your game:</h1>
+      {/* HERO SECTION */}
+      <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h1 style={{ fontSize: '3em', marginBottom: '1rem', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          zImporter
+        </h1>
+        <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
+          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js games. Export from zStudio, import with zImporter, and bring your UI to life in code.
+        </p>
+        
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', maxWidth: '600px', margin: '0 auto', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+          <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Download for Pixi.js Environment</h2>
+          <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
+            Get the zImporter package and example project to start integrating zStudio scenes into your games.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_PIXI" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#14b8a6', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+            >
+              📦 zImporter Package
+            </a>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#f59e0b', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+            >
+              🚀 Example Project
+            </a>
+          </div>
+        </div>
+      </section>
 
-      <p>Once you export your scene in zStudio, you should have a minimum of 3 files:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-bash">
+      {/* EXPORTED FILES */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>What You Get After Exporting</h2>
+        <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
+          Once you export your scene in zStudio, you'll have these essential files ready for import:
+        </p>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-bash">
 {`./scene/
-    placements.json --> The file that contain all positioning and hierarchy structure of your game scene
-    ta.json --> The file that contain all textures positions in the Texture Atlas
-    ta.png --> the atlas itself`}
-        </code>
-      </pre>
+    placements.json --> Scene positioning and hierarchy structure
+    ta.json --> Texture Atlas coordinates
+    ta.png --> The texture atlas image`}
+            </code>
+          </pre>
+          <p style={{ color: '#e5e7eb', marginTop: '1rem', fontSize: '0.9em' }}>
+            You can also export with individual images instead of a texture atlas.
+          </p>
+        </div>
+      </section>
 
-      <p>You can also alternatively load in a scene with many individual images, depending on which export type you selected in zStudio...</p>
-
-      <p>Now we can go about loading in this scene:</p>
-
-      <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>pixi.js</h2>
-
-      <p>Once you have exported your project, add <code style={{ backgroundColor: '#2d2d2d', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>zImporter</code> into your Pixi project's <code style={{ backgroundColor: '#2d2d2d', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>package.json</code>:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-json">
+      {/* INSTALLATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Installation</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Add to package.json</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-json">
 {`"dependencies": {
   "zimporter-pixi": "latest"
 }`}
-        </code>
-      </pre>
-
-      <p>If you intend to use Pixi Particles or Spine, be sure to add those packages as well:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-json">
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Optional Dependencies</h3>
+            <p style={{ color: '#e5e7eb', marginBottom: '1rem', fontSize: '0.9em' }}>
+              For advanced features like particles and spine animations:
+            </p>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-json">
 {`"peerDependencies": {
   "@pixi-spine/all-4.0": "^4.0.4",
   "@pixi-spine/base": "^4.0.5",
-  "@pixi-spine/loader-base": "^4.0.5",
-  "@pixi-spine/loader-uni": "^4.0.5",
-  "@pixi-spine/runtime-3.7": "^4.0.5",
-  "@pixi-spine/runtime-3.8": "^4.0.5",
-  "@pixi-spine/runtime-4.1": "^4.0.5",
   "@pixi/filter-drop-shadow": "^5.2.0",
   "@pixi/particle-emitter": "^5.0.8",
   "pixi.js": "^7.4.2"
 }`}
-        </code>
-      </pre>
+              </code>
+            </pre>
+          </div>
+        </div>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', marginTop: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install Dependencies</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-bash">npm install</code>
+          </pre>
+        </div>
+      </section>
 
-      <p>Install all dependencies:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-bash">npm i</code>
-      </pre>
-
-      <p>You can now begin to import the zImporter classes:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-typescript">
+      {/* INTEGRATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>zImporter Integration</h2>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Import the Classes</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-typescript">
 {`import * as PIXI from 'pixi.js';
 import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi';`}
-        </code>
-      </pre>
+            </code>
+          </pre>
+        </div>
+      </section>
 
-      <p>Load up your scene like so (app.ts):</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-typescript">
+      {/* EXAMPLES */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Code Examples</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>App Setup (app.ts)</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
 {`import * as PIXI from 'pixi.js';
 import { Game } from "./Game";
 import { ZSceneStack, ZUpdatables } from 'zimporter-pixi';
 
-// create a new pixi application
 const app = new PIXI.Application({
   backgroundColor: 0x000000,
-  resolution: window.devicePixelRatio || 1, // Handle high-DPI screens
-  autoDensity: true, // Improve sharpness on high-DPI screens
-  antialias: true // Smooth rendering
+  resolution: window.devicePixelRatio || 1,
+  autoDensity: true,
+  antialias: true
 });
-// Append the app's view to the DOM
 document.body.appendChild(app.view as any);
 
-//listen to resize to to let zImporter scale and reposition assets for you
-window.addEventListener("resize", resizeCanvas);
-
-function resizeCanvas() {
+window.addEventListener("resize", () => {
   app.renderer.resize(window.innerWidth, window.innerHeight);
   ZSceneStack.resize(window.innerWidth, window.innerHeight);
-}
+});
 
-//instantiate your game
 const game = new Game(app.stage);
-
-//start the update loop
 ZUpdatables.init(24);
 
 app.ticker.add(() => {
-  //update you game on every tick
-  const ticker = PIXI.Ticker.shared;
-  const deltaMS = ticker.deltaMS / 1000;
+  const deltaMS = PIXI.Ticker.shared.deltaMS / 1000;
   game.update(deltaMS);
   ZUpdatables.update();
 });`}
-        </code>
-      </pre>
-
-      <p>And your Game.ts, where we actually load the scene:</p>
-      <pre style={{ backgroundColor: '#2d2d2d', padding: '1rem', borderRadius: '4px', overflow: 'auto' }}>
-        <code className="language-typescript">
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Loading a Scene (Game.ts)</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
 {`import * as PIXI from 'pixi.js';
-import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi';
-export class Game {
+import { ZScene, ZSceneStack } from 'zimporter-pixi';
 
+export class Game {
     stage: PIXI.Container;
+    
     constructor(stage: PIXI.Container) {
         this.stage = stage;
-        let loadPath = "./assets/testScene/";
-        console.log("Game constructor " + loadPath);
-        let scene: ZScene = new ZScene("testScene");
+        const loadPath = "./assets/testScene/";
+        
+        const scene = new ZScene("testScene");
         scene.load(loadPath, () => {
             ZSceneStack.push(scene);
             scene.loadStage(this.stage);
@@ -134,20 +205,22 @@ export class Game {
     }
 
     update(deltaMS: number) {
-        //game logic
+        // Your game logic here
     }
-
 }`}
-        </code>
-      </pre>
+              </code>
+            </pre>
+          </div>
+        </div>
+      </section>
 
-      <p>Calling <code style={{ backgroundColor: '#2d2d2d', padding: '0.2rem 0.4rem', borderRadius: '3px' }}>scene.loadStage(this.stage);</code> will display on stage whatever is placed on the stage in zStudio.</p>
-
-      <p>Now package your app with something like rollup or webpack and you are good to go!</p>
-      <p>See the <a href="https://github.com/yonnyzohar/zImporter_PIXI_Example" style={{ color: '#fbbb1a' }}>pixi example project</a> to get started.</p>
-
-      <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>Phaser</h2>
-      <p>Coming soon...</p>
+      {/* PHASER */}
+      <section>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', textAlign: 'center' }}>
+          <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Phaser Support</h2>
+          <p style={{ color: '#e5e7eb' }}>Coming soon...</p>
+        </div>
+      </section>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
       </button>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
-        <Link to="/z-importer" className="nav-link" onClick={closeMenu}>Usage</Link>
+        <Link to="/z-importer" className="nav-link" onClick={closeMenu}>zImporter</Link>
         <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
         <a href="/docs/index.html" className="nav-link" onClick={closeMenu}>Importer Docs</a>
