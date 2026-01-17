@@ -12,8 +12,6 @@ const ZImporter: React.FC = () => {
     if (window.Prism) {
       window.Prism.highlightAll();
     }
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="container">
