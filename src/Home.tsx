@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings } from 'react-icons/fi';
 
 declare global {
@@ -38,24 +39,11 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
 }
 );
 
-interface ReleaseData {
-  version: string;
-  mac: string;
-  windows: string;
-}
-
 const Home: React.FC = () => {
-  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // Fetch latest release data
-    fetch('/latest-release.json')
-      .then(res => res.json())
-      .then(data => setReleaseData(data))
-      .catch(err => console.error('Failed to load release info:', err));
-
     // Initialize Prism.js highlighting
     if (window.Prism) {
       window.Prism.highlightAll();
@@ -109,7 +97,7 @@ const Home: React.FC = () => {
                 </h1>
 
                 <p className="intro">
-                  The ultimate visual UI & 2D scene authoring tool for web game developers.<br /> Build professional scenes in minutes with Pixi.js integration.
+                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers.<br /> Build professional scenes in minutes with Pixi.js integration.
                 </p>
 
                 <div className="hero-cta-section">
@@ -126,34 +114,6 @@ const Home: React.FC = () => {
                       <span className="checkmark">✓</span>
                       <span>Frees developers to focus on what they do best</span>
                     </div>
-                  </div>
-
-                  <div className="hero-downloads">
-                    <div className="download-header" style={{ textAlign: 'center' }}>
-                      <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
-                        <img
-                          src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square"
-                          alt="Total downloads"
-                          style={{ height: '28px' }}
-                        />
-                      </a>
-                      <p className="latest-release">
-                        Latest stable release: {releaseData ? `v${releaseData.version}` : '--'}
-                      </p>
-                    </div>
-
-                    <div className="downloads-buttons">
-                      <a className="button primary cta-main" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
-                        🚀 Download for macOS
-                      </a>
-                      <a className="button primary cta-main" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
-                        🚀 Download for Windows
-                      </a>
-                    </div>
-
-                    <p className="urgency-text">
-                      ⚡ Build games better and faster
-                    </p>
                   </div>
                 </div>
               </div>
@@ -306,6 +266,32 @@ scene.load(loadPath, () => {
               </div>
             </div>
             </div>
+          </section>
+
+          {/* IMPORT SECTION */}
+          <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
+            <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Import Scene into Your Project</h2>
+            <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
+              Ready to bring your zStudio designs into your game? Download zImporter to seamlessly load your scenes into Pixi.js projects.
+            </p>
+            <Link 
+              to="/z-importer"
+              style={{ 
+                backgroundColor: '#14b8a6', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                fontSize: '1.1em',
+                display: 'inline-block',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+            >
+              Download zImporter
+            </Link>
           </section>
 
           {/* SOCIAL PROOF */}
