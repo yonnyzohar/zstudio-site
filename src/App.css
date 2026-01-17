@@ -896,8 +896,61 @@ a.button.donate:hover {
   margin-top: auto; /* ensures footer stays at bottom */
 }
 
+footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #e5e7eb;
+}
+
+footer p {
+  margin: 20px 0;
+  font-size: 0.9em;
+}
+
 footer a {
-  color: #64748b;
+  color: #14b8a6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #f59e0b;
+}
+
+.brxe-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.repeater-item {
+  display: inline-block;
+}
+
+.repeater-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.repeater-item a:hover {
+  background: rgba(20, 184, 166, 0.3);
+  transform: scale(1.1);
+}
+
+.icon {
+  color: #e5e7eb;
+  font-size: 20px;
 }
 
 ul, ol {

@@ -122,6 +122,10 @@ const Home: React.FC = () => {
                       <span className="checkmark">✓</span>
                       <span>No coding required</span>
                     </div>
+                    <div className="value-prop">
+                      <span className="checkmark">✓</span>
+                      <span>Frees developers to focus on what they do best</span>
+                    </div>
                   </div>
 
                   <div className="hero-downloads">
@@ -260,18 +264,19 @@ const Home: React.FC = () => {
 
           {/* WORKFLOW */}
           <section className="workflow">
-            <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Creative Workflow</h2>
-            <div className="workflow-row" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch' }}>
-              <div className="workflow-item" style={{ flex: 1, padding: '2rem', backgroundColor: '#f9f9f9', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textAlign: 'center' }}>
-                <h3 style={{ marginBottom: '1rem', color: '#333' }}>Designer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#666' }}>Focuses on his creative vision</p>
-                <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#14b8a6', fontSize: '2.5em', fontWeight: '700', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Creative Workflow</h2>
+            <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+              <div className="workflow-row" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', maxWidth: '934px', margin: '0 auto', backgroundColor: '#1e293b', borderRadius: '12px', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', border: '1px solid rgba(20, 184, 166, 0.3)', padding: '2rem' }}>
+              <div className="workflow-item" style={{ flex: '1', maxWidth: '400px', padding: '0 2rem', textAlign: 'center' }}>
+                <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Designer</h3>
+                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Focuses on his creative vision</p>
+                <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', maxHeight: '350px', height: 'auto', borderRadius: '8px', objectFit: 'contain' }} />
               </div>
-              <div className="workflow-item" style={{ flex: 1, padding: '2rem', backgroundColor: '#f9f9f9', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', textAlign: 'center' }}>
-                <h3 style={{ marginBottom: '1rem', color: '#333' }}>Developer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#666' }}>focuses on game logic.</p>
+              <div className="workflow-item" style={{ flex: '1', maxWidth: '400px', padding: '0 2rem', textAlign: 'center' }}>
+                <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Developer</h3>
+                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>focuses on game logic.</p>
                 <pre style={{
-                  backgroundColor: '#2d2d2d',
+                  backgroundColor: '#0f172a',
                   padding: '1.5rem',
                   borderRadius: '8px',
                   overflow: 'auto',
@@ -279,7 +284,8 @@ const Home: React.FC = () => {
                   margin: '0',
                   fontSize: '0.9rem',
                   width: '100%',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  border: '1px solid rgba(255,255,255,0.1)'
                 }}>
                   <code className="language-typescript">
 {`let scene: ZScene = new ZScene("myScene");
@@ -298,6 +304,7 @@ scene.load(loadPath, () => {
                   </code>
                 </pre>
               </div>
+            </div>
             </div>
           </section>
 
