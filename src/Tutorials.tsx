@@ -97,85 +97,134 @@ const Tutorials: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>Help Videos</h1>
+      {/* HEADER SECTION */}
+      <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h1 style={{ 
+          fontSize: '3em', 
+          marginBottom: '1rem', 
+          background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', 
+          WebkitBackgroundClip: 'text', 
+          WebkitTextFillColor: 'transparent', 
+          backgroundClip: 'text' 
+        }}>
+          Help Videos
+        </h1>
+        <p style={{ 
+          fontSize: '1.2em', 
+          color: '#e5e7eb', 
+          marginBottom: '2rem', 
+          maxWidth: '800px', 
+          margin: '0 auto 2rem' 
+        }}>
+          Master zStudio with our comprehensive video tutorials. Learn everything from basic navigation to advanced features like templates, hierarchies, and runtime integration.
+        </p>
+      </section>
 
-      <style>
-        {`
-          .video-item {
-            display: flex;
-            margin-bottom: 20px;
-            background-color: #333;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-          }
-
-          .video-description {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-
-          .video-description h3 {
-            margin-top: 0;
-            color: #fbbb1a;
-          }
-
-          .video-description p {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #bbb;
-          }
-
-          .video-embed {
-            width: 560px;
-            height: 315px;
-            border: 0;
-            background-color: #1f1f1f;
-          }
-
-          .video-item img {
-            max-width: 100%;
-            border-radius: 8px;
-          }
-
-          @media (max-width: 768px) {
+      {/* VIDEOS SECTION */}
+      <section>
+        <style>
+          {`
             .video-item {
+              display: flex;
+              margin-bottom: 2rem;
+              background-color: #1e293b;
+              border-radius: 12px;
+              box-shadow: 0 4px 20px rgba(20, 184, 166, 0.2);
+              border: 1px solid rgba(20, 184, 166, 0.3);
+              overflow: hidden;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .video-item:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 8px 30px rgba(20, 184, 166, 0.3);
+            }
+
+            .video-description {
+              flex: 1;
+              padding: 2rem;
+              display: flex;
               flex-direction: column;
+              justify-content: center;
             }
+
+            .video-description h3 {
+              margin-top: 0;
+              margin-bottom: 1rem;
+              color: #14b8a6;
+              font-size: 1.4em;
+              font-weight: 600;
+            }
+
+            .video-description p {
+              font-size: 16px;
+              line-height: 1.6;
+              color: #e5e7eb;
+              margin: 0;
+            }
+
             .video-embed {
-              width: 100%;
-              height: 250px;
+              width: 560px;
+              border: 0;
+              background-color: #0f172a;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
-          }
-        `}
-      </style>
 
-      {videos.map((video, index) => {
-        const videoId = getVideoId(video.url);
-        if (!videoId) return null;
+            .video-embed iframe {
+              width: 500px;
+              height: 281px;
+              border-radius: 8px;
+            }
 
-        return (
-          <div key={index} className="video-item">
-            <div className="video-description">
-              <h3>{video.title}</h3>
-              <p>{video.description}</p>
+            @media (max-width: 768px) {
+              .video-item {
+                flex-direction: column;
+              }
+              .video-description {
+                padding: 1.5rem;
+              }
+              .video-embed {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .video-item iframe {
+                border-radius: 0 0 8px 8px;
+                width: 100%;
+                height: 225px;
+                max-width: 450px;
+              }
+            }
+          `}
+        </style>
+
+        {videos.map((video, index) => {
+          const videoId = getVideoId(video.url);
+          if (!videoId) return null;
+
+          return (
+            <div key={index} className="video-item">
+              <div className="video-description">
+                <h3>{video.title}</h3>
+                <p>{video.description}</p>
+              </div>
+              <div className="video-embed">
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  frameBorder="0"
+                  allowFullScreen
+                  title={video.title}
+                />
+              </div>
             </div>
-            <div className="video-embed">
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                frameBorder="0"
-                allowFullScreen
-                title={video.title}
-              />
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </section>
     </div>
   );
 };
