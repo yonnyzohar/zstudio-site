@@ -475,7 +475,6 @@ body {
 }
 
 .features::before {
-  content: "Why Choose zStudio?";
   display: block;
   color: #14b8a6;
   font-size: 3.5em;

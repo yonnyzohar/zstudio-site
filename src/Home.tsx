@@ -117,7 +117,7 @@ const Home: React.FC = () => {
                   <div className="value-props">
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Used commercially in multiple real-money casino games</span>
+                      <span>Empower artists to build responsive scenes and own their creative vision</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
@@ -126,7 +126,7 @@ const Home: React.FC = () => {
                   </div>
 
                   <div className="hero-downloads">
-                    <div className="download-header">
+                    <div className="download-header" style={{ textAlign: 'center' }}>
                       <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
                         <img
                           src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square"
@@ -149,7 +149,7 @@ const Home: React.FC = () => {
                     </div>
 
                     <p className="urgency-text">
-                      ⚡ build games better and faster
+                      ⚡ Build games better and faster
                     </p>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
           {/* FEATURES */}
           <section className="features">
             <div className="features-header">
-              <h2>Build better game with zStudio</h2>
+              <h2>Turbo-charge your game creation pipeline with zStudio</h2>
               <p className="features-subtitle">Join the revolution in game development. Build faster, ship sooner, earn more.</p>
             </div>
             <div className="features-container">
@@ -262,36 +262,22 @@ const Home: React.FC = () => {
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
-              <h2>Trusted by Game Developers Worldwide</h2>
+              <h2>Trusted by Artists and Developers</h2>
               <div className="testimonials">
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
-                  <p>"zStudio cut our development time by 70%. What used to take weeks now takes hours."</p>
-                  <cite>- Casino Game Studio Lead</cite>
+                  <p>"As an artist, I no longer need a developer to create responsive scenes. zStudio gives me full ownership of my creative vision!"</p>
+                  <cite>- Game Artist</cite>
                 </div>
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
-                  <p>"Finally, a visual game editor that doesn't compromise on code quality. Game-changer!"</p>
-                  <cite>- Indie Game Developer</cite>
+                  <p>"Now I can focus purely on attaching logic since the scene has been perfectly made for me. Game development just got easier!"</p>
+                  <cite>- Game Developer</cite>
                 </div>
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
-                  <p>"Our players love the polished UI. zStudio made complex animations simple."</p>
-                  <cite>- Mobile Game Company</cite>
-                </div>
-              </div>
-              <div className="stats">
-                <div className="stat">
-                  <div className="stat-number">1,000+</div>
-                  <div className="stat-label">Active Developers</div>
-                </div>
-                <div className="stat">
-                  <div className="stat-number">5,000+</div>
-                  <div className="stat-label">Games Created</div>
-                </div>
-                <div className="stat">
-                  <div className="stat-number">4.9★</div>
-                  <div className="stat-label">Average Rating</div>
+                  <p>"Skinning games has become much easier and more powerful with zStudio. It's a total game-changer!"</p>
+                  <cite>- Tech Artist</cite>
                 </div>
               </div>
             </div>
