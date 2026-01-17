@@ -1218,14 +1218,13 @@ h2 {
     margin-top: -60px;
     margin-bottom: -60px;
   }
-  .downloads-buttons {
-    flex-direction: column;
-    gap: 15px;
+  .hero-downloads {
+    padding: 15px;
   }
   .button.cta-main {
-    min-width: 180px;
-    font-size: 1em;
-    padding: 14px 24px;
+    min-width: 140px;
+    font-size: 0.9em;
+    padding: 12px 20px;
   }
   .additional-links {
     flex-direction: column;
