@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import { apiGetLicenses, apiGenerateLicense, getLicenseTypes, apiUnCancelLicense, apiCencelLicense } from './api';
 import type { License } from './api';
@@ -108,7 +108,7 @@ const Dashboard: React.FC = () => {
   };
 
   if (!isLoggedIn) {
-    return <div>Please log in to view your dashboard.</div>;
+    return <Navigate to="/login" />;
   }
 
   if (loading) {
