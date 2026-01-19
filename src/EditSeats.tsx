@@ -75,7 +75,7 @@ const EditSeats: React.FC = () => {
     }
 
     try {
-      const validation = await apiValidateEmailLicense(email);
+      const validation = await apiValidateEmailLicense(email, license!.licenseKey);
       if (validation.success) {
         setError('Email halready associated with this license');
         return;
