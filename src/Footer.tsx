@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -23,7 +24,7 @@ const Footer: React.FC = () => {
       </ul>
 
       <p style={{ margin: '20px 0', fontSize: '0.9em' }}>
-        <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <a href="tc.html" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&amp;C</a>
+        <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link>
       </p>
       <span id="timestamp">© 2026 zStudio - All Rights Reserved</span>
       <script
