@@ -105,12 +105,12 @@ const Home: React.FC = () => {
               </div>
               <div className="hero-text">
                 <h1>
-                  <span className="title-gradient">Create Stunning 2D Games</span><br />
-                  <span className="title-accent">Visually & Instantly</span>
+                  <span className="title-gradient">Create Stunning 2D Interactive Experiences</span><br />
+                  <span className="title-accent">Games & Playable Ads Visually & Instantly</span>
                 </h1>
 
                 <p className="intro">
-                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers.<br /> Build professional scenes in minutes with Pixi.js integration.
+                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js integration.
                 </p>
 
                 <div className="hero-cta-section">
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
                   </div>
 
                   <p className="urgency-text">
-                    ⚡ Build games better and faster
+                    ⚡ Build games and ads better and faster
                   </p>
                 </div>
               </div>
@@ -168,8 +168,8 @@ const Home: React.FC = () => {
           {/* FEATURES */}
           <section className="features">
             <div className="features-header">
-              <h2>Turbo-charge your game creation pipeline with zStudio</h2>
-              <p className="features-subtitle">Join the revolution in game development. Build faster, ship sooner, earn more.</p>
+              <h2>Turbo-charge your game and ad creation pipeline with zStudio</h2>
+              <p className="features-subtitle">Join the revolution in interactive content creation. Build faster, ship sooner, earn more.</p>
             </div>
             <div className="features-container">
               <div className="feature-row">
@@ -202,7 +202,7 @@ const Home: React.FC = () => {
                   <div className="feature-number">03</div>
                   <FiLayers className="feature-icon" />
                   <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, particles, spine animations, sliders, toggles – everything you need for interactive UI and game elements.</p>
+                  <p>Sprites, buttons, text, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
                 </div>
               </div>
               <div className="feature-row">
@@ -254,7 +254,7 @@ const Home: React.FC = () => {
                   <div className="feature-number">08</div>
                   <FiSettings className="feature-icon" />
                   <h3>Professional Workflow Features</h3>
-                  <p>Templates, filters, inspectors, and extensibility. Everything you need for production-ready game development.</p>
+                  <p>Templates, filters, inspectors, and extensibility. Everything you need for production-ready game and ad development.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="IPQCnAhPSzA" />
@@ -313,7 +313,7 @@ scene.load(loadPath, () => {
           <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
             <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Import Scene into Your Project</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Ready to bring your zStudio designs into your game? Download zImporter to seamlessly load your scenes into Pixi.js projects.
+              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js projects.
             </p>
             <Link 
               to="/z-importer"
@@ -338,7 +338,7 @@ scene.load(loadPath, () => {
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
-              <h2>Trusted by Artists and Developers</h2>
+              <h2>Trusted by Artists, Developers, and Ad Creators</h2>
               <div className="testimonials">
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
@@ -354,6 +354,11 @@ scene.load(loadPath, () => {
                   <div className="testimonial-stars">★★★★★</div>
                   <p>"Skinning games has become much easier and more powerful with zStudio. It's a total game-changer!"</p>
                   <cite>- Tech Artist</cite>
+                </div>
+                <div className="testimonial">
+                  <div className="testimonial-stars">★★★★★</div>
+                  <p>"zStudio makes creating engaging playable ads a breeze. I can design interactive experiences that captivate users before they even download the app!"</p>
+                  <cite>- Ad Creative</cite>
                 </div>
               </div>
             </div>

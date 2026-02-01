@@ -21,7 +21,7 @@ const ZImporter: React.FC = () => {
           zImporter
         </h1>
         <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
-          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js games. Export from zStudio, import with zImporter, and bring your UI to life in code.
+          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js games and interactive ads. Export from zStudio, import with zImporter, and bring your UI to life in code.
         </p>
         
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
@@ -42,7 +42,7 @@ const ZImporter: React.FC = () => {
           <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
             <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Download for Pixi.js Environment</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
-              Get the zImporter package and example project to start integrating zStudio scenes into your games.
+              Get the zImporter package and example project to start integrating zStudio scenes into your games and ads.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a 

@@ -60,10 +60,9 @@ const About: React.FC = () => {
         <div>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>What is zStudio?</h2>
           <p>
-            zStudio is the ultimate visual authoring tool for 2D web game development. Designed to revolutionize your
-            workflow, zStudio empowers developers, technical artists, and UI/UX teams to create stunning game
-            interfaces,
-            responsive layouts, and dynamic scenes — all in one intuitive platform. Whether you're building with
+            zStudio is the ultimate visual authoring tool for 2D web game development and interactive ad creation. Designed to revolutionize your
+            workflow, zStudio empowers developers, technical artists, UI/UX teams, and ad creators to create stunning game
+            interfaces, responsive layouts, dynamic scenes, and engaging playable ads — all in one intuitive platform. Whether you're building with
             Pixi.js, Phaser, or a custom engine, zStudio makes production faster, cleaner, and more efficient.
           </p>
           <p>
@@ -83,7 +82,7 @@ const About: React.FC = () => {
         <div>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Why Choose zStudio?</h2>
           <p>
-            Modern web games demand responsive layouts, reusable components, and streamlined pipelines. Yet, many teams
+            Modern web games and interactive ads demand responsive layouts, reusable components, and streamlined pipelines. Yet, many teams
             still rely on manual processes that slow iteration, create inconsistencies, and add unnecessary engineering
             overhead. zStudio changes the game by bridging the gap between design and implementation.
           </p>
@@ -96,7 +95,7 @@ const About: React.FC = () => {
             <li><strong>Export efficiently:</strong> Generate clean, structured data ready for runtime.</li>
           </ul>
           <p>
-            zStudio isn't just a tool — it's your partner in creating polished, professional web games.
+            zStudio isn't just a tool — it's your partner in creating polished, professional web games and interactive ads.
           </p>
         </div>
       </div>
@@ -136,6 +135,7 @@ const About: React.FC = () => {
             <li>Web Game Developers: Building with Pixi.js, Phaser, or custom 2D engines.</li>
             <li>Technical Artists: Needing precise control without the hassle of boilerplate code.</li>
             <li>UI/UX Teams: Crafting dynamic, responsive interfaces.</li>
+            <li>Ad Creators: Designing engaging playable ads for mobile and web platforms.</li>
             <li>Studios: Looking to streamline workflows and reduce integration time.</li>
           </ul>
         </div>
@@ -151,8 +151,8 @@ const About: React.FC = () => {
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Proven in Production</h2>
           <p>
             zStudio isn't just a concept — it's a battle-tested tool actively used in commercial game studios. It has
-            already powered multiple shipped titles and continues to evolve through real-world feedback from
-            professional developers.
+            already powered multiple shipped titles, and continues to evolve through real-world feedback from
+            professional developers and creatives.
           </p>
         </div>
       </div>
@@ -166,12 +166,12 @@ const About: React.FC = () => {
         <div>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Our Vision</h2>
           <p>
-            We believe zStudio is the future of web game development. Our mission is to make zStudio the standard for
+            We believe zStudio is the future of web game development and interactive advertising. Our mission is to make zStudio the standard for
             visual layout and scene-building — a fast, accessible, and scalable solution that integrates seamlessly into
             modern pipelines.
           </p>
           <p>
-            Join the growing community of developers who trust zStudio to bring their games to life.
+            Join the growing community of developers and ad creators who trust zStudio to bring their games and ads to life.
           </p>
         </div>
       </div>
