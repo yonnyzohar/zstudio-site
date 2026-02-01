@@ -174,7 +174,7 @@ const Home: React.FC = () => {
             <div className="features-container">
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="BHWw6DEsxyA" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="er8oFDWHdeo" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[0] = el; }}>
                   <div className="feature-number">01</div>
@@ -202,7 +202,7 @@ const Home: React.FC = () => {
                   <div className="feature-number">03</div>
                   <FiLayers className="feature-icon" />
                   <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
+                  <p>Sprites, buttons, text, bitmap fonts, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
                 </div>
               </div>
               <div className="feature-row">
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
                   <p>Keyframe-based timeline with easing functions, cue points, and playback controls. Create smooth, professional animations effortlessly.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="6kYR-U61-nI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="dkFNVOs7hSI" />
                 </div>
               </div>
               <div className="feature-row">
