@@ -64,7 +64,7 @@ export const apiSignup = async (email: string, password: string): Promise<LoginR
 
 //need to send jwt token
 
-export const apiGenerateLicense = async (licenseType: string, licenseDuration: string): Promise<{ success: boolean; checkoutUrl: string }> => {
+export const apiGenerateLicense = async (licenseType: string, licenseDuration: string): Promise<{ success: boolean; url: string; sessionId?: string }> => {
     try {
 
         const response = await fetch(`${API_BASE}/create-checkout-session`, {
@@ -82,7 +82,7 @@ export const apiGenerateLicense = async (licenseType: string, licenseDuration: s
         return await response.json();
     } catch (error) {
         console.error('Generate license error:', error);
-        return { success: false, checkoutUrl: 'Network error' };
+        return { success: false, url: 'Network error' };
     }
 };
 

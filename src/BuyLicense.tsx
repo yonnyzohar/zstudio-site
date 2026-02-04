@@ -37,9 +37,9 @@ const BuyLicense: React.FC = () => {
     const result = await apiGenerateLicense(selectedType, selectedDuration);
     setLoading(false);
     if (result.success) {
-      window.location.href = result.checkoutUrl;
+      window.location.href = result.url;
     } else {
-      alert(`Failed to generate license: ${result.checkoutUrl || 'Unknown error'}`);
+      alert(`Failed to generate license: ${result.url || 'Unknown error'}`);
     }
   };
 
