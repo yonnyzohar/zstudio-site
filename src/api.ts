@@ -19,7 +19,7 @@ export interface User {
     email: string;
 }
 
-const API_BASE = 'http://127.0.0.1:4000';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
+const API_BASE = 'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
 
 
 //login and sign up. -get jwt token and user id
