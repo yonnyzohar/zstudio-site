@@ -46,8 +46,8 @@ const Dashboard: React.FC = () => {
                   const year = date.getFullYear();
                   let expDate=  `${day}/${month}/${year}`;
                 
-    //show a popup saying we will not bill you beyond your current billing cycle at license.expiryDate
-    alert('We will bill you on your current billing cycle. ' + expDate);
+    //show a popup saying we will bill you on your current billing cycle
+    alert('Your subscription will continue and you will be billed on your next billing cycle. ' + expDate);
     // For now, just update status locally
     const result = await apiReactivateLicense(licenseKey);
     if (result.success) {
@@ -75,7 +75,7 @@ const Dashboard: React.FC = () => {
     const result = await apiCancelLicense(licenseKey);
     if (result.success) {
       setLicenses(prev => prev.map(license =>
-        license.licenseKey === licenseKey ? { ...license, status: 'cancelled' } : license
+        license.licenseKey === licenseKey ? { ...license, status: 'cancel_at_period_end' } : license
       ));
     } else {
       alert('Failed to cancel license');
@@ -127,14 +127,18 @@ const Dashboard: React.FC = () => {
                 <Link to={`/edit-seats/${license.licenseKey}`} state={{ license }}>
                   {license.name} </Link>
               </td>
-              <td style={{ color: license.status === 'active' ? '#4caf50' : '#ff6b6b' }}>
-                {license.status}
+              <td style={{ 
+                color: license.status === 'active' ? '#4caf50' : 
+                       license.status === 'cancel_at_period_end' ? '#ff9800' : 
+                       '#ff6b6b' 
+              }}>
+                {license.status === 'cancel_at_period_end' ? 'Cancelling' : license.status}
               </td>
               <td>
                 {license.seatsTotal}
               </td>
               <td>
-                {license.status === 'cancelled' ? (
+                {(license.status === 'cancelled' || license.status === 'cancel_at_period_end') ? (
                   <button
                   onClick={() => handleRenew(license.licenseKey, license.expiry)}
                   className="action-btn renew-btn"

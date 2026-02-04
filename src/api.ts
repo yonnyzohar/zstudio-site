@@ -9,7 +9,7 @@ export interface LoginResponse {
 export interface License {
     id: string;
     name: string;
-    status: 'active' | 'expired' | 'cancelled';
+    status: 'active' | 'cancel_at_period_end' | 'cancelled' | 'expired';
     seatsTotal: number;
     expiry: string;
     licenseKey: string;
