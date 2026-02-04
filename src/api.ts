@@ -21,6 +21,7 @@ export interface User {
 
 const API_BASE = 'http://127.0.0.1:4000';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
 
+
 //login and sign up. -get jwt token and user id
 
 export const apiLogin = async (email: string, password: string): Promise<LoginResponse> => {
@@ -177,7 +178,7 @@ export const apiRemoveLicenseEmail = async (licenseKey: string, email: string): 
     }
 };
 
-export const apiCencelLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
+export const apiCancelLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
     try {
         const response = await fetch(`${API_BASE}/cancel-license`, {
             method: 'POST',
@@ -194,9 +195,9 @@ export const apiCencelLicense = async (licenseKey: string): Promise<{ success: b
     }
 };
 
-export const apiUnCancelLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
+export const apiReactivateLicense = async (licenseKey: string): Promise<{ success: boolean; message?: string }> => {
     try {
-        const response = await fetch(`${API_BASE}/uncancel-license`, {
+        const response = await fetch(`${API_BASE}/reactivate-license`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -206,7 +207,7 @@ export const apiUnCancelLicense = async (licenseKey: string): Promise<{ success:
         });
         return await response.json();
     } catch (error) {
-        console.error('Unrevoke license error:', error);
+        console.error('Reactivate license error:', error);
         return { success: false, message: 'Network error' };
     }
 };

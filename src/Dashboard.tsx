@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetLicenses, apiGenerateLicense, getLicenseTypes, apiUnCancelLicense, apiCencelLicense } from './api';
+import { apiGetLicenses, apiGenerateLicense, getLicenseTypes, apiReactivateLicense, apiCancelLicense } from './api';
 import type { License } from './api';
 
 const Dashboard: React.FC = () => {
@@ -49,7 +49,7 @@ const Dashboard: React.FC = () => {
     //show a popup saying we will not bill you beyond your current billing cycle at license.expiryDate
     alert('We will bill you on your current billing cycle. ' + expDate);
     // For now, just update status locally
-    const result = await apiUnCancelLicense(licenseKey);
+    const result = await apiReactivateLicense(licenseKey);
     if (result.success) {
 
     setLicenses(prev => prev.map(license =>
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
     //show a popup saying we will not bill you beyond your current billing cycle at license.expiryDate
     alert('We will not bill you beyond your current billing cycle. ' + expDate);
 
-    const result = await apiCencelLicense(licenseKey);
+    const result = await apiCancelLicense(licenseKey);
     if (result.success) {
       setLicenses(prev => prev.map(license =>
         license.licenseKey === licenseKey ? { ...license, status: 'cancelled' } : license
