@@ -15,6 +15,8 @@ import Tutorials from './Tutorials';
 import Terms from './Terms';
 import BuyLicense from './BuyLicense';
 import License from './License';
+import PaymentSuccess from './PaymentSuccess';
+import PaymentCancelled from './PaymentCancelled';
 import './App.css';
 
 // ScrollToTop component
@@ -60,6 +62,8 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/buy-license" element={<BuyLicense />} />
               <Route path="/license" element={<License />} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
+              <Route path="/payment-cancelled" element={<PaymentCancelled />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>

@@ -30,19 +30,11 @@ const Dashboard: React.FC = () => {
 
   
   const handleBuyLicense = async () => {
-    const userId = localStorage.getItem('userId');
-    if (!userId) {
-      alert('User not logged in');
-      return;
-    }
-
-    const result = await apiGenerateLicense(userId, selectedType, selectedDuration);
+    const result = await apiGenerateLicense(selectedType, selectedDuration);
     if (result.success) {
-      alert('License generated successfully!');
-      setShowPopup(false);
-      loadLicenses();
+      window.location.href = result.checkoutUrl;
     } else {
-      alert(`Failed to generate license: ${result.message || 'Unknown error'}`);
+      alert(`Failed to generate license: ${result.checkoutUrl || 'Unknown error'}`);
     }
   };
 

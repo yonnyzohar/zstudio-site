@@ -196,7 +196,7 @@ const Home: React.FC = () => {
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="_GE3LhaHCno" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="URx6OGJs5dQ" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
                   <div className="feature-number">03</div>

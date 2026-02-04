@@ -19,7 +19,7 @@ export interface User {
     email: string;
 }
 
-const API_BASE = 'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000';
+const API_BASE = 'http://127.0.0.1:4000';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
 
 //login and sign up. -get jwt token and user id
 
@@ -63,24 +63,25 @@ export const apiSignup = async (email: string, password: string): Promise<LoginR
 
 //need to send jwt token
 
-export const apiGenerateLicense = async (userId: string, licenseType: string, licenseDuration: string): Promise<{ success: boolean; licenseKey?: string; id?: string; message?: string }> => {
+export const apiGenerateLicense = async (licenseType: string, licenseDuration: string): Promise<{ success: boolean; checkoutUrl: string }> => {
     try {
+
         const response = await fetch(`${API_BASE}/generate-license`, {
             method: 'POST',
             headers: {
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                userId,
-                licenseType,
-                licenseDuration
+                licenseType: licenseType,
+                licenseDuration: licenseDuration
             })
         });
+
         return await response.json();
     } catch (error) {
         console.error('Generate license error:', error);
-        return { success: false, message: 'Network error' };
+        return { success: false, checkoutUrl: 'Network error' };
     }
 };
 
