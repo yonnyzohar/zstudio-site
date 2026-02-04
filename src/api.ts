@@ -67,7 +67,7 @@ export const apiSignup = async (email: string, password: string): Promise<LoginR
 export const apiGenerateLicense = async (licenseType: string, licenseDuration: string): Promise<{ success: boolean; checkoutUrl: string }> => {
     try {
 
-        const response = await fetch(`${API_BASE}/generate-license`, {
+        const response = await fetch(`${API_BASE}/create-checkout-session`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,10 +101,8 @@ export const getLicenseTypes = async (): Promise<{ success: boolean; seatsMap: R
 };
 
 export const apiGetLicenses = async (): Promise<License[]> => {
-    const userId = localStorage.getItem('userId');
-    if (!userId) return [];
     try {
-        const response = await fetch(`${API_BASE}/user-licenses?userId=${userId}`, {
+        const response = await fetch(`${API_BASE}/user-licenses`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
