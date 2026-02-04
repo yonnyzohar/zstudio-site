@@ -150,7 +150,7 @@ const Dashboard: React.FC = () => {
                   onClick={() => handleCancel(license.licenseKey, license.expiry)}
                   className="action-btn cancel-btn"
                   >
-                  Cancel
+                  Cancel Next Billing
                   </button>
                 ) : null}
               </td>

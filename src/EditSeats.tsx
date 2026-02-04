@@ -119,10 +119,14 @@ const EditSeats: React.FC = () => {
   return (
     <div className="container">
       <h1>Edit Seats - {id}</h1>
+      <div style={{ marginBottom: '1rem', fontSize: '1.1rem', color: '#ccc' }}>
+        Seats Used: {users.length} / {seatsTotal}
+      </div>
       <button
         onClick={() => setShowModal(true)}
         className="button"
         style={{ marginBottom: '2rem' }}
+        disabled={users.length >= seatsTotal}
       >
         Add User
       </button>
