@@ -191,7 +191,7 @@ const Home: React.FC = () => {
                   <p>Easily import images, animations, and assets with drag-and-drop.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="6Onv-P2Fjyo" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="Q4AYpWcXzC8" />
                 </div>
               </div>
               <div className="feature-row">
