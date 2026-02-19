@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 declare global {
   interface Window {
@@ -7,13 +7,27 @@ declare global {
 }
 
 const ZImporter: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     // Initialize Prism.js highlighting
     if (window.Prism) {
       window.Prism.highlightAll();
     }
+
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
   return (
+    <>
     <div className="container">
       {/* HERO SECTION */}
       <section style={{ marginBottom: '3rem' }}>
@@ -21,7 +35,7 @@ const ZImporter: React.FC = () => {
           zImporter
         </h1>
         <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
-          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js games and interactive ads. Export from zStudio, import with zImporter, and bring your UI to life in code.
+          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js and Phaser games and interactive ads. Export from zStudio, import with zImporter, and bring your UI to life in code.
         </p>
         
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
@@ -35,54 +49,6 @@ const ZImporter: React.FC = () => {
                 allowFullScreen
                 title="zImporter - Importing zStudio scenes"
               />
-            </div>
-          </div>
-          
-          {/* DOWNLOAD SECTION */}
-          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Download for Pixi.js Environment</h2>
-            <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
-              Get the zImporter package and example project to start integrating zStudio scenes into your games and ads.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a 
-                href="https://github.com/yonnyzohar/zImporter_PIXI" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ 
-                  backgroundColor: '#14b8a6', 
-                  color: '#0f172a', 
-                  padding: '0.75rem 1.5rem', 
-                  borderRadius: '8px', 
-                  textDecoration: 'none', 
-                  fontWeight: '600', 
-                  transition: 'all 0.3s ease',
-                  display: 'inline-block'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
-              >
-                📦 zImporter Package
-              </a>
-              <a 
-                href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ 
-                  backgroundColor: '#f59e0b', 
-                  color: '#0f172a', 
-                  padding: '0.75rem 1.5rem', 
-                  borderRadius: '8px', 
-                  textDecoration: 'none', 
-                  fontWeight: '600', 
-                  transition: 'all 0.3s ease',
-                  display: 'inline-block'
-                }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
-              >
-                🚀 Example Project
-              </a>
             </div>
           </div>
         </div>
@@ -106,6 +72,82 @@ const ZImporter: React.FC = () => {
           <p style={{ color: '#e5e7eb', marginTop: '1rem', fontSize: '0.9em' }}>
             You can also export with individual images instead of a texture atlas.
           </p>
+        </div>
+      </section>
+
+      {/* PIXI SECTION */}
+      <section id="pixi-section" style={{ marginBottom: '3rem' }}>
+        <h1 style={{ fontSize: '2.5em', marginBottom: '2rem', textAlign: 'center', color: '#14b8a6', borderBottom: '2px solid rgba(20, 184, 166, 0.3)', paddingBottom: '1rem' }}>
+          🖼️ Pixi.js Integration
+        </h1>
+      </section>
+
+      {/* PIXI DOWNLOAD */}
+      <section style={{ marginBottom: '3rem' }}>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
+          <h2 style={{ color: '#14b8a6', marginBottom: '1rem', textAlign: 'center' }}>📦 Get Started with Pixi.js</h2>
+          <p style={{ color: '#e5e7eb', marginBottom: '1.5rem', textAlign: 'center' }}>
+            Get the zImporter package and example project to start integrating zStudio scenes into your games and ads.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_PIXI" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#14b8a6', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+            >
+              📦 zImporter Package
+            </a>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#f59e0b', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+            >
+              🚀 Example Project
+            </a>
+            <a 
+              href="/docs/pixi/index.html" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#6366f1', 
+                color: '#ffffff', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4f46e5'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#6366f1'}
+            >
+              📚 Documentation
+            </a>
+          </div>
         </div>
       </section>
 
@@ -230,14 +272,285 @@ export class Game {
         </div>
       </section>
 
-      {/* PHASER */}
+      {/* PHASER SECTION */}
+      <section id="phaser-section" style={{ marginBottom: '3rem' }}>
+        <h1 style={{ fontSize: '2.5em', marginBottom: '2rem', textAlign: 'center', color: '#f59e0b', borderBottom: '2px solid rgba(245, 158, 11, 0.3)', paddingBottom: '1rem' }}>
+          ⚡ Phaser Integration
+        </h1>
+      </section>
+
+      {/* PHASER BETA */}
+      <section style={{ marginBottom: '3rem' }}>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+          <h2 style={{ color: '#f59e0b', marginBottom: '1rem', textAlign: 'center' }}>🚧 Phaser Support (Beta)</h2>
+          <p style={{ color: '#e5e7eb', marginBottom: '1.5rem', textAlign: 'center' }}>
+            zImporter now supports Phaser 3! This feature is currently in beta - please report any issues you encounter.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_Phaser" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#f59e0b', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+            >
+              📦 zImporter Phaser Package
+            </a>
+            <a 
+              href="/docs/phaser/index.html" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#6366f1', 
+                color: '#ffffff', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4f46e5'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#6366f1'}
+            >
+              📚 Documentation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PHASER INSTALLATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Phaser Installation</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Add to package.json</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-json">
+{`"dependencies": {
+  "zimporter-phaser": "latest"
+}`}
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Peer Dependencies</h3>
+            <p style={{ color: '#e5e7eb', marginBottom: '1rem', fontSize: '0.9em' }}>
+              Required Phaser 3 installation:
+            </p>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-json">
+{`"dependencies": {
+  "phaser": "^3.60.0"
+}`}
+              </code>
+            </pre>
+          </div>
+        </div>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', marginTop: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install Dependencies</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-bash">npm install</code>
+          </pre>
+        </div>
+      </section>
+
+      {/* PHASER INTEGRATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Phaser zImporter Integration</h2>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Import the Classes</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-typescript">
+{`import Phaser from 'phaser';
+import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-phaser';`}
+            </code>
+          </pre>
+        </div>
+      </section>
+
+      {/* PHASER EXAMPLES */}
       <section>
-        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', textAlign: 'center' }}>
-          <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Phaser Support</h2>
-          <p style={{ color: '#e5e7eb' }}>Coming soon...</p>
+        <h2 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Phaser Code Examples</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Game Scene Setup</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
+{`import Phaser from 'phaser';
+import { ZScene, ZSceneStack } from 'zimporter-phaser';
+
+export class GameScene extends Phaser.Scene {
+    preload() {
+        // Load your zStudio exported assets here
+        this.load.setPath('./assets/testScene/');
+        this.load.json('placements', 'placements.json');
+        this.load.atlas('ta', 'ta.png', 'ta.json');
+    }
+
+    create() {
+        const scene = new ZScene("testScene");
+        scene.loadFromPhaser(this, () => {
+            ZSceneStack.push(scene);
+            scene.loadStage(this);
+        });
+    }
+
+    update(time: number, delta: number) {
+        // Your game logic here
+    }
+}`}
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Game Configuration</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
+{`import Phaser from 'phaser';
+import { GameScene } from './GameScene';
+import { ZSceneStack } from 'zimporter-phaser';
+
+const config: Phaser.Types.Core.GameConfig = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    scene: [GameScene],
+    backgroundColor: '#000000',
+    scale: {
+        mode: Phaser.Scale.RESIZE,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    }
+};
+
+const game = new Phaser.Game(config);
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    game.scale.resize(window.innerWidth, window.innerHeight);
+    ZSceneStack.resize(window.innerWidth, window.innerHeight);
+});`}
+              </code>
+            </pre>
+          </div>
         </div>
       </section>
     </div>
+
+    {/* MOBILE SIDEBAR TOGGLE */}
+    {isMobile && (
+      <button
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          backgroundColor: '#14b8a6',
+          color: '#0f172a',
+          border: 'none',
+          borderRadius: '50%',
+          width: '60px',
+          height: '60px',
+          fontSize: '24px',
+          cursor: 'pointer',
+          zIndex: 1001,
+          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'all 0.3s ease'
+        }}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+        aria-label="Toggle navigation menu"
+      >
+        {isSidebarOpen ? '✕' : '☰'}
+      </button>
+    )}
+
+    {/* MOBILE OVERLAY */}
+    {isMobile && isSidebarOpen && (
+      <div
+        onClick={() => setIsSidebarOpen(false)}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 999,
+          transition: 'opacity 0.3s ease'
+        }}
+      />
+    )}
+
+    {/* SIDEBAR */}
+    <div style={{
+      position: 'fixed',
+      top: '50%',
+      right: isMobile ? (isSidebarOpen ? '2rem' : '-220px') : '2rem',
+      transform: 'translateY(-50%)',
+      backgroundColor: '#1e293b',
+      borderRadius: '12px',
+      padding: '1.5rem',
+      border: '1px solid rgba(20, 184, 166, 0.3)',
+      boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
+      zIndex: 1000,
+      minWidth: '180px',
+      transition: 'right 0.3s ease',
+      opacity: isMobile && !isSidebarOpen ? 0 : 1,
+      pointerEvents: isMobile && !isSidebarOpen ? 'none' : 'auto'
+    }}>
+      <h3 style={{ color: '#14b8a6', marginBottom: '1rem', textAlign: 'center', fontSize: '1.1em' }}>Quick Navigation</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <a
+          href="#pixi-section"
+          style={{
+            color: '#14b8a6',
+            textDecoration: 'none',
+            padding: '0.5rem 1rem',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease',
+            display: 'block',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(20, 184, 166, 0.1)'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+        >
+          🖼️ Pixi.js
+        </a>
+        <a
+          href="#phaser-section"
+          style={{
+            color: '#f59e0b',
+            textDecoration: 'none',
+            padding: '0.5rem 1rem',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease',
+            display: 'block',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(245, 158, 11, 0.1)'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+        >
+          ⚡ Phaser
+        </a>
+      </div>
+    </div>
+    </>
   );
 };
 

@@ -47,8 +47,14 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
 
 const Home: React.FC = () => {
   const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Check if mobile
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 600);
+  };
 
   useEffect(() => {
     // Fetch latest release data
@@ -61,6 +67,9 @@ const Home: React.FC = () => {
     if (window.Prism) {
       window.Prism.highlightAll();
     }
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
 
     // Intersection Observer for fade-in animation
     const observer = new IntersectionObserver(
@@ -86,7 +95,10 @@ const Home: React.FC = () => {
       if (ref) observer.observe(ref);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
@@ -102,6 +114,57 @@ const Home: React.FC = () => {
                   alt="zStudio Logo"
                   className="logo-image"
                 />
+                <div style={{
+                  marginTop: '1rem',
+                  padding: '0.75rem 1.25rem',
+                  background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(245, 158, 11, 0.1))',
+                  border: '1px solid rgba(20, 184, 166, 0.3)',
+                  borderRadius: '8px',
+                  textAlign: 'center',
+                  boxShadow: '0 2px 8px rgba(20, 184, 166, 0.15)'
+                }}>
+                  <p style={{
+                    margin: '0',
+                    fontSize: '0.9rem',
+                    fontWeight: '600',
+                    background: 'linear-gradient(135deg, #14b8a6, #f59e0b)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px'
+                  }}>
+                    Create scenes once, export to{' '}
+                    <a 
+                      href="/z-importer#pixi-section"
+                      style={{
+                        color: '#14b8a6',
+                        textDecoration: 'none',
+                        fontWeight: '700',
+                        transition: 'color 0.3s ease'
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.color = '#0f766e'}
+                      onMouseOut={(e) => e.currentTarget.style.color = '#14b8a6'}
+                    >
+                      Pixi.js
+                    </a>
+                    {' '} & {' '}
+                    <a 
+                      href="/z-importer#phaser-section"
+                      style={{
+                        color: '#f59e0b',
+                        textDecoration: 'none',
+                        fontWeight: '700',
+                        transition: 'color 0.3s ease'
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.color = '#d97706'}
+                      onMouseOut={(e) => e.currentTarget.style.color = '#f59e0b'}
+                    >
+                      Phaser
+                    </a>
+                    !
+                  </p>
+                </div>
               </div>
               <div className="hero-text">
                 <h1>
@@ -110,7 +173,7 @@ const Home: React.FC = () => {
                 </h1>
 
                 <p className="intro">
-                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js integration.
+                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js and Phaser integration.
                 </p>
 
                 <div className="hero-cta-section">
@@ -231,8 +294,8 @@ const Home: React.FC = () => {
                 <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
                   <div className="feature-number">06</div>
                   <FiLink className="feature-icon" />
-                  <h3>Seamless Pixi.js Integration</h3>
-                  <p>Export scenes as JSON data and import into your Pixi.js projects with our zImporter package. Maintains all relationships and hierarchies.</p>
+                  <h3>Seamless Pixi.js & Phaser Integration</h3>
+                  <p>Export scenes as JSON data and import into your Pixi.js or Phaser projects with our zImporter package. Maintains all relationships and hierarchies.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="ZINRf2fgfQs" />
@@ -267,13 +330,13 @@ const Home: React.FC = () => {
           <section className="workflow">
             <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#14b8a6', fontSize: '2.5em', fontWeight: '700', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Creative Workflow</h2>
             <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-              <div className="workflow-row" style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', maxWidth: '934px', margin: '0 auto', backgroundColor: '#1e293b', borderRadius: '12px', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', border: '1px solid rgba(20, 184, 166, 0.3)', padding: '2rem' }}>
-              <div className="workflow-item" style={{ flex: '1', maxWidth: '400px', padding: '0 2rem', textAlign: 'center' }}>
+              <div className="workflow-row" style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '1.5rem' : '2rem', alignItems: 'stretch', maxWidth: isMobile ? '100%' : '934px', margin: '0 auto', backgroundColor: '#1e293b', borderRadius: '12px', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', border: '1px solid rgba(20, 184, 166, 0.3)', padding: isMobile ? '1.5rem' : '2rem' }}>
+              <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
                 <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Designer</h3>
                 <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Focuses on his creative vision</p>
                 <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', maxHeight: '350px', height: 'auto', borderRadius: '8px', objectFit: 'contain' }} />
               </div>
-              <div className="workflow-item" style={{ flex: '1', maxWidth: '400px', padding: '0 2rem', textAlign: 'center' }}>
+              <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
                 <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Developer</h3>
                 <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>focuses on game logic.</p>
                 <pre style={{
@@ -313,7 +376,7 @@ scene.load(loadPath, () => {
           <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
             <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Import Scene into Your Project</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js projects.
+              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js and Phaser projects.
             </p>
             <Link 
               to="/z-importer"

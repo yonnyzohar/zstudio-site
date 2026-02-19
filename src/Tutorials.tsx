@@ -35,7 +35,7 @@ const Tutorials: React.FC = () => {
     },
     {
       title: "Testing your Scene",
-      description: "This video demonstrates testing a full zStudio scene—showing a slot machine layout built with images, nine-slices, buttons, and a portrait/landscape setup. It explains how the built-in test window loads the exported scene through the zStudio importer (currently supporting Pixi), allowing artists to preview exactly how their UI will look and behave on a real device without needing a developer.",
+      description: "This video demonstrates testing a full zStudio scene—showing a slot machine layout built with images, nine-slices, buttons, and a portrait/landscape setup. It explains how the built-in test window loads the exported scene through the zStudio importer (currently supporting Pixi.js and Phaser), allowing artists to preview exactly how their UI will look and behave on a real device without needing a developer.",
       url: "https://youtu.be/BHWw6DEsxyA"
     },
     {
@@ -65,7 +65,7 @@ const Tutorials: React.FC = () => {
     },
     {
       title: "Designing for Portrait and Landscape",
-      description: "This video This video demonstrates designing a responsive slot machine scene from scratch in zStudio. It covers importing and organizing assets, creating templates for backgrounds, buttons, reels, and text fields, and setting up portrait and landscape layouts. The video also shows how to use full-screen backgrounds, pivot points, anchoring, and guides to create dynamic, pixel-perfect layouts that adapt to different screen sizes and orientations. through the export options in zStudio. It covers exporting as individual images (with JSON placement data), exporting as a texture atlas (single PNG with JSON references), and exporting for different rendering libraries like Pixi.js. The video also highlights settings for optimizing exports, such as trimming images, adjusting scale, and choosing file formats to ensure efficient loading in your game projects.",
+      description: "This video demonstrates designing a responsive slot machine scene from scratch in zStudio. It covers importing and organizing assets, creating templates for backgrounds, buttons, reels, and text fields, and setting up portrait and landscape layouts. The video also shows how to use full-screen backgrounds, pivot points, anchoring, and guides to create dynamic, pixel-perfect layouts that adapt to different screen sizes and orientations. It covers the export options in zStudio, including exporting as individual images (with JSON placement data), exporting as a texture atlas (single PNG with JSON references), and exporting for different rendering libraries like Pixi.js and Phaser. The video also highlights settings for optimizing exports, such as trimming images, adjusting scale, and choosing file formats to ensure efficient loading in your game projects.",
       url: "https://youtu.be/EypJ2ZRc4DI"
     },
     {

@@ -8,6 +8,7 @@ interface ReleaseData {
 
 const About: React.FC = () => {
   const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Fetch latest release data
@@ -15,10 +16,27 @@ const About: React.FC = () => {
       .then(res => res.json())
       .then(data => setReleaseData(data))
       .catch(err => console.error('Failed to load release info:', err));
+
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
   return (
     <div className="container">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        marginBottom: '2rem',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: isMobile ? '1rem' : '0'
+      }}>
         <h1 style={{ margin: '0' }}>About zStudio</h1>
         
         <div style={{ 
@@ -28,14 +46,21 @@ const About: React.FC = () => {
           border: '1px solid rgba(20, 184, 166, 0.3)', 
           boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
           display: 'flex',
-          gap: '0.5rem'
+          gap: '0.5rem',
+          flexDirection: isMobile ? 'column' : 'row',
+          width: isMobile ? '100%' : 'auto'
         }}>
           <a 
             className="button primary cta-main" 
             href={releaseData?.mac || '#'} 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ fontSize: '0.9em', padding: '0.5rem 1rem' }}
+            style={{ 
+              fontSize: '0.9em', 
+              padding: '0.5rem 1rem',
+              width: isMobile ? '100%' : 'auto',
+              textAlign: 'center' as const
+            }}
           >
             macOS
           </a>
@@ -44,20 +69,41 @@ const About: React.FC = () => {
             href={releaseData?.windows || '#'} 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ fontSize: '0.9em', padding: '0.5rem 1rem' }}
+            style={{ 
+              fontSize: '0.9em', 
+              padding: '0.5rem 1rem',
+              width: isMobile ? '100%' : 'auto',
+              textAlign: 'center' as const
+            }}
           >
             Windows
           </a>
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row'
+      }}>
         <img 
           src="/assets/Lightning Fast Scene Creation.png" 
           alt="Lightning Fast Scene Creation" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>What is zStudio?</h2>
           <p>
             zStudio is the ultimate visual authoring tool for 2D web game development and interactive ad creation. Designed to revolutionize your
@@ -73,13 +119,29 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem', flexDirection: 'row-reverse' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem', 
+        flexDirection: isMobile ? 'column' : 'row-reverse'
+      }}>
         <img 
           src="/assets/6_template_system.png" 
           alt="Template System" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Why Choose zStudio?</h2>
           <p>
             Modern web games and interactive ads demand responsive layouts, reusable components, and streamlined pipelines. Yet, many teams
@@ -100,13 +162,29 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row'
+      }}>
         <img 
           src="/assets/7_animation.png" 
           alt="Animation System" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>What Makes zStudio Special?</h2>
           <ul style={{ marginLeft: '2rem' }}>
             <li><strong>Visual Scene Building:</strong> Drag, drop, and organize assets with ease. Say goodbye to manual coding.</li>
@@ -120,13 +198,29 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem', flexDirection: 'row-reverse' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem', 
+        flexDirection: isMobile ? 'column' : 'row-reverse'
+      }}>
         <img 
           src="/assets/4_transform_controls.png" 
           alt="Transform Controls" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Who is zStudio For?</h2>
           <p>
             zStudio is perfect for:
@@ -141,13 +235,29 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row'
+      }}>
         <img 
           src="/assets/3_Hierarchical_Composition.png" 
           alt="Hierarchical Composition" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Proven in Production</h2>
           <p>
             zStudio isn't just a concept — it's a battle-tested tool actively used in commercial game studios. It has
@@ -157,13 +267,29 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', gap: '2rem', flexDirection: 'row-reverse' }}>
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        marginBottom: '2rem', 
+        gap: '2rem', 
+        flexDirection: isMobile ? 'column' : 'row-reverse'
+      }}>
         <img 
           src="/assets/Screenshot 2026-01-16 at 23.17.42.png" 
           alt="zStudio Interface" 
-          style={{ width: '300px', height: 'auto', borderRadius: '8px' }}
+          style={{ 
+            width: isMobile ? '100%' : '300px', 
+            maxWidth: isMobile ? '400px' : '300px',
+            height: 'auto', 
+            borderRadius: '8px',
+            order: isMobile ? 2 : 1
+          }}
         />
-        <div>
+        <div style={{ 
+          flex: '1',
+          textAlign: isMobile ? 'center' : 'left',
+          order: isMobile ? 1 : 2
+        }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Our Vision</h2>
           <p>
             We believe zStudio is the future of web game development and interactive advertising. Our mission is to make zStudio the standard for
