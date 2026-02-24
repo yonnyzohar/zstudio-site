@@ -109,11 +109,15 @@ const Home: React.FC = () => {
           <div className="hero-content">
             <div className="hero-layout">
               <div className="hero-logo">
-                <img
-                  src="/assets/logo.webp"
-                  alt="zStudio Logo"
-                  className="logo-image"
-                />
+                <div className="hero-video-embed">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/jgycNrETm0w?rel=0&modestbranding=1"
+                    title="zStudio Overview"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
                 <div style={{
                   marginTop: '1rem',
                   padding: '0.75rem 1.25rem',
