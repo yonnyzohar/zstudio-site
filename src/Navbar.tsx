@@ -29,6 +29,7 @@ const Navbar: React.FC = () => {
         <Link to="/z-importer" className="nav-link" onClick={closeMenu}>zImporter</Link>
         <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
+        <Link to="/demos" className="nav-link" onClick={closeMenu}>Demos</Link>
         {isLoggedIn ? (
           <>
             <Link to="/dashboard" className="nav-link" onClick={closeMenu}>My Dashboard</Link>

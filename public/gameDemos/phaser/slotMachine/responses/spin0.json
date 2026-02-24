@@ -1,0 +1,79 @@
+{
+    "stopPoints": [
+        10,
+        0,
+        3,
+        11,
+        5
+    ],
+    "totalWin": 5000,
+    "features": {
+        "bigWin": {
+            "win": 5000
+        },
+        "reelAnticipation": {
+            "reels": [0,4]
+        },
+        "stickySymbols": {
+            "add": [
+                {"reel":1,"row":1}
+            ]
+        },
+        "lineWin": {
+            "data": [
+                {
+                    "coords": [
+                        {
+                            "c": 0,
+                            "r": 0
+                        },
+                        {
+                            "c": 1,
+                            "r": 0
+                        },
+                        {
+                            "c": 2,
+                            "r": 0
+                        },
+                        {
+                            "c": 3,
+                            "r": 0
+                        },
+                        {
+                            "c": 4,
+                            "r": 1
+                        }
+                    ],
+                    "totalPay": 100,
+                    "lineWin": 500
+                },
+                {
+                    "coords": [
+                        {
+                            "c": 0,
+                            "r": 1
+                        },
+                        {
+                            "c": 1,
+                            "r": 2
+                        },
+                        {
+                            "c": 2,
+                            "r": 2
+                        },
+                        {
+                            "c": 3,
+                            "r": 2
+                        },
+                        {
+                            "c": 4,
+                            "r": 0
+                        }
+                    ],
+                    "totalPay": 50,
+                    "lineWin": 400
+                }
+            ]
+        }
+    }
+}

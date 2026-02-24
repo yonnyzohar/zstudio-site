@@ -12,6 +12,7 @@ import EditSeats from './EditSeats';
 import About from './About';
 import ZImporter from './ZImporter';
 import Tutorials from './Tutorials';
+import Demos from './Demos';
 import Terms from './Terms';
 import BuyLicense from './BuyLicense';
 import License from './License';
@@ -59,6 +60,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/z-importer" element={<ZImporter />} />
               <Route path="/tutorials" element={<Tutorials />} />
+              <Route path="/demos" element={<Demos />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/buy-license" element={<BuyLicense />} />
               <Route path="/license" element={<License />} />
