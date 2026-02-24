@@ -307,6 +307,25 @@ export class Game {
               📦 zImporter Phaser Package
             </a>
             <a 
+              href="https://github.com/yonnyzohar/zImporter_Phaser_Example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#14b8a6', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+            >
+              🚀 Example Project
+            </a>
+            <a 
               href="/docs/phaser/index.html" 
               target="_blank" 
               rel="noopener noreferrer"
