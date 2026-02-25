@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bundle.js Example</title>
+    <title>zImporter Example</title>
     <style>
         html,
         body {
@@ -12,7 +12,8 @@
             padding: 0;
             overflow: hidden;
             background-color: black;
-
+            width: 100vw;
+            height: 100vh;
         }
 
         /* Style the button to stay on top */
@@ -28,13 +29,22 @@
             border-radius: 5px;
             z-index: 10;
         }
+
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+        }
     </style>
+
 </head>
 
 <body>
+
+    <div id="game-container"></div>
     <script src="bundle.js"></script>
 
-    <!-- <button onclick="toggleFullscreen()">Go Fullscreen</button> -->
+    <!-- This is a comment 
+    <button onclick="toggleFullscreen()">Go Fullscreen</button>
 
     <script>
         function toggleFullscreen() {
@@ -47,6 +57,7 @@
             }
         }
     </script>
+    -->
 </body>
 
 </html>
