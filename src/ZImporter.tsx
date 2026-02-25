@@ -518,6 +518,151 @@ window.addEventListener('resize', () => {
           </div>
         </div>
       </section>
+
+      {/* HTML SECTION */}
+      <section id="html-section" style={{ marginBottom: '3rem' }}>
+        <h1 style={{ fontSize: '2.5em', marginBottom: '2rem', textAlign: 'center', color: '#a855f7', borderBottom: '2px solid rgba(168, 85, 247, 0.3)', paddingBottom: '1rem' }}>
+          🌐 HTML Integration
+        </h1>
+      </section>
+
+      {/* HTML BETA */}
+      <section style={{ marginBottom: '3rem' }}>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+          <h2 style={{ color: '#a855f7', marginBottom: '1rem', textAlign: 'center' }}>🚧 HTML Support (Beta)</h2>
+          <p style={{ color: '#e5e7eb', marginBottom: '1.5rem', textAlign: 'center' }}>
+            zImporter now supports plain HTML using standard divs! No canvas framework required. This feature is currently in beta - please report any issues you encounter.
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a
+              href="https://github.com/yonnyzohar/zImporter_html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: '#a855f7',
+                color: '#ffffff',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#9333ea'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#a855f7'}
+            >
+              📦 zImporter HTML Package
+            </a>
+            <a
+              href="/docs/html/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: '#6366f1',
+                color: '#ffffff',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4f46e5'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#6366f1'}
+            >
+              📚 Documentation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* HTML INSTALLATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#a855f7', marginBottom: '1rem' }}>HTML Installation</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+            <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Add to package.json</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-json">
+{`"dependencies": {
+  "zimporter-html": "latest"
+}`}
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+            <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>No Canvas Framework Required</h3>
+            <p style={{ color: '#e5e7eb', fontSize: '0.9em' }}>
+              zImporter HTML works with standard browser divs and CSS — no Pixi.js or Phaser needed. Perfect for HTML banners, interactive web ads, and lightweight UI projects.
+            </p>
+          </div>
+        </div>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', marginTop: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+          <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Install Dependencies</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-bash">npm install</code>
+          </pre>
+        </div>
+      </section>
+
+      {/* HTML INTEGRATION */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#a855f7', marginBottom: '1rem' }}>HTML zImporter Integration</h2>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+          <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Import the Classes</h3>
+          <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <code className="language-typescript">
+{`import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-html';`}
+            </code>
+          </pre>
+        </div>
+      </section>
+
+      {/* HTML EXAMPLES */}
+      <section style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#a855f7', marginBottom: '1rem' }}>HTML Code Examples</h2>
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+            <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Loading a Scene</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
+{`import { ZScene, ZSceneStack } from 'zimporter-html';
+
+const loadPath = './assets/testScene/';
+const scene = new ZScene('testScene');
+
+scene.load(loadPath, () => {
+    ZSceneStack.push(scene);
+    // Mount the scene into a DOM element
+    scene.loadStage(document.getElementById('app')!);
+});`}
+              </code>
+            </pre>
+          </div>
+          <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
+            <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Interacting with Elements</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-typescript">
+{`import { ZScene, ZSceneStack, ZButton, ZContainer } from 'zimporter-html';
+
+const scene = new ZScene('myScene');
+scene.load('./assets/myScene/', () => {
+    ZSceneStack.push(scene);
+    scene.loadStage(document.getElementById('app')!);
+
+    const stage: ZContainer = scene.sceneStage;
+    const myBtn: ZButton = stage.get('myBtn') as ZButton;
+
+    myBtn.setLabel('Click Me');
+    myBtn.setCallback(() => {
+        console.log('Button clicked!');
+    });
+});`}
+              </code>
+            </pre>
+          </div>
+        </div>
+      </section>
     </div>
 
     {/* MOBILE SIDEBAR TOGGLE */}
@@ -620,6 +765,23 @@ window.addEventListener('resize', () => {
           onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
         >
           ⚡ Phaser
+        </a>
+        <a
+          href="#html-section"
+          style={{
+            color: '#a855f7',
+            textDecoration: 'none',
+            padding: '0.5rem 1rem',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease',
+            display: 'block',
+            textAlign: 'center',
+            fontWeight: '500'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(168, 85, 247, 0.1)'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+        >
+          🌐 HTML
         </a>
       </div>
     </div>

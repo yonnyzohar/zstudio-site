@@ -152,7 +152,7 @@ const Home: React.FC = () => {
                     >
                       Pixi.js
                     </a>
-                    {' '} & {' '}
+                    {', '}
                     <a 
                       href="/z-importer#phaser-section"
                       style={{
@@ -166,6 +166,20 @@ const Home: React.FC = () => {
                     >
                       Phaser
                     </a>
+                    {' & '}
+                    <a 
+                      href="/z-importer#html-section"
+                      style={{
+                        color: '#a855f7',
+                        textDecoration: 'none',
+                        fontWeight: '700',
+                        transition: 'color 0.3s ease'
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.color = '#9333ea'}
+                      onMouseOut={(e) => e.currentTarget.style.color = '#a855f7'}
+                    >
+                      HTML
+                    </a>
                     !
                   </p>
                 </div>
@@ -177,7 +191,7 @@ const Home: React.FC = () => {
                 </h1>
 
                 <p className="intro">
-                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js and Phaser integration.
+                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js, Phaser, and plain HTML integration.
                 </p>
 
                 <div className="hero-cta-section">
@@ -298,8 +312,8 @@ const Home: React.FC = () => {
                 <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
                   <div className="feature-number">06</div>
                   <FiLink className="feature-icon" />
-                  <h3>Seamless Pixi.js & Phaser Integration</h3>
-                  <p>Export scenes as JSON data and import into your Pixi.js or Phaser projects with our zImporter package. Maintains all relationships and hierarchies.</p>
+                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
+                  <p>Export scenes as JSON data and import into your Pixi.js, Phaser, or plain HTML projects with our zImporter package. Maintains all relationships and hierarchies.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="ZINRf2fgfQs" />
@@ -380,7 +394,7 @@ scene.load(loadPath, () => {
           <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
             <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Import Scene into Your Project</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js and Phaser projects.
+              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js, Phaser, and plain HTML projects.
             </p>
             <Link 
               to="/z-importer"
