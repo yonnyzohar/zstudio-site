@@ -39,61 +39,6 @@ const About: React.FC = () => {
         gap: isMobile ? '1rem' : '0'
       }}>
         <h1 style={{ margin: '0' }}>About zStudio</h1>
-        
-        <div style={{ 
-          backgroundColor: '#1e293b', 
-          borderRadius: '12px', 
-          padding: '1rem', 
-          border: '1px solid rgba(20, 184, 166, 0.3)', 
-          boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
-          display: 'flex',
-          gap: '0.5rem',
-          flexDirection: isMobile ? 'column' : 'row',
-          width: isMobile ? '100%' : 'auto'
-        }}>
-          <a 
-            className="button primary cta-main" 
-            href={releaseData?.mac || '#'} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ 
-              fontSize: '0.9em', 
-              padding: '0.5rem 1rem',
-              width: isMobile ? '100%' : 'auto',
-              textAlign: 'center' as const
-            }}
-          >
-            macOS
-          </a>
-          <a 
-            className="button primary cta-main" 
-            href={releaseData?.windows || '#'} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ 
-              fontSize: '0.9em', 
-              padding: '0.5rem 1rem',
-              width: isMobile ? '100%' : 'auto',
-              textAlign: 'center' as const
-            }}
-          >
-            Windows
-          </a>
-          <a 
-            className="button primary cta-main" 
-            href={releaseData?.linux || '#'} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ 
-              fontSize: '0.9em', 
-              padding: '0.5rem 1rem',
-              width: isMobile ? '100%' : 'auto',
-              textAlign: 'center' as const
-            }}
-          >
-            Linux
-          </a>
-        </div>
       </div>
 
       <div style={{ 
@@ -315,6 +260,77 @@ const About: React.FC = () => {
             Join the growing community of developers and ad creators who trust zStudio to bring their games and ads to life.
           </p>
         </div>
+      </div>
+
+      {/* FLOATING DOWNLOAD WIDGET */}
+      <div style={{
+        position: 'fixed',
+        top: '50%',
+        right: '2rem',
+        transform: 'translateY(-50%)',
+        backgroundColor: '#1e293b',
+        borderRadius: '12px',
+        padding: '1.5rem',
+        border: '1px solid rgba(20, 184, 166, 0.3)',
+        boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
+        zIndex: 1000,
+        minWidth: '180px',
+        display: isMobile ? 'none' : 'flex',
+        flexDirection: 'column',
+        gap: '0.5rem'
+      }}>
+        <h3 style={{ color: '#14b8a6', marginBottom: '1rem', textAlign: 'center', fontSize: '1.1em' }}>Download zStudio</h3>
+        <a
+          className="button primary compact mac"
+          href={releaseData?.mac || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: '0.9em',
+            padding: '0.5rem 1rem',
+            textAlign: 'center',
+            display: 'block',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          🍎 macOS
+        </a>
+        <a
+          className="button primary compact windows"
+          href={releaseData?.windows || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: '0.9em',
+            padding: '0.5rem 1rem',
+            textAlign: 'center',
+            display: 'block',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          🪟 Windows
+        </a>
+        <a
+          className="button primary compact linux"
+          href={releaseData?.linux || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: '0.9em',
+            padding: '0.5rem 1rem',
+            textAlign: 'center',
+            display: 'block',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          🐧 Linux
+        </a>
       </div>
     </div>
   );

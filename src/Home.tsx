@@ -204,13 +204,13 @@ const Home: React.FC = () => {
                     </div>
                     <div className="download-right">
                       <div className="downloads-buttons">
-                        <a className="button primary cta-main compact" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
+                        <a className="button primary cta-main compact mac" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
                           macOS
                         </a>
-                        <a className="button primary cta-main compact" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
+                        <a className="button primary cta-main compact windows" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
                           Windows
                         </a>
-                        <a className="button primary cta-main compact" href={releaseData?.linux || '#'} target="_blank" rel="noopener noreferrer">
+                        <a className="button primary cta-main compact linux" href={releaseData?.linux || '#'} target="_blank" rel="noopener noreferrer">
                           Linux
                         </a>
                       </div>
