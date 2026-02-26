@@ -4,6 +4,7 @@ interface ReleaseData {
   version: string;
   mac: string;
   windows: string;
+  linux: string;
 }
 
 const About: React.FC = () => {
@@ -77,6 +78,20 @@ const About: React.FC = () => {
             }}
           >
             Windows
+          </a>
+          <a 
+            className="button primary cta-main" 
+            href={releaseData?.linux || '#'} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              fontSize: '0.9em', 
+              padding: '0.5rem 1rem',
+              width: isMobile ? '100%' : 'auto',
+              textAlign: 'center' as const
+            }}
+          >
+            Linux
           </a>
         </div>
       </div>

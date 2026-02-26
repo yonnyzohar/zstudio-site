@@ -12,6 +12,7 @@ interface ReleaseData {
   version: string;
   mac: string;
   windows: string;
+  linux: string;
 }
 
 interface YouTubeVideoProps {
@@ -183,11 +184,44 @@ const Home: React.FC = () => {
                     !
                   </p>
                 </div>
+                <div className="hero-downloads">
+                  <div className="download-header">
+                    <div className="download-left">
+                      <div className="version-display">
+                        <span className="version-text">
+                          v{releaseData ? releaseData.version : '--'}
+                        </span>
+                      </div>
+                      <div className="npm-badge">
+                        <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
+                          <img
+                            src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square"
+                            alt="Total downloads"
+                            style={{ height: '20px' }}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="download-right">
+                      <div className="downloads-buttons">
+                        <a className="button primary cta-main compact" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
+                          macOS
+                        </a>
+                        <a className="button primary cta-main compact" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
+                          Windows
+                        </a>
+                        <a className="button primary cta-main compact" href={releaseData?.linux || '#'} target="_blank" rel="noopener noreferrer">
+                          Linux
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="hero-text">
                 <h1>
-                  <span className="title-gradient">Create Stunning 2D Interactive Experiences</span><br />
-                  <span className="title-accent">Games & Playable Ads Visually & Instantly</span>
+                  <span className="title-gradient">Create Stunning 2D Interactive Experiences Visually & Instantly
+                  </span>
                 </h1>
 
                 <p className="intro">
@@ -209,34 +243,6 @@ const Home: React.FC = () => {
                       <span>Frees developers to focus on what they do best</span>
                     </div>
                   </div>
-                </div>
-
-                <div className="hero-downloads">
-                  <div className="download-header" style={{ textAlign: 'center' }}>
-                    <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square"
-                        alt="Total downloads"
-                        style={{ height: '28px' }}
-                      />
-                    </a>
-                    <p className="latest-release">
-                      Latest stable release: {releaseData ? `v${releaseData.version}` : '--'}
-                    </p>
-                  </div>
-
-                  <div className="downloads-buttons">
-                    <a className="button primary cta-main" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
-                      🚀 Download for macOS
-                    </a>
-                    <a className="button primary cta-main" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
-                      🚀 Download for Windows
-                    </a>
-                  </div>
-
-                  <p className="urgency-text">
-                    ⚡ Build games and ads better and faster
-                  </p>
                 </div>
               </div>
             </div>
