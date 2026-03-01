@@ -28,236 +28,303 @@ const About: React.FC = () => {
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  const imgStyle = {
+    width: isMobile ? '100%' : '300px',
+    maxWidth: isMobile ? '400px' : '300px',
+    height: 'auto',
+    borderRadius: '8px',
+  };
+
   return (
     <div className="container">
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
-        marginBottom: '2rem',
+
+      {/* ── HERO ── */}
+      <div style={{ marginBottom: '3rem' }}>
+
+        {/* Big statement */}
+        <p style={{
+          fontSize: isMobile ? '1.5rem' : '2rem',
+          fontWeight: 700,
+          lineHeight: 1.3,
+          marginBottom: '1.25rem',
+          color: '#fff',
+        }}>
+          The world doesn't need another game engine.
+        </p>
+
+        {/* Supporting line */}
+        <p style={{
+          fontSize: '1rem',
+          color: 'var(--text-secondary, #aaa)',
+          maxWidth: '680px',
+          lineHeight: 1.7,
+          marginBottom: '2rem',
+        }}>
+          There are already countless engines competing to be your "all-in-one" solution — scene editor, scripting
+          environment, plugin ecosystem, asset pipeline, hosting platform, proprietary formats, and more.
+        </p>
+
+        {/* Two rhetorical questions as pull-quotes */}
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: '1rem',
+          marginBottom: '0.5rem',
+        }}>
+          {[
+            "But what if you don't want to replace your entire pipeline?",
+            'What if your team already has an established workflow that works — except for one bottleneck?',
+          ].map(q => (
+            <div key={q} style={{
+              flex: 1,
+              borderLeft: '3px solid #fbbb1a',
+              paddingLeft: '1.1rem',
+              color: '#e2e8f0',
+              fontSize: '1.05rem',
+              fontStyle: 'italic',
+              lineHeight: 1.6,
+            }}>
+              {q}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── THE REAL BOTTLENECK ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
+        gap: '2rem',
         flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? '1rem' : '0'
       }}>
-        <h1 style={{ margin: '0' }}>About zStudio</h1>
-      </div>
-
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
-        gap: '2rem',
-        flexDirection: isMobile ? 'column' : 'row'
-      }}>
-        <img 
-          src="/assets/Lightning Fast Scene Creation.png" 
-          alt="Lightning Fast Scene Creation" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
+        <img
+          src="/assets/Lightning Fast Scene Creation.png"
+          alt="Lightning Fast Scene Creation"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
         />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
-        }}>
-          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>What is zStudio?</h2>
-          <p>
-            zStudio is the ultimate visual authoring tool for 2D web game development and interactive ad creation. Designed to revolutionize your
-            workflow, zStudio empowers developers, technical artists, UI/UX teams, and ad creators to create stunning game
-            interfaces, responsive layouts, dynamic scenes, and engaging playable ads — all in one intuitive platform. Whether you're building with
-            Pixi.js, Phaser, or a custom engine, zStudio makes production faster, cleaner, and more efficient.
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
+          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>The Real Bottleneck</h2>
+          <p style={{ marginBottom: '0.75rem' }}>
+            For many studios, the friction isn't the engine. It's the <strong>translation of scene layout into runtime code</strong>.
           </p>
-          <p>
-            Built by a game development veteran with over 15 years of industry experience, zStudio was crafted to solve
-            real-world bottlenecks. Today, it's a production-proven tool actively used in commercial studios to power
-            games deployed worldwide.
-          </p>
-        </div>
-      </div>
-
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
-        gap: '2rem', 
-        flexDirection: isMobile ? 'column' : 'row-reverse'
-      }}>
-        <img 
-          src="/assets/6_template_system.png" 
-          alt="Template System" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
-        />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
-        }}>
-          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Why Choose zStudio?</h2>
-          <p>
-            Modern web games and interactive ads demand responsive layouts, reusable components, and streamlined pipelines. Yet, many teams
-            still rely on manual processes that slow iteration, create inconsistencies, and add unnecessary engineering
-            overhead. zStudio changes the game by bridging the gap between design and implementation.
-          </p>
-          <p>
-            With zStudio, you can:
-          </p>
-          <ul style={{ marginLeft: '2rem' }}>
-            <li><strong>Design visually:</strong> Build layouts, scenes, and templates without writing boilerplate code.</li>
-            <li><strong>Iterate faster:</strong> Test responsiveness, animations, and hierarchies instantly.</li>
-            <li><strong>Export efficiently:</strong> Generate clean, structured data ready for runtime.</li>
+          <ul style={{ marginLeft: '1.5rem', lineHeight: '2' }}>
+            <li>Designers create layouts. Developers implement them.</li>
+            <li>Multi-resolution support complicates everything.</li>
+            <li>Endless iteration cycles slow the team down.</li>
+            <li>Developers don't enjoy building layouts.</li>
+            <li>Designers don't enjoy depending on someone else to realise their vision.</li>
           </ul>
-          <p>
-            zStudio isn't just a tool — it's your partner in creating polished, professional web games and interactive ads.
-          </p>
+          <p style={{ marginTop: '1rem' }}>This is where zStudio comes in.</p>
         </div>
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
+      {/* ── NON-INTRUSIVE BY DESIGN ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
         gap: '2rem',
-        flexDirection: isMobile ? 'column' : 'row'
+        flexDirection: isMobile ? 'column' : 'row-reverse',
       }}>
-        <img 
-          src="/assets/7_animation.png" 
-          alt="Animation System" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
+        <img
+          src="/assets/6_template_system.png"
+          alt="Template System"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
         />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
-        }}>
-          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>What Makes zStudio Special?</h2>
-          <ul style={{ marginLeft: '2rem' }}>
-            <li><strong>Visual Scene Building:</strong> Drag, drop, and organize assets with ease. Say goodbye to manual coding.</li>
-            <li><strong>Multi-Resolution Support:</strong> Optimize layouts for portrait, landscape, and custom aspect ratios.</li>
-            <li><strong>Photoshop / Spine Integration:</strong> Import scenes directly from Photoshop & Spine for seamless iteration.</li>
-            <li><strong>Reusable Templates:</strong> Create components once and update all instances instantly.</li>
-            <li><strong>Non-Destructive Editing:</strong> Undo/redo functionality ensures safe experimentation.</li>
-            <li><strong>Cross-Platform:</strong> Available as a desktop app for macOS and Windows.</li>
-            <li><strong>Animations:</strong> Old School timeline animations with keyframes and easing options.</li>
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
+          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Non-Intrusive by Design</h2>
+          <p style={{ marginBottom: '0.75rem' }}>
+            zStudio does not replace your engine. It does not dictate your architecture. It does not lock you into proprietary runtimes.
+          </p>
+          <p style={{ marginBottom: '0.75rem' }}>
+            Whether you use Pixi, Phaser, plain HTML, or a custom framework — zStudio fits into your workflow.
+          </p>
+          <ul style={{ marginLeft: '1.5rem', lineHeight: '2', marginBottom: '0.75rem' }}>
+            <li>Create scenes visually.</li>
+            <li>Export clean JSON.</li>
+            <li>Load it at runtime using our open-source importers.</li>
+          </ul>
+          <p style={{ marginBottom: '0.5rem' }}>From there:</p>
+          <ul style={{ marginLeft: '1.5rem', lineHeight: '2' }}>
+            <li>Use our runtime classes — or don't.</li>
+            <li>Use our components — or your own.</li>
+            <li>Instantiate full scenes — or minimal templates.</li>
+            <li>Extend freely — <strong>no lock-in</strong>.</li>
           </ul>
         </div>
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
-        gap: '2rem', 
-        flexDirection: isMobile ? 'column' : 'row-reverse'
-      }}>
-        <img 
-          src="/assets/4_transform_controls.png" 
-          alt="Transform Controls" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
-        />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
+      {/* ── FEATURES ── */}
+      <div style={{ marginBottom: '3rem' }}>
+        <h2 style={{ color: '#fbbb1a', marginBottom: '0.5rem' }}>Features</h2>
+        <p style={{ color: 'var(--text-secondary, #aaa)', marginBottom: '1.5rem' }}>
+          Everything you need to go from design to runtime — without changing your stack.
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(260px, 1fr))',
+          gap: '1.25rem',
         }}>
-          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Who is zStudio For?</h2>
-          <p>
-            zStudio is perfect for:
+          {[
+            {
+              icon: '🎨',
+              title: 'Visual Scene Building',
+              items: [
+                'Drag & drop images, paste from clipboard',
+                'Full transform controls',
+                'Powerful multi-resolution layout tools',
+                'Nine-slice support',
+                'Copy complex hierarchies between scenes',
+                'Built-in texture atlas generation on export',
+                'Comprehensive template system',
+                'Live scene testing',
+              ],
+            },
+            {
+              icon: '✍',
+              title: 'Text Tools',
+              items: [
+                'Generate bitmap fonts (export to atlas + .fnt)',
+                'Import existing bitmap fonts',
+                'Full text editor with gradient support',
+                'Glow, drop shadow, and advanced text effects',
+              ],
+            },
+            {
+              icon: '🖼',
+              title: 'Photoshop Integration',
+              items: ['Import scenes directly from Photoshop via plugin'],
+            },
+            {
+              icon: '🦴',
+              title: 'Spine Support',
+              items: [
+                'Spine atlases or individual images',
+                'Attach any asset to Spine slots — including other Spine objects',
+                'Auto-play animations on load',
+              ],
+            },
+            {
+              icon: '🎞',
+              title: 'Animation System',
+              items: [
+                'Complete timeline-based animation system',
+                'Old-school power with modern flexibility',
+                'Cue points for triggering runtime code',
+              ],
+            },
+            {
+              icon: '✨',
+              title: 'Particles',
+              items: ['Full particle system support'],
+            },
+            {
+              icon: '🧩',
+              title: 'UI Components',
+              items: ['Buttons', 'Toggles', 'Sliders', 'Scrollbars', 'Input fields'],
+            },
+            {
+              icon: '🔌',
+              title: 'Open Source Importers',
+              items: [
+                'Export once. Import anywhere.',
+                'Open-source importers for Pixi, Phaser, HTML, and custom frameworks',
+              ],
+            },
+          ].map(({ icon, title, items }) => (
+            <div key={title} style={{
+              background: 'var(--card-bg, #1e293b)',
+              border: '1px solid var(--border, #2d3748)',
+              borderRadius: '10px',
+              padding: '1.25rem',
+            }}>
+              <h3 style={{ marginTop: 0, marginBottom: '0.75rem', fontSize: '1rem' }}>
+                <span style={{ marginRight: '0.4rem' }}>{icon}</span>{title}
+              </h3>
+              <ul style={{ margin: 0, paddingLeft: '1.25rem', lineHeight: '1.8', fontSize: '0.9rem', color: 'var(--text-secondary, #bbb)' }}>
+                {items.map(item => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── BUILT FOR DESIGNERS ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row',
+      }}>
+        <img
+          src="/assets/4_transform_controls.png"
+          alt="Transform Controls"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
+        />
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
+          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Built for Designers. Loved by Developers.</h2>
+          <p style={{ marginBottom: '1rem' }}>
+            We focused obsessively on the editor experience — so designers can bring their vision to life
+            independently, and developers can focus on game logic instead of layout plumbing.
           </p>
-          <ul style={{ marginLeft: '2rem' }}>
-            <li>Web Game Developers: Building with Pixi.js, Phaser, or custom 2D engines.</li>
-            <li>Technical Artists: Needing precise control without the hassle of boilerplate code.</li>
-            <li>UI/UX Teams: Crafting dynamic, responsive interfaces.</li>
-            <li>Ad Creators: Designing engaging playable ads for mobile and web platforms.</li>
-            <li>Studios: Looking to streamline workflows and reduce integration time.</li>
+          <p style={{ marginBottom: '0.5rem' }}>Perfect for:</p>
+          <ul style={{ marginLeft: '1.5rem', lineHeight: '2' }}>
+            <li><strong>Web Game Developers</strong> building with Pixi.js, Phaser, or custom 2D engines</li>
+            <li><strong>Technical Artists</strong> who need precise control without boilerplate code</li>
+            <li><strong>UI/UX Teams</strong> crafting dynamic, responsive interfaces</li>
+            <li><strong>Ad Creators</strong> designing engaging playable ads for mobile and web</li>
+            <li><strong>Studios</strong> looking to streamline workflows and reduce integration time</li>
           </ul>
         </div>
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
+      {/* ── PROVEN IN PRODUCTION ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
         gap: '2rem',
-        flexDirection: isMobile ? 'column' : 'row'
+        flexDirection: isMobile ? 'column' : 'row-reverse',
       }}>
-        <img 
-          src="/assets/3_Hierarchical_Composition.png" 
-          alt="Hierarchical Composition" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
+        <img
+          src="/assets/3_Hierarchical_Composition.png"
+          alt="Hierarchical Composition"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
         />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
-        }}>
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Proven in Production</h2>
-          <p>
+          <p style={{ marginBottom: '0.75rem' }}>
             zStudio isn't just a concept — it's a battle-tested tool actively used in commercial game studios. It has
             already powered multiple shipped titles, and continues to evolve through real-world feedback from
             professional developers and creatives.
           </p>
+          <p>Built by a developer who lived these exact problems. Shaped by the studios who still face them every day.</p>
         </div>
       </div>
 
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        marginBottom: '2rem', 
-        gap: '2rem', 
-        flexDirection: isMobile ? 'column' : 'row-reverse'
+      {/* ── CLOSING ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row',
       }}>
-        <img 
-          src="/assets/Screenshot 2026-01-16 at 23.17.42.png" 
-          alt="zStudio Interface" 
-          style={{ 
-            width: isMobile ? '100%' : '300px', 
-            maxWidth: isMobile ? '400px' : '300px',
-            height: 'auto', 
-            borderRadius: '8px',
-            order: isMobile ? 2 : 1
-          }}
+        <img
+          src="/assets/Screenshot 2026-01-16 at 23.17.42.png"
+          alt="zStudio Interface"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
         />
-        <div style={{ 
-          flex: '1',
-          textAlign: isMobile ? 'center' : 'left',
-          order: isMobile ? 1 : 2
-        }}>
-          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Our Vision</h2>
-          <p>
-            We believe zStudio is the future of web game development and interactive advertising. Our mission is to make zStudio the standard for
-            visual layout and scene-building — a fast, accessible, and scalable solution that integrates seamlessly into
-            modern pipelines.
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
+          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Focus on Your Game — Not Layout Plumbing</h2>
+          <p style={{ marginBottom: '0.75rem' }}>
+            We're not replacing your engine. We're removing the friction between your team's vision and its
+            implementation — so you can ship faster, iterate freely, and build the games you actually want to make.
           </p>
           <p>
-            Join the growing community of developers and ad creators who trust zStudio to bring their games and ads to life.
+            Join the growing community of developers and ad creators who trust zStudio to bring their work to life.
           </p>
         </div>
       </div>
