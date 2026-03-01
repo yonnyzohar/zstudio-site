@@ -1,0 +1,6 @@
+{
+  "version": "0.0.0",
+  "windows": "https://github.com/yonnyzohar/zstudio-site/releases/download/v0.0.0/zStudio-latest.exe",
+  "mac": "https://github.com/yonnyzohar/zstudio-site/releases/download/v0.0.0/zStudio-latest.dmg",
+  "linux": "https://github.com/yonnyzohar/zstudio-site/releases/download/v0.0.0/zStudio-latest.AppImage"
+}
