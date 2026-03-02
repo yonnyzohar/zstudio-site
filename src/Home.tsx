@@ -59,7 +59,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     // Fetch latest release data
-    fetch('/latest-release.json')
+    fetch(`/latest-release.json?cacheBust=${Date.now()}`)
       .then(res => res.json())
       .then(data => setReleaseData(data))
       .catch(err => console.error('Failed to load release info:', err));
