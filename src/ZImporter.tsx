@@ -220,7 +220,6 @@ import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-typescript">
 {`import * as PIXI from 'pixi.js';
-import { Game } from "./Game";
 import { ZSceneStack, ZUpdatables } from 'zimporter-pixi';
 
 const app = new PIXI.Application({
@@ -236,42 +235,28 @@ window.addEventListener("resize", () => {
   ZSceneStack.resize(window.innerWidth, window.innerHeight);
 });
 
-const game = new Game(app.stage);
 ZUpdatables.init(24);
 
 app.ticker.add(() => {
-  const deltaMS = PIXI.Ticker.shared.deltaMS / 1000;
-  game.update(deltaMS);
+  const deltaMS = app.ticker.deltaMS / 1000;
   ZUpdatables.update();
 });`}
               </code>
             </pre>
           </div>
           <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Loading a Scene (Game.ts)</h3>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Loading a Scene</h3>
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-typescript">
-{`import * as PIXI from 'pixi.js';
-import { ZScene, ZSceneStack } from 'zimporter-pixi';
+{`import { ZScene, ZSceneStack } from 'zimporter-pixi';
 
-export class Game {
-    stage: PIXI.Container;
-    
-    constructor(stage: PIXI.Container) {
-        this.stage = stage;
-        const loadPath = "./assets/testScene/";
-        
-        const scene = new ZScene("testScene");
-        scene.load(loadPath, () => {
-            ZSceneStack.push(scene);
-            scene.loadStage(this.stage);
-        });
-    }
-
-    update(deltaMS: number) {
-        // Your game logic here
-    }
-}`}
+const scene = new ZScene("myScene");
+scene.load("./assets/myScene/", () => {
+    ZSceneStack.push(scene);
+    scene.loadStage(app.stage as any);
+}, (progress: number) => {
+    console.log(\`Loading... \${Math.floor(progress * 100)}%\`);
+});`}
               </code>
             </pre>
           </div>
