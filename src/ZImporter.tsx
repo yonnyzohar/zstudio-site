@@ -379,31 +379,35 @@ import { ZButton, ZContainer, ZScene, ZSceneStack, ZUpdatables, SpinePlugin } fr
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-typescript">
 {`import Phaser from 'phaser';
-import { ZScene, ZSceneStack, ZUpdatables } from 'zimporter-phaser';
+import { ZContainer, ZScene, ZSceneStack, ZUpdatables } from 'zimporter-phaser';
 
 export class GameScene extends Phaser.Scene {
-    preload() {
-        // No manual preload needed — zImporter fetches and loads all
-        // assets dynamically via scene.load()
+
+    constructor() {
+        super({ key: 'GameScene' });
     }
 
+    preload() {}
+
     create() {
-        // Initialize zImporter update system (24 FPS)
         ZUpdatables.init(24);
 
-        // Pass the Phaser scene (this) as the second argument
-        const scene = new ZScene("testScene", this);
-        scene.load("./assets/testScene/", () => {
+        // Create a root ZContainer — the Phaser equivalent of PIXI's app.stage
+        const rootStage = new ZContainer(this);
+        this.add.existing(rootStage);
+
+        // Load a zStudio scene — pass the Phaser scene as second argument
+        const scene = new ZScene("myScene", this);
+        scene.load("./assets/myScene/", () => {
             ZSceneStack.push(scene);
             scene.loadStage(this);
+        }, (progress: number) => {
+            console.log(\`Loading... \${Math.floor(progress * 100)}%\`);
         });
     }
 
     update(_time: number, _delta: number) {
-        // Update zImporter systems
         ZUpdatables.update();
-
-        // Your game logic here
     }
 }`}
               </code>
@@ -423,7 +427,7 @@ const config: Phaser.Types.Core.GameConfig = {
     height: window.innerHeight,
     parent: 'game-container',
     scene: [GameScene],
-    backgroundColor: '#222',
+    backgroundColor: '#000000',
     scale: {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
@@ -437,9 +441,9 @@ const config: Phaser.Types.Core.GameConfig = {
     }
 };
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+(globalThis as any).__PHASER_GAME__ = game;
 
-// Handle window resize
 window.addEventListener('resize', () => {
     ZSceneStack.resize(window.innerWidth, window.innerHeight);
 });`}
