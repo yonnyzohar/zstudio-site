@@ -107,7 +107,26 @@ const ZImporter: React.FC = () => {
               onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
               onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
             >
-              📦 zImporter Package
+              📦 zImporter Pixi 7
+            </a>
+            <a 
+              href="https://github.com/yonnyzohar/zImporter_PIXI8" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#14b8a6', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
+            >
+              📦 zImporter Pixi 8
             </a>
             <a 
               href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
@@ -154,40 +173,22 @@ const ZImporter: React.FC = () => {
       {/* INSTALLATION */}
       <section style={{ marginBottom: '3rem' }}>
         <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Installation</h2>
+        <p style={{ color: '#e5e7eb', marginBottom: '1.5rem' }}>
+          Choose the package that matches your Pixi.js version. Both packages share the exact same API and interface.
+        </p>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Add to package.json</h3>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Pixi.js v7</h3>
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <code className="language-json">
-{`"dependencies": {
-  "zimporter-pixi": "latest"
-}`}
-              </code>
+              <code className="language-bash">npm i zimporter-pixi</code>
             </pre>
           </div>
           <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Optional Dependencies</h3>
-            <p style={{ color: '#e5e7eb', marginBottom: '1rem', fontSize: '0.9em' }}>
-              For advanced features like particles and spine animations:
-            </p>
-            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <code className="language-json">
-{`"peerDependencies": {
-  "@pixi-spine/all-4.0": "^4.0.4",
-  "@pixi-spine/base": "^4.0.5",
-  "@pixi/filter-drop-shadow": "^5.2.0",
-  "@pixi/particle-emitter": "^5.0.8",
-  "pixi.js": "^7.4.2"
-}`}
-              </code>
+            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Pixi.js v8</h3>
+            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <code className="language-bash">npm i zimporter-pixi8</code>
             </pre>
           </div>
-        </div>
-        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', marginTop: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install Dependencies</h3>
-          <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <code className="language-bash">npm install</code>
-          </pre>
         </div>
       </section>
 
@@ -196,10 +197,15 @@ const ZImporter: React.FC = () => {
         <h2 style={{ color: '#14b8a6', marginBottom: '1rem' }}>zImporter Integration</h2>
         <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
           <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Import the Classes</h3>
+          <p style={{ color: '#9ca3af', marginBottom: '1rem', fontSize: '0.9em' }}>
+            Replace <code style={{ backgroundColor: '#0f172a', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>zimporter-pixi</code> with <code style={{ backgroundColor: '#0f172a', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>zimporter-pixi8</code> if you are using Pixi.js v8 — the interface is identical.
+          </p>
           <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
             <code className="language-typescript">
 {`import * as PIXI from 'pixi.js';
-import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi';`}
+import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi';
+// or for Pixi v8:
+// import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-pixi8';`}
             </code>
           </pre>
         </div>
@@ -351,46 +357,14 @@ export class Game {
       {/* PHASER INSTALLATION */}
       <section style={{ marginBottom: '3rem' }}>
         <h2 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Phaser Installation</h2>
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Add to package.json</h3>
-            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <code className="language-json">
-{`"dependencies": {
-  "zimporter-phaser": "latest"
-}`}
-              </code>
-            </pre>
-          </div>
-          <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Peer Dependencies</h3>
-            <p style={{ color: '#e5e7eb', marginBottom: '1rem', fontSize: '0.9em' }}>
-              Required Phaser 3 installation:
-            </p>
-            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <code className="language-json">
-{`"dependencies": {
-  "phaser": "^3.60.0"
-}`}
-              </code>
-            </pre>
-            <p style={{ color: '#e5e7eb', marginTop: '1rem', fontSize: '0.9em' }}>
-              For Spine animation support:
-            </p>
-            <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <code className="language-json">
-{`"dependencies": {
-  "@esotericsoftware/spine-phaser": "^4.0.0"
-}`}
-              </code>
-            </pre>
-          </div>
-        </div>
-        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', marginTop: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
-          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install Dependencies</h3>
+        <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
+          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install</h3>
           <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <code className="language-bash">npm install</code>
+            <code className="language-bash">npm i zimporter-phaser</code>
           </pre>
+          <p style={{ color: '#9ca3af', marginTop: '1rem', fontSize: '0.9em' }}>
+            All dependencies (Phaser, Spine, GSAP, etc.) are bundled — no additional peer dependency installation required.
+          </p>
         </div>
       </section>
 
@@ -402,9 +376,12 @@ export class Game {
           <pre style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
             <code className="language-typescript">
 {`import Phaser from 'phaser';
-import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-phaser';`}
+import { ZButton, ZContainer, ZScene, ZSceneStack, ZUpdatables, SpinePlugin } from 'zimporter-phaser';`}
             </code>
           </pre>
+          <p style={{ color: '#9ca3af', marginTop: '1rem', fontSize: '0.9em' }}>
+            Note: <code style={{ backgroundColor: '#0f172a', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>SpinePlugin</code> is re-exported directly from <code style={{ backgroundColor: '#0f172a', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>zimporter-phaser</code> — no separate spine package import needed.
+          </p>
         </div>
       </section>
 
@@ -417,59 +394,30 @@ import { ZButton, ZContainer, ZScene, ZState, ZSceneStack } from 'zimporter-phas
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-typescript">
 {`import Phaser from 'phaser';
-import { ZScene, ZSceneStack, ZUpdatables, ZTimeline } from 'zimporter-phaser';
+import { ZScene, ZSceneStack, ZUpdatables } from 'zimporter-phaser';
 
 export class GameScene extends Phaser.Scene {
     preload() {
-        // Load your zStudio exported assets here
-        this.load.setPath('./assets/testScene/');
-        this.load.json('placements', 'placements.json');
-        this.load.atlas('ta', 'ta.png', 'ta.json');
+        // No manual preload needed — zImporter fetches and loads all
+        // assets dynamically via scene.load()
     }
 
     create() {
         // Initialize zImporter update system (24 FPS)
         ZUpdatables.init(24);
-        
-        // FPS counter (optional)
-        this._frameCount = 0;
-        this._lastTime = performance.now();
-        this._fpsText = this.add.text(10, 10, 'FPS: --', {
-            fontSize: '16px',
-            fill: '#ffffff'
-        }).setDepth(9999);
 
-        const scene = new ZScene("testScene");
-        scene.loadFromPhaser(this, () => {
+        // Pass the Phaser scene (this) as the second argument
+        const scene = new ZScene("testScene", this);
+        scene.load("./assets/testScene/", () => {
             ZSceneStack.push(scene);
             scene.loadStage(this);
-            
-            // Auto-play any timelines in the scene
-            let stage = scene.sceneStage;
-            for (const child of stage.list) {
-                if (child instanceof ZTimeline) {
-                    child.play();
-                }
-            }
         });
     }
 
-    update(time: number, delta: number) {
-        // FPS counter
-        this._frameCount++;
-        const now = performance.now();
-        const elapsed = now - this._lastTime;
-        if (elapsed >= 1000) {
-            const fps = (this._frameCount / elapsed) * 1000;
-            this._fpsText.setText(\`FPS: \${fps.toFixed(1)}\`);
-            this._fpsText.setDepth(9999);
-            this._frameCount = 0;
-            this._lastTime = now;
-        }
-
+    update(_time: number, _delta: number) {
         // Update zImporter systems
         ZUpdatables.update();
-        
+
         // Your game logic here
     }
 }`}
@@ -482,9 +430,7 @@ export class GameScene extends Phaser.Scene {
               <code className="language-typescript">
 {`import Phaser from 'phaser';
 import { GameScene } from './GameScene';
-import { ZSceneStack } from 'zimporter-phaser';
-//@ts-ignore
-import * as spine from '@esotericsoftware/spine-phaser';
+import { ZSceneStack, SpinePlugin } from 'zimporter-phaser';
 
 const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
@@ -500,17 +446,16 @@ const config: Phaser.Types.Core.GameConfig = {
     plugins: {
         scene: [{
             key: 'SpinePlugin',
-            plugin: spine.SpinePlugin,
+            plugin: SpinePlugin,
             mapping: 'spine'
         }]
     }
 };
 
-const game = new Phaser.Game(config);
+new Phaser.Game(config);
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    game.scale.resize(window.innerWidth, window.innerHeight);
     ZSceneStack.resize(window.innerWidth, window.innerHeight);
 });`}
               </code>
