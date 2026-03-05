@@ -22,6 +22,14 @@ const demos: Demo[] = [
       { label: 'Phaser', url: '/gameDemos/phaser/slotMachine/index.html' },
     ],
   },
+  {
+    title: 'Space Shooter',
+    description: 'An action-packed space shooter demo built with zStudio. Pilot your ship, dodge enemies, and blast your way through waves of alien invaders.',
+    icon: '🚀',
+    versions: [
+      { label: 'Pixi.js', url: '/gameDemos/pixi/spaceShooter/index.html' },
+    ],
+  },
 ];
 
 const Demos: React.FC = () => {
@@ -61,7 +69,6 @@ const Demos: React.FC = () => {
         </div>
 
         <div className="demos-section">
-          <h2 className="demos-section-title">Slot Machine</h2>
           <div className="demos-grid">
             {demos.map((demo) => (
               <div key={demo.title} className="demo-card">
@@ -94,7 +101,7 @@ const Demos: React.FC = () => {
         <div className="demo-modal-backdrop" onMouseDown={handleBackdropMouseDown} onClick={handleBackdropClick}>
           <div className="demo-modal">
             <div className="demo-modal-header">
-              <span className="demo-modal-title">{activeDemo.label} — Slot Machine</span>
+              <span className="demo-modal-title">{activeDemo.label} — {demos.find(d => d.versions.some(v => v.url === activeDemo.url))?.title ?? ''}</span>
               <button className="demo-modal-close" onClick={closeDemo}>✕</button>
             </div>
             <div className="demo-modal-body">
