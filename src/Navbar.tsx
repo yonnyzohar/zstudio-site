@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
         ) : (
           <>
             <Link to="/login" className="nav-link" onClick={closeMenu}>Login</Link>
-            <a href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank" rel="noopener noreferrer" className="nav-link" onClick={closeMenu} style={{ color: '#f59e0b', fontWeight: '600' }}>Support zStudio</a>
+            {/* <a href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank" rel="noopener noreferrer" className="nav-link" onClick={closeMenu} style={{ color: '#f59e0b', fontWeight: '600' }}>Support zStudio</a> */}
           </>
         )}
       </div>
