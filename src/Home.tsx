@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings } from 'react-icons/fi';
+import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings, FiImage } from 'react-icons/fi';
 
 declare global {
   interface Window {
@@ -283,68 +283,79 @@ const Home: React.FC = () => {
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="URx6OGJs5dQ" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="liejf2lnoGM" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
                   <div className="feature-number">03</div>
-                  <FiLayers className="feature-icon" />
-                  <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, bitmap fonts, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
+                  <FiImage className="feature-icon" />
+                  <h3>Fully Embedded AI Image Generation</h3>
+                  <p>Create, alter or replace images directly in the scene with AI.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[3] = el; }}>
                   <div className="feature-number">04</div>
-                  <FiPlay className="feature-icon" />
-                  <h3>Powerful Animation System</h3>
-                  <p>Keyframe-based timeline with easing functions, cue points, and playback controls. Create smooth, professional animations effortlessly.</p>
+                  <FiLayers className="feature-icon" />
+                  <h3>Rich Component Library</h3>
+                  <p>Sprites, buttons, text, bitmap fonts, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="dkFNVOs7hSI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="URx6OGJs5dQ" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="EypJ2ZRc4DI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="dkFNVOs7hSI" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[4] = el; }}>
                   <div className="feature-number">05</div>
-                  <FiSmartphone className="feature-icon" />
-                  <h3>Responsive Design Tools</h3>
-                  <p>Anchor system for relative positioning that adapts to different screen sizes. Perfect layouts that work everywhere.</p>
+                  <FiPlay className="feature-icon" />
+                  <h3>Powerful Animation System</h3>
+                  <p>Keyframe-based timeline with easing functions, cue points, and playback controls. Create smooth, professional animations effortlessly.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
                   <div className="feature-number">06</div>
-                  <FiLink className="feature-icon" />
-                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
-                  <p>Export scenes as JSON data and import into your Pixi.js, Phaser, or plain HTML projects with our zImporter package. Maintains all relationships and hierarchies.</p>
+                  <FiSmartphone className="feature-icon" />
+                  <h3>Responsive Design Tools</h3>
+                  <p>Anchor system for relative positioning that adapts to different screen sizes. Perfect layouts that work everywhere.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="ZINRf2fgfQs" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="EypJ2ZRc4DI" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="qsiRDy4g-MU" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="ZINRf2fgfQs" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[6] = el; }}>
                   <div className="feature-number">07</div>
-                  <FiGrid className="feature-icon" />
-                  <h3>Intuitive User Interface</h3>
-                  <p>Draggable panels, context menus, hotkeys, undo, and test mode. Designed for efficiency and ease of use.</p>
+                  <FiLink className="feature-icon" />
+                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
+                  <p>Export scenes as JSON data and import into your Pixi.js, Phaser, or plain HTML projects with our zImporter package. Maintains all relationships and hierarchies.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[7] = el; }}>
                   <div className="feature-number">08</div>
+                  <FiGrid className="feature-icon" />
+                  <h3>Intuitive User Interface</h3>
+                  <p>Draggable panels, context menus, hotkeys, undo, and test mode. Designed for efficiency and ease of use.</p>
+                </div>
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="qsiRDy4g-MU" />
+                </div>
+              </div>
+              <div className="feature-row">
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[8] = el; }} videoId="IPQCnAhPSzA" />
+                </div>
+                <div className="feature-item" ref={(el) => { featureRefs.current[8] = el; }}>
+                  <div className="feature-number">09</div>
                   <FiSettings className="feature-icon" />
                   <h3>Professional Workflow Features</h3>
                   <p>Templates, filters, inspectors, and extensibility. Everything you need for production-ready game and ad development.</p>
-                </div>
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="IPQCnAhPSzA" />
                 </div>
               </div>
             </div>
