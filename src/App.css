@@ -61,20 +61,10 @@ body {
   font-size: 1.8em;
   font-weight: 800;
   gap: 12px;
-  background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 50%, #14b8a6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
   transition: all 0.3s ease;
 }
 
 .nav-logo:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #14b8a6 50%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
   transform: scale(1.05);
 }
 
@@ -84,6 +74,36 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
   transition: all 0.3s ease;
+}
+
+.logo-text {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 50%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background 0.3s ease;
+}
+
+.nav-logo:hover .logo-text {
+  background: linear-gradient(135deg, #f59e0b 0%, #14b8a6 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-ai {
+  font-size: 0.45em;
+  font-weight: 600;
+  background: none;
+  -webkit-text-fill-color: #a78bfa;
+  color: #a78bfa;
+  letter-spacing: 0.05em;
+  vertical-align: super;
+  margin-left: 2px;
+  line-height: 1;
 }
 
 .nav-logo:hover .logo-icon {

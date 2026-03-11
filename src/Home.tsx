@@ -220,7 +220,7 @@ const Home: React.FC = () => {
               </div>
               <div className="hero-text">
                 <h1>
-                  <span className="title-gradient">Create Stunning 2D Interactive Experiences Visually & Instantly
+                  <span className="title-gradient">Create AI Powered Game & Ad Scenes Visually & Instantly
                   </span>
                 </h1>
 

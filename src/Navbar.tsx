@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <Link to="/" className="nav-logo" onClick={closeMenu}>
         <img src="/assets/logo.webp" alt="zStudio Logo" className="logo-icon" />
-        zStudio
+        <span className="logo-text">zStudio<sup className="logo-ai">AI</sup></span>
       </Link>
       <button className="burger" onClick={() => setIsOpen(!isOpen)}>
         ☰
