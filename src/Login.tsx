@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
 const Login: React.FC = () => {
-  const [isLogin] = useState(true); // Always login mode
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [recentEmails, setRecentEmails] = useState<string[]>([]);
   const [error, setError] = useState('');
-  const { login } = useAuth(); // Removed signup
+  const { login, signup } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,8 +42,13 @@ const Login: React.FC = () => {
     e.preventDefault();
     setError('');
 
+    if (!isLogin && password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
     try {
-      const result = await login(email, password);
+      const result = isLogin ? await login(email, password) : await signup(email, password);
       if (result.success) {
         saveEmailToRecent(email);
         navigate('/dashboard');
@@ -58,15 +64,16 @@ const Login: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
-  // const toggleMode = () => {
-  //   setIsLogin(!isLogin);
-  //   setError('');
-  // };
+  const toggleMode = () => {
+    setIsLogin(!isLogin);
+    setError('');
+    setConfirmPassword('');
+  };
 
   return (
     <div className="container">
       <div className="auth-section">
-        <h2>Login</h2>
+        <h2>{isLogin ? 'Login' : 'Create Account'}</h2>
         <form onSubmit={handleSubmit}>
           <label>Email:</label>
           <input
@@ -132,17 +139,31 @@ const Login: React.FC = () => {
               </svg>
             </button>
           </div>
+          {!isLogin && (
+            <>
+              <label>Confirm Password:</label>
+              <div style={{ position: 'relative', width: '100%' }}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  style={{ width: '100%', boxSizing: 'border-box' }}
+                />
+              </div>
+            </>
+          )}
           {error && <p style={{ color: '#ff6b6b', marginBottom: '1rem' }}>{error}</p>}
           <button type="submit" className="button">
-            Log In
+            {isLogin ? 'Log In' : 'Create Account'}
           </button>
         </form>
-        {/* <p>
+        <p>
           {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
           <a href="#" onClick={(e) => { e.preventDefault(); toggleMode(); }}>
             {isLogin ? 'Sign up' : 'Log in'}
           </a>
-        </p> */}
+        </p>
         {isLogin && (
           <p>
             <a href="#" onClick={(e) => { e.preventDefault(); navigate('/forgot-password'); }}>
