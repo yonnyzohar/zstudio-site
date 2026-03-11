@@ -70,16 +70,16 @@ const Tutorials: React.FC = () => {
     },
     {
       title: "Components - buttons, toggles, sliders, scrollbars...",
-      description: "This video explains Z Studio's asset types and components, showing how to make interactive UI elements",
+      description: "This video explains zStudio's asset types and components, showing how to make interactive UI elements",
       url: "https://youtu.be/_GE3LhaHCno"
     },
     {
-      title: "zStudio: Working with Animations",
-      description: "In this video, we explore Z Studio's animation capabilities. We see how to create animations for assets like robots by setting keyframes on their body parts, and we learn how to apply different easing functions to the transitions between keyframes. The animation is based on transformations like rotation and movement, and we can manipulate these assets directly in the timeline. The video also demonstrates how to adjust the scale and rotation of animated instances while preserving their local animations.",
+      title: "Working with Animations",
+      description: "In this video, we explore zStudio's animation capabilities. We see how to create animations for assets like robots by setting keyframes on their body parts, and we learn how to apply different easing functions to the transitions between keyframes. The animation is based on transformations like rotation and movement, and we can manipulate these assets directly in the timeline. The video also demonstrates how to adjust the scale and rotation of animated instances while preserving their local animations.",
       url: "https://youtu.be/XDh-SzEMIVQ"
     },
     {
-      title: "zStudio: working with AI image generation",
+      title: "AI image generation",
       description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
       url:"https://youtu.be/VEHzjlx2sxo"
     },
