@@ -79,6 +79,11 @@ const Tutorials: React.FC = () => {
       url: "https://youtu.be/XDh-SzEMIVQ"
     },
     {
+      title: "zStudio: working with AI image generation",
+      description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
+      url:"https://youtu.be/VEHzjlx2sxo"
+    },
+    {
       title: "zImporter - Importing zStudio scenes",
       description: "This video explains how to import zStudio scenes into your game using the zImporter.",
       url: "https://youtu.be/ZINRf2fgfQs"
