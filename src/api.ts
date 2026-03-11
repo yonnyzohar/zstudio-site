@@ -261,6 +261,12 @@ export interface CreditPack {
     label: string;
 }
 
+export interface CreditModelInfo {
+    name: string;
+    modelId: string;
+    credits: number;
+}
+
 export const apiGetCreditsBalance = async (): Promise<{ success: boolean; credits?: number; error?: string }> => {
     try {
         const response = await fetch(`${API_BASE}/credits/balance`, {
@@ -286,6 +292,16 @@ export const apiGetCreditPacks = async (): Promise<{ success: boolean; packs?: C
         return await response.json();
     } catch (error) {
         console.error('Get credit packs error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiGetCreditModels = async (): Promise<{ success: boolean; models?: CreditModelInfo[]; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/credits/models`);
+        return await response.json();
+    } catch (error) {
+        console.error('Get credit models error:', error);
         return { success: false, error: 'Network error' };
     }
 };

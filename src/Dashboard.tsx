@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetCreditsBalance, apiGetCreditPacks, apiPurchaseCreditsCheckout } from './api';
-import type { CreditPack } from './api';
+import { apiGetCreditsBalance, apiGetCreditPacks, apiPurchaseCreditsCheckout, apiGetCreditModels } from './api';
+import type { CreditPack, CreditModelInfo } from './api';
 
 const Dashboard: React.FC = () => {
   const { isLoggedIn } = useAuth();
   const [credits, setCredits] = useState<number | null>(null);
   const [packs, setPacks] = useState<CreditPack[]>([]);
+  const [models, setModels] = useState<CreditModelInfo[]>([]);
   const [loading, setLoading] = useState(true);
   const [purchasing, setPurchasing] = useState<string | null>(null);
 
@@ -19,12 +20,14 @@ const Dashboard: React.FC = () => {
 
   const loadData = async () => {
     setLoading(true);
-    const [balanceResult, packsResult] = await Promise.all([
+    const [balanceResult, packsResult, modelsResult] = await Promise.all([
       apiGetCreditsBalance(),
       apiGetCreditPacks(),
+      apiGetCreditModels(),
     ]);
     if (balanceResult.success) setCredits(balanceResult.credits ?? 0);
     if (packsResult.success && packsResult.packs) setPacks(packsResult.packs);
+    if (modelsResult.success && modelsResult.models) setModels(modelsResult.models);
     setLoading(false);
   };
 
@@ -64,7 +67,7 @@ const Dashboard: React.FC = () => {
       <section className="buy-credits-section">
         <h2>Buy More Credits</h2>
         <p className="buy-credits-desc">
-          Credits power AI image generation inside zStudio. Each generation costs 1–3 credits depending on the model.
+          Credits power AI image generation inside zStudio. Credit cost varies by model.
         </p>
         <div className="credit-packs">
           {packs.map(pack => (
@@ -85,14 +88,30 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
 
-        <div className="credits-model-info">
-          <h3>Credit costs per model</h3>
-          <ul>
-            <li><span className="cost-badge cost-1">1 credit</span> Lightning XL · Diffusion XL · AlbedoBase XL · Phoenix</li>
-            <li><span className="cost-badge cost-2">2 credits</span> FLUX.1 Kontext · Gemini Flash</li>
-            <li><span className="cost-badge cost-3">3 credits</span> GPT Image 1.5</li>
-          </ul>
-        </div>
+        {models.length > 0 && (() => {
+          const grouped = models.reduce<Record<number, string[]>>((acc, m) => {
+            (acc[m.credits] = acc[m.credits] || []).push(m.name);
+            return acc;
+          }, {});
+          const sortedCosts = Object.keys(grouped).map(Number).sort((a, b) => a - b);
+          const costClasses: Record<number, string> = {};
+          sortedCosts.forEach((cost, i) => { costClasses[cost] = `cost-${i + 1}`; });
+          return (
+            <div className="credits-model-info">
+              <h3>Credit costs per model</h3>
+              <ul>
+                {sortedCosts.map(cost => (
+                  <li key={cost}>
+                    <span className={`cost-badge ${costClasses[cost]}`}>
+                      {cost} {cost === 1 ? 'credit' : 'credits'}
+                    </span>
+                    {grouped[cost].join(' · ')}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })()}
       </section>
     </div>
   );
