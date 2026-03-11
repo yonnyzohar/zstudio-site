@@ -1,101 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetLicenses, apiGenerateLicense, getLicenseTypes, apiReactivateLicense, apiCancelLicense } from './api';
-import type { License } from './api';
+import { apiGetCreditsBalance, apiGetCreditPacks, apiPurchaseCreditsCheckout } from './api';
+import type { CreditPack } from './api';
 
 const Dashboard: React.FC = () => {
   const { isLoggedIn } = useAuth();
-  const [licenses, setLicenses] = useState<License[]>([]);
+  const [credits, setCredits] = useState<number | null>(null);
+  const [packs, setPacks] = useState<CreditPack[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
-  const [licenseTypes, setLicenseTypes] = useState<string[]>([]);
-  const [licenseDurations, setLicenseDurations] = useState<string[]>([]);
-  const [selectedType, setSelectedType] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('');
-  const [seatsMap, setSeatsMap] = useState<Record<string, number>>({});
+  const [purchasing, setPurchasing] = useState<string | null>(null);
 
   useEffect(() => {
     if (isLoggedIn) {
-      loadLicenses();
+      loadData();
     }
   }, [isLoggedIn]);
 
-  const loadLicenses = async () => {
+  const loadData = async () => {
     setLoading(true);
-    const data = await apiGetLicenses();
-    setLicenses(data);
+    const [balanceResult, packsResult] = await Promise.all([
+      apiGetCreditsBalance(),
+      apiGetCreditPacks(),
+    ]);
+    if (balanceResult.success) setCredits(balanceResult.credits ?? 0);
+    if (packsResult.success && packsResult.packs) setPacks(packsResult.packs);
     setLoading(false);
   };
 
-  
-  const handleBuyLicense = async () => {
-    const result = await apiGenerateLicense(selectedType, selectedDuration);
-    if (result.success) {
+  const handleBuy = async (packId: string) => {
+    setPurchasing(packId);
+    const result = await apiPurchaseCreditsCheckout(packId);
+    setPurchasing(null);
+    if (result.success && result.url) {
       window.location.href = result.url;
     } else {
-      alert(`Failed to generate license: ${result.url || 'Unknown error'}`);
-    }
-  };
-
-  const handleRenew = async (licenseKey: string, expiry: string) => {
-
-    const date = new Date(expiry);
-                  const day = date.getDate().toString().padStart(2, '0');
-                  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                  const year = date.getFullYear();
-                  let expDate=  `${day}/${month}/${year}`;
-                
-    //show a popup saying we will bill you on your current billing cycle
-    alert('Your subscription will continue and you will be billed on your next billing cycle. ' + expDate);
-    // For now, just update status locally
-    const result = await apiReactivateLicense(licenseKey);
-    if (result.success) {
-
-    setLicenses(prev => prev.map(license =>
-      license.licenseKey === licenseKey ? { ...license, status: 'active' } : license
-    ));
-  } else {
-    alert('Failed to renew license'); 
-  }
-  };
-
-
-  const handleCancel = async (licenseKey: string, expiry: string) => {
-
-    const date = new Date(expiry);
-                  const day = date.getDate().toString().padStart(2, '0');
-                  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                  const year = date.getFullYear();
-                  let expDate=  `${day}/${month}/${year}`;
-                
-    //show a popup saying we will not bill you beyond your current billing cycle at license.expiryDate
-    alert('We will not bill you beyond your current billing cycle. ' + expDate);
-
-    const result = await apiCancelLicense(licenseKey);
-    if (result.success) {
-      setLicenses(prev => prev.map(license =>
-        license.licenseKey === licenseKey ? { ...license, status: 'cancel_at_period_end' } : license
-      ));
-    } else {
-      alert('Failed to cancel license');
-    }
-  };
-
-  const handleGenerateLicense = async () => {
-    const result = await getLicenseTypes();
-    if (result.success) {
-      setSeatsMap(result.seatsMap);
-      setLicenseTypes(Object.keys(result.seatsMap));
-      setLicenseDurations(result.licenseDurations);
-      // Preselect first options
-      let licenseTypeKeys = Object.keys(result.seatsMap);
-      
-      setSelectedType(licenseTypeKeys[0] || '');
-      setSelectedDuration(result.licenseDurations[0] || '');
-      setShowPopup(true);
-    } else {
-      alert('Failed to load license types');
+      alert(result.error || 'Failed to start checkout. Please try again.');
     }
   };
 
@@ -104,99 +44,56 @@ const Dashboard: React.FC = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="container"><p>Loading...</p></div>;
   }
 
   return (
     <div className="container">
-      <h1>Your Licenses</h1>
-      <table id="licenses-table">
-        <thead>
-          <tr>
-            <th>License Name</th>
-            <th>Status</th>
-            <th>Seats</th>
-            <th>Action</th>
-            <th>Expiry Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {licenses.map(license => (
-            <tr key={license.licenseKey}>
-              <td>
-                <Link to={`/edit-seats/${license.licenseKey}`} state={{ license }}>
-                  {license.name} </Link>
-              </td>
-              <td style={{ 
-                color: license.status === 'active' ? '#4caf50' : 
-                       license.status === 'cancel_at_period_end' ? '#ff9800' : 
-                       '#ff6b6b' 
-              }}>
-                {license.status === 'cancel_at_period_end' ? 'Cancelling' : license.status}
-              </td>
-              <td>
-                {license.seatsTotal}
-              </td>
-              <td>
-                {(license.status === 'cancelled' || license.status === 'cancel_at_period_end') ? (
-                  <button
-                  onClick={() => handleRenew(license.licenseKey, license.expiry)}
-                  className="action-btn renew-btn"
-                  >
-                  Renew
-                  </button>
-                ) : license.status === 'active' ? (
-                  <button
-                  onClick={() => handleCancel(license.licenseKey, license.expiry)}
-                  className="action-btn cancel-btn"
-                  >
-                  Cancel Next Billing
-                  </button>
-                ) : null}
-              </td>
-              <td>
-                {new Date(license.expiry).toLocaleDateString()}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1>My Dashboard</h1>
 
-      {/* Buy License Button */}
-      <div style={{ marginTop: '30px', textAlign: 'center' }}>
-        <button onClick={handleGenerateLicense} className="button">Buy a License</button>
-      </div>
-
-      {/* License Purchase Popup */}
-      {showPopup && (
-        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
-          <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Buy a License</h2>
-            <div className="popup-form">
-              <label>
-                License Type:
-                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)}>
-                  {licenseTypes.map(type => (
-                    <option key={type + " - " + seatsMap[type] + " seats"} value={type}>{type} - {seatsMap[type]} seats</option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                Duration:
-                <select value={selectedDuration} onChange={(e) => setSelectedDuration(e.target.value)}>
-                  {licenseDurations.map(duration => (
-                    <option key={duration} value={duration}>{duration}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
-            <div className="popup-buttons">
-              <button onClick={() => setShowPopup(false)} className="button cancel">Cancel</button>
-              <button onClick={handleBuyLicense} className="button">Buy</button>
-            </div>
-          </div>
+      {/* Credit Balance */}
+      <section className="credits-section">
+        <div className="credits-balance-card">
+          <h2>AI Image Credits</h2>
+          <div className="credits-amount">{credits ?? 0}</div>
+          <p className="credits-label">credits remaining</p>
         </div>
-      )}
+      </section>
+
+      {/* Buy Credits */}
+      <section className="buy-credits-section">
+        <h2>Buy More Credits</h2>
+        <p className="buy-credits-desc">
+          Credits power AI image generation inside zStudio. Each generation costs 1–3 credits depending on the model.
+        </p>
+        <div className="credit-packs">
+          {packs.map(pack => (
+            <div key={pack.id} className={`credit-pack-card${pack.id === 'pro' ? ' credit-pack-featured' : ''}`}>
+              {pack.id === 'pro' && <div className="pack-badge">Most Popular</div>}
+              <h3 className="pack-name">{pack.id.charAt(0).toUpperCase() + pack.id.slice(1)}</h3>
+              <div className="pack-credits">{pack.credits.toLocaleString()} credits</div>
+              <div className="pack-price">${(pack.priceUsdCents / 100).toFixed(0)}</div>
+              <div className="pack-value">{((pack.priceUsdCents / pack.credits) / 100 * 100).toFixed(1)}¢ per credit</div>
+              <button
+                className="button"
+                onClick={() => handleBuy(pack.id)}
+                disabled={purchasing !== null}
+              >
+                {purchasing === pack.id ? 'Processing...' : 'Buy Now'}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="credits-model-info">
+          <h3>Credit costs per model</h3>
+          <ul>
+            <li><span className="cost-badge cost-1">1 credit</span> Lightning XL · Diffusion XL · AlbedoBase XL · Phoenix</li>
+            <li><span className="cost-badge cost-2">2 credits</span> FLUX.1 Kontext · Gemini Flash</li>
+            <li><span className="cost-badge cost-3">3 credits</span> GPT Image 1.5</li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 };

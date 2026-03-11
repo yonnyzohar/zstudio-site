@@ -252,3 +252,58 @@ export const apiResetPassword = async (token: string, newPassword: string): Prom
     }
 };
 
+// ─── AI Credits ───────────────────────────────────────────────────────────────
+
+export interface CreditPack {
+    id: string;
+    credits: number;
+    priceUsdCents: number;
+    label: string;
+}
+
+export const apiGetCreditsBalance = async (): Promise<{ success: boolean; credits?: number; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/credits/balance`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        const data = await response.json();
+        return { success: data.success, credits: data.balance, error: data.error };
+    } catch (error) {
+        console.error('Get credits balance error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiGetCreditPacks = async (): Promise<{ success: boolean; packs?: CreditPack[]; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/credits/packs`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Get credit packs error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiPurchaseCreditsCheckout = async (packId: string): Promise<{ success: boolean; url?: string; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/credits/purchase-checkout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({ packId })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Purchase credits checkout error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+

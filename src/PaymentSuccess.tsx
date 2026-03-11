@@ -19,7 +19,7 @@ const PaymentSuccess: React.FC = () => {
   return (
     <div className="container">
       <h1>Payment Successful!</h1>
-      <p>Thank you for your purchase. Your license is being processed.</p>
+      <p>Thank you for your purchase. Your credits are being added to your account.</p>
       {sessionId && <p>Session ID: {sessionId}</p>}
       <p>You will be redirected to your dashboard shortly...</p>
     </div>
