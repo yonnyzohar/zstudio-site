@@ -123,7 +123,7 @@ const Tutorials: React.FC = () => {
         }}>
             Master zStudio with our comprehensive video tutorials. Learn everything from basic navigation to advanced features like templates, hierarchies, and runtime integration.
           <br />
-            <span style={{ color: '#f59e0b', fontWeight: 'bold', fontSize: '1.1em' }}>Complete documentation available</span> <a href="https://docs.google.com/document/d/1_HYxMPax1fQ-Fp4KJBKBn--uUoOzgVcTE0lGvSKwXK8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'underline' }}>here</a>.
+            <span style={{ color: '#f59e0b', fontWeight: 'bold', fontSize: '1.1em' }}>Complete documentation available</span> <a href="./zStudioDocumentation/index.html" target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'underline' }}>here</a>.
         </p>
       </section>
 
