@@ -1322,6 +1322,7 @@ h2 {
   }
   .hero-logo {
     order: -1;
+    width: 100%;
   }
   .logo-image {
     width: 250px;

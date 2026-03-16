@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
         <Link to="/z-importer" className="nav-link" onClick={closeMenu}>zImporter</Link>
+        <Link to="/swf-importer" className="nav-link" onClick={closeMenu}>SWF Import</Link>
         <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
         <Link to="/demos" className="nav-link" onClick={closeMenu}>Demos</Link>

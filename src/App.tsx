@@ -16,6 +16,7 @@ import Terms from './Terms';
 
 import PaymentSuccess from './PaymentSuccess';
 import PaymentCancelled from './PaymentCancelled';
+import SwfImporter from './SwfImporter';
 import './App.css';
 
 // ScrollToTop component
@@ -61,6 +62,7 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/payment-cancelled" element={<PaymentCancelled />} />
+              <Route path="/swf-importer" element={<SwfImporter />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>

@@ -242,6 +242,10 @@ const Home: React.FC = () => {
                       <span className="checkmark">✓</span>
                       <span>Frees developers to focus on what they do best</span>
                     </div>
+                    <div className="value-prop">
+                      <span className="checkmark">✓</span>
+                      <span>Import old projects from Adobe Animate</span>
+                    </div>
                   </div>
                 </div>
               </div>
