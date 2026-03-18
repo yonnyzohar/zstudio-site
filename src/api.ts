@@ -323,3 +323,20 @@ export const apiPurchaseCreditsCheckout = async (packId: string): Promise<{ succ
     }
 };
 
+export const apiDeleteAccount = async (password: string): Promise<{ success: boolean; message?: string; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/delete-account`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({ password })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Delete account error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
