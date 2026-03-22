@@ -454,14 +454,14 @@
       {
         "type": "asset",
         "editorOnly": false,
-        "name": "Templategpj3",
+        "name": "BlockTemplate",
         "template": true,
         "guide": false,
         "instanceName": "blockMaster",
         "filters": {},
         "portrait": {
           "x": 0,
-          "y": 221,
+          "y": 240,
           "rotation": 0,
           "scaleX": 0.72,
           "scaleY": 0.72,
@@ -479,8 +479,8 @@
           "x": 0,
           "y": -11,
           "rotation": 0,
-          "scaleX": 1.01,
-          "scaleY": 1.01,
+          "scaleX": 0.99,
+          "scaleY": 0.99,
           "alpha": 1,
           "pivotX": 0,
           "pivotY": 0,
@@ -501,8 +501,8 @@
         "instanceName": "circleContainer",
         "filters": {},
         "portrait": {
-          "x": 372,
-          "y": 470,
+          "x": 376,
+          "y": 489,
           "rotation": 0,
           "scaleX": 1,
           "scaleY": 1,
@@ -517,8 +517,8 @@
           }
         },
         "landscape": {
-          "x": 528,
-          "y": 333,
+          "x": 515,
+          "y": 327,
           "rotation": 0,
           "scaleX": 1,
           "scaleY": 1,
@@ -538,19 +538,19 @@
     "name": "stage"
   },
   "templates": {
-    "Templategpj3": {
+    "BlockTemplate": {
       "children": [
         {
           "type": "asset",
           "editorOnly": false,
-          "name": "Instance4",
+          "name": "BlockContainerTemplate",
           "template": true,
           "guide": false,
           "instanceName": "blockContainer",
           "filters": {},
           "portrait": {
             "x": 0,
-            "y": 10,
+            "y": 0,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -592,7 +592,7 @@
         {
           "portrait": {
             "x": 974,
-            "y": 359,
+            "y": 349,
             "rotation": 3.14,
             "scaleX": 1,
             "scaleY": 1,
@@ -633,7 +633,7 @@
         {
           "portrait": {
             "x": 52,
-            "y": 359,
+            "y": 349,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -673,8 +673,8 @@
         },
         {
           "portrait": {
-            "x": 861,
-            "y": 15,
+            "x": 862,
+            "y": 4,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -715,7 +715,7 @@
         {
           "portrait": {
             "x": 50,
-            "y": 15,
+            "y": 4,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -752,175 +752,54 @@
           "instanceName": "replayBTN",
           "editorOnly": false,
           "filters": {}
-        }
-      ],
-      "type": "asset",
-      "name": "Templategpj3"
-    },
-    "Instance4": {
-      "children": [
-        {
-          "type": "asset",
-          "editorOnly": false,
-          "name": "Instance5",
-          "template": true,
-          "guide": false,
-          "instanceName": "instance5",
-          "filters": {},
-          "portrait": {
-            "skewX": 0,
-            "width": 917.75,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 0,
-            "scaleX": 1.12,
-            "y": -4,
-            "visible": true,
-            "scaleY": 1.36,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 547.15,
-            "pivotY": 0
-          },
-          "landscape": {
-            "skewX": 0,
-            "width": 917.75,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 0,
-            "scaleX": 1.12,
-            "y": -4,
-            "visible": true,
-            "scaleY": 1.36,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 547.15,
-            "pivotY": 0
-          }
         },
         {
           "type": "asset",
           "editorOnly": false,
-          "name": "Instance12",
+          "name": "Templateguek",
           "template": true,
           "guide": false,
-          "instanceName": "filmSides",
+          "instanceName": "pageNum",
           "filters": {},
           "portrait": {
-            "skewX": 0,
-            "width": 1028.15,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 0,
-            "scaleX": 1,
-            "y": 0,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 740.2,
-            "pivotY": 0
-          },
-          "landscape": {
-            "skewX": 0,
-            "width": 1028.15,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 0,
-            "scaleX": 1,
-            "y": 0,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 740.2,
-            "pivotY": 0
-          }
-        },
-        {
-          "type": "asset",
-          "editorOnly": false,
-          "name": "BlockBG",
-          "template": true,
-          "guide": false,
-          "instanceName": "blockBG",
-          "filters": {},
-          "portrait": {
-            "skewX": 0,
-            "width": 917.75,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 55,
-            "scaleX": 1,
-            "y": 67,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 547.15,
-            "pivotY": 0
-          },
-          "landscape": {
-            "skewX": 0,
-            "width": 917.75,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 55,
-            "scaleX": 1,
-            "y": 67,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 0,
-            "alpha": 1,
-            "height": 547.15,
-            "pivotY": 0
-          }
-        },
-        {
-          "type": "asset",
-          "editorOnly": false,
-          "name": "TextBox",
-          "template": true,
-          "guide": false,
-          "instanceName": "textBox",
-          "filters": {},
-          "portrait": {
-            "skewX": 0,
-            "width": 728,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
             "x": 519,
+            "y": 589,
+            "rotation": 0,
             "scaleX": 1,
-            "y": 617,
-            "visible": true,
             "scaleY": 1,
-            "pivotX": 0,
             "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 728,
             "height": 37,
-            "pivotY": 0
+            "skewX": 0,
+            "skewY": 0
           },
           "landscape": {
-            "skewX": 0,
-            "width": 728,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
             "x": 519,
+            "y": 589,
+            "rotation": 0,
             "scaleX": 1,
-            "y": 617,
-            "visible": true,
             "scaleY": 1,
-            "pivotX": 0,
             "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 728,
             "height": 37,
-            "pivotY": 0
+            "skewX": 0,
+            "skewY": 0
           }
         },
         {
@@ -976,14 +855,14 @@
         {
           "type": "asset",
           "editorOnly": false,
-          "name": "Templateguek",
+          "name": "TextBox",
           "template": true,
           "guide": false,
-          "instanceName": "pageNum",
+          "instanceName": "textBox",
           "filters": {},
           "portrait": {
             "x": 519,
-            "y": 590,
+            "y": 616,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -1003,7 +882,7 @@
           },
           "landscape": {
             "x": 519,
-            "y": 590,
+            "y": 616,
             "rotation": 0,
             "scaleX": 1,
             "scaleY": 1,
@@ -1024,13 +903,346 @@
         }
       ],
       "type": "asset",
-      "name": "Instance4"
+      "name": "BlockTemplate"
     },
-    "Instance5": {
+    "BlockContainerTemplate": {
+      "children": [
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "Bg",
+          "template": true,
+          "guide": false,
+          "instanceName": "bg",
+          "filters": {},
+          "portrait": {
+            "skewX": 0,
+            "width": 917.75,
+            "isAnchored": false,
+            "skewY": 0,
+            "rotation": 0,
+            "x": 0,
+            "scaleX": 1.12,
+            "y": -4,
+            "visible": true,
+            "scaleY": 1.36,
+            "pivotX": 0,
+            "alpha": 1,
+            "height": 547.15,
+            "pivotY": 0
+          },
+          "landscape": {
+            "skewX": 0,
+            "width": 917.75,
+            "isAnchored": false,
+            "skewY": 0,
+            "rotation": 0,
+            "x": 0,
+            "scaleX": 1.12,
+            "y": -4,
+            "visible": true,
+            "scaleY": 1.36,
+            "pivotX": 0,
+            "alpha": 1,
+            "height": 547.15,
+            "pivotY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "Instance12",
+          "template": true,
+          "guide": false,
+          "instanceName": "filmSides",
+          "filters": {},
+          "portrait": {
+            "x": 0,
+            "y": 0,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 3,
+            "y": 15,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "BlockBG",
+          "template": true,
+          "guide": false,
+          "instanceName": "blockBG",
+          "filters": {},
+          "portrait": {
+            "skewX": 0,
+            "width": 917.75,
+            "isAnchored": false,
+            "skewY": 0,
+            "rotation": 0,
+            "x": 53,
+            "scaleX": 1,
+            "y": 66,
+            "visible": true,
+            "scaleY": 1,
+            "pivotX": 0,
+            "alpha": 1,
+            "height": 547.15,
+            "pivotY": 0
+          },
+          "landscape": {
+            "skewX": 0,
+            "width": 917.75,
+            "isAnchored": false,
+            "skewY": 0,
+            "rotation": 0,
+            "x": 52,
+            "scaleX": 1,
+            "y": 66,
+            "visible": true,
+            "scaleY": 1,
+            "pivotX": 0,
+            "alpha": 1,
+            "height": 547.15,
+            "pivotY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "Instance12",
+          "template": true,
+          "guide": false,
+          "instanceName": "filmSidesTop",
+          "filters": {},
+          "portrait": {
+            "x": 0,
+            "y": -732,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 4,
+            "y": -734,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "Instance12",
+          "template": true,
+          "guide": false,
+          "instanceName": "filmSidesBTM",
+          "filters": {},
+          "portrait": {
+            "x": 0,
+            "y": 745,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 4,
+            "y": 745,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 1028.15,
+            "height": 740.2,
+            "skewX": 0,
+            "skewY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "BlockBG",
+          "template": true,
+          "guide": false,
+          "instanceName": "blockBGTop",
+          "filters": {},
+          "portrait": {
+            "x": 54,
+            "y": -630,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 917.75,
+            "height": 547.15,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 52,
+            "y": -631,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 917.75,
+            "height": 547.15,
+            "skewX": 0,
+            "skewY": 0
+          }
+        },
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "BlockBG",
+          "template": true,
+          "guide": false,
+          "instanceName": "blockBGBTM",
+          "filters": {},
+          "portrait": {
+            "x": 53,
+            "y": 848,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 917.75,
+            "height": 547.15,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 52,
+            "y": 848,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 0,
+            "pivotY": 0,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 917.75,
+            "height": 547.15,
+            "skewX": 0,
+            "skewY": 0
+          }
+        }
+      ],
+      "type": "asset",
+      "name": "BlockContainerTemplate"
+    },
+    "Bg": {
       "children": [
         {
           "type": "img",
-          "name": "Instance5_IMG",
+          "name": "Bg_IMG",
           "width": 918,
           "height": 548,
           "x": 0,
@@ -1042,7 +1254,7 @@
         }
       ],
       "type": "asset",
-      "name": "Instance5"
+      "name": "Bg"
     },
     "Instance12": {
       "children": [
@@ -1126,159 +1338,6 @@
       ],
       "type": "asset",
       "name": "Instance7"
-    },
-    "TextBox": {
-      "children": [
-        {
-          "text": "The search for a new Mother",
-          "type": "textField",
-          "name": "label",
-          "x": 0,
-          "y": 0,
-          "rotation": 0,
-          "width": 320,
-          "height": 31,
-          "alpha": 1,
-          "size": 25,
-          "align": "center",
-          "fontName": "Helvetica",
-          "z": 1,
-          "stroke": "#000000",
-          "strokeThickness": 0,
-          "wordWrap": true,
-          "wordWrapWidth": 728,
-          "breakWords": false,
-          "leading": 0,
-          "letterSpacing": 0,
-          "padding": 0,
-          "textAnchorX": 0.5,
-          "textAnchorY": 0,
-          "lineHeight": 0,
-          "pivotX": 0,
-          "pivotY": 0,
-          "lineJoin": "round",
-          "fontWeight": "normal",
-          "dropShadow": false,
-          "dropShadowAngle": 0.5235987755982988,
-          "dropShadowBlur": 0,
-          "dropShadowColor": "#000000",
-          "dropShadowDistance": 5,
-          "fillType": "solid",
-          "filters": {},
-          "color": "#ffffff"
-        }
-      ],
-      "type": "asset",
-      "name": "TextBox"
-    },
-    "Twister": {
-      "children": [
-        {
-          "type": "asset",
-          "editorOnly": false,
-          "name": "Instance9",
-          "template": true,
-          "guide": false,
-          "instanceName": "instance9",
-          "filters": {},
-          "portrait": {
-            "skewX": 0,
-            "width": 241,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 91,
-            "scaleX": 1,
-            "y": 19,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 54.42,
-            "alpha": 1,
-            "height": 244.65,
-            "pivotY": -22.7
-          },
-          "landscape": {
-            "skewX": 0,
-            "width": 241,
-            "isAnchored": false,
-            "skewY": 0,
-            "rotation": 0,
-            "x": 91,
-            "scaleX": 1,
-            "y": 19,
-            "visible": true,
-            "scaleY": 1,
-            "pivotX": 54.42,
-            "alpha": 1,
-            "height": 244.65,
-            "pivotY": -22.7
-          }
-        }
-      ],
-      "type": "animation",
-      "name": "Twister"
-    },
-    "Instance9": {
-      "children": [
-        {
-          "type": "img",
-          "name": "Instance9_IMG",
-          "width": 241,
-          "height": 240,
-          "x": -67.85,
-          "y": -141.1,
-          "pivotX": 0,
-          "pivotY": 0,
-          "filePath": "images/instance9.png",
-          "filters": {}
-        }
-      ],
-      "type": "asset",
-      "name": "Instance9"
-    },
-    "Templateguek": {
-      "children": [
-        {
-          "text": "The search for a new Mother",
-          "type": "textField",
-          "name": "label",
-          "x": 0,
-          "y": 0,
-          "rotation": 0,
-          "width": 208,
-          "height": 26,
-          "alpha": 1,
-          "size": 16,
-          "align": "center",
-          "fontName": "Helvetica",
-          "z": 1,
-          "stroke": "#000000",
-          "strokeThickness": 3,
-          "wordWrap": true,
-          "wordWrapWidth": 728,
-          "breakWords": false,
-          "leading": 0,
-          "letterSpacing": 0,
-          "padding": 0,
-          "textAnchorX": 0.5,
-          "textAnchorY": 0,
-          "lineHeight": 0,
-          "pivotX": 0,
-          "pivotY": 0,
-          "lineJoin": "round",
-          "fontWeight": "normal",
-          "dropShadow": false,
-          "dropShadowAngle": 0.5235987755982988,
-          "dropShadowBlur": 0,
-          "dropShadowColor": "#000000",
-          "dropShadowDistance": 5,
-          "fillType": "solid",
-          "filters": {},
-          "color": "#ffd500"
-        }
-      ],
-      "type": "asset",
-      "name": "Templateguek"
     },
     "BackBtnTemplate": {
       "type": "btn",
@@ -1576,6 +1635,167 @@
       ],
       "type": "asset",
       "name": "Templated90t"
+    },
+    "Templateguek": {
+      "children": [
+        {
+          "text": "The search for a new Mother",
+          "type": "textField",
+          "name": "label",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "width": 208,
+          "height": 26,
+          "alpha": 1,
+          "size": 16,
+          "align": "center",
+          "fontName": "Helvetica",
+          "z": 1,
+          "stroke": "#000000",
+          "strokeThickness": 3,
+          "wordWrap": true,
+          "wordWrapWidth": 728,
+          "breakWords": false,
+          "leading": 0,
+          "letterSpacing": 0,
+          "padding": 0,
+          "textAnchorX": 0.5,
+          "textAnchorY": 0,
+          "lineHeight": 0,
+          "pivotX": 0,
+          "pivotY": 0,
+          "lineJoin": "round",
+          "fontWeight": "normal",
+          "dropShadow": false,
+          "dropShadowAngle": 0.5235987755982988,
+          "dropShadowBlur": 0,
+          "dropShadowColor": "#000000",
+          "dropShadowDistance": 5,
+          "fillType": "solid",
+          "filters": {},
+          "color": "#ffd500"
+        }
+      ],
+      "type": "asset",
+      "name": "Templateguek"
+    },
+    "Twister": {
+      "children": [
+        {
+          "type": "asset",
+          "editorOnly": false,
+          "name": "Instance9",
+          "template": true,
+          "guide": false,
+          "instanceName": "instance9",
+          "filters": {},
+          "portrait": {
+            "x": 91,
+            "y": 19,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 54.42,
+            "pivotY": -22.7,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 241,
+            "height": 244.65,
+            "skewX": 0,
+            "skewY": 0
+          },
+          "landscape": {
+            "x": 91,
+            "y": 19,
+            "rotation": 0,
+            "scaleX": 1,
+            "scaleY": 1,
+            "alpha": 1,
+            "pivotX": 54.42,
+            "pivotY": -22.7,
+            "visible": true,
+            "isAnchored": false,
+            "anchorLocalPercentage": {
+              "x": 0,
+              "y": 0
+            },
+            "width": 241,
+            "height": 244.65,
+            "skewX": 0,
+            "skewY": 0
+          }
+        }
+      ],
+      "type": "animation",
+      "name": "Twister"
+    },
+    "Instance9": {
+      "children": [
+        {
+          "type": "img",
+          "name": "Instance9_IMG",
+          "width": 241,
+          "height": 240,
+          "x": -67.85,
+          "y": -141.1,
+          "pivotX": 0,
+          "pivotY": 0,
+          "filePath": "images/instance9.png",
+          "filters": {}
+        }
+      ],
+      "type": "asset",
+      "name": "Instance9"
+    },
+    "TextBox": {
+      "children": [
+        {
+          "text": "The search for a new Mother",
+          "type": "textField",
+          "name": "label",
+          "x": 0,
+          "y": 0,
+          "rotation": 0,
+          "width": 320,
+          "height": 31,
+          "alpha": 1,
+          "size": 25,
+          "align": "center",
+          "fontName": "Helvetica",
+          "z": 1,
+          "stroke": "#000000",
+          "strokeThickness": 0,
+          "wordWrap": true,
+          "wordWrapWidth": 728,
+          "breakWords": false,
+          "leading": 0,
+          "letterSpacing": 0,
+          "padding": 0,
+          "textAnchorX": 0.5,
+          "textAnchorY": 0,
+          "lineHeight": 0,
+          "pivotX": 0,
+          "pivotY": 0,
+          "lineJoin": "round",
+          "fontWeight": "normal",
+          "dropShadow": false,
+          "dropShadowAngle": 0.5235987755982988,
+          "dropShadowBlur": 0,
+          "dropShadowColor": "#000000",
+          "dropShadowDistance": 5,
+          "fillType": "solid",
+          "filters": {},
+          "color": "#ffffff"
+        }
+      ],
+      "type": "asset",
+      "name": "TextBox"
     },
     "Templatewys7": {
       "children": [],
