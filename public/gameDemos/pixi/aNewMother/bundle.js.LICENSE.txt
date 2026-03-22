@@ -1,0 +1,26 @@
+/*!
+   * GSAP 3.14.2
+   * https://gsap.com
+   *
+   * @license Copyright 2008-2025, GreenSock. All rights reserved.
+   * Subject to the terms at https://gsap.com/standard-license
+   * @author: Jack Doyle, jack@greensock.com
+  */
+
+/*!
+ * @pixi/filter-drop-shadow - v5.2.0
+ * Compiled Tue, 28 Feb 2023 14:24:35 UTC
+ *
+ * @pixi/filter-drop-shadow is licensed under the MIT License.
+ * http://www.opensource.org/licenses/mit-license
+ */
+
+/*!
+ * @pixi/particle-emitter - v5.0.10
+ * Compiled Thu, 08 Jan 2026 22:19:44 UTC
+ *
+ * @pixi/particle-emitter is licensed under the MIT License.
+ * http://www.opensource.org/licenses/mit-license
+ */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */

@@ -14,6 +14,14 @@ interface Demo {
 
 const demos: Demo[] = [
   {
+    title: 'A New Mother',
+    description: 'An interactive storybook experience built with zStudio. Follow the touching story of a new mother through beautifully animated scenes.',
+    icon: '📖',
+    versions: [
+      { label: 'Pixi.js', url: '/gameDemos/pixi/aNewMother/index.html' },
+    ],
+  },
+  {
     title: 'Slot Machine',
     description: 'A fully-featured slot machine demo built with zStudio. Play a classic Wild West themed slot machine with multiple reels, animations, and win logic.',
     icon: '🎰',
