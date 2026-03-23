@@ -1,6 +1,6 @@
 {
-  "version": "1.2.47",
-  "windows": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.47/zStudio-latest.exe",
-  "mac": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.47/zStudio-latest.dmg",
-  "linux": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.47/zStudio-latest.AppImage"
+  "version": "1.2.48",
+  "windows": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.48/zStudio-latest.exe",
+  "mac": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.48/zStudio-latest.dmg",
+  "linux": "https://github.com/yonnyzohar/zstudio-site/releases/download/v1.2.48/zStudio-latest.AppImage"
 }
