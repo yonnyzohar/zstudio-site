@@ -19,6 +19,7 @@ const demos: Demo[] = [
     icon: '📖',
     versions: [
       { label: 'Pixi.js', url: '/gameDemos/pixi/aNewMother/index.html' },
+      { label: 'Phaser', url: '/gameDemos/phaser/aNewMother/index.html' },
     ],
   },
   {
