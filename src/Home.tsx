@@ -220,31 +220,30 @@ const Home: React.FC = () => {
               </div>
               <div className="hero-text">
                 <h1>
-                  <span className="title-gradient">Create AI Powered Game & Ad Scenes Visually & Instantly
-                  </span>
+                  <span className="title-gradient">The Responsive UI & Layout Engine for Web Games</span>
                 </h1>
 
                 <p className="intro">
-                  zStudio is the ultimate visual UI & 2D scene authoring tool for web game developers and ad creators.<br /> Build professional scenes in minutes with Pixi.js, Phaser, and plain HTML integration.
+                  Design complex, resolution-independent UI for Pixi.js and Phaser without writing a single line of layout code
                 </p>
 
                 <div className="hero-cta-section">
                   <div className="value-props">
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Empower artists to build responsive scenes and own their creative vision</span>
+                      <span>Stop manually repositioning sprites for every screen size</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>No coding required</span>
+                      <span>No layout code — artists own the pipeline from Day 1</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Frees developers to focus on what they do best</span>
+                      <span>Developers load a full scene in 5 lines of code</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Import old projects from Adobe Animate</span>
+                      <span>Import Adobe Animate projects — your legacy work, modernized</span>
                     </div>
                   </div>
                 </div>
@@ -256,44 +255,61 @@ const Home: React.FC = () => {
 
         <div className="container">
 
+          {/* PAIN POINTS */}
+          <section className="pain-points-section">
+            <h2 className="pain-points-heading">Does this sound familiar?</h2>
+            <div className="pain-items-grid">
+              <div className="pain-item">
+                <span className="pain-quote">"Tired of manually repositioning 50 sprites for Portrait vs. Landscape?"</span>
+              </div>
+              <div className="pain-item">
+                <span className="pain-quote">"Sick of the back-and-forth ping-pong between Art and Dev just for a button change?"</span>
+              </div>
+              <div className="pain-item">
+                <span className="pain-quote">"Need to ship playable ads to 10+ networks with a single responsive export?"</span>
+              </div>
+            </div>
+            <p className="pain-solution">zStudio was built to solve exactly these problems.</p>
+          </section>
+
           {/* FEATURES */}
           <section className="features">
             <div className="features-header">
-              <h2>Turbo-charge your game and ad creation pipeline with zStudio</h2>
-              <p className="features-subtitle">Join the revolution in interactive content creation. Build faster, ship sooner, earn more.</p>
+              <h2>Stop Hard-Coding Layouts. Build Once, Run Everywhere.</h2>
+              <p className="features-subtitle">The layout tool that lets artists own the UI pipeline and lets developers focus on game logic — not pixel math.</p>
             </div>
             <div className="features-container">
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="er8oFDWHdeo" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="EypJ2ZRc4DI" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[0] = el; }}>
                   <div className="feature-number">01</div>
-                  <FiZap className="feature-icon" />
-                  <h3>Lightning Fast Scene Creation</h3>
-                  <p>Build complex 2D scenes visually for multiple resolutions, aspect ratios, and devices.</p>
+                  <FiSmartphone className="feature-icon" />
+                  <h3>Responsive Layout Without a Single Line of Code</h3>
+                  <p>Anchor system for relative positioning that adapts to any screen size. Design once — portrait, landscape, desktop, and every ad network dimension handled automatically.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[1] = el; }}>
                   <div className="feature-number">02</div>
-                  <FiMousePointer className="feature-icon" />
-                  <h3>Drag-and-Drop Asset Management</h3>
-                  <p>Easily import images, animations, and assets with drag-and-drop.</p>
+                  <FiLink className="feature-icon" />
+                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
+                  <p>Export your scene as JSON. Load it in your project with 5 lines of code via our zImporter package. All positions, anchors, animations, and hierarchies preserved — pixel-perfect, every time.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="Q4AYpWcXzC8" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="ZINRf2fgfQs" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="liejf2lnoGM" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="dkFNVOs7hSI" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
                   <div className="feature-number">03</div>
-                  <FiImage className="feature-icon" />
-                  <h3>Fully Embedded AI Image Generation</h3>
-                  <p>Create, alter or replace images directly in the scene with AI.</p>
+                  <FiPlay className="feature-icon" />
+                  <h3>Visual Animation Timeline</h3>
+                  <p>Keyframe-based timeline with easing functions, cue points, and playback controls — the same visual workflow you remember from Flash, rebuilt for modern web exports.</p>
                 </div>
               </div>
               <div className="feature-row">
@@ -301,7 +317,7 @@ const Home: React.FC = () => {
                   <div className="feature-number">04</div>
                   <FiLayers className="feature-icon" />
                   <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, bitmap fonts, particles, spine animations, sliders, toggles – everything you need for interactive UI, game elements, and ad components.</p>
+                  <p>Sprites, buttons, text, bitmap fonts, particles, Spine animations, sliders, and toggles — everything you need for interactive game UI and playable ad components.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="URx6OGJs5dQ" />
@@ -309,57 +325,84 @@ const Home: React.FC = () => {
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="dkFNVOs7hSI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="er8oFDWHdeo" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[4] = el; }}>
                   <div className="feature-number">05</div>
-                  <FiPlay className="feature-icon" />
-                  <h3>Powerful Animation System</h3>
-                  <p>Keyframe-based timeline with easing functions, cue points, and playback controls. Create smooth, professional animations effortlessly.</p>
+                  <FiZap className="feature-icon" />
+                  <h3>Lightning Fast Scene Creation</h3>
+                  <p>Build complex 2D scenes visually for multiple resolutions, aspect ratios, and devices — in minutes, not hours.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
                   <div className="feature-number">06</div>
-                  <FiSmartphone className="feature-icon" />
-                  <h3>Responsive Design Tools</h3>
-                  <p>Anchor system for relative positioning that adapts to different screen sizes. Perfect layouts that work everywhere.</p>
+                  <FiMousePointer className="feature-icon" />
+                  <h3>Drag-and-Drop Asset Management</h3>
+                  <p>Import images, sprite sheets, Spine animations, and bitmap fonts with drag-and-drop. Organise assets into a clean hierarchy without touching a config file.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="EypJ2ZRc4DI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="Q4AYpWcXzC8" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="ZINRf2fgfQs" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="qsiRDy4g-MU" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[6] = el; }}>
                   <div className="feature-number">07</div>
-                  <FiLink className="feature-icon" />
-                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
-                  <p>Export scenes as JSON data and import into your Pixi.js, Phaser, or plain HTML projects with our zImporter package. Maintains all relationships and hierarchies.</p>
+                  <FiGrid className="feature-icon" />
+                  <h3>Intuitive Professional Interface</h3>
+                  <p>Draggable panels, context menus, hotkeys, undo/redo, and live test mode. Designed for artists who move fast and need full creative control.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[7] = el; }}>
                   <div className="feature-number">08</div>
-                  <FiGrid className="feature-icon" />
-                  <h3>Intuitive User Interface</h3>
-                  <p>Draggable panels, context menus, hotkeys, undo, and test mode. Designed for efficiency and ease of use.</p>
+                  <FiSettings className="feature-icon" />
+                  <h3>Production-Ready Workflow Features</h3>
+                  <p>Templates, filters, inspectors, and extensibility. Everything needed to go from first sketch to shipped game or ad — without involving a developer for layout tweaks.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="qsiRDy4g-MU" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="IPQCnAhPSzA" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[8] = el; }} videoId="IPQCnAhPSzA" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[8] = el; }} videoId="liejf2lnoGM" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[8] = el; }}>
                   <div className="feature-number">09</div>
-                  <FiSettings className="feature-icon" />
-                  <h3>Professional Workflow Features</h3>
-                  <p>Templates, filters, inspectors, and extensibility. Everything you need for production-ready game and ad development.</p>
+                  <FiImage className="feature-icon" />
+                  <h3>Generate Placeholders Instantly</h3>
+                  <p>Keep designing when the final art isn't ready yet. Generate AI placeholder images directly inside the scene editor — so layout work never blocks on an asset request.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* POST-FLASH */}
+          <section className="post-flash-section">
+            <div className="post-flash-content">
+              <h2 className="post-flash-heading">The Workflow You Missed, Rebuilt for the Modern Web</h2>
+              <p className="post-flash-lead">
+                If you built in Flash, you know what a visual, instant-preview workflow feels like. That productivity never died — it just got orphaned.
+              </p>
+              <p className="post-flash-body">
+                zStudio combines the drag-and-drop power of Flash's authoring tool with modern JSON-based exports that drop straight into Pixi.js and Phaser. Your Art Director stays in a visual editor. Your developer loads the scene in 5 lines of code. No Figma handoff. No hard-coded coordinates. No layout ping-pong.
+              </p>
+              <div className="post-flash-pillars">
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>Visual keyframe timeline — animate without touching code</span>
+                </div>
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>One-click JSON export — the scene loads in 5 lines</span>
+                </div>
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>Import Adobe Animate projects — your legacy work, modernized</span>
                 </div>
               </div>
             </div>
@@ -367,17 +410,17 @@ const Home: React.FC = () => {
 
           {/* WORKFLOW */}
           <section className="workflow">
-            <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#14b8a6', fontSize: '2.5em', fontWeight: '700', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Creative Workflow</h2>
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#14b8a6', fontSize: '2.5em', fontWeight: '700', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Stop the Layout Ping-Pong</h2>
             <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
               <div className="workflow-row" style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '1.5rem' : '2rem', alignItems: 'stretch', maxWidth: isMobile ? '100%' : '934px', margin: '0 auto', backgroundColor: '#1e293b', borderRadius: '12px', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', border: '1px solid rgba(20, 184, 166, 0.3)', padding: isMobile ? '1.5rem' : '2rem' }}>
               <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
                 <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Designer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Focuses on his creative vision</p>
+                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Owns the full visual layout — without writing a line of code</p>
                 <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', maxHeight: '350px', height: 'auto', borderRadius: '8px', objectFit: 'contain' }} />
               </div>
               <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
                 <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Developer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>focuses on game logic.</p>
+                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Loads the entire scene in 5 lines — and ships the game</p>
                 <pre style={{
                   backgroundColor: '#0f172a',
                   padding: '1.5rem',
@@ -440,27 +483,27 @@ scene.load(loadPath, () => {
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
-              <h2>Trusted by Artists, Developers, and Ad Creators</h2>
+              <h2>Trusted by iGaming & Ad Teams Worldwide</h2>
               <div className="testimonials">
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
                   <p>"As an artist, I no longer need a developer to create responsive scenes. zStudio gives me full ownership of my creative vision!"</p>
-                  <cite>- Game Artist</cite>
+                  <cite>- Lead Artist, iGaming Studio</cite>
                 </div>
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
                   <p>"Now I can focus purely on attaching logic since the scene has been perfectly made for me. Game development just got easier!"</p>
-                  <cite>- Game Developer</cite>
+                  <cite>- Senior Game Developer (Phaser)</cite>
                 </div>
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
                   <p>"Skinning games has become much easier and more powerful with zStudio. It's a total game-changer!"</p>
-                  <cite>- Tech Artist</cite>
+                  <cite>- Tech Artist, Ad Creative Studio</cite>
                 </div>
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
                   <p>"zStudio makes creating engaging playable ads a breeze. I can design interactive experiences that captivate users before they even download the app!"</p>
-                  <cite>- Ad Creative</cite>
+                  <cite>- Playable Ad Developer, Mobile Gaming</cite>
                 </div>
               </div>
             </div>

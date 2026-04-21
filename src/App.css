@@ -963,6 +963,126 @@ a.button.donate:hover {
   background: none;
 }
 
+/* Pain Points Section */
+.pain-points-section {
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(20, 184, 166, 0.15);
+  border-bottom: 1px solid rgba(20, 184, 166, 0.15);
+  margin: 20px 0 60px;
+}
+
+.pain-points-heading {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pain-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 36px;
+}
+
+.pain-item {
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pain-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15);
+}
+
+.pain-quote {
+  color: #f1f5f9;
+  font-size: 1.05em;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.pain-solution {
+  color: #14b8a6;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Post-Flash Section */
+.post-flash-section {
+  margin: 20px 0 60px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.06) 0%, rgba(245, 158, 11, 0.06) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.post-flash-content {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.post-flash-heading {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.post-flash-lead {
+  font-size: 1.15em;
+  color: #e5e7eb;
+  margin-bottom: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.post-flash-body {
+  font-size: 1.05em;
+  color: #94a3b8;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.post-flash-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.post-flash-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1.05em;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.pillar-check {
+  color: #10b981;
+  font-size: 1.2em;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 /* Social Proof Section */
 .social-proof {
   padding: 80px 20px;
