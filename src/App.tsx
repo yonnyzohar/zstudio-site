@@ -13,6 +13,7 @@ import ZImporter from './ZImporter';
 import Tutorials from './Tutorials';
 import Demos from './Demos';
 import Terms from './Terms';
+import PrivacyPolicy from './PrivacyPolicy';
 
 import PaymentSuccess from './PaymentSuccess';
 import PaymentCancelled from './PaymentCancelled';
@@ -60,6 +61,7 @@ function App() {
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/demos" element={<Demos />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/payment-cancelled" element={<PaymentCancelled />} />
               <Route path="/swf-importer" element={<SwfImporter />} />

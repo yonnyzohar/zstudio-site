@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       </ul>
 
       <p style={{ margin: '20px 0', fontSize: '0.9em' }}>
-        <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link>
+        <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link>
       </p>
       <span id="timestamp">© 2026 zStudio - All Rights Reserved</span>
       <script
