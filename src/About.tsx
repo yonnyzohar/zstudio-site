@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SEO from './SEO';
 
 interface ReleaseData {
   version: string;
@@ -37,6 +38,11 @@ const About: React.FC = () => {
 
   return (
     <div className="container">
+      <SEO
+        title="About zStudio – Game UI Design Tool for Developers"
+        description="Learn about zStudio — a visual layout editor built for game developers. Download the app and design UI scenes for Pixi.js, Phaser, and more."
+        canonical="/about"
+      />
 
       {/* ── HERO ── */}
       <div style={{ marginBottom: '3rem' }}>

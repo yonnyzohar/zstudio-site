@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from './SEO';
 
 const SwfImporter: React.FC = () => {
   return (
     <div>
+      <SEO
+        title="Import Flash SWF Files into zStudio"
+        description="Convert your old Adobe Animate and Flash SWF assets directly into zStudio. Modernize your game UI without rebuilding from scratch."
+        canonical="/swf-importer"
+      />
       <main>
         {/* HERO */}
         <section className="hero">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SEO from './SEO';
 
 declare global {
   interface Window {
@@ -28,6 +29,11 @@ const ZImporter: React.FC = () => {
   }, []);
   return (
     <>
+    <SEO
+      title="zImporter – Export zStudio Scenes to Pixi.js, Phaser & More"
+      description="Use zImporter to bring your zStudio layouts into your game engine. Supports Pixi.js, Phaser, Three.js and more with a simple import workflow."
+      canonical="/z-importer"
+    />
     <div className="container">
       {/* HERO SECTION */}
       <section style={{ marginBottom: '3rem' }}>

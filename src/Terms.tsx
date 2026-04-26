@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from './SEO';
 
 const Terms: React.FC = () => {
   return (
     <div className="container">
+      <SEO
+        title="Terms of Use – zStudio"
+        description="Read the terms of use for zStudio software. Understand your rights, what you may and may not do with the software, and our warranty disclaimer."
+        canonical="/terms"
+      />
       <h1>zStudio</h1>
 
       <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>Copyright 2025 zStudios Ltd</h2>

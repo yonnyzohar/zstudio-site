@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import SEO from './SEO';
 
 interface DemoVersion {
   label: string;
@@ -69,6 +70,11 @@ const Demos: React.FC = () => {
 
   return (
     <div className="demos-page">
+      <SEO
+        title="Game Demos – See zStudio in Action"
+        description="Explore interactive game demos built with zStudio. See scenes exported to Pixi.js and Phaser — including a slot machine, storybook, and space shooter."
+        canonical="/demos"
+      />
       <div className="container">
         <div className="demos-header">
           <h1>Game Demos</h1>

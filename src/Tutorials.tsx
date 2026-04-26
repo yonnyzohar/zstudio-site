@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from './SEO';
 
 interface Video {
   title: string;
@@ -102,6 +103,11 @@ const Tutorials: React.FC = () => {
 
   return (
     <div className="container">
+      <SEO
+        title="Tutorials – Learn to Build Game UI with zStudio"
+        description="Watch step-by-step video tutorials on using zStudio. Learn navigation, panels, containers, hierarchies, animation, and more for game UI design."
+        canonical="/tutorials"
+      />
       {/* HEADER SECTION */}
       <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h1 style={{ 

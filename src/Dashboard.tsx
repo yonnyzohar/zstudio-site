@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import { useAuth } from './AuthContext';
 import { apiGetCreditsBalance, apiGetCreditPacks, apiPurchaseCreditsCheckout, apiGetCreditModels, apiDeleteAccount } from './api';
 import type { CreditPack, CreditModelInfo } from './api';
@@ -77,6 +78,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="container">
+      <SEO title="Dashboard – zStudio" description="Manage your zStudio license and seat allocation." noindex />
       <h1>My Dashboard</h1>
 
       {/* Credit Balance */}

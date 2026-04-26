@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
+import SEO from './SEO';
 
 const Login: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -72,6 +73,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="container">
+      <SEO title="Login – zStudio" description="Log in to your zStudio account." noindex />
       <div className="auth-section">
         <h2>{isLogin ? 'Login' : 'Create Account'}</h2>
         <form onSubmit={handleSubmit}>

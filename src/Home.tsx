@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from './SEO';
 import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings, FiImage } from 'react-icons/fi';
 
 declare global {
@@ -104,6 +105,30 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <SEO
+        title="zStudio – UI & Layout Creation Tool for Web Games"
+        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or Three.js — free to download."
+        canonical="/"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'zStudio',
+          applicationCategory: 'DeveloperApplication',
+          operatingSystem: 'Windows, macOS, Linux',
+          url: 'https://zstudiosltd.com',
+          description: 'A visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or Three.js.',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'zStudios Ltd',
+            url: 'https://zstudiosltd.com',
+          },
+        }}
+      />
       <main>
         {/* HERO */}
         <section className="hero">

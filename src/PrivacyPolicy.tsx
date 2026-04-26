@@ -1,8 +1,14 @@
 import React from 'react';
+import SEO from './SEO';
 
 const PrivacyPolicy: React.FC = () => {
   return (
     <div className="container" style={{ maxWidth: '860px', margin: '0 auto', padding: '2rem 1.5rem', lineHeight: '1.8' }}>
+      <SEO
+        title="Privacy Policy – zStudio"
+        description="Read the privacy policy for zStudio and zStudios Ltd. Learn what personal data we collect, why we collect it, and how it is used."
+        canonical="/privacy"
+      />
       <h1>Privacy Notice</h1>
       <p style={{ color: '#9ca3af', fontSize: '0.9rem' }}>Last updated: April 2026</p>
 
