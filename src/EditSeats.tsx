@@ -25,8 +25,8 @@ const EditSeats: React.FC = () => {
     if (id) {
       if (passedLicense) {
         setLicense(passedLicense);
-        setSeatsTotal(passedLicense.seatsTotal);
-        loadUsers(passedLicense.licenseKey);
+        setSeatsTotal(passedLicense.max_emails);
+        loadUsers(passedLicense.license_key);
       } else {
         loadLicenseAndUsers(id);
       }
@@ -36,11 +36,11 @@ const EditSeats: React.FC = () => {
   const loadLicenseAndUsers = async (licenseId: string) => {
     // Fetch all licenses to find the one with matching id
     const licenses = await apiGetLicenses();
-    const currentLicense = licenses.find(l => l.id === licenseId);
+    const currentLicense = licenses.licenses?.find(l => l.id === licenseId);
     if (currentLicense) {
       setLicense(currentLicense);
-      setSeatsTotal(currentLicense.seatsTotal);
-      loadUsers(currentLicense.licenseKey);
+      setSeatsTotal(currentLicense.max_emails);
+      loadUsers(currentLicense.license_key);
     } else {
       // License not found, redirect to dashboard
       navigate('/dashboard');
@@ -69,19 +69,19 @@ const EditSeats: React.FC = () => {
       setError('User already added');
       return;
     }
-    if (users.length >= seatsTotal) {
+    if (seatsTotal !== -1 && users.length >= seatsTotal) {
       setError('Maximum seats reached');
       return;
     }
 
     try {
-      const validation = await apiValidateEmailLicense(email, license!.licenseKey);
+      const validation = await apiValidateEmailLicense(email, license!.license_key);
       if (validation.success) {
-        setError('Email halready associated with this license');
+        setError('Email already associated with this license');
         return;
       }
 
-      const addResult = await apiAddLicenseEmail(license!.licenseKey, email);
+      const addResult = await apiAddLicenseEmail(license!.license_key, email);
       if (!addResult.success) {
         setError('Failed to add user to license');
         return;
@@ -100,7 +100,7 @@ const EditSeats: React.FC = () => {
     if (!license) return;
     
     try {
-      const removeResult = await apiRemoveLicenseEmail(license.licenseKey, userEmail);
+      const removeResult = await apiRemoveLicenseEmail(license.license_key, userEmail);
       if (!removeResult.success) {
         alert('Failed to remove user from license');
         return;
@@ -120,13 +120,13 @@ const EditSeats: React.FC = () => {
     <div className="container">
       <h1>Edit Seats - {id}</h1>
       <div style={{ marginBottom: '1rem', fontSize: '1.1rem', color: '#ccc' }}>
-        Seats Used: {users.length} / {seatsTotal}
+        Seats Used: {users.length} / {seatsTotal === -1 ? 'Unlimited' : seatsTotal}
       </div>
       <button
         onClick={() => setShowModal(true)}
         className="button"
         style={{ marginBottom: '2rem' }}
-        disabled={users.length >= seatsTotal}
+        disabled={seatsTotal !== -1 && users.length >= seatsTotal}
       >
         Add User
       </button>

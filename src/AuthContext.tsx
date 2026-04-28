@@ -26,15 +26,17 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem('loggedIn') === 'true');
+  const [userEmail, setUserEmail] = useState(() => localStorage.getItem('userEmail') || '');
 
   useEffect(() => {
-    // Check if user is logged in on mount
-    const loggedIn = localStorage.getItem('loggedIn') === 'true';
-    const email = localStorage.getItem('userEmail') || '';
-    setIsLoggedIn(loggedIn);
-    setUserEmail(email);
+    // Sync state if localStorage changes in another tab
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'loggedIn') setIsLoggedIn(e.newValue === 'true');
+      if (e.key === 'userEmail') setUserEmail(e.newValue || '');
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
   }, []);
 
   const login = async (email: string, password: string): Promise<LoginResponse> => {
@@ -45,7 +47,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('userEmail', email);
       localStorage.setItem('storedEmail', email);
-      localStorage.setItem('storedPassword', password);
     }
     return result;
   };
@@ -58,7 +59,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('userEmail', email);
       localStorage.setItem('storedEmail', email);
-      localStorage.setItem('storedPassword', password);
     }
     return result;
   };

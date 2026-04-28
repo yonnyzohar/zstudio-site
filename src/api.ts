@@ -8,18 +8,41 @@ export interface LoginResponse {
 
 export interface License {
     id: string;
-    name: string;
+    license_key: string;
     status: 'active' | 'cancel_at_period_end' | 'cancelled' | 'expired';
-    seatsTotal: number;
-    expiry: string;
-    licenseKey: string;
+    license_type: 'community' | 'individual_pro' | 'team' | 'enterprise';
+    license_duration: 'monthly' | 'yearly' | 'lifetime';
+    expiry_date: string | null;
+    max_emails: number;
+    created_at: string;
+}
+
+export interface PriceInfo {
+    id: string;
+    licenseType: string;
+    licenseDuration: string;
+    amount: number;
+    currency: string;
+    interval: 'month' | 'year' | null;
+    seats: number;
+}
+
+export interface CouponInfo {
+    id: string;
+    name: string;
+    percent_off: number | null;
+    amount_off: number | null;
+    currency: string | null;
+    duration: 'once' | 'repeating' | 'forever';
+    duration_in_months: number | null;
+    valid: boolean;
 }
 
 export interface User {
     email: string;
 }
 
-const API_BASE = 'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
+const API_BASE = 'https://zstudiolicenseserver-staging.onrender.com';//'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
 
 
 //login and sign up. -get jwt token and user id
@@ -45,7 +68,7 @@ export const apiLogin = async (email: string, password: string): Promise<LoginRe
 
 export const apiSignup = async (email: string, password: string): Promise<LoginResponse> => {
     try {
-        const response = await fetch(`${API_BASE}/create-user`, {
+        const response = await fetch(`${API_BASE}/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -100,28 +123,17 @@ export const getLicenseTypes = async (): Promise<{ success: boolean; seatsMap: R
     }
 };
 
-export const apiGetLicenses = async (): Promise<License[]> => {
+export const apiGetLicenses = async (): Promise<{ success: boolean; licenses?: License[]; count?: number; error?: string }> => {
     try {
         const response = await fetch(`${API_BASE}/user-licenses`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         });
-        const data = await response.json();
-        if (data.success) {
-            return data.licenses.map((license: any) => ({
-                id: license.id.toString(),
-                name: license.license_key,
-                status: license.status,
-                seatsTotal: license.max_emails,
-                expiry: license.expiry_date,
-                licenseKey: license.license_key
-            }));
-        }
-        return [];
+        return await response.json();
     } catch (error) {
         console.error('Get licenses error:', error);
-        return [];
+        return { success: false, error: 'Network error' };
     }
 };
 
@@ -336,6 +348,72 @@ export const apiDeleteAccount = async (password: string): Promise<{ success: boo
         return await response.json();
     } catch (error) {
         console.error('Delete account error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiGetPrices = async (): Promise<{ success: boolean; prices?: Record<string, PriceInfo>; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/prices`, { cache: 'no-store' });
+        return await response.json();
+    } catch (error) {
+        console.error('Get prices error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiValidateCoupon = async (couponCode: string): Promise<{ success: boolean; coupon?: CouponInfo; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/validate-coupon`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ couponCode })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Validate coupon error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiCreateCheckoutSession = async (
+    licenseType: string,
+    licenseDuration: string,
+    couponCode?: string
+): Promise<{ success: boolean; url?: string; sessionId?: string; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/create-checkout-session`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: JSON.stringify({
+                licenseType,
+                licenseDuration,
+                ...(couponCode ? { couponCode } : {})
+            })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Create checkout session error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiChangePassword = async (oldPassword: string, newPassword: string): Promise<{ success: boolean; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/change-password`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({ oldPassword, newPassword })
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Change password error:', error);
         return { success: false, error: 'Network error' };
     }
 };
