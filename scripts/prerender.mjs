@@ -126,7 +126,9 @@ async function prerender() {
   }
 }
 
-prerender().catch((err) => {
-  console.error('\n❌  Pre-render failed:', err.message);
-  process.exit(1);
-});
+prerender()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error('\n❌  Pre-render failed:', err.message);
+    process.exit(1);
+  });
