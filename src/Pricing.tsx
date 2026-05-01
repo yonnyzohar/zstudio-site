@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession } from './api';
-import type { PriceInfo, CouponInfo } from './api';
+import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCreditPacks, apiPurchaseCreditsCheckout, apiGetCreditModels } from './api';
+import type { PriceInfo, CouponInfo, CreditPack, CreditModelInfo } from './api';
 import SEO from './SEO';
 
 function deriveVersionSeries(version: string): { series: string; nextMinor: string } {
@@ -86,6 +86,7 @@ const Pricing: React.FC = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
+
   const [prices, setPrices] = useState<Record<string, PriceInfo>>({});
   const [loadingPrices, setLoadingPrices] = useState(true);
   const [pricesError, setPricesError] = useState(false);
@@ -100,6 +101,11 @@ const Pricing: React.FC = () => {
 
   const [purchasing, setPurchasing] = useState<string | null>(null);
   const [purchaseError, setPurchaseError] = useState('');
+
+  const [creditPacks, setCreditPacks] = useState<CreditPack[]>([]);
+  const [creditModels, setCreditModels] = useState<CreditModelInfo[]>([]);
+  const [loadingCredits, setLoadingCredits] = useState(true);
+  const [purchasingCredit, setPurchasingCredit] = useState<string | null>(null);
 
   useEffect(() => {
     apiGetPrices().then(result => {
@@ -119,6 +125,12 @@ const Pricing: React.FC = () => {
         setLifetimeNextMinor(nextMinor);
       })
       .catch(() => { /* keep placeholder */ });
+
+    Promise.all([apiGetCreditPacks(), apiGetCreditModels()]).then(([packsResult, modelsResult]) => {
+      if (packsResult.success && packsResult.packs) setCreditPacks(packsResult.packs);
+      if (modelsResult.success && modelsResult.models) setCreditModels(modelsResult.models);
+      setLoadingCredits(false);
+    });
   }, []);
 
   const handleValidateCoupon = async () => {
@@ -154,6 +166,21 @@ const Pricing: React.FC = () => {
       window.location.href = result.url;
     } else {
       setPurchaseError(result.error || 'Failed to start checkout. Please try again.');
+    }
+  };
+
+  const handleBuyCredits = async (packId: string) => {
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+    setPurchasingCredit(packId);
+    const result = await apiPurchaseCreditsCheckout(packId);
+    setPurchasingCredit(null);
+    if (result.success && result.url) {
+      window.location.href = result.url;
+    } else {
+      alert(result.error || 'Failed to start checkout. Please try again.');
     }
   };
 
@@ -306,6 +333,72 @@ const Pricing: React.FC = () => {
           })}
         </div>
       )}
+
+      {/* AI Credits Section */}
+      <div className="pricing-credits-section">
+        <h2 className="pricing-credits-title">AI Image Credits</h2>
+        <p className="pricing-credits-subtitle">
+          Power AI image generation inside zStudio. Credits work across all plans and never expire.
+        </p>
+
+        {loadingCredits ? (
+          <p className="loading-text" style={{ textAlign: 'center' }}>Loading credit packs…</p>
+        ) : creditPacks.length === 0 ? (
+          <div className="empty-state">
+            <p>Credit packs are temporarily unavailable.</p>
+          </div>
+        ) : (
+          <>
+            <div className="credit-packs">
+              {creditPacks.map(pack => (
+                <div key={pack.id} className={`credit-pack-card${pack.id === 'pro' ? ' credit-pack-featured' : ''}`}>
+                  {pack.id === 'pro' && <div className="pack-badge">Most Popular</div>}
+                  <h3 className="pack-name">{pack.label || (pack.id.charAt(0).toUpperCase() + pack.id.slice(1))}</h3>
+                  <div className="pack-credits">{pack.credits.toLocaleString()} credits</div>
+                  <div className="pack-price">${(pack.priceUsdCents / 100).toFixed(0)}</div>
+                  <div className="pack-value">{((pack.priceUsdCents / pack.credits) / 100 * 100).toFixed(1)}¢ per credit</div>
+                  <button
+                    className="button"
+                    onClick={() => handleBuyCredits(pack.id)}
+                    disabled={purchasingCredit !== null}
+                  >
+                    {purchasingCredit === pack.id
+                      ? 'Processing…'
+                      : isLoggedIn
+                        ? 'Buy Now'
+                        : 'Sign in to purchase'}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {creditModels.length > 0 && (() => {
+              const grouped = creditModels.reduce<Record<number, string[]>>((acc, m) => {
+                (acc[m.credits] = acc[m.credits] || []).push(m.name);
+                return acc;
+              }, {});
+              const sortedCosts = Object.keys(grouped).map(Number).sort((a, b) => a - b);
+              const costClasses: Record<number, string> = {};
+              sortedCosts.forEach((cost, i) => { costClasses[cost] = `cost-${i + 1}`; });
+              return (
+                <div className="credits-model-info">
+                  <h3>Credit costs per model</h3>
+                  <ul>
+                    {sortedCosts.map(cost => (
+                      <li key={cost}>
+                        <span className={`cost-badge ${costClasses[cost]}`}>
+                          {cost} {cost === 1 ? 'credit' : 'credits'}
+                        </span>
+                        {grouped[cost].join(' · ')}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
+          </>
+        )}
+      </div>
 
       {/* Coupon code */}
       {!loadingPrices && (

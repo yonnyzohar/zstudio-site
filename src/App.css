@@ -2256,11 +2256,17 @@ h2 {
 
 .dashboard-hero {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.dashboard-hero-top {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 12px;
 }
 
 .dashboard-user-email {
@@ -3185,6 +3191,27 @@ h2 {
 }
 
 /* ─── Pricing Footer Note ────────────────────────────────────────────────────── */
+
+.pricing-credits-section {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid #1e293b;
+}
+
+.pricing-credits-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.pricing-credits-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
 
 .pricing-footer-note {
   text-align: center;

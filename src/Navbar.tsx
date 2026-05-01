@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
 const Navbar: React.FC = () => {
-  const { isLoggedIn, logout } = useAuth();
-  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-    setIsOpen(false);
-  };
 
   const closeMenu = () => setIsOpen(false);
 
@@ -32,14 +25,11 @@ const Navbar: React.FC = () => {
         <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
         <Link to="/demos" className="nav-link" onClick={closeMenu}>Demos</Link>
         {isLoggedIn ? (
-          <>
-            <Link to="/dashboard" className="nav-link" onClick={closeMenu}>My Dashboard</Link>
-            <button onClick={handleLogout} className="button">Logout</button>
-          </>
+          <Link to="/dashboard" className="nav-link" onClick={closeMenu}>Dashboard</Link>
         ) : (
           <>
+            <Link to="/pricing" className="nav-link" onClick={closeMenu}>Pricing</Link>
             <Link to="/login" className="nav-link" onClick={closeMenu}>Login</Link>
-            {/* <a href="https://buy.stripe.com/6oE7sx1d90t91BmaEE" target="_blank" rel="noopener noreferrer" className="nav-link" onClick={closeMenu} style={{ color: '#f59e0b', fontWeight: '600' }}>Support zStudio</a> */}
           </>
         )}
       </div>

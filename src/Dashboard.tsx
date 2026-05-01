@@ -526,7 +526,15 @@ const Dashboard: React.FC = () => {
     <div className="container">
       <SEO title="Dashboard – zStudio" description="Manage your zStudio license and seat allocation." noindex />
       <div className="dashboard-hero">
-        <h1>My Dashboard</h1>
+        <div className="dashboard-hero-top">
+          <h1>My Dashboard</h1>
+          <button
+            className="button button-outline"
+            onClick={() => { logout(); navigate('/'); }}
+          >
+            Logout
+          </button>
+        </div>
         {userEmail && <span className="dashboard-user-email">{userEmail}</span>}
       </div>
 
