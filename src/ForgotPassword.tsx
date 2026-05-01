@@ -17,10 +17,10 @@ const ForgotPassword: React.FC = () => {
 
     try {
       const result = await apiForgotPassword(email);
-      if (result.success) {
-        setMessage('Password reset instructions have been sent to your email.');
+      if (result.rateLimited) {
+        setError(result.message || 'Too many attempts. Please wait a few minutes and try again.');
       } else {
-        setError(result.message || 'Failed to send reset email');
+        setMessage("If an account with that email exists, we've sent reset instructions.");
       }
     } catch (err) {
       setError('Network error');

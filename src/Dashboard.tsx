@@ -122,6 +122,7 @@ interface SeatsPanelProps {
 }
 
 const SeatsPanel: React.FC<SeatsPanelProps> = ({ license }) => {
+  const { userEmail: ownerEmail } = useAuth();
   const [emails, setEmails] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [newEmail, setNewEmail] = useState('');
@@ -185,7 +186,8 @@ const SeatsPanel: React.FC<SeatsPanelProps> = ({ license }) => {
                 <button
                   className="seat-remove-btn"
                   onClick={() => handleRemove(email)}
-                  disabled={removing === email}
+                  disabled={removing === email || email === ownerEmail}
+                  title={email === ownerEmail ? 'Cannot remove the license owner' : undefined}
                 >
                   {removing === email ? '…' : 'Remove'}
                 </button>

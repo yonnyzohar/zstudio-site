@@ -237,13 +237,16 @@ export const apiGetLicenseEmails = async (licenseKey: string): Promise<{ success
     }
 };
 
-export const apiForgotPassword = async (email: string): Promise<{ success: boolean; message?: string }> => {
+export const apiForgotPassword = async (email: string): Promise<{ success: boolean; message?: string; rateLimited?: boolean }> => {
     try {
         const response = await fetch(`${API_BASE}/forgot-password`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
         });
+        if (response.status === 429) {
+            return { success: false, rateLimited: true, message: 'Too many attempts. Please wait a few minutes and try again.' };
+        }
         return await response.json();
     } catch (error) {
         console.error('Forgot password error:', error);
@@ -258,7 +261,11 @@ export const apiResetPassword = async (token: string, newPassword: string): Prom
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ token, newPassword })
         });
-        return await response.json();
+        if (response.status === 429) {
+            return { success: false, message: 'Too many attempts. Please wait a few minutes and try again.' };
+        }
+        const data = await response.json();
+        return { success: data.success, message: data.message || data.error };
     } catch (error) {
         console.error('Reset password error:', error);
         return { success: false, message: 'Network error' };
