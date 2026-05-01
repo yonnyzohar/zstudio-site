@@ -291,7 +291,7 @@ const Home: React.FC = () => {
                 <span className="pain-quote">"Sick of the back-and-forth ping-pong between Art and Dev just for a button change?"</span>
               </div>
               <div className="pain-item">
-                <span className="pain-quote">"Need to ship playable ads to 10+ networks with a single responsive export?"</span>
+                <span className="pain-quote">"Why am I spending so much time on layout adjustments instead of focusing on gameplay?"</span>
               </div>
             </div>
             <p className="pain-solution">zStudio was built to solve exactly these problems.</p>
