@@ -38,6 +38,7 @@ const demos: Demo[] = [
     icon: '🚀',
     versions: [
       { label: 'Pixi.js', url: '/gameDemos/pixi/spaceShooter/index.html' },
+      { label: 'Phaser', url: '/gameDemos/phaser/spaceShooter/index.html' },
     ],
   },
 ];
