@@ -43,7 +43,6 @@ export const PLANS: PlanDef[] = [
     label: 'Individual Pro',
     tagline: 'For professional developers',
     features: [
-      'Unlimited projects',
       '1 seat',
       'No watermarks',
       'AI image generation',
@@ -60,7 +59,6 @@ export const PLANS: PlanDef[] = [
     label: 'Studio Team',
     tagline: 'For game studios',
     features: [
-      'Unlimited projects',
       '5 seats',
       'No watermarks',
       'AI image generation',
