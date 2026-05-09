@@ -24,18 +24,16 @@ interface PlanDef {
   highlighted?: boolean;
 }
 
-const PLANS: PlanDef[] = [
+export const PLANS: PlanDef[] = [
   {
     key: 'community',
     licenseType: 'community',
     label: 'Community',
     tagline: 'Get started for free',
     features: [
-      'Up to 3 projects',
       '1 seat',
       'Watermarked exports',
-      'Pixi.js & Phaser export',
-      'Community support',
+      'Pixi.js & Phaser export'
     ],
     monthlyKey: '',
   },
@@ -49,7 +47,7 @@ const PLANS: PlanDef[] = [
       '1 seat',
       'No watermarks',
       'AI image generation',
-      'All export targets',
+      'Copying between scenes',
       'Email support',
     ],
     monthlyKey: 'individual_pro_monthly',
@@ -66,13 +64,20 @@ const PLANS: PlanDef[] = [
       '5 seats',
       'No watermarks',
       'AI image generation',
-      'All export targets',
-      'Priority support',
-      'Team collaboration',
+      'Copying between scenes',
+      'Priority support'
     ],
     monthlyKey: 'team_monthly',
     lifetimeKey: 'team_lifetime',
   },
+  {
+    key: 'enterprise',
+    licenseType: 'enterprise',
+    label: 'Enterprise',
+    tagline: 'For large teams & studios',
+    features: ['Unlimited seats', 'Dedicated support', 'Custom integrations', 'Priority onboarding'],
+    monthlyKey: '',
+  }
 ];
 
 function applyDiscount(amount: number, coupon: CouponInfo | null): number {

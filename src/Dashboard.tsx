@@ -18,57 +18,10 @@ import {
   apiCreateCheckoutSession,
 } from './api';
 import type { License, CreditPack, CreditModelInfo, PriceInfo } from './api';
+import { PLANS } from './Pricing'
 
 // ─── Pricing helpers (mirrored from Pricing.tsx) ────────────────────────────
 
-interface PlanDef {
-  key: string;
-  licenseType: string;
-  label: string;
-  tagline: string;
-  features: string[];
-  monthlyKey: string;
-  lifetimeKey?: string;
-  highlighted?: boolean;
-}
-
-const PLANS: PlanDef[] = [
-  {
-    key: 'community',
-    licenseType: 'community',
-    label: 'Community',
-    tagline: 'Get started for free',
-    features: ['Unlimited projects', '1 seat', 'Watermarked exports', 'Pixi.js & Phaser export', 'Community support'],
-    monthlyKey: '',
-  },
-  {
-    key: 'individual_pro',
-    licenseType: 'individual_pro',
-    label: 'Individual Pro',
-    tagline: 'For professional developers',
-    features: ['Unlimited projects', '1 seat', 'No watermarks', 'AI image generation', 'All export targets', 'Email support'],
-    monthlyKey: 'individual_pro_monthly',
-    lifetimeKey: 'individual_pro_lifetime',
-    highlighted: true,
-  },
-  {
-    key: 'team',
-    licenseType: 'team',
-    label: 'Studio Team',
-    tagline: 'For game studios',
-    features: ['Unlimited projects', '5 seats', 'No watermarks', 'AI image generation', 'All export targets', 'Priority support', 'Team collaboration'],
-    monthlyKey: 'team_monthly',
-    lifetimeKey: 'team_lifetime',
-  },
-  {
-    key: 'enterprise',
-    licenseType: 'enterprise',
-    label: 'Enterprise',
-    tagline: 'For large teams & studios',
-    features: ['Unlimited seats', 'Dedicated support', 'Custom integrations', 'SLA & invoicing', 'Priority onboarding'],
-    monthlyKey: '',
-  },
-];
 
 // applyPlanDiscount reserved for future coupon support
 // function applyPlanDiscount(amount: number, coupon: CouponInfo | null): number {
