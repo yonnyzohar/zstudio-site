@@ -97,7 +97,7 @@ const ZImporter: React.FC = () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a 
-              href="https://github.com/yonnyzohar/zImporter_PIXI" 
+              href="https://github.com/zStudiosLTD/zImporter_PIXI7" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -116,7 +116,7 @@ const ZImporter: React.FC = () => {
               📦 zImporter Pixi 7
             </a>
             <a 
-              href="https://github.com/yonnyzohar/zImporter_PIXI8" 
+              href="https://github.com/zStudiosLTD/zImporter_PIXI8" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -135,7 +135,7 @@ const ZImporter: React.FC = () => {
               📦 zImporter Pixi 8
             </a>
             <a 
-              href="https://github.com/yonnyzohar/zImporter_PIXI_Example" 
+              href="https://github.com/zStudiosLTD/zImporter_PIXI_Example" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -184,13 +184,29 @@ const ZImporter: React.FC = () => {
         </p>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Pixi.js v7</h3>
+            <h3 style={{ color: '#f59e0b', marginBottom: '0.75rem' }}>Pixi.js v7</h3>
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/v/zimporter-pixi?style=flat-square" alt="Version" style={{ height: '20px' }} />
+              </a>
+              <a href="https://www.npmjs.com/package/zimporter-pixi" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/dt/zimporter-pixi?style=flat-square" alt="Total downloads" style={{ height: '20px' }} />
+              </a>
+            </div>
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-bash">npm i zimporter-pixi</code>
             </pre>
           </div>
           <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
-            <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Pixi.js v8</h3>
+            <h3 style={{ color: '#f59e0b', marginBottom: '0.75rem' }}>Pixi.js v8</h3>
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <a href="https://www.npmjs.com/package/zimporter-pixi8" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/v/zimporter-pixi8?style=flat-square" alt="Version" style={{ height: '20px' }} />
+              </a>
+              <a href="https://www.npmjs.com/package/zimporter-pixi8" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/dt/zimporter-pixi8?style=flat-square" alt="Total downloads" style={{ height: '20px' }} />
+              </a>
+            </div>
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-bash">npm i zimporter-pixi8</code>
             </pre>
@@ -285,7 +301,7 @@ scene.load("./assets/myScene/", () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a 
-              href="https://github.com/yonnyzohar/zImporter_Phaser" 
+              href="https://github.com/zStudiosLTD/zImporter_Phaser" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -301,10 +317,10 @@ scene.load("./assets/myScene/", () => {
               onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
               onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
             >
-              📦 zImporter Phaser Package
+              📦 zImporter Phaser 3 Package
             </a>
             <a 
-              href="https://github.com/yonnyzohar/zImporter_Phaser_Example" 
+              href="https://github.com/zStudiosLTD/zImporter_Phaser_Example" 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -349,7 +365,15 @@ scene.load("./assets/myScene/", () => {
       <section style={{ marginBottom: '3rem' }}>
         <h2 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Phaser Installation</h2>
         <div style={{ backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(245, 158, 11, 0.3)', boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)' }}>
-          <h3 style={{ color: '#f59e0b', marginBottom: '1rem' }}>Install</h3>
+          <h3 style={{ color: '#f59e0b', marginBottom: '0.75rem' }}>Install</h3>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+            <a href="https://www.npmjs.com/package/zimporter-phaser" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/npm/v/zimporter-phaser?style=flat-square" alt="Version" style={{ height: '20px' }} />
+            </a>
+            <a href="https://www.npmjs.com/package/zimporter-phaser" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/npm/dt/zimporter-phaser?style=flat-square" alt="Total downloads" style={{ height: '20px' }} />
+            </a>
+          </div>
           <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
             <code className="language-bash">npm i zimporter-phaser</code>
           </pre>
@@ -475,7 +499,7 @@ window.addEventListener('resize', () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="https://github.com/yonnyzohar/zImporter_html"
+              href="https://github.com/zStudiosLTD/zImporter_html"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -521,7 +545,15 @@ window.addEventListener('resize', () => {
         <h2 style={{ color: '#a855f7', marginBottom: '1rem' }}>HTML Installation</h2>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           <div style={{ flex: '1', minWidth: '300px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 4px 20px rgba(168, 85, 247, 0.2)' }}>
-            <h3 style={{ color: '#a855f7', marginBottom: '1rem' }}>Add to package.json</h3>
+            <h3 style={{ color: '#a855f7', marginBottom: '0.75rem' }}>Add to package.json</h3>
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <a href="https://www.npmjs.com/package/zimporter-html" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/v/zimporter-html?style=flat-square" alt="Version" style={{ height: '20px' }} />
+              </a>
+              <a href="https://www.npmjs.com/package/zimporter-html" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/npm/dt/zimporter-html?style=flat-square" alt="Total downloads" style={{ height: '20px' }} />
+              </a>
+            </div>
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-json">
 {`"dependencies": {
