@@ -317,10 +317,12 @@ const LicenseCard: React.FC<LicenseCardProps> = ({ license, onRefresh }) => {
 const Dashboard: React.FC = () => {
   const { isLoggedIn, logout, userEmail } = useAuth();
   const navigate = useNavigate();
+  const handleUnauthorized = useCallback(() => { logout(); navigate('/login'); }, [logout, navigate]);
 
   // Licenses
   const [licenses, setLicenses] = useState<License[]>([]);
   const [licensesLoading, setLicensesLoading] = useState(true);
+  const [licensesError, setLicensesError] = useState(false);
 
   // Plans / pricing
   const [planPrices, setPlanPrices] = useState<Record<string, PriceInfo>>({});
@@ -334,6 +336,7 @@ const Dashboard: React.FC = () => {
 
   // Credits
   const [credits, setCredits] = useState<number | null>(null);
+  const [creditsError, setCreditsError] = useState(false);
   const [packs, setPacks] = useState<CreditPack[]>([]);
   const [models, setModels] = useState<CreditModelInfo[]>([]);
   const [creditsLoading, setCreditsLoading] = useState(true);
@@ -347,27 +350,34 @@ const Dashboard: React.FC = () => {
 
   const loadLicenses = useCallback(async () => {
     setLicensesLoading(true);
+    setLicensesError(false);
     const result = await apiGetLicenses();
+    if (result.unauthorized) { handleUnauthorized(); return; }
     if (result.success && result.licenses) {
       const all: License[] = result.licenses;
       const hasNonCommunity = all.some(l => l.license_type !== 'community');
       setLicenses(hasNonCommunity ? all.filter(l => l.license_type !== 'community') : all);
+    } else if (!result.success) {
+      setLicensesError(true);
     }
     setLicensesLoading(false);
-  }, []);
+  }, [handleUnauthorized]);
 
   const loadCredits = useCallback(async () => {
     setCreditsLoading(true);
+    setCreditsError(false);
     const [balanceResult, packsResult, modelsResult] = await Promise.all([
       apiGetCreditsBalance(),
       apiGetCreditPacks(),
       apiGetCreditModels(),
     ]);
+    if (balanceResult.unauthorized) { handleUnauthorized(); return; }
     if (balanceResult.success) setCredits(balanceResult.credits ?? 0);
+    else setCreditsError(true);
     if (packsResult.success && packsResult.packs) setPacks(packsResult.packs);
     if (modelsResult.success && modelsResult.models) setModels(modelsResult.models);
     setCreditsLoading(false);
-  }, []);
+  }, [handleUnauthorized]);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -518,6 +528,10 @@ const Dashboard: React.FC = () => {
 
         {licensesLoading ? (
           <p className="loading-text">Loading licenses…</p>
+        ) : licensesError ? (
+          <div className="empty-state">
+            <p>Could not load your licenses. Please <button className="link-btn" onClick={loadLicenses}>try again</button>.</p>
+          </div>
         ) : licenses.length === 0 ? (
           <div className="license-card">
             <div className="license-card-header">
@@ -727,6 +741,10 @@ const Dashboard: React.FC = () => {
 
         {creditsLoading ? (
           <p className="loading-text">Loading credits…</p>
+        ) : creditsError ? (
+          <div className="empty-state">
+            <p>Could not load your credits. Please <button className="link-btn" onClick={loadCredits}>try again</button>.</p>
+          </div>
         ) : (
           <>
             <div className="credits-section">

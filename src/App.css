@@ -2326,6 +2326,17 @@ h2 {
   font-style: italic;
 }
 
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #14b8a6;
+  cursor: pointer;
+  font-size: inherit;
+  text-decoration: underline;
+}
+.link-btn:hover { color: #5eead4; }
+
 .empty-state {
   color: #64748b;
   text-align: center;

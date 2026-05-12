@@ -124,13 +124,14 @@ export const getLicenseTypes = async (): Promise<{ success: boolean; seatsMap: R
     }
 };
 
-export const apiGetLicenses = async (): Promise<{ success: boolean; licenses?: License[]; count?: number; error?: string }> => {
+export const apiGetLicenses = async (): Promise<{ success: boolean; licenses?: License[]; count?: number; error?: string; unauthorized?: boolean }> => {
     try {
         const response = await fetch(`${API_BASE}/user-licenses`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         });
+        if (response.status === 401) return { success: false, unauthorized: true, error: 'Session expired' };
         return await response.json();
     } catch (error) {
         console.error('Get licenses error:', error);
@@ -287,13 +288,14 @@ export interface CreditModelInfo {
     credits: number;
 }
 
-export const apiGetCreditsBalance = async (): Promise<{ success: boolean; credits?: number; error?: string }> => {
+export const apiGetCreditsBalance = async (): Promise<{ success: boolean; credits?: number; error?: string; unauthorized?: boolean }> => {
     try {
         const response = await fetch(`${API_BASE}/credits/balance`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         });
+        if (response.status === 401) return { success: false, unauthorized: true, error: 'Session expired' };
         const data = await response.json();
         return { success: data.success, credits: data.balance, error: data.error };
     } catch (error) {
