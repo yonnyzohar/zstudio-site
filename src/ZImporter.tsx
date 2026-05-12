@@ -536,8 +536,27 @@ window.addEventListener('resize', () => {
             >
               📚 Documentation
             </a>
+            <a 
+              href="https://github.com/zStudiosLTD/zImporter_HTML_Example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                backgroundColor: '#f59e0b', 
+                color: '#0f172a', 
+                padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', 
+                textDecoration: 'none', 
+                fontWeight: '600', 
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#d97706'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f59e0b'}
+            >🚀 Example Project
+            </a>
           </div>
         </div>
+        
       </section>
 
       {/* HTML INSTALLATION */}
