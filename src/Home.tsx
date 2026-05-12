@@ -129,6 +129,7 @@ const Home: React.FC = () => {
           },
         }}
       />
+
       <main>
         {/* HERO */}
         <section className="hero">
@@ -137,7 +138,7 @@ const Home: React.FC = () => {
               <div className="hero-logo">
                 <div className="hero-video-embed">
                   <iframe
-                    src="https://www.youtube-nocookie.com/embed/rpnZhlRR8RQ?rel=0&modestbranding=1"
+                    src="https://www.youtube-nocookie.com/embed/Td-eqcHaIt4?rel=0&modestbranding=1"
                     title="zStudio Overview"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
