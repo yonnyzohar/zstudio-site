@@ -46,6 +46,7 @@ export const PLANS: PlanDef[] = [
       '1 seat',
       'No watermarks',
       'AI image generation',
+      'MCP Server',
       'Copying between scenes',
       'Email support',
     ],
@@ -62,6 +63,7 @@ export const PLANS: PlanDef[] = [
       '5 seats',
       'No watermarks',
       'AI image generation',
+      'MCP Server',
       'Copying between scenes',
       'Priority support'
     ],
