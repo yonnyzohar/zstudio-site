@@ -87,7 +87,7 @@ const Tutorials: React.FC = () => {
     {
       title: "zImporter - Importing zStudio scenes",
       description: "This video explains how to import zStudio scenes into your game using the zImporter.",
-      url: "https://youtu.be/ZINRf2fgfQs"
+      url: "https://youtu.be/nV9af_rLqG4"
     },
     {
       title: "zImporter - Spawning assets at runtime & slider control",
