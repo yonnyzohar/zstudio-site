@@ -267,10 +267,6 @@ const Home: React.FC = () => {
                       <span className="checkmark">✓</span>
                       <span>Developers load a full scene in 5 lines of code</span>
                     </div>
-                    <div className="value-prop">
-                      <span className="checkmark">✓</span>
-                      <span>Import Adobe Animate projects — your legacy work, modernized</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -425,10 +421,6 @@ const Home: React.FC = () => {
                 <div className="post-flash-pillar">
                   <span className="pillar-check">✓</span>
                   <span>One-click JSON export — the scene loads in 5 lines</span>
-                </div>
-                <div className="post-flash-pillar">
-                  <span className="pillar-check">✓</span>
-                  <span>Import Adobe Animate projects — your legacy work, modernized</span>
                 </div>
               </div>
             </div>
