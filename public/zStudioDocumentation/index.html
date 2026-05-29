@@ -3,10 +3,40 @@
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .paid-badge {
+            display: inline-block;
+            background: #f5a623;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 
 <body class="c42 doc-content">
     <p class="c28 c43 title" id="h.8ibivsf2cg6o"><span class="c23">zStudio Documentation User guide</span></p>
+
+    <h1 class="c25" id="h.intro"><span class="c19">What is zStudio?</span></h1>
+    <p class="c4"><span class="c1">zStudio is a desktop scene editor for building responsive UI layouts and keyframe animations that run in browsers and games. You compose scenes visually using a hierarchy of containers, import images, spine animations, particle effects, and text, then export everything to a compact JSON file (<span class="c36">placements.json</span>) that a lightweight runtime importer loads directly into your project.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c1">Runtime importers are available for Phaser, PIXI.js (v7 and v8), and plain HTML5. Once imported, every container, button, animation, and text field is a live object your code can interact with &mdash; attach click listeners, trigger animations, swap states, and more.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c1">zStudio is built around a few core ideas that are worth understanding before diving in:</span></p>
+    <ul class="c18 lst-kix_intro-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Templates and instances</span><span class="c1"> &mdash; every asset is an instance of a reusable template. Edit the template once and all instances update everywhere.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Responsive by default</span><span class="c1"> &mdash; every container stores separate transforms for portrait and landscape orientations, so your layout adapts to any screen without extra code.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Local coordinate spaces</span><span class="c1"> &mdash; containers nest inside each other, each with its own coordinate system. Double-clicking drills you into a container&rsquo;s context to work on its children directly.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Export, not bake</span><span class="c1"> &mdash; the exported JSON describes your scene structurally. The runtime importer reconstructs it as live objects, keeping your scene data clean and your code in control.</span></li>
+    </ul>
+    <p class="c2"><span class="c1"></span></p>
+
     <h1 class="c25" id="h.yc1c75jj9ur7"><span class="c19">Workflow</span></h1>
     <p class="c4"><span class="c1">Before deep diving into the menus and panels of zStudio it&rsquo;s important to go
             over the fundamentals of this program. zStudio allows users to build complex scene hierarchies and
@@ -19,6 +49,7 @@
         <li class="c4 c13 li-bullet-0"><span class="c1">Rotation</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c1">Scale</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c1">Alpha</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">Skew (independent X and Y axis shear)</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c1">Pivot point (the axis around which the asset rotates, and
                 towards which it scales)</span></li>
     </ul>
@@ -44,6 +75,8 @@
                 to its edges. The mouse cursor will indicate that you can drag the asset to change its dimensions.
                 Containers will scale relative to their pivot point.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c1">Hold and drag to move assets. Hold shift to drag with axis alignment.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">Assets snap to the grid while dragging. The grid size can be adjusted in the stage settings.</span></li>
+        <li class="c4 c13 li-bullet-0"><span>While dragging, <span class="c14">smart alignment guides</span> appear automatically as dashed lines when the edges or centre of the asset align with any sibling. This makes precise positioning easy without manual guides.</span></li>
     </ul>
     <p class="c2"><span class="c1"></span></p>
     <p class="c4"><span class="c1">If you want to select assets outside of the current parent, you can do that by
@@ -398,7 +431,7 @@
                 you are currently working on. will open a browser window with the current scene.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Save</span><span>&nbsp;-&gt; either saves in place or prompts
                 the user to select a directory in the file system to save in. Saved file will always be called
-            </span><span class="c36">placements.json</span></li>
+            </span><span class="c36">placements.json</span><span class="c1">. </span><span class="paid-badge">PAID</span><span class="c1">&nbsp;Exports on the free (Community) tier include a watermark on all images. A paid subscription removes the watermark.</span></li>
     </ul>
     <p class="c4"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All images in the project will be
             copied to an images folder next to placements.json</span></p>
@@ -426,7 +459,7 @@
         <li class="c4 c13 li-bullet-0"><span class="c14">Import Pixi Particles Folder</span><span class="c1">&nbsp;-&gt;
                 Same as above</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Import Bitmap Font </span><span>-&gt; Same as above</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Import Photoshop Export </span><span class="c1">-&gt; Same as
+        <li class="c4 c13 li-bullet-0"><span class="c14">Import Photoshop Export </span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt; Same as
                 above</span></li>
     </ul>
     <p class="c2"><span class="c7"></span></p>
@@ -469,10 +502,10 @@
         <li class="c4 c13 li-bullet-0"><span class="c14">Delete -&gt; </span><span class="c1">also Backspace key.
                 Deletes selected assets. If this is the last instance of this asset on stage, you will get a
                 warning.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Copy Asset between Scenes</span><span class="c1">&nbsp;-&gt;
+        <li class="c4 c13 li-bullet-0"><span class="c14">Copy Asset between Scenes</span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt;
                 when copying assets between scenes we need a different process to the regular copy (basically a minified
                 export).</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Paste Asset between Scenes</span><span class="c1">&nbsp;-&gt;
+        <li class="c4 c13 li-bullet-0"><span class="c14">Paste Asset between Scenes</span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt;
                 pastes in a copied asset from a different scene&hellip;</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Reset Pivot on deselect </span><span class="c1">-&gt; When
                 selecting multiple assets, you can set them all to have a shared pivot point, which allows rotating them
@@ -744,7 +777,7 @@
             </td>
             <td class="c12" colspan="1" rowspan="1">
                 <h4 class="c8" id="h.wjbd07hk9o11"><span class="c17">Transform Section</span></h4>
-                <p class="c4"><span class="c1">Position, rotation, scale, alpha, visibility</span></p>
+                <p class="c4"><span class="c1">Position, rotation, scale, alpha, skew (X and Y), and visibility toggle.</span></p>
                 <p class="c2"><span class="c1"></span></p>
                 <h4 class="c8" id="h.l2idzm6pibhh"><span class="c17">Anchoring</span></h4>
                 <p class="c4"><span class="c1">Explained in detail above. Set whether an asset is positioned relative to
@@ -760,8 +793,12 @@
                         distribute them horizontally or vertically.</span></p>
                 <p class="c2"><span class="c1"></span></p>
                 <h4 class="c8" id="h.8w3tq2isw81"><span class="c17">Filters</span></h4>
-                <p class="c4"><span class="c1">There are a number of filters you can use on the containers. Notably drop
-                        shadow.</span></p>
+                <p class="c4"><span class="c1">Three filter types are available on containers:</span></p>
+                <ul class="c18 lst-kix_filters-0 start">
+                    <li class="c4 c13 li-bullet-0"><span class="c14">Drop Shadow</span><span class="c1"> &mdash; configurable colour, alpha, blur radius, and offset.</span></li>
+                    <li class="c4 c13 li-bullet-0"><span class="c14">Blur</span><span class="c1"> &mdash; applies a uniform Gaussian blur. Set the strength with the blur slider.</span></li>
+                    <li class="c4 c13 li-bullet-0"><span class="c14">Color Matrix</span><span class="c1"> &mdash; adjust brightness, contrast, saturation, and hue of the container and all its children.</span></li>
+                </ul>
                 <p class="c9"><span class="c17"></span></p>
             </td>
         </tr>
@@ -794,9 +831,19 @@
                         there by clicking the link underneath.</span></p>
                 <p class="c2"><span class="c1"></span></p>
                 <h4 class="c8" id="h.hto2s6q6mxpt"><span class="c17">Text edit section</span></h4>
-                <p class="c4"><span class="c1">Set the label text, edit font, set size, weight, text anchoring, color
-                        (choose between sold and gradient fill), alignment. Set line height to enable multi line texts,
-                        and set size width and color.</span></p>
+                <p class="c4"><span class="c1">Set the label text, font family, size, weight, and text anchoring.</span></p>
+                <p class="c2"><span class="c1"></span></p>
+                <h4 class="c8"><span class="c17">Fill</span></h4>
+                <p class="c4"><span>Choose between <span class="c14">Solid</span> fill (single colour) and <span class="c14">Gradient</span> fill. Gradient fill lets you define two colour stops and the gradient direction (vertical or horizontal).</span></p>
+                <p class="c2"><span class="c1"></span></p>
+                <h4 class="c8"><span class="c17">Stroke</span></h4>
+                <p class="c4"><span class="c1">Add an outline to the text. Set the stroke colour and thickness independently of the fill.</span></p>
+                <p class="c2"><span class="c1"></span></p>
+                <h4 class="c8"><span class="c17">Word Wrap</span></h4>
+                <p class="c4"><span>Enable <span class="c14">Word Wrap</span> to make text flow across multiple lines. When enabled, set a <span class="c14">wrap width</span> (in pixels) and a <span class="c14">line height</span> to control vertical spacing between lines. Without word wrap, multi-line text is not supported.</span></p>
+                <p class="c2"><span class="c1"></span></p>
+                <h4 class="c8"><span class="c17">Alignment</span></h4>
+                <p class="c4"><span class="c1">Set horizontal text alignment to left, centre, or right. This also updates the anchor point of the text so it stays visually aligned at its pivot.</span></p>
                 <p class="c2"><span class="c1"></span></p>
                 <p class="c9 c28"><span class="c1"></span></p>
                 <p class="c2"><span class="c1"></span></p>
@@ -846,8 +893,7 @@
                 <p class="c16"><span class="c1">Can be image or 9-slice. Images have a fixed size and can not be
                         transformed. You would have to scale its container parent.</span></p>
                 <p class="c9"><span class="c1"></span></p>
-                <p class="c16"><span class="c1">A Nine slice can be transformed. When you press it - it will allow
-                        scaling. Set the borders of the nine slice to avoid distortion.</span></p>
+                <p class="c16"><span>A <span class="c14">Nine-Slice</span> can be scaled directly. It divides the image into a 3&times;3 grid using four border values &mdash; <span class="c14">top, right, bottom, left</span> (in pixels). The four corner tiles are never stretched; only the edges and centre scale. Set the border values to match the fixed corners of your artwork to avoid distortion when resizing.</span></p>
                 <p class="c9"><span class="c1"></span></p>
                 <h4 class="c24" id="h.ucr4w6flgqlc"><span class="c17">File</span></h4>
                 <p class="c16"><span class="c1">You can change the image with another from the file system. Click the
@@ -868,6 +914,27 @@
             </td>
         </tr>
     </table>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.bitmap-font"><span class="c10">Bitmap Font</span></h3>
+    <p class="c4"><span>A <span class="c14">Bitmap Font</span> asset is a pre-rendered font loaded from a folder containing a <span class="c36">.fnt</span> descriptor file and its accompanying <span class="c36">.png</span> texture atlas. Both <span class="c14">XML format</span> and <span class="c14">plain-text (BMFont) format</span> .fnt files are supported.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c1">To import a bitmap font, either drag the folder directly onto the stage, or use <span class="c14">Import &rarr; Import Bitmap Font</span> from the menu bar and select the folder. zStudio will validate that the folder contains both a .fnt file and a matching .png.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c1">When a bitmap font asset is selected in the Attributes panel the following controls are available:</span></p>
+    <ul class="c18 lst-kix_bitmapfont-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Text</span><span class="c1"> &mdash; edit the displayed string. The number of characters in the field determines the runtime width of the text object.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Alignment</span><span class="c1"> &mdash; left, centre, or right. Also adjusts the anchor point accordingly.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Anchor</span><span class="c1"> &mdash; set the X/Y anchor point (0&ndash;1) of the text object independently.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Font Metrics</span><span class="c1"> &mdash; four sliders that apply global offsets to the character data loaded from the .fnt file:</span>
+            <ul class="c18 lst-kix_bitmapfont-1 start">
+                <li class="c4 c13 li-bullet-0"><span class="c14">X Offset</span><span class="c1"> &mdash; shifts every character horizontally.</span></li>
+                <li class="c4 c13 li-bullet-0"><span class="c14">Y Offset</span><span class="c1"> &mdash; shifts every character vertically (baseline adjustment).</span></li>
+                <li class="c4 c13 li-bullet-0"><span class="c14">Letter Spacing</span><span class="c1"> &mdash; increases or decreases the advance width between characters.</span></li>
+                <li class="c4 c13 li-bullet-0"><span class="c14">Line Height</span><span class="c1"> &mdash; adjusts the vertical distance between lines.</span></li>
+            </ul>
+        </li>
+    </ul>
+    <p class="c4"><span class="c1">All font metric adjustments are saved with the scene and re-applied on reload. The original .fnt file is never modified.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.tvwm2264wmry"><span class="c10">Spine</span></h3>
     <p class="c2"><span class="c1"></span></p>
@@ -911,6 +978,9 @@
             </td>
         </tr>
     </table>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.mask"><span class="c10">Mask</span></h3>
+    <p class="c4"><span>Any container can have a <span class="c14">mask</span> applied to it. A mask clips the visible area of a container to the shape of another asset in the scene. Select a container, then in the Attributes panel choose the asset you want to use as the mask shape from the Mask dropdown. The masked container will only be visible where the mask asset&rsquo;s graphic overlaps it. Masks are invisible themselves at runtime.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <p class="c2"><span class="c1"></span></p>
     <h2 class="c6" id="h.ljnfiup3sktw"><span class="c0">Templates Panel</span></h2>
@@ -1035,16 +1105,30 @@
     <p class="c4"><span class="c1">You can add cue points to specific frames in the animation timeline. A cue point is a named marker that fires an event when the animation playhead passes through it.</span></p>
     <p class="c4"><span>This allows you to listen for specific moments in an animation from your code. For example, you can trigger game logic, sound effects, or UI changes at the exact frame a cue point is placed — without polling or guessing at frame counts.</span></p>
     <p class="c2"><span class="c1"></span></p>
-    <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server</span></h2>
-    <p class="c4"><span class="c1">zStudio can be connected to and controlled externally via an MCP (Model Context Protocol) server. This allows you to integrate zStudio with your own AI provider and tooling using the CLI, giving you full control over which model you use and how you're billed.</span></p>
-    <p class="c4"><span>There are two ways to use AI with zStudio:</span></p>
+    <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="paid-badge">PAID</span></span></h2>
+    <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows, both of which require a paid subscription:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">External via MCP (CLI): </span><span class="c1">Connect to zStudio from your own environment using the MCP server. You bring your own AI provider (e.g. Claude, GPT-4, etc.) and manage your own API keys and costs. This is ideal for power users and developers who want to script or automate zStudio workflows.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat: </span><span class="c1">Use the integrated chat panel inside zStudio directly. This is powered by zStudio's backend and charges your zStudio credits. No setup required — just open the chat and start prompting.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">External via CLI: </span><span class="c1">Connect to zStudio from your own terminal or tooling. You bring your own AI provider (Claude, GPT-4, etc.) and manage your own API keys and costs. Ideal for developers who want to script or automate zStudio workflows.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat: </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It uses zStudio credits and requires no external setup &mdash; see the AI Panel section below for details.</span></li>
     </ul>
+    <p class="c4"><span class="c36">On the free (Community) tier the MCP server does not start, so neither the external CLI nor the built-in chat is available.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h2 class="c6" id="h.xq7ynxc7em3g"><span class="c0">AI Panel</span></h2>
     <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c1">The AI panel has two distinct capabilities: <span class="c14">scene generation via chat</span> and <span class="c14">image generation</span>.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.ai-chat"><span class="c10">AI Chat (Scene Editing) <span class="paid-badge">PAID</span></span></h3>
+    <p class="c4"><span class="c1">The built-in chat interface lets you create, modify, and rearrange your entire scene using natural language. You can ask it to import assets, set positions, create animations, wrap elements, rename things, and more &mdash; all without touching the UI manually.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span>A <span class="c14">model selector</span> at the top of the chat lets you choose between three Claude models:</span></p>
+    <ul class="c18 lst-kix_ai-models-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Haiku (fast)</span><span class="c1"> &mdash; quickest responses, lower cost per operation. Good for simple tasks.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Sonnet (balanced)</span><span class="c1"> &mdash; the recommended default. Strong reasoning at reasonable speed.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Opus (powerful)</span><span class="c1"> &mdash; most capable for complex multi-step instructions. Slower and higher cost.</span></li>
+    </ul>
+    <p class="c4"><span class="c1">Your current credit balance is shown in the chat panel header. Credits are consumed per request based on the model used.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.ai-image"><span class="c10">AI Image Generation</span></h3>
     <table class="c21">
         <tr class="c5">
             <td class="c12" colspan="1" rowspan="1">
@@ -1110,6 +1194,42 @@
     <p class="c4"><span class="c27"><a class="c26"
                 href="https://www.google.com/url?q=https://zstudiosltd.com/z-importer&amp;sa=D&amp;source=editors&amp;ust=1773366273089713&amp;usg=AOvVaw3taYlKW0AtArM93eZV4l8D">https://zstudiosltd.com/z-importer</a></span>
     </p>
+    <p class="c2"><span class="c1"></span></p>
+    <hr>
+    <h1 class="c25" id="h.keyboard-shortcuts"><span class="c19">Keyboard Shortcuts</span></h1>
+    <p class="c4"><span class="c1">A full reference is also available inside the app via <span class="c14">Help &rarr; Interactions and Hot Keys</span>.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <h2 class="c6"><span class="c0">General</span></h2>
+    <table class="c21">
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+S</span></p></td><td class="c12"><p class="c4"><span class="c1">Save scene</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+Z</span></p></td><td class="c12"><p class="c4"><span class="c1">Undo</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+A</span></p></td><td class="c12"><p class="c4"><span class="c1">Select all assets in the current context</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+C</span></p></td><td class="c12"><p class="c4"><span class="c1">Copy selected asset(s)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+X</span></p></td><td class="c12"><p class="c4"><span class="c1">Cut selected asset(s)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+V</span></p></td><td class="c12"><p class="c4"><span class="c1">Paste</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+B</span></p></td><td class="c12"><p class="c4"><span class="c1">Break apart (unbox) selected container</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Backspace / Delete</span></p></td><td class="c12"><p class="c4"><span class="c1">Delete selected asset(s)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+[</span></p></td><td class="c12"><p class="c4"><span class="c1">Lower z-index (send back)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Cmd+]</span></p></td><td class="c12"><p class="c4"><span class="c1">Raise z-index (bring forward)</span></p></td></tr>
+    </table>
+    <p class="c2"><span class="c1"></span></p>
+    <h2 class="c6"><span class="c0">Navigation &amp; Stage</span></h2>
+    <table class="c21">
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Space + drag</span></p></td><td class="c12"><p class="c4"><span class="c1">Pan the stage</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Mouse wheel</span></p></td><td class="c12"><p class="c4"><span class="c1">Zoom in / out</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Shift + drag</span></p></td><td class="c12"><p class="c4"><span class="c1">Drag asset with axis alignment (horizontal or vertical only)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Hold X + drag</span></p></td><td class="c12"><p class="c4"><span class="c1">Reposition the pivot point of the selected asset</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Double-click asset</span></p></td><td class="c12"><p class="c4"><span class="c1">Enter the asset&rsquo;s context (drill in)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Double-click empty space</span></p></td><td class="c12"><p class="c4"><span class="c1">Go up one level in the hierarchy</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">Right mouse button</span></p></td><td class="c12"><p class="c4"><span class="c1">Deselect / go up one level</span></p></td></tr>
+    </table>
+    <p class="c2"><span class="c1"></span></p>
+    <h2 class="c6"><span class="c0">Animation</span></h2>
+    <table class="c21">
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">4</span></p></td><td class="c12"><p class="c4"><span class="c1">Remove frame at current position</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">5</span></p></td><td class="c12"><p class="c4"><span class="c1">Add frame at current position (extend animation)</span></p></td></tr>
+        <tr class="c5"><td class="c12"><p class="c4"><span class="c14">6</span></p></td><td class="c12"><p class="c4"><span class="c1">Add key frame at current position</span></p></td></tr>
+    </table>
     <p class="c2"><span class="c1"></span></p>
 </body>
 
