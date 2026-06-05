@@ -45,6 +45,7 @@ export const PLANS: PlanDef[] = [
     features: [
       '1 seat',
       'No watermarks',
+      'Photoshop Importer',
       'AI image generation',
       'MCP Server',
       'Copying between scenes',
@@ -62,6 +63,7 @@ export const PLANS: PlanDef[] = [
     features: [
       '5 seats',
       'No watermarks',
+      'Photoshop Importer',
       'AI image generation',
       'MCP Server',
       'Copying between scenes',
