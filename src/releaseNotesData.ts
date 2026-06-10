@@ -13,7 +13,7 @@ export const releaseNotes: ReleasePost[] = [
     title: 'The Origin',
     date: 'February 2018',
     tag: '',
-    body: "zStudio began as a tool solving very specific problem: game studios had years of valuable animation work locked inside Adobe Flash (.fla) files, and the web was moving to HTML5. Getting that work out — with all its animation tracks, sprite hierarchies, pivot points, and bitmap fonts intact — required something that didn't exist yet. So we built it ourselves. The first commit landed in February 2018. The core was an Adobe AIR application written in ActionScript 3. It accepted a compiled .swf file on the command line, walked the entire display list, and wrote out a structured placements.json alongside individual PNG images for every display object. That JSON schema — templates, instances, portrait/landscape orientation transforms, animation keyframes — became the foundation that zStudio is still built on today. By August 2018 the tool could pack all images into a single texture atlas using a custom rectangle packer written in AS3. Matrix decomposition was added so that Flash's internal transformation matrices could be broken back down into the x, y, rotation, scaleX, scaleY, skewX, and skewY values the runtime actually needed. A font exporter was built to extract embedded Flash fonts and convert them to bitmap font data. In September 2023 the the placements.json output structure was tightened up. In February 2025 the project was overhauled, completely re written in Typescript and detached from the Flash/Air environment.",
+    body: "zStudio began as a tool solving a very specific problem: game studios had years of valuable animation work locked inside Adobe Flash (.fla) files, and the web was moving to HTML5. Getting that work out — with all its animation tracks, sprite hierarchies, pivot points, and bitmap fonts intact — required something that didn't exist yet. So we built it ourselves. The first commit landed in February 2018. The core was an Adobe AIR application written in ActionScript 3. It accepted a compiled .swf file on the command line, walked the entire display list, and wrote out a structured placements.json alongside individual PNG images for every display object. That JSON schema — templates, instances, portrait/landscape orientation transforms, animation keyframes — became the foundation that zStudio is still built on today. By August 2018 the tool could pack all images into a single texture atlas using a custom rectangle packer written in AS3. Matrix decomposition was added so that Flash's internal transformation matrices could be broken back down into the x, y, rotation, scaleX, scaleY, skewX, and skewY values the runtime actually needed. A font exporter was built to extract embedded Flash fonts and convert them to bitmap font data. In September 2023 the placements.json output structure was tightened up. In February 2025 the project was overhauled, completely rewritten in TypeScript and detached from the Flash/AIR environment.",
     highlights: [
       'Adobe AIR / ActionScript 3 SWF-to-JSON exporter',
       'Custom rectangle packer and texture atlas builder',
@@ -22,7 +22,7 @@ export const releaseNotes: ReleasePost[] = [
       'placements.json schema — the scene format that underpins all of zStudio',
       'JSFL scripts for Adobe Animate pre-processing (timeline unification, library conversion, image export)',
       'Portrait/landscape dual-orientation support in the output format',
-      'Re-written as a Typescript project in February 2025',
+      'Rewritten as a TypeScript project in February 2025',
     ],
   },
   {
@@ -30,7 +30,7 @@ export const releaseNotes: ReleasePost[] = [
     title: 'The First Lines',
     date: 'February 2025',
     tag: '',
-    body: "zStudio rebirth began in February 2025 with the first real commits. These early days were all about laying the foundation: setting up the Git repository properly, wiring together a basic Electron + PIXI.js canvas, and proving out the core loop of dragging images onto a stage and moving them around. By the end of the month we had a working grid canvas, rough copy/paste support, initial asset loading from disk, and the very first version of a \"library\" — a panel on the left that would eventually become the Templates panel. Nothing was pretty yet, but the bones were there.",
+    body: "zStudio's rebirth began in February 2025 with the first real commits. These early days were all about laying the foundation: setting up the Git repository properly, wiring together a basic Electron + PIXI.js canvas, and proving out the core loop of dragging images onto a stage and moving them around. By the end of the month we had a working grid canvas, rough copy/paste support, initial asset loading from disk, and the very first version of a \"library\" — a panel on the left that would eventually become the Templates panel. Nothing was pretty yet, but the bones were there.",
     highlights: [
       'Project bootstrapped with Electron + TypeScript + PIXI.js',
       'Basic stage canvas with grid overlay',
@@ -115,7 +115,7 @@ export const releaseNotes: ReleasePost[] = [
     title: 'Scene Management & Cross-Scene Copy',
     date: 'July 2025',
     tag: 'v1.0.8',
-    body: "July brought six releases as the team shipped a steady stream of quality-of-life improvements. The headline feature was copy assets between scenes — you can now copy a selection in one scene and paste it into another open scene tab. The export pipeline was refactored around a typed ExportType interface, making the export menu cleaner and more extensible. A Name Change panel let users rename templates inline. The Top Menu gained an Exit option. Particle folder importing from the file menu was wired up.",
+    body: "July brought six releases as the team shipped a steady stream of quality-of-life improvements. The headline feature was copying assets between scenes — you can now copy a selection in one scene and paste it into another open scene tab. The export pipeline was refactored around a typed ExportType interface, making the export menu cleaner and more extensible. A Name Change panel let users rename templates inline. The Top Menu gained an Exit option. Particle folder importing from the file menu was wired up.",
     highlights: [
       'Copy assets between open scene tabs',
       'ExportType interface for clean export menu',
@@ -132,7 +132,7 @@ export const releaseNotes: ReleasePost[] = [
     title: 'Webviews & Undo Hardening',
     date: 'August 2025',
     tag: 'v1.1.15',
-    body: "August saw two phases. The first half was a rapid stabilization sprint — undo coverage was extended to wrap/break/paste operations, texture atlas loading was improved, and multi-select pivot reset shipped. Then on August 17 came the biggest architectural change yet — the entire renderer was migrated to Electron webviews (v1.1.0). This unlocked proper process isolation and paved the way for the multi-scene tab experience. The rest of August hardened the new architecture: text JSON styling, Spine skin support, the welcome screen showing recently opened scenes with thumbnails, fixed library search, and improved texture atlas frame handling. On the runtime side, August also saw the launch of the first two companion importer packages: zImporter_PIXI7 and zImporter_Phaser — npm libraries developers can drop into their own games to load and display zStudio scenes at runtime.",
+    body: "August saw two phases. The first half was a rapid stabilisation sprint — undo coverage was extended to wrap/break/paste operations, texture atlas loading was improved, and multi-select pivot reset shipped. Then on August 17 came the biggest architectural change yet — the entire renderer was migrated to Electron webviews (v1.1.0). This unlocked proper process isolation and paved the way for the multi-scene tab experience. The rest of August hardened the new architecture: text JSON styling, Spine skin support, the welcome screen showing recently opened scenes with thumbnails, fixed library search, and improved texture atlas frame handling. On the runtime side, August also saw the launch of the first two companion importer packages: zImporter_PIXI7 and zImporter_Phaser — npm libraries developers can drop into their own games to load and display zStudio scenes at runtime.",
     highlights: [
       'v1.1.0: Full migration to Electron webviews',
       'Text JSON loading for dynamic text styles',
@@ -319,7 +319,7 @@ export const releaseNotes: ReleasePost[] = [
     title: 'Stability & Token Refresh',
     date: 'June 2026',
     tag: 'v2.1.5',
-    body: "June has been focused on stability and hardening the features shipped in May. A silent JWT token refresh was implemented — when the credits-balance token expires in the background, zStudio silently re-authenticates so the user never hits a stale-token error. The search bar in the Hierarchy panel had a clickability regression that was fixed. Ongoing AI panel work continued.",
+    body: "June was focused on stability and hardening the features shipped in May. A silent JWT token refresh was implemented — when the credits-balance token expires in the background, zStudio silently re-authenticates so the user never hits a stale-token error. The search bar in the Hierarchy panel had a clickability regression that was fixed. Ongoing AI panel work continued.",
     highlights: [
       'Silent JWT re-authentication for stale credit-balance tokens',
       'Hierarchy search bar clickability fix',
