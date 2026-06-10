@@ -20,6 +20,8 @@ import PaymentSuccess from './PaymentSuccess';
 import PaymentCancelled from './PaymentCancelled';
 import SwfImporter from './SwfImporter';
 import Pricing from './Pricing';
+import ReleaseNotes from './ReleaseNotes';
+import ReleaseNotePost from './ReleaseNotePost';
 import './App.css';
 
 // ScrollToTop component
@@ -69,6 +71,8 @@ function App() {
               <Route path="/payment-cancelled" element={<PaymentCancelled />} />
               <Route path="/swf-importer" element={<SwfImporter />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/release-notes" element={<ReleaseNotes />} />
+              <Route path="/release-notes/:slug" element={<ReleaseNotePost />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>
