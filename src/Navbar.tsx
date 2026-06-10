@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
         <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
         <Link to="/demos" className="nav-link" onClick={closeMenu}>Demos</Link>
-        <Link to="/release-notes" className="nav-link" onClick={closeMenu}>Blog</Link>
+        {/* <Link to="/release-notes" className="nav-link" onClick={closeMenu}>Blog</Link> */}
         {isLoggedIn ? (
           <Link to="/dashboard" className="nav-link" onClick={closeMenu}>Dashboard</Link>
         ) : (
