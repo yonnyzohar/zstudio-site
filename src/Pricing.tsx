@@ -24,6 +24,17 @@ interface PlanDef {
   highlighted?: boolean;
 }
 
+export const features = {
+    presenceTables:'See current scene viewers', 
+    watermarkExport: 'Watermarked exports', 
+    noWatermarkExport: 'No watermarks', 
+    aiGeneration: 'AI image generation',  
+    copyBetweenScenes:'Copying between scenes', 
+    photoshopImporter: 'Photoshop Importer', 
+    mcpServer:'MCP Server' ,
+    copyBetweenScene: 'Copying between scenes'
+}
+
 export const PLANS: PlanDef[] = [
   {
     key: 'community',
@@ -32,7 +43,7 @@ export const PLANS: PlanDef[] = [
     tagline: 'Get started for free',
     features: [
       '1 seat',
-      'Watermarked exports',
+      features.watermarkExport,
       'Pixi.js & Phaser export'
     ],
     monthlyKey: '',
@@ -44,11 +55,11 @@ export const PLANS: PlanDef[] = [
     tagline: 'For professional developers',
     features: [
       '1 seat',
-      'No watermarks',
-      'Photoshop Importer',
-      'AI image generation',
-      'MCP Server',
-      'Copying between scenes',
+      features.noWatermarkExport,
+      features.photoshopImporter,
+      features.aiGeneration,
+      features.mcpServer,
+      features.copyBetweenScene,
       'Email support',
     ],
     monthlyKey: 'individual_pro_monthly',
@@ -62,11 +73,12 @@ export const PLANS: PlanDef[] = [
     tagline: 'For game studios',
     features: [
       '5 seats',
-      'No watermarks',
-      'Photoshop Importer',
-      'AI image generation',
-      'MCP Server',
-      'Copying between scenes',
+      features.noWatermarkExport,
+      features.photoshopImporter,
+      features.presenceTables,
+      features.aiGeneration,
+      features.mcpServer,
+      features.copyBetweenScene,
       'Priority support'
     ],
     monthlyKey: 'team_monthly',
@@ -77,7 +89,13 @@ export const PLANS: PlanDef[] = [
     licenseType: 'enterprise',
     label: 'Enterprise',
     tagline: 'For large teams & studios',
-    features: ['Unlimited seats', 'Dedicated support', 'Custom integrations', 'Priority onboarding'],
+    features: [
+      'Everything in teams + ',
+      'Unlimited seats', 
+      'Dedicated support', 
+      'Custom integrations', 
+      'Priority onboarding'
+    ],
     monthlyKey: '',
   }
 ];

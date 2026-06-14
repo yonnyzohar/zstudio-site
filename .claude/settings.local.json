@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(git config *)",
+      "Bash(grep -v '^$')",
+      "Bash(git -C /Users/yonny/Desktop/code/importers/zImporter_PIXI7 log --oneline --date=short --format=\"%ad %s\")",
+      "Bash(git -C /Users/yonny/Desktop/code/importers/zImporter_PIXI8 log --oneline --date=short --format=\"%ad %s\")",
+      "Bash(git -C /Users/yonny/Desktop/code/importers/zImporter_Phaser log --oneline --date=short --format=\"%ad %s\")",
+      "Bash(git -C /Users/yonny/Desktop/code/importers/zImporter_html log --oneline --date=short --format=\"%ad %s\")",
+      "Bash(brew install *)",
+      "Bash(ls /Users/yonny/Desktop/vids)",
+      "Read(//Users/yonny/Desktop/vids/**)",
+      "Bash(ffmpeg -i editor.mp4 -vf \"fps=15,scale=800:-1:flags=lanczos,palettegen\" palette_editor.png -y)",
+      "Bash(ffmpeg -i editor.mp4 -i palette_editor.png -vf \"fps=15,scale=800:-1:flags=lanczos,paletteuse\" editor.gif -y)",
+      "Bash(rm palette_editor.png)",
+      "Bash(ffmpeg -i output.mp4 -vf \"fps=15,scale=800:-1:flags=lanczos,palettegen\" palette_output.png -y)",
+      "Bash(ffmpeg -i output.mp4 -i palette_output.png -vf \"fps=15,scale=800:-1:flags=lanczos,paletteuse\" output.gif -y)",
+      "Bash(ffmpeg -i editor.mp4 -filter_complex \"[0:v] fps=15,scale=800:-1:flags=lanczos,split [a][b];[a] palettegen [p];[b][p] paletteuse\" editor.gif -y)",
+      "Bash(ffmpeg -i output.mp4 -filter_complex \"[0:v] fps=15,scale=800:-1:flags=lanczos,split [a][b];[a] palettegen [p];[b][p] paletteuse\" output.gif -y)"
     ]
   }
 }
