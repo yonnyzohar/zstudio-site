@@ -26,11 +26,15 @@ const Footer: React.FC = () => {
       <p style={{ margin: '20px 0', fontSize: '0.9em' }}>
         <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link>
       </p>
-      <div style={{ margin: '20px 0' }}>
+      <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px' }}>
         <a href="https://launchstag.com" target="_blank" rel="noopener">
           <img src="https://launchstag.com/badge-light.svg" alt="Featured on Launchstag" width="198" height="62" />
         </a>
+        <a href="https://tools.cafe" target="_blank" rel="noopener">
+          <img src="https://tools.cafe/b/light.svg" alt="Featured on tools.cafe" width="198" height="62" />
+        </a>
       </div>
+      
       <span id="timestamp">© 2026 zStudio - All Rights Reserved</span>
       <script
         dangerouslySetInnerHTML={{
