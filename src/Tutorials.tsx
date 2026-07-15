@@ -80,6 +80,11 @@ const Tutorials: React.FC = () => {
       url: "https://youtu.be/XDh-SzEMIVQ"
     },
     {
+      title: "Animated Sprites",
+      description: "This video shows how to use Animated Sprites in zStudio. It covers importing a sequence of frame images, configuring playback speed (FPS), looping, and the Play On Start option. Learn how to preview animations directly in the Attributes panel and manage frames by adding, removing, or reordering them.",
+      url: "https://youtu.be/0wn_tJu5orM"
+    },
+    {
       title: "AI image generation",
       description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
       url:"https://youtu.be/VEHzjlx2sxo"
