@@ -32,7 +32,8 @@ export const features = {
     copyBetweenScenes:'Copying between scenes', 
     photoshopImporter: 'Photoshop Importer', 
     mcpServer:'MCP Server' ,
-    copyBetweenScene: 'Copying between scenes'
+    copyBetweenScene: 'Copying between scenes',
+    validationSupport: 'Scene hierarchy snapshot for validation',
 }
 
 export const PLANS: PlanDef[] = [
@@ -60,6 +61,7 @@ export const PLANS: PlanDef[] = [
       features.aiGeneration,
       features.mcpServer,
       features.copyBetweenScene,
+      features.validationSupport,
       'Email support',
     ],
     monthlyKey: 'individual_pro_monthly',
@@ -79,6 +81,7 @@ export const PLANS: PlanDef[] = [
       features.aiGeneration,
       features.mcpServer,
       features.copyBetweenScene,
+      features.validationSupport,
       'Priority support'
     ],
     monthlyKey: 'team_monthly',
