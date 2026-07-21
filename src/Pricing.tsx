@@ -44,7 +44,6 @@ export const PLANS: PlanDef[] = [
     tagline: 'Get started for free',
     features: [
       '1 seat',
-      features.watermarkExport,
       'Pixi.js & Phaser export'
     ],
     monthlyKey: '',
@@ -56,7 +55,6 @@ export const PLANS: PlanDef[] = [
     tagline: 'For professional developers',
     features: [
       '1 seat',
-      features.noWatermarkExport,
       features.photoshopImporter,
       features.aiGeneration,
       features.mcpServer,
@@ -75,7 +73,6 @@ export const PLANS: PlanDef[] = [
     tagline: 'For game studios',
     features: [
       '5 seats',
-      features.noWatermarkExport,
       features.photoshopImporter,
       features.presenceTables,
       features.aiGeneration,
