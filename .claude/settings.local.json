@@ -17,7 +17,14 @@
       "Bash(ffmpeg -i output.mp4 -vf \"fps=15,scale=800:-1:flags=lanczos,palettegen\" palette_output.png -y)",
       "Bash(ffmpeg -i output.mp4 -i palette_output.png -vf \"fps=15,scale=800:-1:flags=lanczos,paletteuse\" output.gif -y)",
       "Bash(ffmpeg -i editor.mp4 -filter_complex \"[0:v] fps=15,scale=800:-1:flags=lanczos,split [a][b];[a] palettegen [p];[b][p] paletteuse\" editor.gif -y)",
-      "Bash(ffmpeg -i output.mp4 -filter_complex \"[0:v] fps=15,scale=800:-1:flags=lanczos,split [a][b];[a] palettegen [p];[b][p] paletteuse\" output.gif -y)"
+      "Bash(ffmpeg -i output.mp4 -filter_complex \"[0:v] fps=15,scale=800:-1:flags=lanczos,split [a][b];[a] palettegen [p];[b][p] paletteuse\" output.gif -y)",
+      "Bash(npm -v)",
+      "Read(//Users/yonny/Desktop/code/**)",
+      "Bash(mkdir -p /Users/yonny/Desktop/code/zstudio-outreach/src/sources)",
+      "Bash(mkdir -p /Users/yonny/Desktop/code/zstudio-outreach/public)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(npm view *)"
     ]
   }
 }

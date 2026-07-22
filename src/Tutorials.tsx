@@ -35,6 +35,11 @@ const Tutorials: React.FC = () => {
       url: "https://youtu.be/EusxLV6eV1M"
     },
     {
+      title: "Reloading project images",
+      description: "This video demonstrates how you can reload all the images in the project folder.",
+      url: "https://youtu.be/eun3E7l8vzw"
+    },
+    {
       title: "Testing your Scene",
       description: "This video demonstrates testing a full zStudio scene—showing a slot machine layout built with images, nine-slices, buttons, and a portrait/landscape setup. It explains how the built-in test window loads the exported scene through the zStudio importer (currently supporting Pixi.js and Phaser), allowing artists to preview exactly how their UI will look and behave on a real device without needing a developer.",
       url: "https://youtu.be/BHWw6DEsxyA"
