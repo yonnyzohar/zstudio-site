@@ -501,7 +501,7 @@ scene.load(loadPath, () => {
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
-              <h2>Trusted by iGaming & Ad Teams Worldwide</h2>
+              <h2>Trusted by development Teams Worldwide</h2>
               <div className="testimonials">
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>
