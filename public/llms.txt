@@ -1,0 +1,24 @@
+# zStudio
+
+> zStudio is a visual UI and layout editor for game developers. Design UI scenes once in a drag-and-drop desktop app, then export them to run natively in Pixi.js, Phaser, or Three.js — no manual coding of layout, positioning, or responsive behavior required.
+
+zStudio is built by zStudios Ltd. It targets game developers and UI/UX artists who need to build responsive, portrait/landscape-aware game interfaces (menus, HUDs, slot machine layouts, buttons, sliders, etc.) without hand-coding layout logic. Scenes are exported as JSON/assets and loaded at runtime via the zImporter library.
+
+## Product
+
+- [Home](https://zstudiosltd.com/): Overview of zStudio, key features, and free download links for Mac, Windows, and Linux.
+- [Pricing](https://zstudiosltd.com/pricing): Free Community, Individual Pro, and Studio Team plans, with monthly, yearly, and lifetime options.
+- [About](https://zstudiosltd.com/about): Background on zStudio as a visual layout editor for game developers.
+- [zImporter](https://zstudiosltd.com/z-importer): The runtime library that imports zStudio scenes into Pixi.js, Phaser, and Three.js game projects.
+- [SWF Importer](https://zstudiosltd.com/swf-importer): Tool for converting legacy Adobe Animate / Flash SWF assets into zStudio scenes.
+- [Demos](https://zstudiosltd.com/demos): Interactive game demos built with zStudio and exported to Pixi.js/Phaser, including a slot machine, storybook, and space shooter.
+
+## Documentation & Learning
+
+- [Tutorials](https://zstudiosltd.com/tutorials): Video tutorials covering navigation, panels, containers/hierarchies, instancing, images, text, pivots/anchors, Spine, particles, saving/loading, portrait/landscape design, components, animation, scene validation, and the zImporter runtime workflow.
+- [Full Documentation](https://zstudiosltd.com/zStudioDocumentation/index.html): Complete written documentation for zStudio.
+
+## Legal
+
+- [Terms of Service](https://zstudiosltd.com/terms)
+- [Privacy Policy](https://zstudiosltd.com/privacy)
