@@ -107,12 +107,16 @@ async function prerender() {
       page.on('pageerror', () => {});
 
       await page.goto(`${BASE_URL}${route}`, {
-        waitUntil: 'networkidle0',
+        // 'load' (not 'networkidle0') because pages like Home embed
+        // autoplaying YouTube iframes that keep making network requests
+        // indefinitely, which would otherwise never let the page go idle.
+        waitUntil: 'load',
         timeout: 30_000,
       });
 
-      // Wait an extra tick for react-helmet-async to flush <head> updates
-      await new Promise((r) => setTimeout(r, 200));
+      // Wait an extra tick for React to mount/render and for
+      // react-helmet-async to flush <head> updates
+      await new Promise((r) => setTimeout(r, 500));
 
       const html = await page.content();
       writeHtml(route, html);
