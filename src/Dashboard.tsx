@@ -540,7 +540,7 @@ const Dashboard: React.FC = () => {
             </div>
             <p style={{ color: '#94a3b8', margin: '12px 0 4px' }}>You are on the free Community plan.</p>
             <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
-              Up to 3 projects · 1 seat · Watermarked exports
+              Unlimited projects · 1 seat · No watermarks
             </p>
           </div>
         ) : (

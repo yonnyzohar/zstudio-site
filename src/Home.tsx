@@ -107,7 +107,7 @@ const Home: React.FC = () => {
     <div>
       <SEO
         title="zStudio – UI & Layout Creation Tool for Web Games"
-        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or Three.js — free to download."
+        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML — free to download."
         canonical="/"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -116,7 +116,7 @@ const Home: React.FC = () => {
           applicationCategory: 'DeveloperApplication',
           operatingSystem: 'Windows, macOS, Linux',
           url: 'https://zstudiosltd.com',
-          description: 'A visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or Three.js.',
+          description: 'A visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML.',
           offers: {
             '@type': 'Offer',
             price: '0',
@@ -265,7 +265,7 @@ const Home: React.FC = () => {
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Developers load a full scene in 5 lines of code</span>
+                      <span>Developers load a full scene in a few lines of code</span>
                     </div>
                   </div>
                 </div>
@@ -317,7 +317,7 @@ const Home: React.FC = () => {
                   <div className="feature-number">02</div>
                   <FiLink className="feature-icon" />
                   <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
-                  <p>Export your scene as JSON. Load it in your project with 5 lines of code via our zImporter package. All positions, anchors, animations, and hierarchies preserved — pixel-perfect, every time.</p>
+                  <p>Export your scene as JSON. Load it in your project with a few lines of code via our zImporter package. All positions, anchors, animations, and hierarchies preserved — pixel-perfect, every time.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="ZINRf2fgfQs" />
@@ -411,7 +411,7 @@ const Home: React.FC = () => {
                 If you built in Flash, you know what a visual, instant-preview workflow feels like. That productivity never died — it just got orphaned.
               </p>
               <p className="post-flash-body">
-                zStudio combines the drag-and-drop power of Flash's authoring tool with modern JSON-based exports that drop straight into Pixi.js and Phaser. Your Art Director stays in a visual editor. Your developer loads the scene in 5 lines of code. No Figma handoff. No hard-coded coordinates. No layout ping-pong.
+                zStudio combines the drag-and-drop power of Flash's authoring tool with modern JSON-based exports that drop straight into Pixi.js and Phaser. Your Art Director stays in a visual editor. Your developer loads the scene in a few lines of code. No Figma handoff. No hard-coded coordinates. No layout ping-pong.
               </p>
               <div className="post-flash-pillars">
                 <div className="post-flash-pillar">
@@ -420,7 +420,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="post-flash-pillar">
                   <span className="pillar-check">✓</span>
-                  <span>One-click JSON export — the scene loads in 5 lines</span>
+                  <span>One-click JSON export — the scene loads in a few lines</span>
                 </div>
               </div>
             </div>
@@ -438,7 +438,7 @@ const Home: React.FC = () => {
               </div>
               <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
                 <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Developer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Loads the entire scene in 5 lines — and ships the game</p>
+                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Loads the entire scene in a few lines — and ships the game</p>
                 <pre style={{
                   backgroundColor: '#0f172a',
                   padding: '1.5rem',
@@ -501,7 +501,7 @@ scene.load(loadPath, () => {
           {/* SOCIAL PROOF */}
           <section className="social-proof">
             <div className="social-proof-content">
-              <h2>Trusted by development Teams Worldwide</h2>
+              <h2>What Our Users Say</h2>
               <div className="testimonials">
                 <div className="testimonial">
                   <div className="testimonial-stars">★★★★★</div>

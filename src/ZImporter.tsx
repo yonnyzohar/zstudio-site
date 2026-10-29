@@ -31,7 +31,7 @@ const ZImporter: React.FC = () => {
     <>
     <SEO
       title="zImporter – Export zStudio Scenes to Pixi.js, Phaser & More"
-      description="Use zImporter to bring your zStudio layouts into your game engine. Supports Pixi.js, Phaser, Three.js and more with a simple import workflow."
+      description="Use zImporter to bring your zStudio layouts into your game engine. Supports Pixi.js (v7 and v8), Phaser and plain HTML with a simple import workflow."
       canonical="/z-importer"
     />
     <div className="container">

@@ -28,10 +28,10 @@ export const features = {
     presenceTables:'See current scene viewers', 
     watermarkExport: 'Watermarked exports', 
     noWatermarkExport: 'No watermarks', 
-    aiGeneration: 'AI image generation',  
+    aiGeneration: 'Cloud AI image generation',  
     copyBetweenScenes:'Copying between scenes', 
     photoshopImporter: 'Photoshop Importer', 
-    mcpServer:'MCP Server' ,
+    mcpServer:'MCP Server & User Skills' ,
     copyBetweenScene: 'Copying between scenes',
     validationSupport: 'Scene hierarchy snapshot for validation',
 }
@@ -44,7 +44,11 @@ export const PLANS: PlanDef[] = [
     tagline: 'Get started for free',
     features: [
       '1 seat',
-      'Pixi.js & Phaser export'
+      'Full scene editor & animation timeline',
+      'Spine, particles & bitmap fonts',
+      'Local AI image models',
+      'Pixi.js, Phaser & HTML export',
+      'Unlimited projects, no watermarks'
     ],
     monthlyKey: '',
   },
@@ -225,7 +229,7 @@ const Pricing: React.FC = () => {
     <div className="container">
       <SEO
         title="Pricing – zStudio Plans"
-        description="Choose the right zStudio plan for you. Free Community, Individual Pro, and Studio Team plans available. Monthly, yearly, and lifetime options."
+        description="Choose the right zStudio plan for you. Free Community, Individual Pro, and Studio Team plans available. Monthly and lifetime options."
         canonical="/pricing"
       />
 
@@ -363,7 +367,7 @@ const Pricing: React.FC = () => {
       <div className="pricing-credits-section">
         <h2 className="pricing-credits-title">AI Image Credits</h2>
         <p className="pricing-credits-subtitle">
-          Power AI image generation inside zStudio. Credits work across all plans and never expire.
+          Power AI image generation inside zStudio. Cloud AI generation is included with Individual Pro, Studio Team and Enterprise plans. Credits never expire. Local image models (running on your own computer) are free on every plan, Community included.
         </p>
 
         {loadingCredits ? (
@@ -469,7 +473,7 @@ const Pricing: React.FC = () => {
 
       {/* Feature comparison note */}
       <div className="pricing-footer-note">
-        <p>All plans include access to the full zStudio desktop editor. AI credits are purchased separately and work across all plans.</p>
+        <p>All plans include access to the full zStudio desktop editor. AI credits are purchased separately and can be used on Individual Pro, Studio Team and Enterprise plans.</p>
         <p style={{ marginTop: '0.5rem' }}>
           Need enterprise pricing?{' '}
           <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6' }}>Contact us</a>.
