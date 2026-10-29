@@ -17,6 +17,19 @@
             vertical-align: middle;
             white-space: nowrap;
         }
+        .free-badge {
+            display: inline-block;
+            background: #14b8a6;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            margin-left: 6px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
@@ -478,6 +491,9 @@
         <li class="c4 c13 li-bullet-0"><span class="c7">Show Hierarchy</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c7">Show Undo</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c7">Show AI</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Local Image Models&hellip; -&gt; </span><span class="c1">opens the
+                window where you connect image models that run on your own computer. See <a class="c26"
+                    href="#h.local-image-models">Local Image Models</a>.</span></li>
     </ul>
     <h2 class="c6" id="h.l9osv7mi47tl"><span class="c0">Selection</span></h2>
     <p class="c4"><span class="c1">The Selection tab deals with asset selection capabilities when working in a
@@ -592,6 +608,12 @@
                 page for download.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Interactions and Hot Keys</span><span class="c1">&nbsp;-&gt;
                 opens a dialogue with explanations on hot keys and more.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Connect AI (MCP)</span><span class="c1">&nbsp;-&gt; shows the
+                address of zStudio's MCP server and the setup snippet for each AI tool. See <a class="c26"
+                    href="#h.mcp-server">MCP Server</a>.</span> <span class="paid-badge">PAID</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">AI Skill Libraries&hellip;</span><span class="c1">&nbsp;-&gt; connects
+                your own skill files so the AI follows your studio's conventions. See <a class="c26"
+                    href="#h.skill-libraries">AI Skill Libraries</a>.</span> <span class="paid-badge">PAID</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Check for Updates</span><span class="c1">&nbsp;-&gt; checks
                 with the server if there is a software update. If so, you will be prompted to download.</span></li>
     </ul>
@@ -1148,10 +1170,37 @@
     <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="paid-badge">PAID</span></span></h2>
     <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows, both of which require a paid subscription:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">External via CLI: </span><span class="c1">Connect to zStudio from your own terminal or tooling. You bring your own AI provider (Claude, GPT-4, etc.) and manage your own API keys and costs. Ideal for developers who want to script or automate zStudio workflows.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool: </span><span class="c1">Connect an AI tool that supports MCP &mdash; Claude (desktop or Claude Code), Antigravity, Cursor, VS Code, Windsurf, Gemini CLI and others. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat: </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It uses zStudio credits and requires no external setup &mdash; see the AI Panel section below for details.</span></li>
     </ul>
-    <p class="c4"><span class="c36">On the free (Community) tier the MCP server does not start, so neither the external CLI nor the built-in chat is available.</span></p>
+    <p class="c4"><span class="c1">Through MCP the AI can do almost anything you can do in the editor: create and arrange containers, import images, Spine animations and particles, set positions for portrait and landscape, anchor elements, edit text, build buttons and other components, animate on the timeline, generate images, and save or export the scene. It reads zStudio's built-in guides as it works, and you can add your own &mdash; see <a class="c26" href="#h.skill-libraries">AI Skill Libraries</a> below.</span></p>
+    <p class="c4"><span class="c36">On the free (Community) tier the MCP server does not start, so neither external AI tools nor the built-in chat can connect.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.skill-libraries"><span class="c10">AI Skill Libraries <span class="paid-badge">PAID</span></span></h3>
+    <p class="c4"><span class="c1">Skills teach the AI your own conventions &mdash; for example, the container hierarchy your studio uses for a slot machine, how you name templates, or how your popups are built. zStudio already gives the AI built-in skills for its own features; your libraries are added to that list, and the AI loads only the skills it needs for the current task.</span></p>
+    <p class="c4"><span class="c1">Open <span class="c14">Help &rarr; AI Skill Libraries&hellip;</span> and choose:</span></p>
+    <ul class="c18 lst-kix_mcp-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Add Library Folder&hellip;</span><span class="c1"> &mdash; a folder of Markdown files. Every <code>.md</code> file is one skill; subfolders are fine and <code>README.md</code> files are ignored.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Add Single Skill File&hellip;</span><span class="c1"> &mdash; one <code>.md</code> file.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Create Starter Library&hellip;</span><span class="c1"> &mdash; writes an example library you can edit.</span></li>
+    </ul>
+    <p class="c4"><span class="c1">Start each skill file with a short header so the AI knows when to load it:</span></p>
+    <pre style="background:#f4f4f4;padding:10px 14px;border-radius:4px;font-size:12px;">---
+name: slot-machine-structure
+description: The container hierarchy we use for slot machines. Load before building a slot game.
+---
+
+# Slot machine structure
+&hellip;</pre>
+    <ul class="c18 lst-kix_mcp-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c1">Without a header, the file name becomes the skill's name and its first heading the description.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">Keep each skill to one topic and under about 1,500 words. Very long files are cut off.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">Refer to zStudio tools by name (for example <code>wrap_elements</code> or <code>set_element_flags</code>) and to container types (<code>btn</code>, <code>state</code>, <code>animation</code>&hellip;).</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">Edits to connected files are picked up automatically &mdash; no need to reconnect. A library on a drive that is not currently available is hidden until it comes back.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c1">If a skill has the same name as a built-in one, it is listed as <code>&lt;library&gt;/&lt;name&gt;</code> so both stay available.</span></li>
+    </ul>
+    <p class="c4"><span class="c1">Your existing scenes already show your conventions. The dialog's <span class="c14">Generate a library from your existing scenes with AI</span> section has a prompt you can copy into an AI tool that can read files on your computer (Claude Code, Antigravity, Cursor&hellip;). It studies your scenes and writes the skill files; then add the folder here.</span></p>
+    <p class="c4"><span class="c1">A connected AI tool can also list, add and remove libraries for you over MCP.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h2 class="c6" id="h.xq7ynxc7em3g"><span class="c0">AI Panel</span></h2>
     <p class="c2"><span class="c1"></span></p>
@@ -1186,7 +1235,12 @@
                 </p>
                 <p class="c9"><span class="c1"></span></p>
                 <p class="c16"><span class="c1">Once you sign up you can purchase credit packs that will be used to pay
-                        for the AI image generation.</span></p>
+                        for the AI image generation. Cloud image generation is included with the Individual Pro,
+                        Studio Team and Enterprise plans.</span></p>
+                <p class="c9"><span class="c1"></span></p>
+                <p class="c16"><span class="c1">On any plan, including Community, you can instead use models that
+                        run on your own computer, with no sign-up or credits &mdash; see <a class="c26"
+                            href="#h.local-image-models">Local Image Models</a> below.</span></p>
                 <p class="c9"><span class="c1"></span></p>
                 <p class="c16"><span class="c1">You can set whether the image will have a transparent background
                         (important for game assets) and select your model. Gemini Flash and GPT IMage 1.5 are terrific
@@ -1213,6 +1267,21 @@
             </td>
         </tr>
     </table>
+    <p class="c2"><span class="c1"></span></p>
+    <h3 class="c22" id="h.local-image-models"><span class="c10">Local Image Models <span class="free-badge">FREE</span></span></h3>
+    <p class="c4"><span class="c1">You can generate images on your own computer with models you download yourself. Local models need no account, credits or internet connection, and are available on every plan, including Community.</span></p>
+    <p class="c4"><span class="c1">Open <span class="c14">Panels &rarr; Local Image Models&hellip;</span>, click <span class="c14">Add Model&hellip;</span> and pick the model file. zStudio guesses the model family and looks for the other files it needs. When a model shows <span class="c14">Ready</span>, it appears in the AI Image panel's model list, where you use it like any other model. Each model also has a <span class="c14">Test</span> button.</span></p>
+    <ul class="c18 lst-kix_ai-models-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Supported models: </span><span class="c1">Stable Diffusion 1.x / 2.x and XL checkpoints, FLUX, Z-Image and Qwen-Image, as <code>.safetensors</code> or <code>.gguf</code> files. Download them from Hugging Face or Civitai.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Models in several parts: </span><span class="c1">newer models come as a diffusion model plus a text encoder and a VAE. Keep them in a <code>models/</code> folder with <code>diffusion_models/</code> (or <code>unet/</code>), <code>text_encoders/</code> and <code>vae/</code> subfolders &mdash; the layout ComfyUI uses &mdash; and zStudio finds the parts automatically. You can also choose each file by hand.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Settings: </span><span class="c1">each model has Steps, CFG and Size. The defaults suit each family; change them only if you know the model needs it.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Modes: </span><span class="c1">Text to Image, Image to Image and Image in Place (reskin) all work with local models, using the first selected image as the source.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">No transparent backgrounds: </span><span class="c1">local models always produce an opaque image. Use a cloud model when you need transparency.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Memory and speed: </span><span class="c1">SD 1.5 runs on most machines. SDXL, Z-Image and FLUX want about 12&ndash;24 GB of memory (Apple Silicon unified memory or a graphics card). On a slower machine one image can take several minutes. The <code>.gguf</code> &ldquo;Q8&rdquo; or &ldquo;Q4&rdquo; versions are much smaller and need less memory, with little loss in quality.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Licenses: </span><span class="c1">check each model's license before using its images commercially &mdash; some, such as FLUX.1-dev, do not allow it.</span></li>
+    </ul>
+    <p class="c4"><span class="c1">AI tools connected over MCP can use your local models too: they appear in the model list as <code>local:&hellip;</code>.</span></p>
+    <p class="c2"><span class="c1"></span></p>
     <h1 class="c25" id="h.tsvsdbee04vd"><span class="c19">Testing a Scene</span></h1>
     <p class="c4"><span>From the top menu you can test your scene. The test is simply a regular export that places the
             files in the Documents folder of the computer in a directory called </span><span
