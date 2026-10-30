@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 
 interface ReleaseData {
@@ -39,8 +40,8 @@ const About: React.FC = () => {
   return (
     <div className="container">
       <SEO
-        title="About zStudio – Game UI Design Tool for Developers"
-        description="Learn about zStudio — a visual layout editor built for game developers. Download the app and design UI scenes for Pixi.js, Phaser, and more."
+        title="About zStudio – The Visual Scene Editor for Game Teams and Their AI"
+        description="Learn about zStudio: a non-intrusive visual scene editor that game teams and their AI tools use to build responsive scenes for Pixi.js, Phaser and HTML."
         canonical="/about"
       />
 
@@ -147,7 +148,7 @@ const About: React.FC = () => {
             Whether you use Pixi, Phaser, plain HTML, or a custom framework — zStudio fits into your workflow.
           </p>
           <ul style={{ marginLeft: '1.5rem', lineHeight: '2', marginBottom: '0.75rem' }}>
-            <li>Create scenes visually.</li>
+            <li>Create scenes visually, or let your AI build them.</li>
             <li>Export clean JSON.</li>
             <li>Load it at runtime using our open-source importers.</li>
           </ul>
@@ -157,6 +158,38 @@ const About: React.FC = () => {
             <li>Use our components — or your own.</li>
             <li>Instantiate full scenes — or minimal templates.</li>
             <li>Extend freely — <strong>no lock-in</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* ── BUILT FOR THE AI ERA ── */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '3rem',
+        gap: '2rem',
+        flexDirection: isMobile ? 'column' : 'row',
+      }}>
+        <img
+          src="/assets/Screenshot 2026-01-16 at 23.19.46.png"
+          alt="A scene built in zStudio"
+          style={{ ...imgStyle, order: isMobile ? 2 : 1 }}
+        />
+        <div style={{ flex: '1', textAlign: isMobile ? 'center' : 'left', order: isMobile ? 1 : 2 }}>
+          <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Built for the AI Era</h2>
+          <p style={{ marginBottom: '0.75rem' }}>
+            AI can now build a game scene from a prompt. But AI-written layout code is hard to review, and fixing one
+            button means another round with the AI.
+          </p>
+          <p style={{ marginBottom: '0.75rem' }}>
+            zStudio gives the AI a better target: a real scene. Through the built-in MCP server, Claude Code, Cursor or any
+            MCP client can build, reskin and animate scenes, following your studio's conventions through skills and
+            generating art with models on your own machine.
+          </p>
+          <ul style={{ marginLeft: '1.5rem', lineHeight: '2' }}>
+            <li>The AI does the bulk of the work.</li>
+            <li>A person reviews it visually, on every screen size, and signs off.</li>
+            <li>The developer loads a clean scene in a few lines.</li>
           </ul>
         </div>
       </div>
@@ -175,11 +208,12 @@ const About: React.FC = () => {
           {[
             {
               icon: '🤖',
-              title: 'AI-Ready',
+              title: 'AI Automation',
               items: [
                 'Built-in MCP server: connect Claude Code, Cursor, Antigravity, Gemini CLI and more',
+                'Your AI can build, reskin and animate full scenes',
+                'Custom skills that teach your AI to build scenes your way',
                 'Local AI image models that run on your own computer',
-                'Skills that teach your AI to build scenes your way',
                 'Free on every plan; built-in AI Chat on paid plans',
               ],
             },
@@ -291,6 +325,7 @@ const About: React.FC = () => {
             <li><strong>Technical Artists</strong> who need precise control without boilerplate code</li>
             <li><strong>UI/UX Teams</strong> crafting dynamic, responsive interfaces</li>
             <li><strong>Ad Creators</strong> designing engaging playable ads for mobile and web</li>
+            <li><strong>Content Teams</strong> automating reskins, variants and ad sizes with AI</li>
             <li><strong>Studios</strong> looking to streamline workflows and reduce integration time</li>
           </ul>
         </div>
@@ -337,10 +372,11 @@ const About: React.FC = () => {
           <h2 style={{ color: '#fbbb1a', marginTop: '0', marginBottom: '1rem' }}>Focus on Your Game — Not Layout Plumbing</h2>
           <p style={{ marginBottom: '0.75rem' }}>
             We're not replacing your engine. We're removing the friction between your team's vision and its
-            implementation — so you can ship faster, iterate freely, and build the games you actually want to make.
+            implementation, whether a person or an AI is doing the building, so you can ship faster, iterate freely, and
+            build the games you actually want to make.
           </p>
           <p>
-            Join the growing community of developers and ad creators who trust zStudio to bring their work to life.
+            Download it free, connect your AI, and build your first scene in minutes. <Link to="/ai" style={{ color: '#14b8a6' }}>See how</Link>.
           </p>
         </div>
       </div>

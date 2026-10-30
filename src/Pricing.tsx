@@ -31,7 +31,8 @@ export const features = {
     aiGeneration: 'Cloud AI image generation',  
     copyBetweenScenes:'Copying between scenes', 
     photoshopImporter: 'Photoshop Importer', 
-    mcpServer:'MCP server for your own AI tool & user skills' ,
+    mcpServer: 'MCP server: connect Claude Code, Cursor & more',
+    customSkills: 'Custom AI skills',
     aiChat: 'Built-in AI Chat (uses credits)',
     copyBetweenScene: 'Copying between scenes',
     validationSupport: 'Scene hierarchy snapshot for validation',
@@ -42,13 +43,14 @@ export const PLANS: PlanDef[] = [
     key: 'community',
     licenseType: 'community',
     label: 'Community',
-    tagline: 'Get started for free',
+    tagline: 'Full editor and AI automation, free',
     features: [
       '1 seat',
       'Full scene editor & animation timeline',
       'Spine, particles & bitmap fonts',
-      'Local AI image models',
       features.mcpServer,
+      features.customSkills,
+      'Local AI image models',
       'Pixi.js, Phaser & HTML export',
       'Unlimited projects, no watermarks'
     ],
@@ -231,14 +233,14 @@ const Pricing: React.FC = () => {
     <div className="container">
       <SEO
         title="Pricing – zStudio Plans"
-        description="Choose the right zStudio plan for you. Free Community, Individual Pro, and Studio Team plans available. Monthly and lifetime options."
+        description="zStudio pricing. The MCP server, custom AI skills and local image models are free on every plan. Upgrade for cloud AI, built-in AI Chat and team features. Monthly and lifetime options."
         canonical="/pricing"
       />
 
       <div className="pricing-hero">
         <h1>Simple, transparent pricing</h1>
         <p className="pricing-subtitle">
-          Start free. Upgrade when you need more power.
+          AI automation is free on every plan. Upgrade for cloud AI, built-in AI Chat and team features.
         </p>
 
         <div className="billing-toggle">
@@ -367,9 +369,9 @@ const Pricing: React.FC = () => {
 
       {/* AI Credits Section */}
       <div className="pricing-credits-section">
-        <h2 className="pricing-credits-title">AI Image Credits</h2>
+        <h2 className="pricing-credits-title">AI Credits</h2>
         <p className="pricing-credits-subtitle">
-          Power cloud AI image generation and the built-in AI Chat inside zStudio. Both are included with Individual Pro, Studio Team and Enterprise plans. Credits never expire. Local image models (running on your own computer) are free on every plan, Community included.
+          Credits pay for cloud image generation and the built-in AI Chat, both available on Individual Pro, Studio Team and Enterprise plans. Credits never expire. You don't need credits to connect your own AI tool over MCP or to use local image models: those are free on every plan, Community included.
         </p>
 
         {loadingCredits ? (

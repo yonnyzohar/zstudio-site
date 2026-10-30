@@ -59,6 +59,33 @@ const SwfImporter: React.FC = () => {
         </section>
 
         <div className="container">
+          {/* POST-FLASH */}
+          <section className="post-flash-section">
+            <div className="post-flash-content">
+              <h2 className="post-flash-heading">The Workflow You Missed, Rebuilt for the Modern Web</h2>
+              <p className="post-flash-lead">
+                If you built in Flash, you know what a visual, instant-preview workflow feels like. That productivity never died. It just got orphaned.
+              </p>
+              <p className="post-flash-body">
+                zStudio brings back the drag-and-drop authoring and keyframe timeline you know from Flash, with JSON exports that drop straight into Pixi.js and Phaser. Bring your old SWFs along, then keep editing them by hand or let your AI reskin and extend them over MCP.
+              </p>
+              <div className="post-flash-pillars">
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>Visual keyframe timeline: animate without touching code</span>
+                </div>
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>One-click JSON export: the scene loads in a few lines</span>
+                </div>
+                <div className="post-flash-pillar">
+                  <span className="pillar-check">✓</span>
+                  <span>Built-in MCP server: your AI can reskin and rework imported scenes</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* HOW IT WORKS */}
           <section style={{ marginBottom: '3.5rem' }}>
             <h2 style={{ color: '#14b8a6', fontSize: '2em', marginBottom: '2rem', textAlign: 'center' }}>How It Works</h2>

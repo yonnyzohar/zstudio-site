@@ -41,7 +41,7 @@ const ZImporter: React.FC = () => {
           zImporter
         </h1>
         <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
-          The second part of zStudio - seamlessly load your designed scenes into your Pixi.js and Phaser games and interactive ads. Export from zStudio, import with zImporter, and bring your UI to life in code.
+          The open-source runtime half of zStudio. Whether you built the scene or your AI did, zImporter loads it into your Pixi.js, Phaser or HTML game or playable ad in a few lines of code.
         </p>
         
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>

@@ -1,14 +1,15 @@
 # zStudio
 
-> zStudio is a visual UI and layout editor for game developers. Design UI scenes once in a drag-and-drop desktop app, then export them to run natively in Pixi.js, Phaser, or plain HTML — no manual coding of layout, positioning, or responsive behavior required.
+> zStudio is a visual scene editor for web games that AI tools can drive. It has a built-in MCP server, so Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI and other MCP clients can build full scenes in it. Scenes are designed once — by hand or by AI — and exported to run in Pixi.js, Phaser, or plain HTML with no hand-written layout code.
 
-zStudio is built by zStudios Ltd. It targets game developers and UI/UX artists who need to build responsive, portrait/landscape-aware game interfaces (menus, HUDs, slot machine layouts, buttons, sliders, etc.) without hand-coding layout logic. Scenes are exported as JSON/assets and loaded at runtime via the zImporter library.
+zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and studios who build responsive, portrait/landscape-aware game interfaces (menus, HUDs, slot machine layouts, popups, playable ads). Through MCP an AI can create containers, import images, Spine and particles, anchor elements for portrait and landscape, build buttons and other components, animate on the timeline, generate images and export. Skills (Markdown files) teach the AI a studio's own conventions. Local AI image models (Stable Diffusion, SDXL, FLUX, Z-Image, Qwen-Image) run on the user's own computer. The MCP server, skills and local image models are free on every plan, including the free Community plan. Paid plans add cloud image models and a built-in AI Chat that use credits. Scenes are exported as JSON/assets and loaded at runtime via the open-source zImporter library.
 
 ## Product
 
 - [Home](https://zstudiosltd.com/): Overview of zStudio, key features, and free download links for Mac, Windows, and Linux.
-- [Pricing](https://zstudiosltd.com/pricing): Free Community, Individual Pro, and Studio Team plans, with monthly and lifetime options.
-- [About](https://zstudiosltd.com/about): Background on zStudio as a visual layout editor for game developers.
+- [AI](https://zstudiosltd.com/ai): How to connect an AI tool to zStudio over MCP, write skills, and use local image models and the built-in AI Chat.
+- [Pricing](https://zstudiosltd.com/pricing): Free Community, Individual Pro, and Studio Team plans, with monthly and lifetime options, plus AI credit packs.
+- [About](https://zstudiosltd.com/about): Background on zStudio: a non-intrusive visual scene editor for game teams and their AI tools.
 - [zImporter](https://zstudiosltd.com/z-importer): The runtime library that imports zStudio scenes into Pixi.js (v7 and v8), Phaser, and plain HTML projects.
 - [SWF Importer](https://zstudiosltd.com/swf-importer): Tool for converting legacy Adobe Animate / Flash SWF assets into zStudio scenes.
 - [Demos](https://zstudiosltd.com/demos): Interactive game demos built with zStudio and exported to Pixi.js/Phaser, including a slot machine, storybook, and space shooter.

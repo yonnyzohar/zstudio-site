@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
-import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
+import { FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
 
 declare global {
   interface Window {
@@ -49,14 +49,8 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
 
 const Home: React.FC = () => {
   const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // Check if mobile
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth < 600);
-  };
 
   useEffect(() => {
     // Fetch latest release data
@@ -69,9 +63,6 @@ const Home: React.FC = () => {
     if (window.Prism) {
       window.Prism.highlightAll();
     }
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
 
     // Intersection Observer for fade-in animation
     const observer = new IntersectionObserver(
@@ -99,15 +90,14 @@ const Home: React.FC = () => {
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
   return (
     <div>
       <SEO
-        title="zStudio – UI & Layout Creation Tool for Web Games"
-        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML. Built-in MCP server, local AI image models and AI skills — free to download."
+        title="zStudio – AI-Ready Scene Editor for Pixi.js & Phaser Games"
+        description="zStudio is a visual scene editor for web games that your AI can drive. Connect Claude Code, Cursor or any MCP client to build responsive scenes, generate art with local models, and export to Pixi.js, Phaser or HTML. Free to download."
         canonical="/"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -116,7 +106,7 @@ const Home: React.FC = () => {
           applicationCategory: 'DeveloperApplication',
           operatingSystem: 'Windows, macOS, Linux',
           url: 'https://zstudiosltd.com',
-          description: 'A visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML.',
+          description: 'A visual scene editor for web games with a built-in MCP server, local AI image models and custom AI skills. Build scenes by hand or with your AI, then export them to Pixi.js, Phaser, or plain HTML.',
           offers: {
             '@type': 'Offer',
             price: '0',
@@ -246,32 +236,32 @@ const Home: React.FC = () => {
               </div>
               <div className="hero-text">
                 <h1>
-                  <span className="title-gradient">The Responsive UI & Layout Engine for Web Games</span>
+                  <span className="title-gradient">The Game Scene Editor Your AI Can Drive</span>
                 </h1>
 
                 <p className="intro">
-                  Design complex, resolution-independent UI for Pixi.js and Phaser without writing a single line of layout code
+                  Build responsive scenes for Pixi.js, Phaser and HTML by hand, or hand the job to Claude Code, Cursor or any MCP client. Your AI lays out portrait and landscape, generates the art, builds the buttons and animates the timeline. You review it visually and ship.
                 </p>
 
-                <a href="#ai-ready" className="ai-badges">
+                <Link to="/ai" className="ai-badges">
                   <span className="ai-badge">Built-in MCP server</span>
                   <span className="ai-badge">Local AI image models</span>
-                  <span className="ai-badge">AI skills</span>
-                </a>
+                  <span className="ai-badge">Custom skills</span>
+                </Link>
 
                 <div className="hero-cta-section">
                   <div className="value-props">
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Stop manually repositioning sprites for every screen size</span>
+                      <span>Your AI builds full scenes through the built-in MCP server</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>No layout code — artists own the pipeline from Day 1</span>
+                      <span>Generate and reskin art with local models: no credits, no uploads</span>
                     </div>
                     <div className="value-prop">
                       <span className="checkmark">✓</span>
-                      <span>Developers load a full scene in a few lines of code</span>
+                      <span>Review and fine-tune in the editor, then load it in a few lines of code</span>
                     </div>
                   </div>
                 </div>
@@ -283,57 +273,111 @@ const Home: React.FC = () => {
 
         <div className="container">
 
-          {/* PAIN POINTS */}
-          <section className="pain-points-section">
-            <h2 className="pain-points-heading">Does this sound familiar?</h2>
-            <div className="pain-items-grid">
-              <div className="pain-item">
-                <span className="pain-quote">"Tired of manually repositioning 50 sprites for Portrait vs. Landscape?"</span>
+          {/* AI WORKFLOW */}
+          <section className="ai-ready-section" id="ai-ready">
+            <h2 className="ai-ready-heading">From Prompt to Playable Scene</h2>
+            <p className="ai-ready-lead">
+              zStudio has an MCP server built in. MCP is the open standard that lets AI assistants operate apps, so the AI tool you already use can drive zStudio directly, on your own subscription.
+            </p>
+            <div className="ai-prompt">
+              <span className="ai-prompt-label">You ask</span>
+              <p>"Build a Halloween version of our slot machine, portrait and landscape, using our slot skill."</p>
+            </div>
+            <div className="ai-flow">
+              <div className="ai-flow-step">
+                <span className="ai-flow-number">1</span>
+                <h3>Loads your skills</h3>
+                <p>Your AI reads how your studio builds a slot machine: hierarchy, naming, components.</p>
               </div>
-              <div className="pain-item">
-                <span className="pain-quote">"Sick of the back-and-forth ping-pong between Art and Dev just for a button change?"</span>
+              <div className="ai-flow-step">
+                <span className="ai-flow-number">2</span>
+                <h3>Generates the art</h3>
+                <p>New symbols and backgrounds come from image models running on your own machine.</p>
               </div>
-              <div className="pain-item">
-                <span className="pain-quote">"Why am I spending so much time on layout adjustments instead of focusing on gameplay?"</span>
+              <div className="ai-flow-step">
+                <span className="ai-flow-number">3</span>
+                <h3>Builds the scene</h3>
+                <p>It imports assets, anchors portrait and landscape, builds buttons and animates the timeline.</p>
+              </div>
+              <div className="ai-flow-step">
+                <span className="ai-flow-number">4</span>
+                <h3>You review and export</h3>
+                <p>Open the result in the editor, tweak anything by hand, and export to Pixi.js, Phaser or HTML.</p>
               </div>
             </div>
-            <p className="pain-solution">zStudio was built to solve exactly these problems.</p>
-          </section>
-
-          {/* AI-READY */}
-          <section className="ai-ready-section" id="ai-ready">
-            <h2 className="ai-ready-heading">Let Your AI Build the Scene</h2>
-            <p className="ai-ready-lead">
-              zStudio is AI-ready out of the box. Connect the AI tool you already use, generate images on your own machine, and teach it your studio's conventions so it builds full scenes for you.
-            </p>
             <div className="ai-ready-grid">
               <div className="ai-ready-card">
                 <FiCpu className="ai-ready-icon" />
                 <h3>MCP Server Built In</h3>
-                <p>zStudio comes with an MCP server. Connect Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI or any other MCP client, and your AI can import assets, lay out portrait and landscape, build buttons and animate on the timeline. You use your own AI subscription, not zStudio credits.</p>
+                <p>Connect Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI or any other MCP client. Through MCP your AI can do almost anything you can do in the editor. You use your own AI subscription, not zStudio credits.</p>
               </div>
               <div className="ai-ready-card">
                 <FiImage className="ai-ready-icon" />
                 <h3>Local AI Image Models</h3>
-                <p>Add image models you've downloaded and generate or reskin art right in the editor. Everything runs on your own computer, so there are no credits and nothing is uploaded.</p>
+                <p>Add Stable Diffusion, FLUX, Z-Image or Qwen-Image models and generate or reskin art right in the scene. Everything runs on your own computer, so there are no credits and nothing is uploaded.</p>
               </div>
               <div className="ai-ready-card">
                 <FiBookOpen className="ai-ready-icon" />
-                <h3>Skills for Automatic Scene Creation</h3>
-                <p>Write skills, short Markdown files that describe how your studio builds a slot machine, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
+                <h3>Skills: Your Studio's Playbook</h3>
+                <p>Skills are short Markdown files that describe how your studio builds a slot machine, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
               </div>
             </div>
             <p className="ai-ready-note">
               All three are free on every plan, Community included. Paid plans also get a built-in AI Chat inside zStudio.{' '}
-              <a href="./zStudioDocumentation/index.html#h.mcp-server" target="_blank" rel="noopener noreferrer">Read the setup guide</a>
+              <Link to="/ai">See how it works</Link>
             </p>
+          </section>
+
+          {/* WHY A VISUAL EDITOR */}
+          <section className="team-section">
+            <h2 className="team-heading">AI Does the Bulk. You Sign Off.</h2>
+            <p className="team-lead">
+              AI-written layout code is hard to review. A zStudio scene isn't: anyone on the team can open what the AI built, see it on every screen size and fix it by hand. The developer still gets a clean scene that loads in a few lines.
+            </p>
+            <div className="team-grid">
+              <div className="team-card">
+                <h3>AI</h3>
+                <p>Builds and reskins scenes from a prompt</p>
+                <pre className="team-prompt">
+                  <code>
+{`> Reskin the main menu for our
+  winter event. Keep the layout,
+  regenerate the buttons and
+  background, add a snow loop
+  on the timeline.`}
+                  </code>
+                </pre>
+              </div>
+              <div className="team-card">
+                <h3>Designer</h3>
+                <p>Reviews and fine-tunes visually, no code</p>
+                <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="A scene open in the zStudio editor" />
+              </div>
+              <div className="team-card">
+                <h3>Developer</h3>
+                <p>Loads the scene in a few lines and ships</p>
+                <pre className="team-code">
+                  <code className="language-typescript">
+{`let scene = new ZScene("myScene");
+scene.load(loadPath, () => {
+  ZSceneStack.push(scene);
+  scene.loadStage(this.stage);
+
+  let btn = scene.sceneStage
+    .get("myBTN") as ZButton;
+  btn.setCallback(() => play());
+});`}
+                  </code>
+                </pre>
+              </div>
+            </div>
           </section>
 
           {/* FEATURES */}
           <section className="features">
             <div className="features-header">
-              <h2>Stop Hard-Coding Layouts. Build Once, Run Everywhere.</h2>
-              <p className="features-subtitle">The layout tool that lets artists own the UI pipeline and lets developers focus on game logic — not pixel math.</p>
+              <h2>Everything You Can Do, Your AI Can Do Too</h2>
+              <p className="features-subtitle">A full visual editor for game scenes. Almost every tool below is also available to your AI over MCP.</p>
             </div>
             <div className="features-container">
               <div className="feature-row">
@@ -343,52 +387,52 @@ const Home: React.FC = () => {
                 <div className="feature-item" ref={(el) => { featureRefs.current[0] = el; }}>
                   <div className="feature-number">01</div>
                   <FiSmartphone className="feature-icon" />
-                  <h3>Responsive Layout Without a Single Line of Code</h3>
-                  <p>Anchor system for relative positioning that adapts to any screen size. Design once — portrait, landscape, desktop, and every ad network dimension handled automatically.</p>
+                  <h3>Responsive Layout Without Layout Code</h3>
+                  <p>An anchor system for relative positioning that adapts to any screen size. Portrait, landscape, desktop and every ad network size, set once by you or by your AI.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[1] = el; }}>
                   <div className="feature-number">02</div>
-                  <FiLink className="feature-icon" />
-                  <h3>Seamless Pixi.js, Phaser & HTML Integration</h3>
-                  <p>Export your scene as JSON. Load it in your project with a few lines of code via our zImporter package. All positions, anchors, animations, and hierarchies preserved — pixel-perfect, every time.</p>
+                  <FiImage className="feature-icon" />
+                  <h3>AI Art, Right in the Scene</h3>
+                  <p>Text to image, image to image, and reskin in place. Use local models for free, or cloud models when you need transparent backgrounds. Final art or placeholders, your layout work never waits on an asset request.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="ZINRf2fgfQs" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="liejf2lnoGM" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="dkFNVOs7hSI" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="ZINRf2fgfQs" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
                   <div className="feature-number">03</div>
-                  <FiPlay className="feature-icon" />
-                  <h3>Visual Animation Timeline</h3>
-                  <p>Keyframe-based timeline with easing functions, cue points, and playback controls — the same visual workflow you remember from Flash, rebuilt for modern web exports.</p>
+                  <FiLink className="feature-icon" />
+                  <h3>Pixi.js, Phaser & HTML Export</h3>
+                  <p>Export your scene as JSON and load it with our open-source zImporter in a few lines of code. Positions, anchors, animations and hierarchies are all preserved. No engine lock-in.</p>
                 </div>
               </div>
               <div className="feature-row">
                 <div className="feature-item" ref={(el) => { featureRefs.current[3] = el; }}>
                   <div className="feature-number">04</div>
-                  <FiLayers className="feature-icon" />
-                  <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, bitmap fonts, particles, Spine animations, sliders, and toggles — everything you need for interactive game UI and playable ad components.</p>
+                  <FiPlay className="feature-icon" />
+                  <h3>Visual Animation Timeline</h3>
+                  <p>Keyframes, easing, cue points and playback controls: the visual workflow you remember from Flash, rebuilt for modern web exports.</p>
                 </div>
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="URx6OGJs5dQ" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="dkFNVOs7hSI" />
                 </div>
               </div>
               <div className="feature-row">
                 <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="er8oFDWHdeo" />
+                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="URx6OGJs5dQ" />
                 </div>
                 <div className="feature-item" ref={(el) => { featureRefs.current[4] = el; }}>
                   <div className="feature-number">05</div>
-                  <FiZap className="feature-icon" />
-                  <h3>Lightning Fast Scene Creation</h3>
-                  <p>Build complex 2D scenes visually for multiple resolutions, aspect ratios, and devices — in minutes, not hours.</p>
+                  <FiLayers className="feature-icon" />
+                  <h3>Rich Component Library</h3>
+                  <p>Sprites, buttons, text, bitmap fonts, particles, Spine animations, sliders and toggles: everything you need for interactive game UI and playable ads.</p>
                 </div>
               </div>
               <div className="feature-row">
@@ -396,132 +440,38 @@ const Home: React.FC = () => {
                   <div className="feature-number">06</div>
                   <FiMousePointer className="feature-icon" />
                   <h3>Drag-and-Drop Asset Management</h3>
-                  <p>Import images, sprite sheets, Spine animations, and bitmap fonts with drag-and-drop. Organise assets into a clean hierarchy without touching a config file.</p>
+                  <p>Drag in images, sprite sheets, Spine animations and bitmap fonts, or import straight from Photoshop. Organise everything into a clean hierarchy without touching a config file.</p>
                 </div>
                 <div className="image-container">
                   <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="Q4AYpWcXzC8" />
                 </div>
               </div>
-              <div className="feature-row">
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="qsiRDy4g-MU" />
-                </div>
-                <div className="feature-item" ref={(el) => { featureRefs.current[6] = el; }}>
-                  <div className="feature-number">07</div>
-                  <FiGrid className="feature-icon" />
-                  <h3>Intuitive Professional Interface</h3>
-                  <p>Draggable panels, context menus, hotkeys, undo/redo, and live test mode. Designed for artists who move fast and need full creative control.</p>
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="feature-item" ref={(el) => { featureRefs.current[7] = el; }}>
-                  <div className="feature-number">08</div>
-                  <FiSettings className="feature-icon" />
-                  <h3>Production-Ready Workflow Features</h3>
-                  <p>Templates, filters, inspectors, and extensibility. Everything needed to go from first sketch to shipped game or ad — without involving a developer for layout tweaks.</p>
-                </div>
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[7] = el; }} videoId="IPQCnAhPSzA" />
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[8] = el; }} videoId="liejf2lnoGM" />
-                </div>
-                <div className="feature-item" ref={(el) => { featureRefs.current[8] = el; }}>
-                  <div className="feature-number">09</div>
-                  <FiImage className="feature-icon" />
-                  <h3>Generate Placeholders Instantly</h3>
-                  <p>Keep designing when the final art isn't ready yet. Generate AI placeholder images directly inside the scene editor — so layout work never blocks on an asset request.</p>
-                </div>
-              </div>
             </div>
           </section>
 
-          {/* POST-FLASH */}
-          <section className="post-flash-section">
-            <div className="post-flash-content">
-              <h2 className="post-flash-heading">The Workflow You Missed, Rebuilt for the Modern Web</h2>
-              <p className="post-flash-lead">
-                If you built in Flash, you know what a visual, instant-preview workflow feels like. That productivity never died — it just got orphaned.
-              </p>
-              <p className="post-flash-body">
-                zStudio combines the drag-and-drop power of Flash's authoring tool with modern JSON-based exports that drop straight into Pixi.js and Phaser. Your Art Director stays in a visual editor. Your developer loads the scene in a few lines of code. No Figma handoff. No hard-coded coordinates. No layout ping-pong.
-              </p>
-              <div className="post-flash-pillars">
-                <div className="post-flash-pillar">
-                  <span className="pillar-check">✓</span>
-                  <span>Visual keyframe timeline — animate without touching code</span>
-                </div>
-                <div className="post-flash-pillar">
-                  <span className="pillar-check">✓</span>
-                  <span>One-click JSON export — the scene loads in a few lines</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* WORKFLOW */}
-          <section className="workflow">
-            <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: '#14b8a6', fontSize: '2.5em', fontWeight: '700', background: 'linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Stop the Layout Ping-Pong</h2>
-            <div style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-              <div className="workflow-row" style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '1.5rem' : '2rem', alignItems: 'stretch', maxWidth: isMobile ? '100%' : '934px', margin: '0 auto', backgroundColor: '#1e293b', borderRadius: '12px', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)', border: '1px solid rgba(20, 184, 166, 0.3)', padding: isMobile ? '1.5rem' : '2rem' }}>
-              <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
-                <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Designer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Owns the full visual layout — without writing a line of code</p>
-                <img src="/assets/Screenshot 2026-01-16 at 23.19.46.png" alt="Designer" style={{ maxWidth: '100%', maxHeight: '350px', height: 'auto', borderRadius: '8px', objectFit: 'contain' }} />
-              </div>
-              <div className="workflow-item" style={{ flex: '1', maxWidth: isMobile ? '100%' : '400px', padding: isMobile ? '0 1rem' : '0 2rem', textAlign: 'center' }}>
-                <h3 style={{ marginBottom: '1rem', color: '#14b8a6', fontSize: '1.5em' }}>Developer</h3>
-                <p style={{ marginBottom: '1.5rem', color: '#e5e7eb' }}>Loads the entire scene in a few lines — and ships the game</p>
-                <pre style={{
-                  backgroundColor: '#0f172a',
-                  padding: '1.5rem',
-                  borderRadius: '8px',
-                  overflow: 'auto',
-                  textAlign: 'left',
-                  margin: '0',
-                  fontSize: '0.9rem',
-                  width: '100%',
-                  boxSizing: 'border-box',
-                  border: '1px solid rgba(255,255,255,0.1)'
-                }}>
-                  <code className="language-typescript">
-{`let scene: ZScene = new ZScene("myScene");
-scene.load(loadPath, () => {
-    ZSceneStack.push(scene);
-    scene.loadStage(this.stage);
-
-    let sceneStage: ZContainer = scene.sceneStage;
-    let myBTN: ZButton = sceneStage.get("myBTN") as ZButton;
-
-    myBTN.setLabel("Click Me");
-    myBTN.setCallback(() => {
-        console.log("Button clicked!");
-    });
-});`}
-                  </code>
-                </pre>
-              </div>
-            </div>
-            </div>
+          {/* FLASH STRIP */}
+          <section className="flash-strip">
+            <p>
+              <strong>Coming from Flash or Adobe Animate?</strong> Drag a <code>.swf</code> into zStudio and keep working on it as an editable scene.{' '}
+              <Link to="/swf-importer">SWF importer</Link>
+            </p>
           </section>
 
           {/* IMPORT SECTION */}
           <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
-            <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Import Scene into Your Project</h2>
+            <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Drop the Scene Into Your Game</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Ready to bring your zStudio designs into your game or ad project? Download zImporter to seamlessly load your scenes into Pixi.js, Phaser, and plain HTML projects.
+              Whether you built it or your AI did, the open-source zImporter loads the scene into Pixi.js, Phaser or plain HTML in a few lines of code.
             </p>
-            <Link 
+            <Link
               to="/z-importer"
-              style={{ 
-                backgroundColor: '#14b8a6', 
-                color: '#0f172a', 
-                padding: '0.75rem 1.5rem', 
-                borderRadius: '8px', 
-                textDecoration: 'none', 
-                fontWeight: '600', 
+              style={{
+                backgroundColor: '#14b8a6',
+                color: '#0f172a',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
                 fontSize: '1.1em',
                 display: 'inline-block',
                 transition: 'all 0.3s ease'
@@ -529,7 +479,7 @@ scene.load(loadPath, () => {
               onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0f766e'}
               onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#14b8a6'}
             >
-              Download zImporter
+              Get zImporter
             </Link>
           </section>
 

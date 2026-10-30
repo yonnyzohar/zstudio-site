@@ -10,6 +10,11 @@ interface Video {
 const Tutorials: React.FC = () => {
   const videos: Video[] = [
     {
+      title: "AI image generation",
+      description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
+      url:"https://youtu.be/VEHzjlx2sxo"
+    },
+    {
       title: "Navigation, Basic controls & Transforms",
       description: "This video covers navigating the workspace, adjusting stage size and orientation, importing assets, and using core transform tools like move, scale, rotate, and pivot. Learn how to set different layouts for portrait and landscape scenes.",
       url: "https://youtu.be/6Onv-P2Fjyo"
@@ -90,12 +95,6 @@ const Tutorials: React.FC = () => {
       url: "https://youtu.be/0wn_tJu5orM"
     },
     {
-      title: "AI image generation",
-      description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
-      url:"https://youtu.be/VEHzjlx2sxo"
-    },
-    
-    {
       title: "Scene Validation",
       description: "This video explains how to create a validation file to keep track of the scene hierarchy referenced in code.",
       url: "https://youtu.be/0VhD_b9l8mE"
@@ -120,8 +119,8 @@ const Tutorials: React.FC = () => {
   return (
     <div className="container">
       <SEO
-        title="Tutorials – Learn to Build Game UI with zStudio"
-        description="Watch step-by-step video tutorials on using zStudio. Learn navigation, panels, containers, hierarchies, animation, and more for game UI design."
+        title="Tutorials – Learn to Build Game Scenes with zStudio"
+        description="Step-by-step video tutorials for zStudio: AI image generation, navigation, containers, hierarchies, portrait and landscape layout, animation, components and runtime integration."
         canonical="/tutorials"
       />
       {/* HEADER SECTION */}
@@ -134,7 +133,7 @@ const Tutorials: React.FC = () => {
           WebkitTextFillColor: 'transparent', 
           backgroundClip: 'text' 
         }}>
-          Help Videos
+          Tutorials
         </h1>
         <p style={{ 
           fontSize: '1.2em', 
@@ -143,7 +142,7 @@ const Tutorials: React.FC = () => {
           maxWidth: '800px', 
           margin: '0 auto 2rem' 
         }}>
-            Master zStudio with our comprehensive video tutorials. Learn everything from basic navigation to advanced features like templates, hierarchies, and runtime integration.
+            Learn zStudio step by step, from AI image generation and basic navigation to templates, hierarchies and runtime integration. Want your AI to do the work? Start with the <a href="/ai" style={{ color: '#14b8a6', textDecoration: 'underline' }}>AI setup guide</a>.
           <br />
             <span style={{ color: '#f59e0b', fontWeight: 'bold', fontSize: '1.1em' }}>Complete documentation available</span> <a href="./zStudioDocumentation/index.html" target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'underline' }}>here</a>.
         </p>

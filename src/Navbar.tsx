@@ -19,10 +19,12 @@ const Navbar: React.FC = () => {
       </button>
       <div className={`nav-links ${isOpen ? 'open' : ''}`}>
         <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+        <Link to="/ai" className="nav-link" onClick={closeMenu}>AI</Link>
         <Link to="/z-importer" className="nav-link" onClick={closeMenu}>zImporter</Link>
-        <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
-        <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
         <Link to="/demos" className="nav-link" onClick={closeMenu}>Demos</Link>
+        <Link to="/tutorials" className="nav-link" onClick={closeMenu}>Tutorials</Link>
+        <a href="/zStudioDocumentation/index.html" className="nav-link" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Docs</a>
+        <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         {/* <Link to="/release-notes" className="nav-link" onClick={closeMenu}>Blog</Link> */}
         {isLoggedIn ? (
           <Link to="/dashboard" className="nav-link" onClick={closeMenu}>Dashboard</Link>

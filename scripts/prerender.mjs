@@ -33,6 +33,7 @@ const BASE_URL = `http://localhost:${PORT}`;
  * clean (no baked-in home-page meta tags) while all other routes are visited.
  */
 const ROUTES = [
+  '/ai',
   '/about',
   '/pricing',
   '/z-importer',
