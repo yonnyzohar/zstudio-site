@@ -31,7 +31,8 @@ export const features = {
     aiGeneration: 'Cloud AI image generation',  
     copyBetweenScenes:'Copying between scenes', 
     photoshopImporter: 'Photoshop Importer', 
-    mcpServer:'MCP Server & User Skills' ,
+    mcpServer:'MCP server for your own AI tool & user skills' ,
+    aiChat: 'Built-in AI Chat (uses credits)',
     copyBetweenScene: 'Copying between scenes',
     validationSupport: 'Scene hierarchy snapshot for validation',
 }
@@ -47,6 +48,7 @@ export const PLANS: PlanDef[] = [
       'Full scene editor & animation timeline',
       'Spine, particles & bitmap fonts',
       'Local AI image models',
+      features.mcpServer,
       'Pixi.js, Phaser & HTML export',
       'Unlimited projects, no watermarks'
     ],
@@ -61,7 +63,7 @@ export const PLANS: PlanDef[] = [
       '1 seat',
       features.photoshopImporter,
       features.aiGeneration,
-      features.mcpServer,
+      features.aiChat,
       features.copyBetweenScene,
       features.validationSupport,
       'Email support',
@@ -80,7 +82,7 @@ export const PLANS: PlanDef[] = [
       features.photoshopImporter,
       features.presenceTables,
       features.aiGeneration,
-      features.mcpServer,
+      features.aiChat,
       features.copyBetweenScene,
       features.validationSupport,
       'Priority support'
@@ -367,7 +369,7 @@ const Pricing: React.FC = () => {
       <div className="pricing-credits-section">
         <h2 className="pricing-credits-title">AI Image Credits</h2>
         <p className="pricing-credits-subtitle">
-          Power AI image generation inside zStudio. Cloud AI generation is included with Individual Pro, Studio Team and Enterprise plans. Credits never expire. Local image models (running on your own computer) are free on every plan, Community included.
+          Power cloud AI image generation and the built-in AI Chat inside zStudio. Both are included with Individual Pro, Studio Team and Enterprise plans. Credits never expire. Local image models (running on your own computer) are free on every plan, Community included.
         </p>
 
         {loadingCredits ? (

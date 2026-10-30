@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
-import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings, FiImage } from 'react-icons/fi';
+import { FiZap, FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiGrid, FiSettings, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
 
 declare global {
   interface Window {
@@ -107,7 +107,7 @@ const Home: React.FC = () => {
     <div>
       <SEO
         title="zStudio – UI & Layout Creation Tool for Web Games"
-        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML — free to download."
+        description="zStudio is a visual UI and layout editor for game developers. Design scenes once and export them to Pixi.js, Phaser, or plain HTML. Built-in MCP server, local AI image models and AI skills — free to download."
         canonical="/"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -253,6 +253,12 @@ const Home: React.FC = () => {
                   Design complex, resolution-independent UI for Pixi.js and Phaser without writing a single line of layout code
                 </p>
 
+                <a href="#ai-ready" className="ai-badges">
+                  <span className="ai-badge">Built-in MCP server</span>
+                  <span className="ai-badge">Local AI image models</span>
+                  <span className="ai-badge">AI skills</span>
+                </a>
+
                 <div className="hero-cta-section">
                   <div className="value-props">
                     <div className="value-prop">
@@ -292,6 +298,35 @@ const Home: React.FC = () => {
               </div>
             </div>
             <p className="pain-solution">zStudio was built to solve exactly these problems.</p>
+          </section>
+
+          {/* AI-READY */}
+          <section className="ai-ready-section" id="ai-ready">
+            <h2 className="ai-ready-heading">Let Your AI Build the Scene</h2>
+            <p className="ai-ready-lead">
+              zStudio is AI-ready out of the box. Connect the AI tool you already use, generate images on your own machine, and teach it your studio's conventions so it builds full scenes for you.
+            </p>
+            <div className="ai-ready-grid">
+              <div className="ai-ready-card">
+                <FiCpu className="ai-ready-icon" />
+                <h3>MCP Server Built In</h3>
+                <p>zStudio comes with an MCP server. Connect Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI or any other MCP client, and your AI can import assets, lay out portrait and landscape, build buttons and animate on the timeline. You use your own AI subscription, not zStudio credits.</p>
+              </div>
+              <div className="ai-ready-card">
+                <FiImage className="ai-ready-icon" />
+                <h3>Local AI Image Models</h3>
+                <p>Add image models you've downloaded and generate or reskin art right in the editor. Everything runs on your own computer, so there are no credits and nothing is uploaded.</p>
+              </div>
+              <div className="ai-ready-card">
+                <FiBookOpen className="ai-ready-icon" />
+                <h3>Skills for Automatic Scene Creation</h3>
+                <p>Write skills, short Markdown files that describe how your studio builds a slot machine, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
+              </div>
+            </div>
+            <p className="ai-ready-note">
+              All three are free on every plan, Community included. Paid plans also get a built-in AI Chat inside zStudio.{' '}
+              <a href="./zStudioDocumentation/index.html#h.mcp-server" target="_blank" rel="noopener noreferrer">Read the setup guide</a>
+            </p>
           </section>
 
           {/* FEATURES */}

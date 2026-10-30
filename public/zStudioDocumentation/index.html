@@ -610,10 +610,10 @@
                 opens a dialogue with explanations on hot keys and more.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Connect AI (MCP)</span><span class="c1">&nbsp;-&gt; shows the
                 address of zStudio's MCP server and the setup snippet for each AI tool. See <a class="c26"
-                    href="#h.mcp-server">MCP Server</a>.</span> <span class="paid-badge">PAID</span></li>
+                    href="#h.mcp-server">MCP Server</a>.</span> <span class="free-badge">FREE</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">AI Skill Libraries&hellip;</span><span class="c1">&nbsp;-&gt; connects
                 your own skill files so the AI follows your studio's conventions. See <a class="c26"
-                    href="#h.skill-libraries">AI Skill Libraries</a>.</span> <span class="paid-badge">PAID</span></li>
+                    href="#h.skill-libraries">AI Skill Libraries</a>.</span> <span class="free-badge">FREE</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Check for Updates</span><span class="c1">&nbsp;-&gt; checks
                 with the server if there is a software update. If so, you will be prompted to download.</span></li>
     </ul>
@@ -1167,16 +1167,16 @@
     <p class="c4"><span class="c1">You can add cue points to specific frames in the animation timeline. A cue point is a named marker that fires an event when the animation playhead passes through it.</span></p>
     <p class="c4"><span>This allows you to listen for specific moments in an animation from your code. For example, you can trigger game logic, sound effects, or UI changes at the exact frame a cue point is placed — without polling or guessing at frame counts.</span></p>
     <p class="c2"><span class="c1"></span></p>
-    <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="paid-badge">PAID</span></span></h2>
-    <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows, both of which require a paid subscription:</span></p>
+    <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="free-badge">FREE</span></span></h2>
+    <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool: </span><span class="c1">Connect an AI tool that supports MCP &mdash; Claude (desktop or Claude Code), Antigravity, Cursor, VS Code, Windsurf, Gemini CLI and others. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat: </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It uses zStudio credits and requires no external setup &mdash; see the AI Panel section below for details.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool (every plan, including Community): </span><span class="c1">Connect an AI tool that supports MCP &mdash; Claude (desktop or Claude Code), Antigravity, Cursor, VS Code, Windsurf, Gemini CLI and others. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat (paid plans): </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It uses zStudio credits and requires no external setup &mdash; see the AI Panel section below for details.</span></li>
     </ul>
     <p class="c4"><span class="c1">Through MCP the AI can do almost anything you can do in the editor: create and arrange containers, import images, Spine animations and particles, set positions for portrait and landscape, anchor elements, edit text, build buttons and other components, animate on the timeline, generate images, and save or export the scene. It reads zStudio's built-in guides as it works, and you can add your own &mdash; see <a class="c26" href="#h.skill-libraries">AI Skill Libraries</a> below.</span></p>
-    <p class="c4"><span class="c36">On the free (Community) tier the MCP server does not start, so neither external AI tools nor the built-in chat can connect.</span></p>
+    <p class="c4"><span class="c36">On the free (Community) tier you can connect your own AI tool, but the built-in chat is not available. Image generation over MCP uses only your <a class="c26" href="#h.local-image-models">local image models</a> on Community; cloud models need a paid plan.</span></p>
     <p class="c2"><span class="c1"></span></p>
-    <h3 class="c22" id="h.skill-libraries"><span class="c10">AI Skill Libraries <span class="paid-badge">PAID</span></span></h3>
+    <h3 class="c22" id="h.skill-libraries"><span class="c10">AI Skill Libraries <span class="free-badge">FREE</span></span></h3>
     <p class="c4"><span class="c1">Skills teach the AI your own conventions &mdash; for example, the container hierarchy your studio uses for a slot machine, how you name templates, or how your popups are built. zStudio already gives the AI built-in skills for its own features; your libraries are added to that list, and the AI loads only the skills it needs for the current task.</span></p>
     <p class="c4"><span class="c1">Open <span class="c14">Help &rarr; AI Skill Libraries&hellip;</span> and choose:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">

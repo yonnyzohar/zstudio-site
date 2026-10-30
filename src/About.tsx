@@ -174,6 +174,16 @@ const About: React.FC = () => {
         }}>
           {[
             {
+              icon: '🤖',
+              title: 'AI-Ready',
+              items: [
+                'Built-in MCP server: connect Claude Code, Cursor, Antigravity, Gemini CLI and more',
+                'Local AI image models that run on your own computer',
+                'Skills that teach your AI to build scenes your way',
+                'Free on every plan; built-in AI Chat on paid plans',
+              ],
+            },
+            {
               icon: '🎨',
               title: 'Visual Scene Building',
               items: [
