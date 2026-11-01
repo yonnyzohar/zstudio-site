@@ -73,7 +73,7 @@ const Demos: React.FC = () => {
     <div className="demos-page">
       <SEO
         title="Game Demos – See zStudio in Action"
-        description="Explore interactive game demos built with zStudio. See scenes exported to Pixi.js and Phaser — including a slot machine, storybook, and space shooter."
+        description="Explore interactive game demos built with zStudio. See scenes exported to Pixi.js and Phaser — including an interactive storybook and a space shooter."
         canonical="/demos"
       />
       <div className="container">

@@ -281,18 +281,18 @@ const Home: React.FC = () => {
             </p>
             <div className="ai-prompt">
               <span className="ai-prompt-label">You ask</span>
-              <p>"Build a Halloween version of our slot machine, portrait and landscape, using our slot skill."</p>
+              <p>"Build a winter-event version of our shop screen, portrait and landscape, using our UI skill."</p>
             </div>
             <div className="ai-flow">
               <div className="ai-flow-step">
                 <span className="ai-flow-number">1</span>
                 <h3>Loads your skills</h3>
-                <p>Your AI reads how your studio builds a slot machine: hierarchy, naming, components.</p>
+                <p>Your AI reads how your studio builds a shop screen: hierarchy, naming, components.</p>
               </div>
               <div className="ai-flow-step">
                 <span className="ai-flow-number">2</span>
                 <h3>Generates the art</h3>
-                <p>New symbols and backgrounds come from image models running on your own machine.</p>
+                <p>New icons and backgrounds come from image models running on your own machine.</p>
               </div>
               <div className="ai-flow-step">
                 <span className="ai-flow-number">3</span>
@@ -319,7 +319,7 @@ const Home: React.FC = () => {
               <div className="ai-ready-card">
                 <FiBookOpen className="ai-ready-icon" />
                 <h3>Skills: Your Studio's Playbook</h3>
-                <p>Skills are short Markdown files that describe how your studio builds a slot machine, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
+                <p>Skills are short Markdown files that describe how your studio builds a level-select screen, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
               </div>
             </div>
             <p className="ai-ready-note">

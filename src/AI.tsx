@@ -26,17 +26,17 @@ const AI_CAN = [
 
 const EXAMPLE_PROMPTS = [
   'Build a level-complete popup with three stars, a score counter and Next / Retry buttons. Portrait and landscape.',
-  'Reskin this slot machine for Halloween. Keep the layout, regenerate the symbols and the background.',
+  'Reskin this main menu for Halloween. Keep the layout, regenerate the buttons and the background.',
   'Make six size variants of this playable ad end card for the main ad networks.',
   'Study the scenes in my project folder and write a skill library describing how we build menus.',
 ];
 
 const SKILL_SAMPLE = `---
-name: slot-machine-structure
-description: The container hierarchy we use for slot
-  machines. Load before building a slot game.
+name: popup-structure
+description: The container hierarchy we use for popups.
+  Load before building any popup or dialog.
 ---
-# Slot machine structure
+# Popup structure
 ...`;
 
 const AI: React.FC = () => {
@@ -135,7 +135,7 @@ const AI: React.FC = () => {
           <FiBookOpen className="ai-ready-icon" />
           <h2>Skills: Teach It Your Studio's Way</h2>
           <p>
-            Skills are short Markdown files that describe your conventions: the container hierarchy for a slot machine, how you name templates, how your popups are built. zStudio already ships skills for its own features. Add a folder of your own and the AI loads only the ones it needs for the task.
+            Skills are short Markdown files that describe your conventions: the container hierarchy for a shop screen, how you name templates, how your popups are built. zStudio already ships skills for its own features. Add a folder of your own and the AI loads only the ones it needs for the task.
           </p>
           <p>
             Don't want to write them? Your existing scenes already show your conventions. zStudio gives you a prompt that lets Claude Code, Cursor or Antigravity study those scenes and write the skill library for you.
