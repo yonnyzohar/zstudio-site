@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react';
 
 export const CONTACT_EMAIL = 'jonzohar@zstudiosltd.com';
 
-export const DEMO_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('zStudio demo request')}&body=${encodeURIComponent(
-  'Hi,\n\nI\'d like a demo of zStudio.\n\nStudio / team size:\nEngine (Pixi.js, Phaser, HTML, other):\nWhat we want to build:\nTimezone and a few times that work:\n'
-)}`;
-
 export interface ReleaseData {
   version: string;
   mac: string;

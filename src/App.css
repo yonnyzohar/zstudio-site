@@ -3674,11 +3674,6 @@ h2 {
   margin-bottom: 32px;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
 
 .contact-card {
   background: #1e293b;
@@ -3707,11 +3702,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.contact-card .button {
-  display: inline-block;
-  width: auto;
-  margin-top: 6px;
-}
 
 /* Footer contact */
 .footer-contact {
@@ -3729,13 +3719,6 @@ footer .footer-email {
   word-break: break-all;
 }
 
-footer .button.primary.footer-demo {
-  display: inline-block;
-  width: auto;
-  color: #ffffff;
-  padding: 10px 20px;
-  font-size: 0.95em;
-}
 
 @media (max-width: 599px) {
   .contact-page h1 { font-size: 1.9em; }

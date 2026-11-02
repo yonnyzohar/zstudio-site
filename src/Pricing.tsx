@@ -5,7 +5,7 @@ import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCredit
 import type { PriceInfo, CouponInfo, CreditPack, CreditModelInfo } from './api';
 import SEO from './SEO';
 import AICosts from './AICosts';
-import { CONTACT_EMAIL, DEMO_MAILTO } from './site';
+import { CONTACT_EMAIL } from './site';
 
 function deriveVersionSeries(version: string): { series: string; nextMinor: string } {
   const [major, minor] = version.split('.');
@@ -490,9 +490,8 @@ const Pricing: React.FC = () => {
       <div className="pricing-footer-note">
         <p>All plans include access to the full zStudio desktop editor. AI credits are purchased separately and can be used on Individual Pro, Studio Team and Enterprise plans.</p>
         <p style={{ marginTop: '0.5rem' }}>
-          Need enterprise pricing or a walkthrough for your team? Email{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a> or{' '}
-          <a href={DEMO_MAILTO} style={{ color: '#14b8a6' }}>book a demo</a>.
+          Need enterprise pricing? Email{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a>.
         </p>
       </div>
     </div>

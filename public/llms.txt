@@ -21,7 +21,7 @@ zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and 
 
 ## Contact
 
-- [Contact](https://zstudiosltd.com/contact): Email jonzohar@zstudiosltd.com or book a demo.
+- [Contact](https://zstudiosltd.com/contact): Email jonzohar@zstudiosltd.com.
 
 ## Legal
 

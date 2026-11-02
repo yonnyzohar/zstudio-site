@@ -366,7 +366,6 @@ const About: React.FC = () => {
           </p>
           <p>
             Download it free, connect your AI, and build your first scene in minutes. <Link to="/ai" style={{ color: '#14b8a6' }}>See how</Link>.
-            Want a walkthrough for your team? <Link to="/contact" style={{ color: '#14b8a6' }}>Book a demo</Link>.
           </p>
         </div>
       </div>
