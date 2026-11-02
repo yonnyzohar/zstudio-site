@@ -4,6 +4,8 @@ import { useAuth } from './AuthContext';
 import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCreditPacks, apiPurchaseCreditsCheckout, apiGetCreditModels } from './api';
 import type { PriceInfo, CouponInfo, CreditPack, CreditModelInfo } from './api';
 import SEO from './SEO';
+import AICosts from './AICosts';
+import { CONTACT_EMAIL, DEMO_MAILTO } from './site';
 
 function deriveVersionSeries(version: string): { series: string; nextMinor: string } {
   const [major, minor] = version.split('.');
@@ -274,7 +276,7 @@ const Pricing: React.FC = () => {
           <p>⚠️ Pricing information is temporarily unavailable.</p>
           <p style={{ marginTop: '8px', fontSize: '0.88rem', color: '#64748b' }}>
             Please try again in a moment or{' '}
-            <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6' }}>contact us</a> to purchase.
+            email <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a> to purchase.
           </p>
         </div>
       ) : (
@@ -367,8 +369,17 @@ const Pricing: React.FC = () => {
         </div>
       )}
 
+      {/* AI Requirements */}
+      <div className="pricing-ai-costs">
+        <h2 className="pricing-credits-title">What Each AI Feature Needs</h2>
+        <p className="pricing-credits-subtitle">
+          zStudio doesn't include an AI subscription. Connect an AI tool you already pay for (free on every plan), or use the built-in AI Chat and cloud image models on a paid plan with credits.
+        </p>
+        <AICosts showPricingLink={false} />
+      </div>
+
       {/* AI Credits Section */}
-      <div className="pricing-credits-section">
+      <div className="pricing-credits-section" id="credits">
         <h2 className="pricing-credits-title">AI Credits</h2>
         <p className="pricing-credits-subtitle">
           Credits pay for cloud image generation and the built-in AI Chat, both available on Individual Pro, Studio Team and Enterprise plans. Credits never expire. You don't need credits to connect your own AI tool over MCP or to use local image models: those are free on every plan, Community included.
@@ -479,8 +490,9 @@ const Pricing: React.FC = () => {
       <div className="pricing-footer-note">
         <p>All plans include access to the full zStudio desktop editor. AI credits are purchased separately and can be used on Individual Pro, Studio Team and Enterprise plans.</p>
         <p style={{ marginTop: '0.5rem' }}>
-          Need enterprise pricing?{' '}
-          <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6' }}>Contact us</a>.
+          Need enterprise pricing or a walkthrough for your team? Email{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a> or{' '}
+          <a href={DEMO_MAILTO} style={{ color: '#14b8a6' }}>book a demo</a>.
         </p>
       </div>
     </div>

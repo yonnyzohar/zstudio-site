@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import SEO from './SEO';
+import DownloadButtons from './DownloadButtons';
+import AICosts from './AICosts';
+import { useReleaseData } from './site';
 import { FiCpu, FiImage, FiBookOpen, FiMessageSquare, FiEye } from 'react-icons/fi';
-
-interface ReleaseData {
-  version: string;
-  mac: string;
-  windows: string;
-  linux: string;
-}
 
 const DOCS = './zStudioDocumentation/index.html';
 
@@ -40,14 +35,7 @@ description: The container hierarchy we use for popups.
 ...`;
 
 const AI: React.FC = () => {
-  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
-
-  useEffect(() => {
-    fetch(`/latest-release.json?cacheBust=${Date.now()}`)
-      .then(res => res.json())
-      .then(data => setReleaseData(data))
-      .catch(err => console.error('Failed to load release info:', err));
-  }, []);
+  const releaseData = useReleaseData();
 
   return (
     <div className="container ai-page">
@@ -63,12 +51,10 @@ const AI: React.FC = () => {
         <p className="ai-page-intro">
           Connect the AI tool you already use to zStudio. It builds full scenes, generates the art and follows your studio's conventions, while you keep a visual editor to review and fine-tune the result.
         </p>
-        <div className="downloads-buttons ai-page-downloads">
-          <a className="button primary cta-main compact mac" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">macOS</a>
-          <a className="button primary cta-main compact windows" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">Windows</a>
-          <a className="button primary cta-main compact linux" href={releaseData?.linux || '#'} target="_blank" rel="noopener noreferrer">Linux</a>
-        </div>
-        <p className="ai-page-free">Free to download. MCP server, skills and local image models are free on every plan.</p>
+        <DownloadButtons releaseData={releaseData} className="ai-page-downloads" />
+        <p className="ai-page-free">
+          zStudio is free to download, and so are the MCP server, skills and local image models. The AI itself is not included: bring an AI tool you already pay for, or use the built-in AI Chat on a paid plan.
+        </p>
       </section>
 
       {/* SETUP */}
@@ -83,7 +69,7 @@ const AI: React.FC = () => {
           <div className="ai-flow-step">
             <span className="ai-flow-number">2</span>
             <h3>Connect your AI</h3>
-            <p>Open <strong>Help → Connect AI (MCP)</strong> and paste the ready-made snippet into your AI tool.</p>
+            <p>Open <strong>Help → Connect AI (MCP)</strong> and paste the ready-made snippet into your AI tool. You need an MCP-capable AI tool with its own subscription.</p>
           </div>
           <div className="ai-flow-step">
             <span className="ai-flow-number">3</span>
@@ -102,7 +88,7 @@ const AI: React.FC = () => {
           <FiCpu className="ai-ready-icon" />
           <h2>A Built-in MCP Server</h2>
           <p>
-            MCP (Model Context Protocol) is the open standard that lets AI assistants operate apps. zStudio runs an MCP server on your machine, so any MCP client can drive the editor. You use your own AI subscription, so zStudio credits are never used.
+            MCP (Model Context Protocol) is the open standard that lets AI assistants operate apps. zStudio runs an MCP server on your machine, so any MCP client can drive the editor. The AI runs on your AI tool's own subscription (Claude, Cursor and so on), not on zStudio credits, and zStudio doesn't sell or include one.
           </p>
           <div className="ai-page-chips">
             {MCP_CLIENTS.map(c => <span key={c} className="ai-badge">{c}</span>)}
@@ -170,7 +156,7 @@ const AI: React.FC = () => {
       </section>
 
       {/* WHY VISUAL */}
-      <section className="ai-page-split">
+      <section className="ai-page-why">
         <div>
           <FiEye className="ai-ready-icon" />
           <h2>Why Not Just Let the AI Write Code?</h2>
@@ -181,17 +167,13 @@ const AI: React.FC = () => {
             The AI does the bulk of the work. A person signs off. The developer gets a clean scene that loads into Pixi.js, Phaser or HTML in a few lines.
           </p>
         </div>
-        <div className="ai-page-panel">
-          <h3>What's free</h3>
-          <ul className="ai-page-plans">
-            <li><span>MCP server</span><strong>Every plan</strong></li>
-            <li><span>Custom skills</span><strong>Every plan</strong></li>
-            <li><span>Local image models</span><strong>Every plan</strong></li>
-            <li><span>Cloud image models</span><strong>Paid plans + credits</strong></li>
-            <li><span>Built-in AI Chat</span><strong>Paid plans + credits</strong></li>
-          </ul>
-          <Link to="/pricing">See pricing</Link>
-        </div>
+      </section>
+
+      {/* COSTS */}
+      <section className="ai-page-costs" id="costs">
+        <h2>What It Costs, and What You Need</h2>
+        <p>Check this before you install, so nothing comes as a surprise.</p>
+        <AICosts />
       </section>
     </div>
   );

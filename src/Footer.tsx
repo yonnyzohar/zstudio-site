@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL, DEMO_MAILTO } from './site';
 
 const Footer: React.FC = () => {
   return (
@@ -23,8 +24,12 @@ const Footer: React.FC = () => {
         </li>
       </ul>
 
+      <div className="footer-contact">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="footer-email">{CONTACT_EMAIL}</a>
+        <a href={DEMO_MAILTO} className="button primary footer-demo">Book a demo</a>
+      </div>
       <p style={{ margin: '20px 0', fontSize: '0.9em' }}>
-        <a href="mailto:jonzohar@zstudiosltd.com" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>contact</a> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link> | <Link to="/swf-importer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>SWF Importer</Link>
+        <Link to="/contact" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Contact</Link> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link> | <Link to="/swf-importer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>SWF Importer</Link>
       </p>
       <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px' }}>
         <a href="https://launchstag.com" target="_blank" rel="noopener">

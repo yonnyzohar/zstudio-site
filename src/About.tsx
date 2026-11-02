@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
-
-interface ReleaseData {
-  version: string;
-  mac: string;
-  windows: string;
-  linux: string;
-}
+import DownloadButtons from './DownloadButtons';
+import { useReleaseData } from './site';
 
 const About: React.FC = () => {
-  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
+  const releaseData = useReleaseData();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Fetch latest release data
-    fetch('/latest-release.json')
-      .then(res => res.json())
-      .then(data => setReleaseData(data))
-      .catch(err => console.error('Failed to load release info:', err));
-
     // Check if mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 600);
@@ -377,79 +366,15 @@ const About: React.FC = () => {
           </p>
           <p>
             Download it free, connect your AI, and build your first scene in minutes. <Link to="/ai" style={{ color: '#14b8a6' }}>See how</Link>.
+            Want a walkthrough for your team? <Link to="/contact" style={{ color: '#14b8a6' }}>Book a demo</Link>.
           </p>
         </div>
       </div>
 
       {/* FLOATING DOWNLOAD WIDGET */}
-      <div style={{
-        position: 'fixed',
-        top: '50%',
-        right: '2rem',
-        transform: 'translateY(-50%)',
-        backgroundColor: '#1e293b',
-        borderRadius: '12px',
-        padding: '1.5rem',
-        border: '1px solid rgba(20, 184, 166, 0.3)',
-        boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)',
-        zIndex: 1000,
-        minWidth: '180px',
-        display: isMobile ? 'none' : 'flex',
-        flexDirection: 'column',
-        gap: '0.5rem'
-      }}>
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem', textAlign: 'center', fontSize: '1.1em' }}>Download zStudio</h3>
-        <a
-          className="button primary compact mac"
-          href={releaseData?.mac || '#'}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: '0.9em',
-            padding: '0.5rem 1rem',
-            textAlign: 'center',
-            display: 'block',
-            textDecoration: 'none',
-            borderRadius: '6px',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          🍎 macOS
-        </a>
-        <a
-          className="button primary compact windows"
-          href={releaseData?.windows || '#'}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: '0.9em',
-            padding: '0.5rem 1rem',
-            textAlign: 'center',
-            display: 'block',
-            textDecoration: 'none',
-            borderRadius: '6px',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          🪟 Windows
-        </a>
-        <a
-          className="button primary compact linux"
-          href={releaseData?.linux || '#'}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: '0.9em',
-            padding: '0.5rem 1rem',
-            textAlign: 'center',
-            display: 'block',
-            textDecoration: 'none',
-            borderRadius: '6px',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          🐧 Linux
-        </a>
+      <div className="about-download-widget" style={{ display: isMobile ? 'none' : 'flex' }}>
+        <h3>Download zStudio</h3>
+        <DownloadButtons releaseData={releaseData} className="download-group-stacked" />
       </div>
     </div>
   );

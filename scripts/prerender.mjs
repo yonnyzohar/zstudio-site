@@ -34,6 +34,7 @@ const BASE_URL = `http://localhost:${PORT}`;
  */
 const ROUTES = [
   '/ai',
+  '/contact',
   '/about',
   '/pricing',
   '/z-importer',

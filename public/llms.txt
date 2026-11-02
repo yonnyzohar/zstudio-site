@@ -19,6 +19,10 @@ zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and 
 - [Tutorials](https://zstudiosltd.com/tutorials): Video tutorials covering navigation, panels, containers/hierarchies, instancing, images, text, pivots/anchors, Spine, particles, saving/loading, portrait/landscape design, components, animation, scene validation, and the zImporter runtime workflow.
 - [Full Documentation](https://zstudiosltd.com/zStudioDocumentation/index.html): Complete written documentation for zStudio.
 
+## Contact
+
+- [Contact](https://zstudiosltd.com/contact): Email jonzohar@zstudiosltd.com or book a demo.
+
 ## Legal
 
 - [Terms of Service](https://zstudiosltd.com/terms)

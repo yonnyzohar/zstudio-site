@@ -1,19 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
+import DownloadButtons from './DownloadButtons';
+import AICosts from './AICosts';
+import { useReleaseData } from './site';
 import { FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
 
 declare global {
   interface Window {
     Prism: any;
   }
-}
-
-interface ReleaseData {
-  version: string;
-  mac: string;
-  windows: string;
-  linux: string;
 }
 
 interface YouTubeVideoProps {
@@ -48,17 +44,11 @@ const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
 );
 
 const Home: React.FC = () => {
-  const [releaseData, setReleaseData] = useState<ReleaseData | null>(null);
+  const releaseData = useReleaseData();
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
   const videoRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // Fetch latest release data
-    fetch(`/latest-release.json?cacheBust=${Date.now()}`)
-      .then(res => res.json())
-      .then(data => setReleaseData(data))
-      .catch(err => console.error('Failed to load release info:', err));
-
     // Initialize Prism.js highlighting
     if (window.Prism) {
       window.Prism.highlightAll();
@@ -219,17 +209,7 @@ const Home: React.FC = () => {
                       </div>
                     </div>
                     <div className="download-right">
-                      <div className="downloads-buttons">
-                        <a className="button primary cta-main compact mac" href={releaseData?.mac || '#'} target="_blank" rel="noopener noreferrer">
-                          macOS
-                        </a>
-                        <a className="button primary cta-main compact windows" href={releaseData?.windows || '#'} target="_blank" rel="noopener noreferrer">
-                          Windows
-                        </a>
-                        <a className="button primary cta-main compact linux" href={releaseData?.linux || '#'} target="_blank" rel="noopener noreferrer">
-                          Linux
-                        </a>
-                      </div>
+                      <DownloadButtons releaseData={releaseData} />
                     </div>
                   </div>
                 </div>
@@ -322,9 +302,13 @@ const Home: React.FC = () => {
                 <p>Skills are short Markdown files that describe how your studio builds a level-select screen, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
               </div>
             </div>
+            <h3 className="ai-costs-heading">What It Costs, and What You Need</h3>
+            <p className="ai-costs-lead">
+              zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat on a paid plan with credits.
+            </p>
+            <AICosts />
             <p className="ai-ready-note">
-              All three are free on every plan, Community included. Paid plans also get a built-in AI Chat inside zStudio.{' '}
-              <Link to="/ai">See how it works</Link>
+              <Link to="/ai">See how the AI setup works</Link>
             </p>
           </section>
 
@@ -483,34 +467,6 @@ scene.load(loadPath, () => {
             </Link>
           </section>
 
-          {/* SOCIAL PROOF */}
-          <section className="social-proof">
-            <div className="social-proof-content">
-              <h2>What Our Users Say</h2>
-              <div className="testimonials">
-                <div className="testimonial">
-                  <div className="testimonial-stars">★★★★★</div>
-                  <p>"As an artist, I no longer need a developer to create responsive scenes. zStudio gives me full ownership of my creative vision!"</p>
-                  <cite>- Lead Artist, iGaming Studio</cite>
-                </div>
-                <div className="testimonial">
-                  <div className="testimonial-stars">★★★★★</div>
-                  <p>"Now I can focus purely on attaching logic since the scene has been perfectly made for me. Game development just got easier!"</p>
-                  <cite>- Senior Game Developer (Phaser)</cite>
-                </div>
-                <div className="testimonial">
-                  <div className="testimonial-stars">★★★★★</div>
-                  <p>"Skinning games has become much easier and more powerful with zStudio. It's a total game-changer!"</p>
-                  <cite>- Tech Artist, Ad Creative Studio</cite>
-                </div>
-                <div className="testimonial">
-                  <div className="testimonial-stars">★★★★★</div>
-                  <p>"zStudio makes creating engaging playable ads a breeze. I can design interactive experiences that captivate users before they even download the app!"</p>
-                  <cite>- Playable Ad Developer, Mobile Gaming</cite>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </main>
     </div>

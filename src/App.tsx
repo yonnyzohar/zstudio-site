@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Home from './Home';
 import AI from './AI';
+import Contact from './Contact';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
@@ -59,6 +60,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/ai" element={<AI />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
