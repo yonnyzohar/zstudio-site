@@ -94,7 +94,7 @@ const Home: React.FC = () => {
           '@type': 'SoftwareApplication',
           name: 'zStudio',
           applicationCategory: 'DeveloperApplication',
-          operatingSystem: 'Windows, macOS, Linux',
+          operatingSystem: 'macOS, Linux',
           url: 'https://zstudiosltd.com',
           description: 'A visual scene editor for web games with a built-in MCP server, local AI image models and custom AI skills. Build scenes by hand or with your AI, then export them to Pixi.js, Phaser, or plain HTML.',
           offers: {
