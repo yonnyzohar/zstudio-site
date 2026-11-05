@@ -7,8 +7,6 @@ import { FiCpu, FiImage, FiBookOpen, FiMessageSquare, FiEye } from 'react-icons/
 
 const DOCS = './zStudioDocumentation/index.html';
 
-const MCP_CLIENTS = ['Claude Code', 'Claude Desktop', 'Cursor', 'Antigravity', 'VS Code', 'Windsurf', 'Gemini CLI'];
-
 const AI_CAN = [
   'Create and arrange containers and hierarchies',
   'Import images, Spine animations and particles',
@@ -41,7 +39,7 @@ const AI: React.FC = () => {
     <div className="container ai-page">
       <SEO
         title="AI Game Scene Automation – MCP Server, Skills & Local Image Models"
-        description="Let Claude Code, Cursor or any MCP client build Pixi.js and Phaser game scenes in zStudio. Built-in MCP server, custom skills and local AI image models, free on every plan."
+        description="Let your AI build Pixi.js and Phaser game scenes in zStudio. Built-in MCP server, custom skills and local AI image models, free on every plan."
         canonical="/ai"
       />
 
@@ -88,11 +86,8 @@ const AI: React.FC = () => {
           <FiCpu className="ai-ready-icon" />
           <h2>A Built-in MCP Server</h2>
           <p>
-            MCP (Model Context Protocol) is the open standard that lets AI assistants operate apps. zStudio runs an MCP server on your machine, so any MCP client can drive the editor. The AI runs on your AI tool's own subscription (Claude, Cursor and so on), not on zStudio credits, and zStudio doesn't sell or include one.
+            MCP (Model Context Protocol) is the open standard that lets AI assistants operate apps. zStudio runs an MCP server on your machine, so any MCP client can drive the editor. The AI runs on your AI tool's own subscription, not on zStudio credits, and zStudio doesn't sell or include one.
           </p>
-          <div className="ai-page-chips">
-            {MCP_CLIENTS.map(c => <span key={c} className="ai-badge">{c}</span>)}
-          </div>
         </div>
         <div className="ai-page-panel">
           <h3>Through MCP your AI can</h3>
@@ -124,7 +119,7 @@ const AI: React.FC = () => {
             Skills are short Markdown files that describe your conventions: the container hierarchy for a shop screen, how you name templates, how your popups are built. zStudio already ships skills for its own features. Add a folder of your own and the AI loads only the ones it needs for the task.
           </p>
           <p>
-            Don't want to write them? Your existing scenes already show your conventions. zStudio gives you a prompt that lets Claude Code, Cursor or Antigravity study those scenes and write the skill library for you.
+            Don't want to write them? Your existing scenes already show your conventions. zStudio gives you a prompt that lets an AI tool that can read your files study those scenes and write the skill library for you.
           </p>
           <p>
             <a href={`${DOCS}#h.skill-libraries`} target="_blank" rel="noopener noreferrer">How to write skills</a>
@@ -146,12 +141,12 @@ const AI: React.FC = () => {
         <div className="ai-ready-card">
           <FiImage className="ai-ready-icon" />
           <h3>Cloud Image Models</h3>
-          <p>On paid plans, use cloud models such as Gemini Flash and GPT Image for transparent-background game assets, paid for with AI credits.</p>
+          <p>On paid plans, use cloud models for transparent-background game assets, paid for with AI credits.</p>
         </div>
         <div className="ai-ready-card">
           <FiMessageSquare className="ai-ready-icon" />
           <h3>Built-in AI Chat</h3>
-          <p>On paid plans, chat with Claude Haiku, Sonnet or Opus right inside zStudio to build and edit your scene. No external setup, paid for with AI credits.</p>
+          <p>On paid plans, chat with an AI right inside zStudio to build and edit your scene, choosing a faster or a more powerful model. No external setup, paid for with AI credits.</p>
         </div>
       </section>
 

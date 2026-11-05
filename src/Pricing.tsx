@@ -33,7 +33,7 @@ export const features = {
     aiGeneration: 'Cloud AI image generation',  
     copyBetweenScenes:'Copying between scenes', 
     photoshopImporter: 'Photoshop Importer', 
-    mcpServer: 'MCP server: connect Claude Code, Cursor & more',
+    mcpServer: 'MCP server: connect your own AI',
     customSkills: 'Custom AI skills',
     aiChat: 'Built-in AI Chat (uses credits)',
     copyBetweenScene: 'Copying between scenes',

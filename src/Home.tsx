@@ -87,7 +87,7 @@ const Home: React.FC = () => {
     <div>
       <SEO
         title="zStudio – AI-Ready Scene Editor for Pixi.js & Phaser Games"
-        description="zStudio is a visual scene editor for web games that your AI can drive. Connect Claude Code, Cursor or any MCP client to build responsive scenes, generate art with local models, and export to Pixi.js, Phaser or HTML. Free to download."
+        description="zStudio is a visual scene editor for web games that your AI can drive. Connect your AI to build responsive scenes, generate art with local models, and export to Pixi.js, Phaser or HTML. Free to download."
         canonical="/"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -220,7 +220,7 @@ const Home: React.FC = () => {
                 </h1>
 
                 <p className="intro">
-                  Build responsive scenes for Pixi.js, Phaser and HTML by hand, or hand the job to Claude Code, Cursor or any MCP client. Your AI lays out portrait and landscape, generates the art, builds the buttons and animates the timeline. You review it visually and ship.
+                  Build responsive scenes for Pixi.js, Phaser and HTML by hand, or hand the job to your AI. It lays out portrait and landscape, generates the art, builds the buttons and animates the timeline. You review it visually and ship.
                 </p>
 
                 <Link to="/ai" className="ai-badges">
@@ -289,7 +289,7 @@ const Home: React.FC = () => {
               <div className="ai-ready-card">
                 <FiCpu className="ai-ready-icon" />
                 <h3>MCP Server Built In</h3>
-                <p>Connect Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI or any other MCP client. Through MCP your AI can do almost anything you can do in the editor. You use your own AI subscription, not zStudio credits.</p>
+                <p>Connect any AI tool that supports MCP. Through MCP your AI can do almost anything you can do in the editor. You use your own AI subscription, not zStudio credits.</p>
               </div>
               <div className="ai-ready-card">
                 <FiImage className="ai-ready-icon" />

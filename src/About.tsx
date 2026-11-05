@@ -171,8 +171,7 @@ const About: React.FC = () => {
             button means another round with the AI.
           </p>
           <p style={{ marginBottom: '0.75rem' }}>
-            zStudio gives the AI a better target: a real scene. Through the built-in MCP server, Claude Code, Cursor or any
-            MCP client can build, reskin and animate scenes, following your studio's conventions through skills and
+            zStudio gives the AI a better target: a real scene. Through the built-in MCP server, your AI can build, reskin and animate scenes, following your studio's conventions through skills and
             generating art with models on your own machine.
           </p>
           <ul style={{ marginLeft: '1.5rem', lineHeight: '2' }}>
@@ -199,7 +198,7 @@ const About: React.FC = () => {
               icon: '🤖',
               title: 'AI Automation',
               items: [
-                'Built-in MCP server: connect Claude Code, Cursor, Antigravity, Gemini CLI and more',
+                'Built-in MCP server: connect your own AI',
                 'Your AI can build, reskin and animate full scenes',
                 'Custom skills that teach your AI to build scenes your way',
                 'Local AI image models that run on your own computer',

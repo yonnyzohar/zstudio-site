@@ -3431,13 +3431,6 @@ h2 {
   text-decoration: underline;
 }
 
-.ai-page-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
 .ai-page-panel {
   background: #1e293b;
   border: 1px solid rgba(20, 184, 166, 0.3);

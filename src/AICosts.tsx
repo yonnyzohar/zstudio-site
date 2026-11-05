@@ -33,7 +33,7 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
       feature: 'Connect your own AI (MCP)',
       plan: 'Every plan',
       cost: 'Free in zStudio. You pay your AI tool.',
-      needs: 'An MCP-capable AI tool such as Claude Code or Cursor, on its own subscription. zStudio does not include one.',
+      needs: 'An AI tool that supports MCP, on its own subscription. zStudio does not include one.',
     },
     {
       feature: 'Custom skills',
@@ -56,7 +56,7 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
     {
       feature: 'Built-in AI Chat',
       plan: 'Individual Pro and up',
-      cost: 'Credits per request, depending on the Claude model you pick',
+      cost: 'Credits per request, depending on the AI model you pick',
       needs: 'A paid plan plus credits. No outside AI subscription needed.',
     },
   ];

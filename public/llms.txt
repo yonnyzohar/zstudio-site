@@ -1,6 +1,6 @@
 # zStudio
 
-> zStudio is a visual scene editor for web games that AI tools can drive. It has a built-in MCP server, so Claude Code, Cursor, Antigravity, VS Code, Windsurf, Gemini CLI and other MCP clients can build full scenes in it. Scenes are designed once — by hand or by AI — and exported to run in Pixi.js, Phaser, or plain HTML with no hand-written layout code.
+> zStudio is a visual scene editor for web games that AI tools can drive. It has a built-in MCP server, so any AI tool that supports MCP can build full scenes in it. Scenes are designed once — by hand or by AI — and exported to run in Pixi.js, Phaser, or plain HTML with no hand-written layout code.
 
 zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and studios who build responsive, portrait/landscape-aware game interfaces (menus, HUDs, shop screens, popups, playable ads). Through MCP an AI can create containers, import images, Spine and particles, anchor elements for portrait and landscape, build buttons and other components, animate on the timeline, generate images and export. Skills (Markdown files) teach the AI a studio's own conventions. Local AI image models (Stable Diffusion, SDXL, FLUX, Z-Image, Qwen-Image) run on the user's own computer. The MCP server, skills and local image models are free on every plan, including the free Community plan. Paid plans add cloud image models and a built-in AI Chat that use credits. Scenes are exported as JSON/assets and loaded at runtime via the open-source zImporter library.
 
