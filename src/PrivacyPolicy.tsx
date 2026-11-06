@@ -84,6 +84,41 @@ const PrivacyPolicy: React.FC = () => {
         purchased credits for).
       </p>
 
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Desktop app usage statistics</h3>
+      <ul style={{ marginLeft: '2rem' }}>
+        <li>
+          <strong>What is sent</strong> — official builds of the zStudio desktop app send anonymous usage events
+          to Google Analytics: the app version, your operating system, and which features you use (for example
+          "scene saved", "asset imported" or which AI tool was called, and whether it succeeded).
+        </li>
+        <li>
+          <strong>What is never sent</strong> — your scenes, files, file names, prompts, AI responses or account
+          details.
+        </li>
+        <li>
+          <strong>Identifier</strong> — a random installation ID created on your computer. It is not linked to
+          your zStudio account.
+        </li>
+        <li>
+          <strong>How to turn it off</strong> — in the app, untick <strong>Help → Send Anonymous Usage
+          Statistics</strong>, or set the environment variable <code>ZSTUDIO_DISABLE_TELEMETRY=1</code>. Builds
+          you compile yourself send nothing.
+        </li>
+      </ul>
+      <p>
+        <strong>Lawful basis:</strong> Legitimate interests — understanding which features are used so we can
+        improve zStudio. You can opt out at any time.
+      </p>
+
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Website analytics</h3>
+      <ul style={{ marginLeft: '2rem' }}>
+        <li>
+          <strong>Google Analytics</strong> — this website uses Google Analytics to count visits and see which
+          pages are used. It may set cookies and collects information such as pages viewed, approximate location
+          and device type.
+        </li>
+      </ul>
+
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Website and server logs</h3>
       <ul style={{ marginLeft: '2rem' }}>
         <li>
@@ -112,14 +147,18 @@ const PrivacyPolicy: React.FC = () => {
           processor on our behalf.
         </li>
         <li>
-          <strong>Resend</strong> (resend.com) — transactional email delivery (welcome emails, licence
-          confirmations, password resets). Resend receives your email address solely to deliver these messages.
+          <strong>Resend</strong> (resend.com) — transactional email delivery (welcome emails, purchase
+          receipts, password resets). Resend receives your email address solely to deliver these messages.
         </li>
         <li>
           <strong>Leonardo AI</strong> (leonardo.ai), <strong>Google</strong> (cloud.google.com), and{' '}
           <strong>OpenAI</strong> (openai.com) — AI image generation providers. Your prompts and source images
           are transmitted to whichever provider you select when using the AI feature. Each provider's own privacy
           policy governs how they handle that data.
+        </li>
+        <li>
+          <strong>Google Analytics</strong> (google.com) — website analytics and anonymous desktop app usage
+          statistics, as described above. Google may process this data in the USA.
         </li>
         <li>
           <strong>Google / GitHub / Facebook</strong> — if you choose to sign in via OAuth, the relevant
