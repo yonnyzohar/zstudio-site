@@ -5,6 +5,8 @@ export const CONTACT_EMAIL = 'jonzohar@zstudiosltd.com';
 export interface ReleaseData {
   version: string;
   mac: string;
+  windows: string;
+  windowsVersion?: string;
   linux: string;
 }
 

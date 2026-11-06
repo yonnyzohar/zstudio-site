@@ -6,7 +6,7 @@ zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and 
 
 ## Product
 
-- [Home](https://zstudiosltd.com/): Overview of zStudio, key features, and free download links for Mac and Linux.
+- [Home](https://zstudiosltd.com/): Overview of zStudio, key features, and free download links for Mac, Windows, and Linux.
 - [AI](https://zstudiosltd.com/ai): How to connect an AI tool to zStudio over MCP, write skills, and use local image models and the built-in AI Chat.
 - [Pricing](https://zstudiosltd.com/pricing): Free Community, Individual Pro, and Studio Team plans, with monthly and lifetime options, plus AI credit packs.
 - [About](https://zstudiosltd.com/about): Background on zStudio: a non-intrusive visual scene editor for game teams and their AI tools.

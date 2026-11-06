@@ -63,7 +63,7 @@ const AI: React.FC = () => {
           <div className="ai-flow-step">
             <span className="ai-flow-number">1</span>
             <h3>Download zStudio</h3>
-            <p>Free for macOS and Linux. No account needed for the MCP server or local models.</p>
+            <p>Free for macOS, Windows and Linux. No account needed for the MCP server or local models.</p>
           </div>
           <div className="ai-flow-step">
             <span className="ai-flow-number">2</span>
