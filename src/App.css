@@ -955,6 +955,26 @@ a.button.donate:hover {
   background: none;
 }
 
+.nav-links .button.donate-nav {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-align: center;
+  width: auto;
+}
+
+.nav-links .button.donate-nav:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+@media (min-width: 600px) and (max-width: 1099px) {
+  .donate-nav-name { display: none; }
+  .nav-links .nav-link,
+  .nav-links .button.donate-nav { margin-left: 12px; }
+}
+
 /* AI-Ready Section */
 .ai-badges {
   display: flex;
@@ -1556,6 +1576,10 @@ h2 {
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     gap: 8px;
+  }
+  .nav-links.open .button.donate-nav {
+    margin-left: 0;
+    box-sizing: border-box;
   }
   .nav-links.open .nav-link {
     margin-left: 0;
