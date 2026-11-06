@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import DownloadButtons from './DownloadButtons';
 import AICosts from './AICosts';
-import { useReleaseData } from './site';
+import { useReleaseData, EDITOR_REPO_URL } from './site';
 import { FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
 
 declare global {
@@ -228,6 +228,10 @@ const Home: React.FC = () => {
                   <span className="ai-badge">Local AI image models</span>
                   <span className="ai-badge">Custom skills</span>
                 </Link>
+
+                <a href={EDITOR_REPO_URL} target="_blank" rel="noopener noreferrer" className="ai-badges">
+                  <span className="ai-badge">Open source (AGPL-3.0)</span>
+                </a>
 
                 <div className="hero-cta-section">
                   <div className="value-props">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CONTACT_EMAIL } from './site';
+import { CONTACT_EMAIL, EDITOR_REPO_URL, EDITOR_LICENSE_URL } from './site';
 
 const Footer: React.FC = () => {
   return (
@@ -28,7 +28,10 @@ const Footer: React.FC = () => {
         <a href={`mailto:${CONTACT_EMAIL}`} className="footer-email">{CONTACT_EMAIL}</a>
       </div>
       <p style={{ margin: '20px 0', fontSize: '0.9em' }}>
-        <Link to="/contact" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Contact</Link> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link> | <Link to="/swf-importer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>SWF Importer</Link>
+        <Link to="/contact" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Contact</Link> | <Link to="/terms" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>T&C</Link> | <Link to="/privacy" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Privacy Policy</Link> | <Link to="/swf-importer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>SWF Importer</Link> | <a href={EDITOR_REPO_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>Source code</a>
+      </p>
+      <p style={{ margin: '10px 0', fontSize: '0.85em', color: '#9ca3af' }}>
+        zStudio is open source under the <a href={EDITOR_LICENSE_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'none', transition: 'color 0.3s ease' }}>AGPL-3.0 licence</a>. Commercial licences are available from zStudios Ltd.
       </p>
       <div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px' }}>
         <a href="https://launchstag.com" target="_blank" rel="noopener">

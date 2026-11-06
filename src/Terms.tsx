@@ -1,42 +1,46 @@
 import React from 'react';
 import SEO from './SEO';
+import { EDITOR_LICENSE_URL, COMMERCIAL_LICENSE_URL } from './site';
 
 const Terms: React.FC = () => {
   return (
     <div className="container">
       <SEO
         title="Terms of Use – zStudio"
-        description="Read the terms of use for zStudio software. Understand your rights, what you may and may not do with the software, and our warranty disclaimer."
+        description="Read the terms of use for zStudio software. Understand how zStudio is licensed (AGPL-3.0 or commercial), how our online services are covered, and our warranty disclaimer."
         canonical="/terms"
       />
       <h1>zStudio</h1>
 
       <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>Copyright 2025 zStudios Ltd</h2>
 
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>License</h3>
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Software licence</h3>
       <p>
-        You are granted a non-exclusive, non-transferable, revocable license to use this software, including for
-        commercial purposes.
+        The zStudio editor is open source. Its source code is published under the{' '}
+        <a href={EDITOR_LICENSE_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6' }}>GNU Affero General Public License v3.0</a>{' '}
+        (AGPL-3.0). You may use, study, modify and share it under the terms of that licence. If you distribute a
+        modified version, or make one available to others over a network, you must release your changes under the
+        same licence.
       </p>
 
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>You MAY:</h3>
-      <ul style={{ marginLeft: '2rem' }}>
-        <li>Use this software for personal or commercial purposes.</li>
-        <li>Share the unmodified software package with others.</li>
-        <li>Download and use the software at your own discretion.</li>
-      </ul>
-
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>You MAY NOT:</h3>
-      <ul style={{ marginLeft: '2rem' }}>
-        <li>Modify, reverse engineer, decompile, fork, or redistribute the software.</li>
-        <li>Sell or sublicense this software, or bundle it into another product for resale.</li>
-        <li>Claim ownership or authorship of this software.</li>
-      </ul>
-
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Future Versions</h3>
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Commercial licence</h3>
       <p>
-        Future versions of zStudio (v2 and beyond) may require a paid license. Users of v1.x do not automatically
-        receive a license for future versions.
+        If you want to use or modify zStudio without the AGPL-3.0 obligations, for example inside a closed-source
+        product or pipeline, you can buy a{' '}
+        <a href={COMMERCIAL_LICENSE_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6' }}>commercial licence</a> from
+        zStudios Ltd.
+      </p>
+
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Online services</h3>
+      <p>
+        Accounts, cloud AI features, credits and other services provided by zStudios Ltd are not covered by the
+        software licence. They are governed by these terms and by the plan you purchase.
+      </p>
+
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Trademarks</h3>
+      <p>
+        "zStudio" and the zStudio logo are trademarks of zStudios Ltd. The software licence does not grant
+        permission to use them. Modified versions must use a different name and logo.
       </p>
 
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Disclaimer</h3>
