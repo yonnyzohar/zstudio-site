@@ -40,7 +40,7 @@ const AI: React.FC = () => {
     <div className="container ai-page">
       <SEO
         title="AI Game Scene Automation – MCP Server, Skills & Local Image Models"
-        description="Let your AI build Pixi.js and Phaser game scenes in zStudio. Built-in MCP server, custom skills and local AI image models, free on every plan."
+        description="Let your AI build Pixi.js and Phaser game scenes in zStudio. Built-in MCP server, custom skills and local AI image models, free and open source."
         canonical="/ai"
       />
 
@@ -52,7 +52,7 @@ const AI: React.FC = () => {
         </p>
         <DownloadButtons releaseData={releaseData} className="ai-page-downloads" />
         <p className="ai-page-free">
-          zStudio is free to download, and so are the MCP server, skills and local image models. The AI itself is not included: bring an AI tool you already pay for, or use the built-in AI Chat on a paid plan.
+          zStudio is free to download, and so are the MCP server, skills and local image models. The AI itself is not included: bring an AI tool you already pay for, or use the built-in AI Chat with credits.
         </p>
       </section>
 
@@ -145,12 +145,12 @@ const AI: React.FC = () => {
         <div className="ai-ready-card">
           <FiImage className="ai-ready-icon" />
           <h3>Cloud Image Models</h3>
-          <p>On paid plans, use cloud models for transparent-background game assets, paid for with AI credits.</p>
+          <p>Sign in to use cloud models for transparent-background game assets, paid for with AI credits.</p>
         </div>
         <div className="ai-ready-card">
           <FiMessageSquare className="ai-ready-icon" />
           <h3>Built-in AI Chat</h3>
-          <p>On paid plans, chat with an AI right inside zStudio to build and edit your scene, choosing a faster or a more powerful model. No external setup, paid for with AI credits.</p>
+          <p>Sign in and chat with an AI right inside zStudio, paid for with AI credits to build and edit your scene, choosing a faster or a more powerful model. No external setup, paid for with AI credits.</p>
         </div>
       </section>
 

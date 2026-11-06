@@ -308,7 +308,7 @@ const Home: React.FC = () => {
             </div>
             <h3 className="ai-costs-heading">What It Costs, and What You Need</h3>
             <p className="ai-costs-lead">
-              zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat on a paid plan with credits.
+              zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat with credits.
             </p>
             <AICosts />
             <p className="ai-ready-note">

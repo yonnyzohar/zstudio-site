@@ -30,11 +30,11 @@ const PrivacyPolicy: React.FC = () => {
 
       <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>What data we collect and why</h2>
 
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Account &amp; licence management</h3>
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Account management</h3>
       <ul style={{ marginLeft: '2rem' }}>
         <li>
-          <strong>Email address</strong> — to create your account, send licence keys, and contact you about your
-          subscription.
+          <strong>Email address</strong> — to create your account, send receipts for credit purchases, and
+          contact you about your account.
         </li>
         <li>
           <strong>Password (hashed)</strong> — to authenticate you when you sign in with email and password. We
@@ -45,15 +45,6 @@ const PrivacyPolicy: React.FC = () => {
           <strong>OAuth identity</strong> — if you sign in with Google, GitHub, or Facebook we store the
           provider name, your unique ID from that provider, and your display name. We do not store OAuth access
           tokens.
-        </li>
-        <li>
-          <strong>Licence details</strong> — licence key, licence type, number of permitted seats, expiry date,
-          and Stripe subscription ID — to issue and enforce your licence.
-        </li>
-        <li>
-          <strong>Device fingerprint (hashed)</strong> — a one-way hash of device characteristics (e.g. OS,
-          hardware identifiers) recorded each time you activate a licence seat. We store only the hash — never
-          the raw fingerprint — to enforce your seat limit and detect misuse.
         </li>
       </ul>
       <p>
@@ -66,8 +57,8 @@ const PrivacyPolicy: React.FC = () => {
         <li>
           <strong>Payment details</strong> — handled entirely by <strong>Stripe</strong>. We never see or store
           your full card number. Stripe may retain billing name, last-4 digits of your card, and billing address
-          as required by payment regulations. We store the Stripe subscription ID and Stripe customer ID to
-          manage your subscription.
+          as required by payment regulations. We store the Stripe checkout session ID of each credit purchase
+          so the credits can be added to your account.
         </li>
       </ul>
       <p>
@@ -144,10 +135,6 @@ const PrivacyPolicy: React.FC = () => {
           <strong>Account data</strong> — kept for as long as your account is active. If you close your account,
           we delete your personal data within 30 days, except where we are legally required to keep it (e.g.
           financial records for 6 years under UK tax law).
-        </li>
-        <li>
-          <strong>Licence session records (device fingerprints)</strong> — retained for the lifetime of the
-          licence, then deleted when the account is closed.
         </li>
         <li>
           <strong>AI credit transactions</strong> — retained for the lifetime of your account for billing

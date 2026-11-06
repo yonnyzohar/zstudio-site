@@ -202,7 +202,7 @@ const About: React.FC = () => {
                 'Your AI can build, reskin and animate full scenes',
                 'Custom skills that teach your AI to build scenes your way',
                 'Local AI image models that run on your own computer',
-                'Free on every plan; built-in AI Chat on paid plans',
+                'Free and open source; built-in AI Chat with credits',
               ],
             },
             {

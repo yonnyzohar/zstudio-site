@@ -34,7 +34,7 @@ const Terms: React.FC = () => {
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Online services</h3>
       <p>
         Accounts, cloud AI features, credits and other services provided by zStudios Ltd are not covered by the
-        software licence. They are governed by these terms and by the plan you purchase.
+        software licence. They are governed by these terms. Credits are non-refundable once used.
       </p>
 
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Trademarks</h3>
