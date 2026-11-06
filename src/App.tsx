@@ -13,6 +13,7 @@ import ResetPassword from './ResetPassword';
 import Dashboard from './Dashboard';
 import About from './About';
 import ZImporter from './ZImporter';
+import ZImporterGuide from './ZImporterGuide';
 import Tutorials from './Tutorials';
 import Demos from './Demos';
 import Terms from './Terms';
@@ -67,6 +68,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
               <Route path="/z-importer" element={<ZImporter />} />
+              <Route path="/z-importer/guide" element={<ZImporterGuide />} />
+              <Route path="/z-importer/guide/:slug" element={<ZImporterGuide />} />
               <Route path="/tutorials" element={<Tutorials />} />
               <Route path="/demos" element={<Demos />} />
               <Route path="/terms" element={<Terms />} />

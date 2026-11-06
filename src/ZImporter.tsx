@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 
 declare global {
@@ -43,7 +44,17 @@ const ZImporter: React.FC = () => {
         <p style={{ fontSize: '1.2em', color: '#e5e7eb', marginBottom: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
           The open-source runtime half of zStudio. Whether you built the scene or your AI did, zImporter loads it into your Pixi.js, Phaser or HTML game or playable ad in a few lines of code.
         </p>
-        
+
+        <Link to="/z-importer/guide" className="importer-guide-cta">
+          <strong>New: the zImporter Guide →</strong>
+          Step-by-step examples for buttons, toggles, sliders, scrollbars, and moving assets without breaking the responsive layout.
+        </Link>
+
+        <Link to="/z-importer/guide/ai-skills" className="importer-guide-cta">
+          <strong>All importers now include AI skills →</strong>
+          Your AI tool learns the right way to use zImporter. Update your package, then add its skills folder in zStudio or point your AI tool at it.
+        </Link>
+
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'stretch', flexWrap: 'wrap' }}>
           {/* VIDEO SECTION */}
           <div style={{ flex: '1', minWidth: '400px', backgroundColor: '#1e293b', borderRadius: '12px', padding: '2rem', border: '1px solid rgba(20, 184, 166, 0.3)', boxShadow: '0 4px 20px rgba(20, 184, 166, 0.2)' }}>
@@ -409,7 +420,7 @@ import { ZButton, ZContainer, ZScene, ZSceneStack, ZUpdatables, SpinePlugin } fr
             <pre style={{ backgroundColor: '#0f172a', padding: '1rem', borderRadius: '8px', overflow: 'auto', margin: '0', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.1)' }}>
               <code className="language-typescript">
 {`import Phaser from 'phaser';
-import { ZContainer, ZScene, ZSceneStack, ZUpdatables } from 'zimporter-phaser';
+import { ZScene, ZSceneStack, ZUpdatables } from 'zimporter-phaser';
 
 export class GameScene extends Phaser.Scene {
 
@@ -422,9 +433,10 @@ export class GameScene extends Phaser.Scene {
     create() {
         ZUpdatables.init(24);
 
-        // Create a root ZContainer — the Phaser equivalent of PIXI's app.stage
-        const rootStage = new ZContainer(this);
-        this.add.existing(rootStage);
+        // Keep the layout responsive
+        this.scale.on('resize', (size: Phaser.Structs.Size) => {
+            ZSceneStack.resize(size.width, size.height);
+        });
 
         // Load a zStudio scene — pass the Phaser scene as second argument
         const scene = new ZScene("myScene", this);
@@ -449,7 +461,7 @@ export class GameScene extends Phaser.Scene {
               <code className="language-typescript">
 {`import Phaser from 'phaser';
 import { GameScene } from './GameScene';
-import { ZSceneStack, SpinePlugin } from 'zimporter-phaser';
+import { SpinePlugin } from 'zimporter-phaser';
 
 const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
@@ -472,11 +484,7 @@ const config: Phaser.Types.Core.GameConfig = {
 };
 
 const game = new Phaser.Game(config);
-(globalThis as any).__PHASER_GAME__ = game;
-
-window.addEventListener('resize', () => {
-    ZSceneStack.resize(window.innerWidth, window.innerHeight);
-});`}
+(globalThis as any).__PHASER_GAME__ = game;`}
               </code>
             </pre>
           </div>
@@ -645,9 +653,9 @@ scene.load('./assets/myScene/', () => {
     const myBtn: ZButton = stage.get('myBtn') as ZButton;
 
     myBtn.setLabel('Click Me');
-    myBtn.setCallback(() => {
+    myBtn.pressCallback = () => {
         console.log('Button clicked!');
-    });
+    };
 });`}
               </code>
             </pre>

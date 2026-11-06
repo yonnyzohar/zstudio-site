@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import DownloadButtons from './DownloadButtons';
 import AICosts from './AICosts';
@@ -120,6 +121,9 @@ const AI: React.FC = () => {
           </p>
           <p>
             Don't want to write them? Your existing scenes already show your conventions. zStudio gives you a prompt that lets an AI tool that can read your files study those scenes and write the skill library for you.
+          </p>
+          <p>
+            Every zImporter package also includes ready-made skills, so your AI writes correct code against your scenes in Pixi.js, Phaser or HTML. <Link to="/z-importer/guide/ai-skills">How to use them</Link>
           </p>
           <p>
             <a href={`${DOCS}#h.skill-libraries`} target="_blank" rel="noopener noreferrer">How to write skills</a>

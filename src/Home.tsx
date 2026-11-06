@@ -445,7 +445,7 @@ scene.load(loadPath, () => {
           <section style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem' }}>
             <h2 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '2em' }}>Drop the Scene Into Your Game</h2>
             <p style={{ color: '#e5e7eb', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Whether you built it or your AI did, the open-source zImporter loads the scene into Pixi.js, Phaser or plain HTML in a few lines of code.
+              Whether you built it or your AI did, the open-source zImporter loads the scene into Pixi.js, Phaser or plain HTML in a few lines of code. Every importer includes <Link to="/z-importer/guide/ai-skills" style={{ color: '#14b8a6' }}>AI skills</Link>, so your AI tool writes that code correctly too.
             </p>
             <Link
               to="/z-importer"

@@ -268,6 +268,7 @@ const About: React.FC = () => {
               items: [
                 'Export once. Import anywhere.',
                 'Open-source importers for Pixi, Phaser, HTML, and custom frameworks',
+                'Skills included, so your AI tool uses them correctly',
               ],
             },
           ].map(({ icon, title, items }) => (
