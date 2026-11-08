@@ -10,6 +10,11 @@ interface Video {
 const Tutorials: React.FC = () => {
   const videos: Video[] = [
     {
+      title: "Build Scenes with MCP and Skills",
+      description: "This video shows how to build scenes with AI in zStudio. It covers using the built-in MCP server to let your AI tool work in the editor, and using skills to teach it how your studio builds scenes.",
+      url: "https://youtu.be/_o0K_543AzY"
+    },
+    {
       title: "AI image generation",
       description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
       url:"https://youtu.be/VEHzjlx2sxo"
@@ -120,7 +125,7 @@ const Tutorials: React.FC = () => {
     <div className="container">
       <SEO
         title="Tutorials – Learn to Build Game Scenes with zStudio"
-        description="Step-by-step video tutorials for zStudio: AI image generation, navigation, containers, hierarchies, portrait and landscape layout, animation, components and runtime integration."
+        description="Step-by-step video tutorials for zStudio: building scenes with MCP and skills, AI image generation, navigation, containers, hierarchies, portrait and landscape layout, animation, components and runtime integration."
         canonical="/tutorials"
       />
       {/* HEADER SECTION */}
@@ -142,7 +147,7 @@ const Tutorials: React.FC = () => {
           maxWidth: '800px', 
           margin: '0 auto 2rem' 
         }}>
-            Learn zStudio step by step, from AI image generation and basic navigation to templates, hierarchies and runtime integration. Want your AI to do the work? Start with the <a href="/ai" style={{ color: '#14b8a6', textDecoration: 'underline' }}>AI setup guide</a>. Writing code against your scenes? See the <a href="/z-importer/guide" style={{ color: '#14b8a6', textDecoration: 'underline' }}>zImporter Guide</a>.
+            Learn zStudio step by step, from building scenes with AI and basic navigation to templates, hierarchies and runtime integration. Want your AI to do the work? Start with the <a href="/ai" style={{ color: '#14b8a6', textDecoration: 'underline' }}>AI setup guide</a>. Writing code against your scenes? See the <a href="/z-importer/guide" style={{ color: '#14b8a6', textDecoration: 'underline' }}>zImporter Guide</a>.
           <br />
             <span style={{ color: '#f59e0b', fontWeight: 'bold', fontSize: '1.1em' }}>Complete documentation available</span> <a href="./zStudioDocumentation/index.html" target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6', textDecoration: 'underline' }}>here</a>.
         </p>

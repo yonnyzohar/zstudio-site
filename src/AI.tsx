@@ -171,7 +171,7 @@ const AI: React.FC = () => {
       {/* COSTS */}
       <section className="ai-page-costs" id="costs">
         <h2>What It Costs, and What You Need</h2>
-        <p>Check this before you install, so nothing comes as a surprise.</p>
+        <p>zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat on a paid plan with credits.</p>
         <AICosts />
       </section>
     </div>
