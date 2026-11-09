@@ -29,9 +29,15 @@ import './App.css';
 
 // ScrollToTop component
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Links to a section of a page go to that section instead of the top
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView();
+      return;
+    }
+
     // Multiple attempts to ensure scroll to top
     const scrollToTop = () => {
       window.scrollTo(0, 0);
@@ -44,7 +50,7 @@ function ScrollToTop() {
     setTimeout(scrollToTop, 10);
     setTimeout(scrollToTop, 50);
     setTimeout(scrollToTop, 100);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }

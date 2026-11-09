@@ -10,6 +10,8 @@ export const COMMERCIAL_LICENSE_URL = `${EDITOR_REPO_URL}/blob/main/COMMERCIAL-L
 export interface ReleaseData {
   version: string;
   mac: string;
+  windows: string;
+  windowsVersion?: string;
   linux: string;
 }
 

@@ -63,7 +63,7 @@ const AI: React.FC = () => {
           <div className="ai-flow-step">
             <span className="ai-flow-number">1</span>
             <h3>Download zStudio</h3>
-            <p>Free for macOS and Linux. No account needed for the MCP server or local models.</p>
+            <p>Free for macOS, Windows and Linux. No account needed for the MCP server or local models.</p>
           </div>
           <div className="ai-flow-step">
             <span className="ai-flow-number">2</span>
@@ -171,7 +171,7 @@ const AI: React.FC = () => {
       {/* COSTS */}
       <section className="ai-page-costs" id="costs">
         <h2>What It Costs, and What You Need</h2>
-        <p>Check this before you install, so nothing comes as a surprise.</p>
+        <p>zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat with credits.</p>
         <AICosts />
       </section>
     </div>

@@ -560,6 +560,16 @@ body {
   box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
 }
 
+.button.primary.compact.windows {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.button.primary.compact.windows:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+}
+
 .button.primary.compact.linux {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
@@ -3514,7 +3524,7 @@ h2 {
 .ai-page-costs {
   margin: 0 0 70px;
   text-align: center;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 120px;
 }
 
 .ai-page-costs h2 {
@@ -3574,19 +3584,6 @@ h2 {
   max-width: 1000px;
   margin: 0 auto 24px;
   text-align: left;
-}
-
-.ai-costs-heading {
-  color: #f1f5f9;
-  font-size: 1.5em;
-  margin: 48px 0 10px;
-}
-
-.ai-costs-lead {
-  max-width: 760px;
-  margin: 0 auto 24px;
-  color: #cbd5e1;
-  line-height: 1.7;
 }
 
 .ai-costs-table {

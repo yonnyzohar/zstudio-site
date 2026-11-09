@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import DownloadButtons from './DownloadButtons';
-import AICosts from './AICosts';
 import { useReleaseData, EDITOR_REPO_URL } from './site';
-import { FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiImage, FiCpu, FiBookOpen } from 'react-icons/fi';
+import { FiMousePointer, FiLayers, FiPlay, FiSmartphone, FiLink, FiImage, FiCpu } from 'react-icons/fi';
 
 declare global {
   interface Window {
@@ -15,15 +14,17 @@ declare global {
 interface YouTubeVideoProps {
   videoId: string;
   alt?: string;
+  /** Seconds to start from. Without it, starts at a random point in the middle. */
+  startAt?: number;
   ref?: React.Ref<HTMLDivElement>;
 }
 
 const YouTubeVideo = React.forwardRef<HTMLDivElement, YouTubeVideoProps>(
-  ({ videoId, alt }, ref) => {
+  ({ videoId, alt, startAt }, ref) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // Start from middle of video (estimated 2-3 minutes, so start at 60-90 seconds)
-  const startTime = Math.floor(Math.random() * 30) + 60; // Random start between 60-90 seconds
+  const startTime = startAt ?? Math.floor(Math.random() * 30) + 60; // Random start between 60-90 seconds
 
   return (
     <div
@@ -94,7 +95,7 @@ const Home: React.FC = () => {
           '@type': 'SoftwareApplication',
           name: 'zStudio',
           applicationCategory: 'DeveloperApplication',
-          operatingSystem: 'macOS, Linux',
+          operatingSystem: 'Windows, macOS, Linux',
           url: 'https://zstudiosltd.com',
           description: 'A visual scene editor for web games with a built-in MCP server, local AI image models and custom AI skills. Build scenes by hand or with your AI, then export them to Pixi.js, Phaser, or plain HTML.',
           offers: {
@@ -289,31 +290,97 @@ const Home: React.FC = () => {
                 <p>Open the result in the editor, tweak anything by hand, and export to Pixi.js, Phaser or HTML.</p>
               </div>
             </div>
-            <div className="ai-ready-grid">
-              <div className="ai-ready-card">
-                <FiCpu className="ai-ready-icon" />
-                <h3>MCP Server Built In</h3>
-                <p>Connect any AI tool that supports MCP. Through MCP your AI can do almost anything you can do in the editor. You use your own AI subscription, not zStudio credits.</p>
+            <p className="ai-ready-note">
+              zStudio doesn't include an AI subscription: connect an AI tool you already pay for, or use the built-in AI Chat with credits.{' '}
+              <Link to="/ai#costs">See what it costs</Link>
+            </p>
+          </section>
+
+          {/* FEATURES */}
+          <section className="features">
+            <div className="features-header">
+              <h2>Everything You Can Do, Your AI Can Do Too</h2>
+              <p className="features-subtitle">A full visual editor for game scenes. Almost every tool below is also available to your AI over MCP.</p>
+            </div>
+            <div className="features-container">
+              <div className="feature-row">
+                <div className="feature-item" ref={(el) => { featureRefs.current[0] = el; }}>
+                  <div className="feature-number">01</div>
+                  <FiCpu className="feature-icon" />
+                  <h3>Build Scenes with MCP and Skills</h3>
+                  <p>Connect your AI tool to zStudio over MCP and describe the scene you want. Skills teach it how your studio works, so it builds scenes your way, right in the editor where you can review them.</p>
+                </div>
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="_o0K_543AzY" startAt={0} />
+                </div>
               </div>
-              <div className="ai-ready-card">
-                <FiImage className="ai-ready-icon" />
-                <h3>Local AI Image Models</h3>
-                <p>Add Stable Diffusion, FLUX, Z-Image or Qwen-Image models and generate or reskin art right in the scene. Everything runs on your own computer, so there are no credits and nothing is uploaded.</p>
+              <div className="feature-row">
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="EypJ2ZRc4DI" />
+                </div>
+                <div className="feature-item" ref={(el) => { featureRefs.current[1] = el; }}>
+                  <div className="feature-number">02</div>
+                  <FiSmartphone className="feature-icon" />
+                  <h3>Responsive Layout Without Layout Code</h3>
+                  <p>An anchor system for relative positioning that adapts to any screen size. Portrait, landscape, desktop and every ad network size, set once by you or by your AI.</p>
+                </div>
               </div>
-              <div className="ai-ready-card">
-                <FiBookOpen className="ai-ready-icon" />
-                <h3>Skills: Your Studio's Playbook</h3>
-                <p>Skills are short Markdown files that describe how your studio builds a level-select screen, a popup or a menu. Your AI loads the ones it needs and builds the scene your way. It can even write them for you from your existing scenes.</p>
+              <div className="feature-row">
+                <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
+                  <div className="feature-number">03</div>
+                  <FiImage className="feature-icon" />
+                  <h3>AI Art, Right in the Scene</h3>
+                  <p>Text to image, image to image, and reskin in place. Use local models for free, or cloud models when you need transparent backgrounds. Final art or placeholders, your layout work never waits on an asset request.</p>
+                </div>
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="liejf2lnoGM" />
+                </div>
+              </div>
+              <div className="feature-row">
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="ZINRf2fgfQs" />
+                </div>
+                <div className="feature-item" ref={(el) => { featureRefs.current[3] = el; }}>
+                  <div className="feature-number">04</div>
+                  <FiLink className="feature-icon" />
+                  <h3>Pixi.js, Phaser & HTML Export</h3>
+                  <p>Export your scene as JSON and load it with our open-source zImporter in a few lines of code. Positions, anchors, animations and hierarchies are all preserved. No engine lock-in.</p>
+                </div>
+              </div>
+              <div className="feature-row">
+                <div className="feature-item" ref={(el) => { featureRefs.current[4] = el; }}>
+                  <div className="feature-number">05</div>
+                  <FiPlay className="feature-icon" />
+                  <h3>Visual Animation Timeline</h3>
+                  <p>Keyframes, easing, cue points and playback controls: the visual workflow you remember from Flash, rebuilt for modern web exports.</p>
+                </div>
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="dkFNVOs7hSI" />
+                </div>
+              </div>
+              <div className="feature-row">
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="URx6OGJs5dQ" />
+                </div>
+                <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
+                  <div className="feature-number">06</div>
+                  <FiLayers className="feature-icon" />
+                  <h3>Rich Component Library</h3>
+                  <p>Sprites, buttons, text, bitmap fonts, particles, Spine animations, sliders and toggles: everything you need for interactive game UI and playable ads.</p>
+                </div>
+              </div>
+              <div className="feature-row">
+                <div className="feature-item" ref={(el) => { featureRefs.current[6] = el; }}>
+                  <div className="feature-number">07</div>
+                  <FiMousePointer className="feature-icon" />
+                  <h3>Drag-and-Drop Asset Management</h3>
+                  <p>Drag in images, sprite sheets, Spine animations and bitmap fonts, or import straight from Photoshop. Organise everything into a clean hierarchy without touching a config file.</p>
+                </div>
+                <div className="image-container">
+                  <YouTubeVideo ref={(el) => { videoRefs.current[6] = el; }} videoId="Q4AYpWcXzC8" />
+                </div>
               </div>
             </div>
-            <h3 className="ai-costs-heading">What It Costs, and What You Need</h3>
-            <p className="ai-costs-lead">
-              zStudio doesn't include an AI subscription. To have an AI build scenes for you, you either connect an AI tool you already pay for, or use the built-in AI Chat with credits.
-            </p>
-            <AICosts />
-            <p className="ai-ready-note">
-              <Link to="/ai">See how the AI setup works</Link>
-            </p>
           </section>
 
           {/* WHY A VISUAL EDITOR */}
@@ -357,82 +424,6 @@ scene.load(loadPath, () => {
 });`}
                   </code>
                 </pre>
-              </div>
-            </div>
-          </section>
-
-          {/* FEATURES */}
-          <section className="features">
-            <div className="features-header">
-              <h2>Everything You Can Do, Your AI Can Do Too</h2>
-              <p className="features-subtitle">A full visual editor for game scenes. Almost every tool below is also available to your AI over MCP.</p>
-            </div>
-            <div className="features-container">
-              <div className="feature-row">
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[0] = el; }} videoId="EypJ2ZRc4DI" />
-                </div>
-                <div className="feature-item" ref={(el) => { featureRefs.current[0] = el; }}>
-                  <div className="feature-number">01</div>
-                  <FiSmartphone className="feature-icon" />
-                  <h3>Responsive Layout Without Layout Code</h3>
-                  <p>An anchor system for relative positioning that adapts to any screen size. Portrait, landscape, desktop and every ad network size, set once by you or by your AI.</p>
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="feature-item" ref={(el) => { featureRefs.current[1] = el; }}>
-                  <div className="feature-number">02</div>
-                  <FiImage className="feature-icon" />
-                  <h3>AI Art, Right in the Scene</h3>
-                  <p>Text to image, image to image, and reskin in place. Use local models for free, or cloud models when you need transparent backgrounds. Final art or placeholders, your layout work never waits on an asset request.</p>
-                </div>
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[1] = el; }} videoId="liejf2lnoGM" />
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[2] = el; }} videoId="ZINRf2fgfQs" />
-                </div>
-                <div className="feature-item" ref={(el) => { featureRefs.current[2] = el; }}>
-                  <div className="feature-number">03</div>
-                  <FiLink className="feature-icon" />
-                  <h3>Pixi.js, Phaser & HTML Export</h3>
-                  <p>Export your scene as JSON and load it with our open-source zImporter in a few lines of code. Positions, anchors, animations and hierarchies are all preserved. No engine lock-in.</p>
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="feature-item" ref={(el) => { featureRefs.current[3] = el; }}>
-                  <div className="feature-number">04</div>
-                  <FiPlay className="feature-icon" />
-                  <h3>Visual Animation Timeline</h3>
-                  <p>Keyframes, easing, cue points and playback controls: the visual workflow you remember from Flash, rebuilt for modern web exports.</p>
-                </div>
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[3] = el; }} videoId="dkFNVOs7hSI" />
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[4] = el; }} videoId="URx6OGJs5dQ" />
-                </div>
-                <div className="feature-item" ref={(el) => { featureRefs.current[4] = el; }}>
-                  <div className="feature-number">05</div>
-                  <FiLayers className="feature-icon" />
-                  <h3>Rich Component Library</h3>
-                  <p>Sprites, buttons, text, bitmap fonts, particles, Spine animations, sliders and toggles: everything you need for interactive game UI and playable ads.</p>
-                </div>
-              </div>
-              <div className="feature-row">
-                <div className="feature-item" ref={(el) => { featureRefs.current[5] = el; }}>
-                  <div className="feature-number">06</div>
-                  <FiMousePointer className="feature-icon" />
-                  <h3>Drag-and-Drop Asset Management</h3>
-                  <p>Drag in images, sprite sheets, Spine animations and bitmap fonts, or import straight from Photoshop. Organise everything into a clean hierarchy without touching a config file.</p>
-                </div>
-                <div className="image-container">
-                  <YouTubeVideo ref={(el) => { videoRefs.current[5] = el; }} videoId="Q4AYpWcXzC8" />
-                </div>
               </div>
             </div>
           </section>
