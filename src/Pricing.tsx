@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SEO from './SEO';
@@ -6,7 +7,7 @@ import type { CreditPack } from './api';
 import { useAuth } from './AuthContext';
 import AICosts from './AICosts';
 import CreditPrices from './CreditPrices';
-import { EDITOR_REPO_URL, COMMERCIAL_LICENSE_URL } from './site';
+import { EDITOR_REPO_URL } from './site';
 
 // zStudio is open source with no plans. The only thing for sale is AI credits,
 // which pay for zStudio Cloud (in-app AI chat and cloud image models).
@@ -132,8 +133,8 @@ const Pricing: React.FC = () => {
         <p className="pricing-credits-subtitle">
           The AGPL-3.0 requires you to share your changes if you distribute a modified zStudio or offer it over a network.
           If that doesn't work for your company, a{' '}
-          <a href={COMMERCIAL_LICENSE_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#14b8a6' }}>commercial licence</a>{' '}
-          is available, with optional support and custom development. <a href="/contact" style={{ color: '#14b8a6' }}>Contact us</a>.
+          <Link to="/licensing" style={{ color: '#14b8a6' }}>commercial licence</Link>{' '}
+          is available, with optional support and custom development. <Link to="/licensing#licensing-contact" style={{ color: '#14b8a6' }}>Ask about one</Link>.
         </p>
       </div>
     </div>

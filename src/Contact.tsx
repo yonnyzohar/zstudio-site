@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import { CONTACT_EMAIL } from './site';
 
@@ -19,7 +20,7 @@ const Contact: React.FC = () => {
       <div className="contact-card">
         <h2>Email</h2>
         <a className="contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-        <p>Support, licensing, billing and partnership questions.</p>
+        <p>Support, licensing, billing and partnership questions. For a commercial licence, see <Link to="/licensing">Licensing</Link>.</p>
       </div>
     </div>
   );

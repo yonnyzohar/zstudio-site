@@ -6,6 +6,8 @@ export const CONTACT_EMAIL = 'jonzohar@zstudiosltd.com';
 export const EDITOR_REPO_URL = 'https://github.com/zStudiosLTD/zStudio';
 export const EDITOR_LICENSE_URL = `${EDITOR_REPO_URL}/blob/main/LICENSE`;
 export const COMMERCIAL_LICENSE_URL = `${EDITOR_REPO_URL}/blob/main/COMMERCIAL-LICENSE.md`;
+export const CLA_URL = `${EDITOR_REPO_URL}/blob/main/CLA.md`;
+export const TRADEMARKS_URL = `${EDITOR_REPO_URL}/blob/main/TRADEMARKS.md`;
 
 export interface ReleaseData {
   version: string;

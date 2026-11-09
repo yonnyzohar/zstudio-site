@@ -37,6 +37,7 @@ const ROUTES = [
   '/contact',
   '/about',
   '/pricing',
+  '/licensing',
   '/z-importer',
   '/z-importer/guide',
   '/z-importer/guide/getting-started',

@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Home from './Home';
 import AI from './AI';
 import Contact from './Contact';
+import Licensing from './Licensing';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
@@ -84,6 +85,7 @@ function App() {
               <Route path="/payment-cancelled" element={<PaymentCancelled />} />
               <Route path="/swf-importer" element={<SwfImporter />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/licensing" element={<Licensing />} />
               {/* <Route path="/release-notes" element={<ReleaseNotes />} />
               <Route path="/release-notes/:slug" element={<ReleaseNotePost />} /> */}
               <Route path="*" element={<Navigate to="/" />} />

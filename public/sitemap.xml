@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://zstudiosltd.com/licensing</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://zstudiosltd.com/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
