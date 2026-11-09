@@ -11,7 +11,9 @@ export interface User {
 }
 
 //'https://zstudiolicenseserver-staging.onrender.com';//
-const API_BASE = 'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
+// Set VITE_API_BASE to run against another server, e.g. staging:
+//   VITE_API_BASE=https://zstudiolicenseserver-staging-gx2p.onrender.com npm run dev
+const API_BASE: string = import.meta.env.VITE_API_BASE || 'https://zstudiolicenseserver.onrender.com';
 
 
 //login and sign up. -get jwt token and user id
