@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { apiGetCreditModels, apiGetCreditPacks } from './api';
-import type { CreditModelInfo, CreditPack } from './api';
+import { apiGetCreditModels, apiGetCreditPacks, apiGetChatModels } from './api';
+import type { CreditModelInfo, CreditPack, ChatModelInfo } from './api';
 
 interface AICostsProps {
   showPricingLink?: boolean;
@@ -12,10 +12,12 @@ interface AICostsProps {
 const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
   const [packs, setPacks] = useState<CreditPack[]>([]);
   const [models, setModels] = useState<CreditModelInfo[]>([]);
+  const [chatModels, setChatModels] = useState<ChatModelInfo[]>([]);
 
   useEffect(() => {
     apiGetCreditPacks().then(r => { if (r.success && r.packs) setPacks(r.packs); });
     apiGetCreditModels().then(r => { if (r.success && r.models) setModels(r.models); });
+    apiGetChatModels().then(r => { if (r.success && r.models) setChatModels(r.models); });
   }, []);
 
   const cheapestPack = packs.length ? packs.reduce((a, b) => (a.priceUsdCents <= b.priceUsdCents ? a : b)) : null;
@@ -27,6 +29,11 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
   const imageCost = minImage !== null && maxImage !== null
     ? `${minImage}–${maxImage} credits per image${centsPerCredit ? ` (about $${(minImage * centsPerCredit / 100).toFixed(2)}–$${(maxImage * centsPerCredit / 100).toFixed(2)})` : ''}`
     : 'Credits per image, depending on the model';
+
+  const stepCredits = chatModels.map(m => m.typicalStepCredits);
+  const chatCost = stepCredits.length
+    ? `About ${Math.min(...stepCredits)}–${Math.max(...stepCredits)} credits per AI step, depending on the model${centsPerCredit ? ` (about $${(Math.min(...stepCredits) * centsPerCredit / 100).toFixed(2)}–$${(Math.max(...stepCredits) * centsPerCredit / 100).toFixed(2)})` : ''}. A message usually takes a few steps.`
+    : null;
 
   const rows = [
     {
@@ -56,7 +63,7 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
     {
       feature: 'Built-in AI Chat',
       plan: 'Individual Pro and up',
-      cost: 'Credits per request, depending on the AI model you pick',
+      cost: chatCost ?? 'Credits per request, depending on the AI model you pick',
       needs: 'A paid plan plus credits. No outside AI subscription needed.',
     },
   ];

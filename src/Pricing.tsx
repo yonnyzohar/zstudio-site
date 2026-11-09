@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCreditPacks, apiPurchaseCreditsCheckout, apiGetCreditModels } from './api';
-import type { PriceInfo, CouponInfo, CreditPack, CreditModelInfo } from './api';
+import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCreditPacks, apiPurchaseCreditsCheckout } from './api';
+import type { PriceInfo, CouponInfo, CreditPack } from './api';
 import SEO from './SEO';
+import CreditPrices from './CreditPrices';
 import AICosts from './AICosts';
 import { CONTACT_EMAIL } from './site';
 
@@ -138,7 +139,6 @@ const Pricing: React.FC = () => {
   const [purchaseError, setPurchaseError] = useState('');
 
   const [creditPacks, setCreditPacks] = useState<CreditPack[]>([]);
-  const [creditModels, setCreditModels] = useState<CreditModelInfo[]>([]);
   const [loadingCredits, setLoadingCredits] = useState(true);
   const [purchasingCredit, setPurchasingCredit] = useState<string | null>(null);
 
@@ -161,9 +161,8 @@ const Pricing: React.FC = () => {
       })
       .catch(() => { /* keep placeholder */ });
 
-    Promise.all([apiGetCreditPacks(), apiGetCreditModels()]).then(([packsResult, modelsResult]) => {
+    apiGetCreditPacks().then((packsResult) => {
       if (packsResult.success && packsResult.packs) setCreditPacks(packsResult.packs);
-      if (modelsResult.success && modelsResult.models) setCreditModels(modelsResult.models);
       setLoadingCredits(false);
     });
   }, []);
@@ -416,30 +415,7 @@ const Pricing: React.FC = () => {
               ))}
             </div>
 
-            {creditModels.length > 0 && (() => {
-              const grouped = creditModels.reduce<Record<number, string[]>>((acc, m) => {
-                (acc[m.credits] = acc[m.credits] || []).push(m.name);
-                return acc;
-              }, {});
-              const sortedCosts = Object.keys(grouped).map(Number).sort((a, b) => a - b);
-              const costClasses: Record<number, string> = {};
-              sortedCosts.forEach((cost, i) => { costClasses[cost] = `cost-${i + 1}`; });
-              return (
-                <div className="credits-model-info">
-                  <h3>Credit costs per model</h3>
-                  <ul>
-                    {sortedCosts.map(cost => (
-                      <li key={cost}>
-                        <span className={`cost-badge ${costClasses[cost]}`}>
-                          {cost} {cost === 1 ? 'credit' : 'credits'}
-                        </span>
-                        {grouped[cost].join(' · ')}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })()}
+            <CreditPrices />
           </>
         )}
       </div>

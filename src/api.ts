@@ -43,7 +43,9 @@ export interface User {
 }
 
 //'https://zstudiolicenseserver-staging.onrender.com';//
-const API_BASE = 'https://zstudiolicenseserver.onrender.com';//'http://127.0.0.1:4000'; | 'https://zstudiolicenseserver.onrender.com'
+// Set VITE_API_BASE to run against another server, e.g. staging:
+//   VITE_API_BASE=https://zstudiolicenseserver-staging-gx2p.onrender.com npm run dev
+const API_BASE: string = import.meta.env.VITE_API_BASE || 'https://zstudiolicenseserver.onrender.com';
 
 
 //login and sign up. -get jwt token and user id
@@ -318,7 +320,26 @@ export const apiGetCreditPacks = async (): Promise<{ success: boolean; packs?: C
     }
 };
 
-export const apiGetCreditModels = async (): Promise<{ success: boolean; models?: CreditModelInfo[]; error?: string }> => {
+export interface ChatModelInfo {
+    modelId: string;
+    label: string;
+    provider: string;
+    inputCreditsPerMillion: number;
+    outputCreditsPerMillion: number;
+    typicalStepCredits: number;
+}
+
+export const apiGetChatModels = async (): Promise<{ success: boolean; models?: ChatModelInfo[]; defaultModelId?: string; error?: string }> => {
+    try {
+        const response = await fetch(`${API_BASE}/mcp-chat/models`);
+        return await response.json();
+    } catch (error) {
+        console.error('Get chat models error:', error);
+        return { success: false, error: 'Network error' };
+    }
+};
+
+export const apiGetCreditModels = async (): Promise<{ success: boolean; models?: CreditModelInfo[]; transparentBackgroundCredits?: number; error?: string }> => {
     try {
         const response = await fetch(`${API_BASE}/credits/models`);
         return await response.json();

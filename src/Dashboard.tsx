@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import SEO from './SEO';
+import CreditPrices from './CreditPrices';
 import { useAuth } from './AuthContext';
 import {
   apiGetLicenses,
@@ -12,12 +13,11 @@ import {
   apiGetCreditsBalance,
   apiGetCreditPacks,
   apiPurchaseCreditsCheckout,
-  apiGetCreditModels,
   apiDeleteAccount,
   apiGetPrices,
   apiCreateCheckoutSession,
 } from './api';
-import type { License, CreditPack, CreditModelInfo, PriceInfo } from './api';
+import type { License, CreditPack, PriceInfo } from './api';
 import { PLANS } from './Pricing'
 
 // ─── Pricing helpers (mirrored from Pricing.tsx) ────────────────────────────
@@ -338,7 +338,6 @@ const Dashboard: React.FC = () => {
   const [credits, setCredits] = useState<number | null>(null);
   const [creditsError, setCreditsError] = useState(false);
   const [packs, setPacks] = useState<CreditPack[]>([]);
-  const [models, setModels] = useState<CreditModelInfo[]>([]);
   const [creditsLoading, setCreditsLoading] = useState(true);
   const [purchasing, setPurchasing] = useState<string | null>(null);
 
@@ -366,16 +365,14 @@ const Dashboard: React.FC = () => {
   const loadCredits = useCallback(async () => {
     setCreditsLoading(true);
     setCreditsError(false);
-    const [balanceResult, packsResult, modelsResult] = await Promise.all([
+    const [balanceResult, packsResult] = await Promise.all([
       apiGetCreditsBalance(),
       apiGetCreditPacks(),
-      apiGetCreditModels(),
     ]);
     if (balanceResult.unauthorized) { handleUnauthorized(); return; }
     if (balanceResult.success) setCredits(balanceResult.credits ?? 0);
     else setCreditsError(true);
     if (packsResult.success && packsResult.packs) setPacks(packsResult.packs);
-    if (modelsResult.success && modelsResult.models) setModels(modelsResult.models);
     setCreditsLoading(false);
   }, [handleUnauthorized]);
 
@@ -779,30 +776,7 @@ const Dashboard: React.FC = () => {
                 ))}
               </div>
 
-              {models.length > 0 && (() => {
-                const grouped = models.reduce<Record<number, string[]>>((acc, m) => {
-                  (acc[m.credits] = acc[m.credits] || []).push(m.name);
-                  return acc;
-                }, {});
-                const sortedCosts = Object.keys(grouped).map(Number).sort((a, b) => a - b);
-                const costClasses: Record<number, string> = {};
-                sortedCosts.forEach((cost, i) => { costClasses[cost] = `cost-${i + 1}`; });
-                return (
-                  <div className="credits-model-info">
-                    <h3>Credit costs per model</h3>
-                    <ul>
-                      {sortedCosts.map(cost => (
-                        <li key={cost}>
-                          <span className={`cost-badge ${costClasses[cost]}`}>
-                            {cost} {cost === 1 ? 'credit' : 'credits'}
-                          </span>
-                          {grouped[cost].join(' · ')}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })()}
+              <CreditPrices />
             </div>
           </>
         )}
