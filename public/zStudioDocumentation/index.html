@@ -444,7 +444,7 @@
                 you are currently working on. will open a browser window with the current scene.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Save</span><span>&nbsp;-&gt; either saves in place or prompts
                 the user to select a directory in the file system to save in. Saved file will always be called
-            </span><span class="c36">placements.json</span><span class="c1">. </span><span class="paid-badge">PAID</span><span class="c1">&nbsp;Exports on the free (Community) tier include a watermark on all images. A paid subscription removes the watermark.</span></li>
+            </span><span class="c36">placements.json</span><span class="c1">. Exports never include a watermark.</span></li>
     </ul>
     <p class="c4"><span class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All images in the project will be
             copied to an images folder next to placements.json</span></p>
@@ -475,7 +475,7 @@
         <li class="c4 c13 li-bullet-0"><span class="c14">Import Pixi Particles Folder</span><span class="c1">&nbsp;-&gt;
                 Same as above</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Import Bitmap Font </span><span>-&gt; Same as above</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Import Photoshop Export </span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt; Same as
+        <li class="c4 c13 li-bullet-0"><span class="c14">Import Photoshop Export </span><span class="c1">-&gt; Same as
                 above</span></li>
     </ul>
     <p class="c2"><span class="c7"></span></p>
@@ -521,10 +521,10 @@
         <li class="c4 c13 li-bullet-0"><span class="c14">Delete -&gt; </span><span class="c1">also Backspace key.
                 Deletes selected assets. If this is the last instance of this asset on stage, you will get a
                 warning.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Copy Asset between Scenes</span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt;
+        <li class="c4 c13 li-bullet-0"><span class="c14">Copy Asset between Scenes</span><span class="c1">-&gt;
                 when copying assets between scenes we need a different process to the regular copy (basically a minified
                 export).</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Paste Asset between Scenes</span><span class="paid-badge">PAID</span><span class="c1">&nbsp;-&gt;
+        <li class="c4 c13 li-bullet-0"><span class="c14">Paste Asset between Scenes</span><span class="c1">-&gt;
                 pastes in a copied asset from a different scene&hellip;</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Reset Pivot on deselect </span><span class="c1">-&gt; When
                 selecting multiple assets, you can set them all to have a shared pivot point, which allows rotating them
@@ -1170,11 +1170,11 @@
     <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="free-badge">FREE</span></span></h2>
     <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool (every plan, including Community): </span><span class="c1">Connect any AI tool that supports MCP. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat (paid plans): </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It uses zStudio credits and requires no external setup &mdash; see the AI Panel section below for details.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool (free): </span><span class="c1">Connect any AI tool that supports MCP. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat (credits): </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It needs a free zStudio account and uses zStudio credits, with no external setup &mdash; see the AI Panel section below for details.</span></li>
     </ul>
     <p class="c4"><span class="c1">Through MCP the AI can do almost anything you can do in the editor: create and arrange containers, import images, Spine animations and particles, set positions for portrait and landscape, anchor elements, edit text, build buttons and other components, animate on the timeline, generate images, and save or export the scene. It reads zStudio's built-in guides as it works, and you can add your own &mdash; see <a class="c26" href="#h.skill-libraries">AI Skill Libraries</a> below.</span></p>
-    <p class="c4"><span class="c36">On the free (Community) tier you can connect your own AI tool, but the built-in chat is not available. Image generation over MCP uses only your <a class="c26" href="#h.local-image-models">local image models</a> on Community; cloud models need a paid plan.</span></p>
+    <p class="c4"><span class="c36">Without an account you can connect your own AI tool, and image generation over MCP uses your <a class="c26" href="#h.local-image-models">local image models</a>. The built-in chat and cloud image models need a free zStudio account and credits.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.skill-libraries"><span class="c10">AI Skill Libraries <span class="free-badge">FREE</span></span></h3>
     <p class="c4"><span class="c1">Skills teach the AI your own conventions &mdash; for example, the container hierarchy your studio uses for a slot machine, how you name templates, or how your popups are built. zStudio already gives the AI built-in skills for its own features; your libraries are added to that list, and the AI loads only the skills it needs for the current task.</span></p>
@@ -1206,7 +1206,7 @@ description: The container hierarchy we use for slot machines. Load before build
     <p class="c2"><span class="c1"></span></p>
     <p class="c4"><span class="c1">The AI panel has two distinct capabilities: <span class="c14">scene generation via chat</span> and <span class="c14">image generation</span>.</span></p>
     <p class="c2"><span class="c1"></span></p>
-    <h3 class="c22" id="h.ai-chat"><span class="c10">AI Chat (Scene Editing) <span class="paid-badge">PAID</span></span></h3>
+    <h3 class="c22" id="h.ai-chat"><span class="c10">AI Chat (Scene Editing) <span class="paid-badge">CREDITS</span></span></h3>
     <p class="c4"><span class="c1">The built-in chat interface lets you create, modify, and rearrange your entire scene using natural language. You can ask it to import assets, set positions, create animations, wrap elements, rename things, and more &mdash; all without touching the UI manually.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <p class="c4"><span>A <span class="c14">model selector</span> at the top of the chat lets you choose between three AI models:</span></p>
@@ -1234,11 +1234,11 @@ description: The container hierarchy we use for slot machines. Load before build
                             href="https://www.google.com/url?q=https://zstudiosltd.com/login&amp;sa=D&amp;source=editors&amp;ust=1773366273085926&amp;usg=AOvVaw2wrwTd_FEJuL1UomPLhx0L">https://zstudiosltd.com/login</a></span>
                 </p>
                 <p class="c9"><span class="c1"></span></p>
-                <p class="c16"><span class="c1">Once you sign up you can purchase credit packs that will be used to pay
-                        for the AI image generation. Cloud image generation is included with the Individual Pro,
-                        Studio Team and Enterprise plans.</span></p>
+                <p class="c16"><span class="c1">Once you sign up (free) you can purchase credit packs that will be used to pay
+                        for cloud AI image generation. Each image costs credits, depending on the model; see the
+                        <a class="c26" href="https://zstudiosltd.com/pricing">Pricing page</a> for current prices.</span></p>
                 <p class="c9"><span class="c1"></span></p>
-                <p class="c16"><span class="c1">On any plan, including Community, you can instead use models that
+                <p class="c16"><span class="c1">Alternatively, you can use models that
                         run on your own computer, with no sign-up or credits &mdash; see <a class="c26"
                             href="#h.local-image-models">Local Image Models</a> below.</span></p>
                 <p class="c9"><span class="c1"></span></p>
@@ -1269,7 +1269,7 @@ description: The container hierarchy we use for slot machines. Load before build
     </table>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.local-image-models"><span class="c10">Local Image Models <span class="free-badge">FREE</span></span></h3>
-    <p class="c4"><span class="c1">You can generate images on your own computer with models you download yourself. Local models need no account, credits or internet connection, and are available on every plan, including Community.</span></p>
+    <p class="c4"><span class="c1">You can generate images on your own computer with models you download yourself. Local models need no account, credits or internet connection, and are free for everyone.</span></p>
     <p class="c4"><span class="c1">Open <span class="c14">Panels &rarr; Local Image Models&hellip;</span>, click <span class="c14">Add Model&hellip;</span> and pick the model file. zStudio guesses the model family and looks for the other files it needs. When a model shows <span class="c14">Ready</span>, it appears in the AI Image panel's model list, where you use it like any other model. Each model also has a <span class="c14">Test</span> button.</span></p>
     <ul class="c18 lst-kix_ai-models-0 start">
         <li class="c4 c13 li-bullet-0"><span class="c14">Supported models: </span><span class="c1">Stable Diffusion 1.x / 2.x and XL checkpoints, FLUX, Z-Image and Qwen-Image, as <code>.safetensors</code> or <code>.gguf</code> files. Download them from Hugging Face or Civitai.</span></li>
