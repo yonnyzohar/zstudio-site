@@ -14,6 +14,7 @@ zStudio is built by zStudios Ltd. It targets game developers, UI/UX artists and 
 - [zImporter Guide](https://zstudiosltd.com/z-importer/guide): Usage tutorials with examples for Pixi.js, Phaser and HTML: loading scenes, buttons, toggles, sliders, scrollbars, states, text, animation, spawning, and moving assets without breaking the responsive layout.
 - [zImporter AI skills](https://zstudiosltd.com/z-importer/guide/ai-skills): Every importer package includes skills in its skills/ folder that teach AI tools to use it correctly. Add the folder in zStudio under Help → AI Skill Libraries, or point an AI tool at node_modules/<package>/skills/.
 - [SWF Importer](https://zstudiosltd.com/swf-importer): Tool for converting legacy Adobe Animate / Flash SWF assets into zStudio scenes.
+- [Blog / Release Notes](https://zstudiosltd.com/release-notes): Monthly development history of zStudio, from the 2018 Flash exporter to the latest release.
 - [Demos](https://zstudiosltd.com/demos): Interactive game demos built with zStudio and exported to Pixi.js/Phaser, including an interactive storybook and a space shooter.
 
 ## Documentation & Learning

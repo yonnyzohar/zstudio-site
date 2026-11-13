@@ -16,7 +16,7 @@
 
 import puppeteer from 'puppeteer';
 import { spawn } from 'child_process';
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -25,6 +25,11 @@ const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 const PORT = 4174; // use 4174 to avoid clashing with a running dev server
 const BASE_URL = `http://localhost:${PORT}`;
+
+/** Blog post routes, read from the slugs in src/releaseNotesData.ts. */
+const RELEASE_NOTE_ROUTES = [
+  ...readFileSync(join(ROOT, 'src', 'releaseNotesData.ts'), 'utf8').matchAll(/slug:\s*'([^']+)'/g),
+].map((m) => `/release-notes/${m[1]}`);
 
 /** Marketing routes to pre-render (skip auth / private pages).
  *
@@ -58,6 +63,8 @@ const ROUTES = [
   '/demos',
   '/terms',
   '/privacy',
+  '/release-notes',
+  ...RELEASE_NOTE_ROUTES,
   '/', // home last — must stay at the end (see comment above)
 ];
 

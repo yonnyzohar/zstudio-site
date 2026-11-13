@@ -1,0 +1,148 @@
+diff --git a/public/sitemap.xml b/public/sitemap.xml
+index 6ee9b18..68f01d9 100644
+--- a/public/sitemap.xml
++++ b/public/sitemap.xml
+@@ -140,6 +140,11 @@
+     <changefreq>yearly</changefreq>
+     <priority>0.4</priority>
+   </url>
++  <url>
++    <loc>https://zstudiosltd.com/release-notes/september-2024-the-prototype</loc>
++    <changefreq>yearly</changefreq>
++    <priority>0.4</priority>
++  </url>
+   <url>
+     <loc>https://zstudiosltd.com/release-notes/february-2025-the-first-lines</loc>
+     <changefreq>yearly</changefreq>
+diff --git a/src/releaseNotesData.ts b/src/releaseNotesData.ts
+index 50743ea..58060da 100644
+--- a/src/releaseNotesData.ts
++++ b/src/releaseNotesData.ts
+@@ -25,6 +25,25 @@ export const releaseNotes: ReleasePost[] = [
+       'Rewritten as a TypeScript project in February 2025',
+     ],
+   },
++  {
++    slug: 'september-2024-the-prototype',
++    title: 'The Prototype',
++    date: 'September 2024',
++    tag: '',
++    body: "Before the TypeScript editor took shape there was a prototype. On 19 September 2024 the first version of what would become zStudio was uploaded to its repository in a single commit: 24 files and around 6,300 lines of code. It was already an Electron app drawing its whole interface with PIXI.js 7.4.2, the same foundations zStudio runs on today. The stage had a grid that you could pan by dragging and zoom with the mouse wheel. You dragged images in from disk to place them as sprites, then moved, resized and rotated them, with a selection box and anchor marker drawn around the selected asset. Containers could be created and drilled into, and a path bar along the top showed where you were in the hierarchy. Three draggable panels sat over the canvas: a Hierarchy panel listing the scene tree, a Properties panel with fields for x, y, width, height, rotation, scale, alpha and instance name, and a Timeline panel with a draggable playhead and keyframes for each asset. The File menu could save the scene as JSON and open it again. The controller/view split that still organises zStudio's code, with a BaseController wrapping each PIXI container and Sprite and Container controllers built on top, was there from the start, as was the global Model. The project already listed the Spine, particle emitter and drop shadow libraries, though none of them were wired up yet. Work then paused until February 2025.",
++    highlights: [
++      'First upload on 19 September 2024: 24 files, around 6,300 lines',
++      'Electron + TypeScript + PIXI.js 7.4.2 from day one',
++      'Stage with pannable, zoomable grid',
++      'Drag images from disk onto the stage as sprites',
++      'Move, resize and rotate with on-stage selection handles',
++      'Containers with drill-down and a hierarchy path bar',
++      'Hierarchy, Properties and Timeline panels',
++      'Per-asset keyframes with a draggable playhead',
++      'Save and open scenes as JSON',
++      'BaseController / SpriteController / ContainerController architecture',
++    ],
++  },
+   {
+     slug: 'february-2025-the-first-lines',
+     title: 'The First Lines',
+@@ -279,13 +298,12 @@ export const releaseNotes: ReleasePost[] = [
+     title: 'v2.0 — Licences, Kinematics & Example Scenes',
+     date: 'April 2026',
+     tag: 'v2.0.2',
+-    body: "April was the v2.0 major release. The headline change was a complete licensing and authentication overhaul: a LicenseFeaturesManager controls which features are enabled based on the user's plan (Community, Pro, etc.). Spine importer, Photoshop importer, and other premium features gate behind licence checks. Watermarking landed for Community-tier exports — PNG exports get a subtle watermark when you're on the free plan. Example scenes (slot machine, space shooter, wild west) were added to the welcome screen so new users have something to explore immediately. The v2.0 release also added direct links to all four importer packages from the zStudio menu. The importers themselves received maintenance and refactoring passes across zImporter_PIXI7, zImporter_Phaser, and zImporter_PIXI8.",
++    body: "April was the v2.0 major release. The headline change was a complete licensing and authentication overhaul: a LicenseFeaturesManager controls which features are enabled based on the user's plan (Community, Pro, etc.). Spine importer, Photoshop importer, and other premium features gate behind licence checks. Watermarking landed for Community-tier exports — PNG exports get a subtle watermark when you're on the free plan. Example scenes (robot, space shooter, wild west) were added to the welcome screen so new users have something to explore immediately. The v2.0 release also added direct links to all four importer packages from the zStudio menu. The importers themselves received maintenance and refactoring passes across zImporter_PIXI7, zImporter_Phaser, and zImporter_PIXI8.",
+     highlights: [
+       'v2.0 major release',
+       'LicenseFeaturesManager — per-plan feature gating',
+       'Watermark on Community-tier PNG exports',
+       'Upgrade CTA modal',
+-      'Design partner authentication flow',
+       'Example scenes on welcome screen',
+       'zImporter menu links (Phaser, Pixi 7/8, HTML)',
+       'Production build hardening (obfuscation, bytenode)',
+@@ -335,12 +353,20 @@ export const releaseNotes: ReleasePost[] = [
+     title: 'Animated Sprites & Scene Validation',
+     date: 'July 2026',
+     tag: 'v2.3.8',
+-    body: "July was the busiest month of the year so far, with eighteen releases from v2.2.1 to v2.3.8. The headline feature was the Animated Sprite: a new asset type that plays a sequence of frame images at a fixed frame rate, a lightweight alternative to Spine for walk cycles, explosions and other sprite-sheet style animations. You can create one from Import → Import Animated Sprite, or simply drag in a folder of numbered frames (frame_01.png, frame_02.png…) and zStudio detects it automatically and imports the frames in order. The Attributes panel shows a frame grid with play and stop, FPS (12 by default), adding, removing and reordering frames, looping, and play-on-start. Scene validation also arrived: zStudio can write a snapshot of the scene hierarchy so your code can check that the containers it references still exist after a designer edits the scene. Exports were made watermark-free, and new video tutorials covered animated sprites, scene validation and reloading every image in the project folder. Outside the editor, zStudio was listed on Launchstag and tools.cafe, and the website gained an llms.txt file so AI assistants can understand what zStudio is.",
++    body: "July was the busiest month of the year so far, with eighteen releases from v2.2.1 to v2.3.8. The headline feature was the Animated Sprite: a new asset type that plays a sequence of frame images at a fixed frame rate, a lightweight alternative to Spine for walk cycles, explosions and other sprite-sheet style animations. You can create one from Import → Import Animated Sprite, or simply drag in a folder of numbered frames (frame_01.png, frame_02.png…) and zStudio detects it automatically and imports the frames in order. The Attributes panel shows a frame grid with play and stop, FPS (12 by default), adding, removing and reordering frames, looping, and play-on-start. Scene validation also arrived: zStudio can write a snapshot of the scene hierarchy so your code can check that the containers it references still exist after a designer edits the scene, and by the end of the month it also flagged missing Spine animations and skins. The Hierarchy panel learnt to reorder: drop a layer just before or after a sibling to move it, not only inside another container, and undo it if you change your mind. Nine-slice borders can now be set in the Sprite inspector, including by dragging the edges, and the change carries across every instance of the template. The Particle inspector gained spawn shapes (rectangle or ring), move paths and blend modes, and older particle configs are upgraded to the current format when they load. Import → Reload All Images refreshes every image from disk, so edits made in another app show up without reopening the scene. zStudio also started reporting crashes automatically, and asks you to sign in again when your session expires instead of failing quietly. Exports were made watermark-free, and new video tutorials covered animated sprites, scene validation and reloading every image in the project folder. Outside the editor, zStudio was listed on Launchstag and tools.cafe, and the website gained an llms.txt file so AI assistants can understand what zStudio is.",
+     highlights: [
+       'Animated Sprite asset: frame sequences with FPS, loop and play-on-start',
+       'Drag in a folder of numbered frames to create an animated sprite automatically',
+       'Frame grid editor: preview, add, remove and reorder frames',
+       'Scene validation: hierarchy snapshot for checking scenes against your code',
++      'Validation flags missing Spine animations and skins',
++      'Hierarchy panel: drop before or after a sibling to reorder, with undo',
++      'Nine-slice borders editable in the Sprite inspector, with draggable edges',
++      'Particle inspector: spawn shapes, move paths and blend modes',
++      'Legacy particle configs upgraded automatically',
++      'Reload All Images from disk',
++      'Automatic crash reporting',
++      'Re-login prompt when your session expires',
+       'Watermark removed from exports',
+       'New tutorials: Animated Sprites, Scene Validation, Reloading project images',
+       'Listed on Launchstag and tools.cafe',
+@@ -353,10 +379,20 @@ export const releaseNotes: ReleasePost[] = [
+     title: 'Steady Releases',
+     date: 'August–September 2026',
+     tag: 'v2.4.8',
+-    body: "August and September were quieter months on the surface, but releases kept shipping: ten of them, from v2.3.9 on August 7 to v2.4.8 on September 19, focused on fixes and refinements to the features introduced over the summer. The website's pre-rendering was tuned so search engines see the full content of every page. v2.4.8 also turned out to be the last Windows build for a while; Windows releases resumed in November.",
++    body: "August and September were quieter months on the surface, but releases kept shipping: ten of them, from v2.3.9 on 7 August to v2.4.8 on 19 September. The biggest change was Redo. Undo had been in zStudio since early 2025, but now Cmd/Ctrl+Shift+Z, Cmd/Ctrl+Y or Edit → Redo brings back the moves, transforms, deletes and pastes you have just undone, and undo now covers orientation and alpha changes too. Drilling into a container now tints the stage background a little for each level, so you can tell at a glance how deep you are, and holding Space shows the hand cursor straight away rather than only once you start panning. zStudio also got better at stopping mistakes before they happen. You can no longer add a second asset inside a container that already holds an image, particle or Spine. Pasting scene data whose templates already exist in your library is refused with a message instead of overwriting them, and a tooltip confirms when you copy an asset's transform or text style. Newly imported Spine characters now appear in a visible pose instead of an empty setup pose, and Spine files without an atlas, broken particle JSON and unreadable folders are reported clearly instead of stopping a load. Crash reporting was refined so that an error repeating many times a second is only reported once. Exports are now watermark-free by default, including when you are offline or signed out. The website's pre-rendering was tuned so search engines see the full content of every page. v2.4.8 also turned out to be the last Windows build for a while; Windows releases resumed in November.",
+     highlights: [
+       'Ten releases: v2.3.9 to v2.4.8',
+-      'Fixes and refinements across the editor',
++      'Redo: Cmd/Ctrl+Shift+Z, Cmd/Ctrl+Y or Edit → Redo',
++      'Undo now covers orientation and alpha changes',
++      'Stage background tinted by drill-down depth',
++      'Hand cursor as soon as Space is held',
++      'Containers holding an image, particle or Spine can no longer take extra children',
++      'Pasting templates that already exist in the library is refused',
++      'Tooltip confirmation when copying transform or text-style properties',
++      'Newly imported Spine characters start in a visible pose',
++      'Clearer errors for Spine without an atlas, invalid particle JSON and unreadable folders',
++      'Repeated errors reported once by the crash reporter',
++      'Exports watermark-free by default',
+       'Website pre-rendering improvements for search engines',
+     ],
+   },
+@@ -365,7 +401,7 @@ export const releaseNotes: ReleasePost[] = [
+     title: 'Bring Your Own AI: Free MCP, Skills & Local Image Models',
+     date: 'October 2026',
+     tag: 'v2.5.3',
+-    body: "October opened the v2.5 series and changed how AI works in zStudio. The MCP server became free on every plan, including Community: connect an AI tool you already use, such as Claude (desktop or Claude Code), Antigravity, Cursor, VS Code, Windsurf or Gemini CLI, and it can build scenes in the editor on your own subscription without using zStudio credits. Help → Connect AI (MCP) shows the server address and a ready-to-paste setup snippet for each tool. AI Skill Libraries let you teach the AI your studio's own conventions, such as how you structure popups or name templates. Add a folder of Markdown files, a single skill file, or a starter library to edit; the AI loads only the skills it needs for each task. If you already have scenes, the dialog includes a prompt that has an AI tool study them and write the skill files for you. Local Image Models brought image generation to your own computer, free and with no account, credits or internet connection. Stable Diffusion 1.x, 2.x and XL, FLUX, Z-Image and Qwen-Image models load from .safetensors or .gguf files, multi-part models in the ComfyUI folder layout are found automatically, and text-to-image, image-to-image and in-place reskin all work. AI tools connected over MCP can use your local models too. The website gained a dedicated AI page explaining the whole setup.",
++    body: "October opened the v2.5 series and changed how AI works in zStudio. The MCP server became free on every plan, including Community: connect an AI tool you already use, such as Claude (desktop or Claude Code), Antigravity, Cursor, VS Code, Windsurf or Gemini CLI, and it can build scenes in the editor on your own subscription without using zStudio credits. Help → Connect AI (MCP) shows the server address and a ready-to-paste setup snippet for each tool. AI Skill Libraries let you teach the AI your studio's own conventions, such as how you structure popups or name templates. Add a folder of Markdown files, a single skill file, or a starter library to edit; the AI loads only the skills it needs for each task. If you already have scenes, the dialog includes a prompt that has an AI tool study them and write the skill files for you. Local Image Models brought image generation to your own computer, free and with no account, credits or internet connection. Stable Diffusion 1.x, 2.x and XL, FLUX, Z-Image and Qwen-Image models load from .safetensors or .gguf files, multi-part models in the ComfyUI folder layout are found automatically, and text-to-image, image-to-image and in-place reskin all work. AI tools connected over MCP can use your local models too. The MCP toolset itself grew: an AI can now duplicate a container as a new template, place new instances of existing templates and save the scene, and less common operations are reachable through a single run_action tool that the AI can look up with describe_actions. If the default MCP port is already taken, zStudio picks the next free one. Renaming a template now reliably keeps its children's animations, even when a child's name contains the template's name. The website gained a dedicated AI page explaining the whole setup.",
+     highlights: [
+       'MCP server free on every plan, including Community',
+       'Connect AI (MCP) dialog with setup snippets for popular AI tools',
+@@ -374,6 +410,9 @@ export const releaseNotes: ReleasePost[] = [
+       'Local Image Models: SD 1.x/2.x/XL, FLUX, Z-Image, Qwen-Image',
+       'Text-to-image, image-to-image and in-place reskin with local models',
+       'Local models available to MCP-connected AI tools',
++      'New MCP tools: duplicate_template, instantiate_template, save_scene, run_action',
++      'MCP server falls back to the next free port',
++      'Renaming a template keeps its children\'s animations',
+       'New AI page on the website',
+       'Releases v2.5.0 to v2.5.3',
+     ],
+@@ -383,13 +422,21 @@ export const releaseNotes: ReleasePost[] = [
+     title: 'Free for Everyone, AI Skills in Every Importer & Discord',
+     date: 'November 2026',
+     tag: 'v2.6.1',
+-    body: "November made zStudio free. There are no plans or tiers any more: the full editor, PSD import, scene validation, copying between scenes, the MCP server, skill libraries and local image models are all free to download and use, with no account and no watermark. The only thing for sale is AI credits, which pay for zStudio Cloud: the built-in AI Chat and cloud image models with transparent backgrounds. Credits never expire. In the built-in AI Chat you can now choose the model, and you pay per step for what each step actually uses; current prices are shown live on the Pricing page. Windows builds are back, starting with v2.5.8, so all three platforms are on the same version again. On the runtime side, every zImporter package now ships AI skills in its skills/ folder, covering setup, components, responsive layout, and animation and spawning, so AI coding tools write correct zImporter code. Add the folder in zStudio under Help → AI Skill Libraries, or point any AI tool at node_modules/<package>/skills/. The website gained a full zImporter Guide with examples for Pixi.js, Phaser and HTML. The Pixi.js and Phaser importers dropped their unused GSAP dependency for smaller installs, zImporter_PIXI7 fixed the ZNineSlice parameter order, and zImporter_PIXI8 now carries an MIT licence. Finally, zStudio has a community: the new Discord server is linked from the website and from every importer's README.",
++    body: "November made zStudio free. There are no plans or tiers any more: the full editor, PSD import, scene validation, copying between scenes, the MCP server, skill libraries and local image models are all free to download and use, with no account and no watermark. The only thing for sale is AI credits, which pay for zStudio Cloud: the built-in AI Chat and cloud image models with transparent backgrounds. Credits never expire. In the built-in AI Chat you can now choose the model, and you pay per step for what each step actually uses; current prices are shown live on the Pricing page. Windows builds are back, starting with v2.5.8, so all three platforms are on the same version again. The editor gained User Components: under Components → Add/Remove… you can add your own scenes, a scene folder or a folder of scenes to the Components menu, and pasted components get unique template and instance names so they never clash with what is already in your scene. Recent scenes can be removed from the welcome screen, and new buttons open an image's file, the scene's folder or a Spine JSON file in Finder or Explorer. Grid lines now adjust their colour to stand out against whatever stage background you choose. AI tools connected over MCP can capture a small image of the stage to check their work, find where a nested element really ends up on screen, and name images and Spines as they import them, and the AI Chat and image model lists show live credit prices. The editor dropped GSAP in favour of its own lightweight tween engine, the space shooter example got new artwork, and the space shooter and wild west examples now use the Lilita One and Nunito fonts. On the runtime side, every zImporter package now ships AI skills in its skills/ folder, covering setup, components, responsive layout, and animation and spawning, so AI coding tools write correct zImporter code. Add the folder in zStudio under Help → AI Skill Libraries, or point any AI tool at node_modules/<package>/skills/. The website gained a full zImporter Guide with examples for Pixi.js, Phaser and HTML. The Pixi.js and Phaser importers dropped their unused GSAP dependency for smaller installs, zImporter_PIXI7 fixed the ZNineSlice parameter order, and zImporter_PIXI8 now carries an MIT licence. Finally, zStudio has a community: the new Discord server is linked from the website and from every importer's README.",
+     highlights: [
+       'zStudio is free: no plans, no tiers, no account needed',
+       'AI credits (never expire) are the only purchase, for AI Chat and cloud images',
+       'Choose your model in the built-in AI Chat; pay per step',
+       'Live AI prices on the Pricing page',
+       'Windows builds resume from v2.5.8',
++      'User Components: add your own scenes to the Components menu',
++      'Remove scenes from the recent list on the welcome screen',
++      'Show image, scene folder and Spine JSON in Finder / Explorer',
++      'Grid lines adapt to the stage background colour',
++      'New MCP tools: capture_scene and get_global_position; naming options on import',
++      'Live credit prices in the AI Chat and image model lists',
++      'Editor animations moved from GSAP to a built-in tween engine',
++      'Refreshed example scenes: new space shooter artwork, Lilita One and Nunito fonts',
+       'AI skills shipped in every zImporter package',
+       'zImporter Guide on the website for Pixi.js, Phaser and HTML',
+       'GSAP dependency removed from the Pixi.js and Phaser importers',
