@@ -7,7 +7,7 @@ interface AICostsProps {
   showPricingLink?: boolean;
 }
 
-// Spells out what each AI feature needs (plan, cost, outside subscription,
+// Spells out what each AI feature needs (access, cost, outside subscription,
 // hardware) so nobody is surprised after installing. Credit figures are live.
 const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
   const [packs, setPacks] = useState<CreditPack[]>([]);
@@ -33,38 +33,38 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
   const stepCredits = chatModels.map(m => m.typicalStepCredits);
   const chatCost = stepCredits.length
     ? `About ${Math.min(...stepCredits)}–${Math.max(...stepCredits)} credits per AI step, depending on the model${centsPerCredit ? ` (about $${(Math.min(...stepCredits) * centsPerCredit / 100).toFixed(2)}–$${(Math.max(...stepCredits) * centsPerCredit / 100).toFixed(2)})` : ''}. A message usually takes a few steps.`
-    : null;
+    : 'Credits per request, depending on the AI model you pick';
 
   const rows = [
     {
       feature: 'Connect your own AI (MCP)',
-      plan: 'Every plan',
+      plan: 'Free',
       cost: 'Free in zStudio. You pay your AI tool.',
       needs: 'An AI tool that supports MCP, on its own subscription. zStudio does not include one.',
     },
     {
       feature: 'Custom skills',
-      plan: 'Every plan',
+      plan: 'Free',
       cost: 'Free',
       needs: 'Used by your connected AI tool or the built-in AI Chat.',
     },
     {
       feature: 'Local image models',
-      plan: 'Every plan',
+      plan: 'Free',
       cost: 'Free',
       needs: 'Model files you download yourself. SD 1.5 runs on most machines; SDXL, FLUX and Z-Image want 12–24 GB of memory. Images come out without transparency.',
     },
     {
       feature: 'Cloud image models',
-      plan: 'Individual Pro and up',
+      plan: 'zStudio account + credits',
       cost: imageCost,
-      needs: 'A paid plan plus credits, bought separately. Supports transparent backgrounds.',
+      needs: 'A free zStudio account and credits. Supports transparent backgrounds.',
     },
     {
       feature: 'Built-in AI Chat',
-      plan: 'Individual Pro and up',
-      cost: chatCost ?? 'Credits per request, depending on the AI model you pick',
-      needs: 'A paid plan plus credits. No outside AI subscription needed.',
+      plan: 'zStudio account + credits',
+      cost: chatCost,
+      needs: 'A free zStudio account and credits. No outside AI subscription needed.',
     },
   ];
 
@@ -73,21 +73,21 @@ const AICosts: React.FC<AICostsProps> = ({ showPricingLink = true }) => {
       <div className="ai-costs-table" role="table" aria-label="What each AI feature needs">
         <div className="ai-costs-row ai-costs-head" role="row">
           <span role="columnheader">Feature</span>
-          <span role="columnheader">Plan</span>
+          <span role="columnheader">Access</span>
           <span role="columnheader">Cost</span>
           <span role="columnheader">What you need</span>
         </div>
         {rows.map(r => (
           <div key={r.feature} className="ai-costs-row" role="row">
             <strong role="cell">{r.feature}</strong>
-            <span role="cell" data-label="Plan">{r.plan}</span>
+            <span role="cell" data-label="Access">{r.plan}</span>
             <span role="cell" data-label="Cost">{r.cost}</span>
             <span role="cell" data-label="What you need">{r.needs}</span>
           </div>
         ))}
       </div>
       <p className="ai-costs-note">
-        Credits are bought separately from your plan and never expire
+        Credits never expire
         {cheapestPack && centsPerCredit
           ? `. Packs start at $${(cheapestPack.priceUsdCents / 100).toFixed(0)} for ${cheapestPack.credits} credits (about ${centsPerCredit.toFixed(1)}¢ each).`
           : '.'}

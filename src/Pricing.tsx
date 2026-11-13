@@ -1,207 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext';
-import { apiGetPrices, apiValidateCoupon, apiCreateCheckoutSession, apiGetCreditPacks, apiPurchaseCreditsCheckout } from './api';
-import type { PriceInfo, CouponInfo, CreditPack } from './api';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SEO from './SEO';
-import CreditPrices from './CreditPrices';
+import { apiGetCreditPacks, apiPurchaseCreditsCheckout } from './api';
+import type { CreditPack } from './api';
+import { useAuth } from './AuthContext';
 import AICosts from './AICosts';
-import { CONTACT_EMAIL } from './site';
+import CreditPrices from './CreditPrices';
 
-function deriveVersionSeries(version: string): { series: string; nextMinor: string } {
-  const [major, minor] = version.split('.');
-  return {
-    series: `${major}.${minor}.x`,
-    nextMinor: `${major}.${Number(minor) + 1}`,
-  };
-}
-
-interface PlanDef {
-  key: string;
-  licenseType: string;
-  label: string;
-  tagline: string;
-  features: string[];
-  monthlyKey: string;
-  lifetimeKey?: string;
-  highlighted?: boolean;
-}
-
-export const features = {
-    presenceTables:'See current scene viewers', 
-    watermarkExport: 'Watermarked exports', 
-    noWatermarkExport: 'No watermarks', 
-    aiGeneration: 'Cloud AI image generation',  
-    copyBetweenScenes:'Copying between scenes', 
-    photoshopImporter: 'Photoshop Importer', 
-    mcpServer: 'MCP server: connect your own AI',
-    customSkills: 'Custom AI skills',
-    aiChat: 'Built-in AI Chat (uses credits)',
-    copyBetweenScene: 'Copying between scenes',
-    validationSupport: 'Scene hierarchy snapshot for validation',
-}
-
-export const PLANS: PlanDef[] = [
-  {
-    key: 'community',
-    licenseType: 'community',
-    label: 'Community',
-    tagline: 'Full editor and AI automation, free',
-    features: [
-      '1 seat',
-      'Full scene editor & animation timeline',
-      'Spine, particles & bitmap fonts',
-      features.mcpServer,
-      features.customSkills,
-      'Local AI image models',
-      'Pixi.js, Phaser & HTML export',
-      'Unlimited projects, no watermarks'
-    ],
-    monthlyKey: '',
-  },
-  {
-    key: 'individual_pro',
-    licenseType: 'individual_pro',
-    label: 'Individual Pro',
-    tagline: 'For professional developers',
-    features: [
-      '1 seat',
-      features.photoshopImporter,
-      features.aiGeneration,
-      features.aiChat,
-      features.copyBetweenScene,
-      features.validationSupport,
-      'Email support',
-    ],
-    monthlyKey: 'individual_pro_monthly',
-    lifetimeKey: 'individual_pro_lifetime',
-    highlighted: true,
-  },
-  {
-    key: 'team',
-    licenseType: 'team',
-    label: 'Studio Team',
-    tagline: 'For game studios',
-    features: [
-      '5 seats',
-      features.photoshopImporter,
-      features.presenceTables,
-      features.aiGeneration,
-      features.aiChat,
-      features.copyBetweenScene,
-      features.validationSupport,
-      'Priority support'
-    ],
-    monthlyKey: 'team_monthly',
-    lifetimeKey: 'team_lifetime',
-  },
-  {
-    key: 'enterprise',
-    licenseType: 'enterprise',
-    label: 'Enterprise',
-    tagline: 'For large teams & studios',
-    features: [
-      'Everything in teams + ',
-      'Unlimited seats', 
-      'Dedicated support', 
-      'Custom integrations', 
-      'Priority onboarding'
-    ],
-    monthlyKey: '',
-  }
+// zStudio has no plans. The only thing for sale is AI credits,
+// which pay for zStudio Cloud (in-app AI chat and cloud image models).
+const FREE_FEATURES = [
+  'The full scene editor: hierarchy, templates, anchors, portrait & landscape',
+  'Timeline animation, particles, Spine, bitmap fonts, PSD import',
+  'Pixi.js, Phaser & HTML export with the open-source zImporter',
+  'Built-in MCP server: connect Claude, Cursor or any MCP client',
+  'Custom AI skill libraries',
+  'Local AI image models on your own machine',
+  'Scene validation, copy between scenes, no watermark',
 ];
-
-function applyDiscount(amount: number, coupon: CouponInfo | null): number {
-  if (!coupon) return amount;
-  if (coupon.percent_off) return amount * (1 - coupon.percent_off / 100);
-  if (coupon.amount_off) return Math.max(0, amount - coupon.amount_off);
-  return amount;
-}
 
 const Pricing: React.FC = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
-
-
-  const [prices, setPrices] = useState<Record<string, PriceInfo>>({});
-  const [loadingPrices, setLoadingPrices] = useState(true);
-  const [pricesError, setPricesError] = useState(false);
-  const [lifetimeVersionSeries, setLifetimeVersionSeries] = useState('…');
-  const [lifetimeNextMinor, setLifetimeNextMinor] = useState('…');
-  const [pricingMode, setPricingMode] = useState<'monthly' | 'lifetime'>('monthly');
-
-  const [couponCode, setCouponCode] = useState('');
-  const [couponInfo, setCouponInfo] = useState<CouponInfo | null>(null);
-  const [couponError, setCouponError] = useState('');
-  const [validatingCoupon, setValidatingCoupon] = useState(false);
-
-  const [purchasing, setPurchasing] = useState<string | null>(null);
-  const [purchaseError, setPurchaseError] = useState('');
-
   const [creditPacks, setCreditPacks] = useState<CreditPack[]>([]);
   const [loadingCredits, setLoadingCredits] = useState(true);
   const [purchasingCredit, setPurchasingCredit] = useState<string | null>(null);
 
   useEffect(() => {
-    apiGetPrices().then(result => {
-      if (result.success && result.prices && Object.keys(result.prices).length > 0) {
-        setPrices(result.prices);
-      } else {
-        setPricesError(true);
-      }
-      setLoadingPrices(false);
-    });
-
-    fetch(`/latest-release.json?cacheBust=${Date.now()}`)
-      .then(r => r.json())
-      .then((data: { version: string }) => {
-        const { series, nextMinor } = deriveVersionSeries(data.version);
-        setLifetimeVersionSeries(series);
-        setLifetimeNextMinor(nextMinor);
-      })
-      .catch(() => { /* keep placeholder */ });
-
     apiGetCreditPacks().then((packsResult) => {
       if (packsResult.success && packsResult.packs) setCreditPacks(packsResult.packs);
       setLoadingCredits(false);
     });
   }, []);
-
-  const handleValidateCoupon = async () => {
-    const code = couponCode.trim();
-    if (!code) return;
-    setValidatingCoupon(true);
-    setCouponError('');
-    setCouponInfo(null);
-    const result = await apiValidateCoupon(code);
-    setValidatingCoupon(false);
-    if (result.success && result.coupon) {
-      setCouponInfo(result.coupon);
-    } else {
-      setCouponError(result.error || 'Invalid or expired coupon.');
-    }
-  };
-
-  const handlePurchase = async (licenseType: string, licenseDuration: string) => {
-    if (!isLoggedIn) {
-      navigate('/login');
-      return;
-    }
-    const key = `${licenseType}_${licenseDuration}`;
-    setPurchasing(key);
-    setPurchaseError('');
-    const result = await apiCreateCheckoutSession(
-      licenseType,
-      licenseDuration,
-      couponInfo ? couponCode.trim() : undefined
-    );
-    setPurchasing(null);
-    if (result.success && result.url) {
-      window.location.href = result.url;
-    } else {
-      setPurchaseError(result.error || 'Failed to start checkout. Please try again.');
-    }
-  };
 
   const handleBuyCredits = async (packId: string) => {
     if (!isLoggedIn) {
@@ -218,161 +48,36 @@ const Pricing: React.FC = () => {
     }
   };
 
-  const getPrice = (priceKey: string): number | null => {
-    return prices[priceKey]?.amount ?? null;
-  };
-
-  const discountLabel = couponInfo
-    ? couponInfo.percent_off
-      ? `${couponInfo.percent_off}% off`
-      : couponInfo.amount_off
-        ? `$${(couponInfo.amount_off / 100).toFixed(2)} off`
-        : ''
-    : '';
-
   return (
     <div className="container">
       <SEO
-        title="Pricing – zStudio Plans"
-        description="zStudio pricing. The MCP server, custom AI skills and local image models are free on every plan. Upgrade for cloud AI, built-in AI Chat and team features. Monthly and lifetime options."
+        title="Pricing – zStudio"
+        description="zStudio is free to download and use. Pay only for optional cloud AI with credits that never expire."
         canonical="/pricing"
       />
 
       <div className="pricing-hero">
-        <h1>Simple, transparent pricing</h1>
+        <h1>Free to download and use</h1>
         <p className="pricing-subtitle">
-          AI automation is free on every plan. Upgrade for cloud AI, built-in AI Chat and team features.
+          Everything in zStudio is free. You only pay if you want zStudio Cloud: the built-in AI Chat and cloud image models, paid for with credits.
         </p>
-
-        <div className="billing-toggle">
-          <button
-            className={`billing-option${pricingMode === 'monthly' ? ' active' : ''}`}
-            onClick={() => setPricingMode('monthly')}
-          >
-            Monthly
-          </button>
-          <button
-            className={`billing-option${pricingMode === 'lifetime' ? ' active' : ''}`}
-            onClick={() => setPricingMode('lifetime')}
-          >
-            ⭐ Lifetime
-          </button>
-        </div>
-
-        {pricingMode === 'lifetime' && (
-          <p className="lifetime-global-note">
-            Lifetime licences cover all <strong>{lifetimeVersionSeries}</strong> patch updates.
-            When the minor version increments (e.g. to {lifetimeNextMinor}),
-            a new licence is required to continue receiving updates.
-          </p>
-        )}
       </div>
 
-      {loadingPrices ? (
-        <p className="loading-text" style={{ textAlign: 'center' }}>Loading prices…</p>
-      ) : pricesError ? (
-        <div className="empty-state" style={{ marginBottom: '40px' }}>
-          <p>⚠️ Pricing information is temporarily unavailable.</p>
-          <p style={{ marginTop: '8px', fontSize: '0.88rem', color: '#64748b' }}>
-            Please try again in a moment or{' '}
-            email <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a> to purchase.
-          </p>
-        </div>
-      ) : (
-        <div className="pricing-grid">
-          {PLANS.map(plan => {
-            const isFree = plan.key === 'community';
-            const monthlyAmount = plan.monthlyKey ? getPrice(plan.monthlyKey) : null;
-            const lifetimeAmount = plan.lifetimeKey ? getPrice(plan.lifetimeKey) : null;
-            const hasLifetime = plan.lifetimeKey != null;
-            const showLifetime = pricingMode === 'lifetime' && hasLifetime;
-            const rawAmount = showLifetime ? lifetimeAmount : monthlyAmount;
-            const discountedAmount = rawAmount !== null ? applyDiscount(rawAmount, couponInfo) : null;
-            const duration = showLifetime ? 'lifetime' : 'monthly';
-            const purchaseKey = `${plan.licenseType}_${duration}`;
-            const isProcessing = purchasing === purchaseKey;
-
-            return (
-              <div key={plan.key} className={`plan-card${plan.highlighted ? ' plan-card-featured' : ''}`}>
-                {plan.highlighted && <div className="plan-popular-badge">Most Popular</div>}
-
-                <h2 className="plan-name">{plan.label}</h2>
-                <p className="plan-tagline">{plan.tagline}</p>
-
-                <div className="plan-price-block">
-                  {isFree ? (
-                    <>
-                      <span className="plan-price-amount">Free</span>
-                      <span className="plan-price-period">forever</span>
-                    </>
-                  ) : rawAmount !== null ? (
-                    <>
-                      <span className="plan-price-amount">
-                        {couponInfo && discountedAmount !== rawAmount ? (
-                          <>
-                            <span className="plan-price-original">${(rawAmount / 100).toFixed(0)}</span>
-                            ${(discountedAmount! / 100).toFixed(0)}
-                          </>
-                        ) : (
-                          `$${(rawAmount / 100).toFixed(0)}`
-                        )}
-                      </span>
-                      <span className="plan-price-period">
-                        {showLifetime ? 'one-time' : '/ month'}
-                      </span>
-                    </>
-                  ) : pricingMode === 'lifetime' && !hasLifetime ? (
-                    <span className="plan-price-na-note">Monthly only</span>
-                  ) : (
-                    <span className="plan-price-amount plan-price-na">—</span>
-                  )}
-                </div>
-
-                <ul className="plan-features">
-                  {plan.features.map(f => (
-                    <li key={f} className="plan-feature">
-                      <span className="feature-check">✓</span> {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="plan-actions">
-                  {isFree ? (
-                    isLoggedIn ? (
-                      <Link to="/dashboard" className="button button-outline">Go to Dashboard</Link>
-                    ) : (
-                      <Link to="/login" className="button button-outline">Get Started Free</Link>
-                    )
-                  ) : (
-                    <>
-                      <button
-                        className={`button${plan.highlighted ? '' : ' button-outline'}`}
-                        onClick={() => handlePurchase(plan.licenseType, duration)}
-                        disabled={isProcessing || (pricingMode === 'lifetime' && !hasLifetime)}
-                      >
-                        {isProcessing
-                          ? 'Processing…'
-                          : isLoggedIn
-                            ? showLifetime ? 'Get Lifetime' : 'Get Monthly'
-                            : 'Sign in to purchase'}
-                      </button>
-                      {pricingMode === 'lifetime' && !hasLifetime && (
-                        <p className="lifetime-version-note">No lifetime option available</p>
-                      )}
-                    </>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <div className="pricing-credits-section">
+        <h2 className="pricing-credits-title">Free for everyone</h2>
+        <p className="pricing-credits-subtitle">
+          No account, no plan, no watermark.
+        </p>
+        <ul className="pricing-free-list" style={{ maxWidth: 640, margin: '1rem auto', lineHeight: 1.9 }}>
+          {FREE_FEATURES.map(f => <li key={f}>✓ {f}</li>)}
+        </ul>
+      </div>
 
       {/* AI Requirements */}
       <div className="pricing-ai-costs">
         <h2 className="pricing-credits-title">What Each AI Feature Needs</h2>
         <p className="pricing-credits-subtitle">
-          zStudio doesn't include an AI subscription. Connect an AI tool you already pay for (free on every plan), or use the built-in AI Chat and cloud image models on a paid plan with credits.
+          zStudio doesn't include an AI subscription. Connect an AI tool you already pay for (free), or use the built-in AI Chat and cloud image models with credits.
         </p>
         <AICosts showPricingLink={false} />
       </div>
@@ -381,7 +86,7 @@ const Pricing: React.FC = () => {
       <div className="pricing-credits-section" id="credits">
         <h2 className="pricing-credits-title">AI Credits</h2>
         <p className="pricing-credits-subtitle">
-          Credits pay for cloud image generation and the built-in AI Chat, both available on Individual Pro, Studio Team and Enterprise plans. Credits never expire. You don't need credits to connect your own AI tool over MCP or to use local image models: those are free on every plan, Community included.
+          Credits pay for cloud image generation and the built-in AI Chat. Any zStudio account can buy them, and they never expire. You don't need credits to connect your own AI tool over MCP or to use local image models.
         </p>
 
         {loadingCredits ? (
@@ -420,56 +125,6 @@ const Pricing: React.FC = () => {
         )}
       </div>
 
-      {/* Coupon code */}
-      {!loadingPrices && (
-        <div className="coupon-section">
-          <h3>Have a coupon code?</h3>
-          {couponInfo ? (
-            <div className="coupon-applied">
-              <span className="coupon-success">✓ Coupon applied: <strong>{couponInfo.name}</strong> — {discountLabel}</span>
-              <button
-                className="coupon-remove-btn"
-                onClick={() => { setCouponInfo(null); setCouponCode(''); }}
-              >
-                Remove
-              </button>
-            </div>
-          ) : (
-            <div className="coupon-row">
-              <input
-                type="text"
-                className="coupon-input"
-                placeholder="Enter coupon code"
-                value={couponCode}
-                onChange={e => { setCouponCode(e.target.value); setCouponError(''); }}
-                onKeyDown={e => e.key === 'Enter' && handleValidateCoupon()}
-                disabled={validatingCoupon}
-              />
-              <button
-                className="button"
-                onClick={handleValidateCoupon}
-                disabled={validatingCoupon || !couponCode.trim()}
-              >
-                {validatingCoupon ? 'Checking…' : 'Apply'}
-              </button>
-            </div>
-          )}
-          {couponError && <p className="coupon-error">{couponError}</p>}
-        </div>
-      )}
-
-      {purchaseError && (
-        <p className="pricing-purchase-error">{purchaseError}</p>
-      )}
-
-      {/* Feature comparison note */}
-      <div className="pricing-footer-note">
-        <p>All plans include access to the full zStudio desktop editor. AI credits are purchased separately and can be used on Individual Pro, Studio Team and Enterprise plans.</p>
-        <p style={{ marginTop: '0.5rem' }}>
-          Need enterprise pricing? Email{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#14b8a6' }}>{CONTACT_EMAIL}</a>.
-        </p>
-      </div>
     </div>
   );
 };

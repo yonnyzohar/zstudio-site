@@ -7,19 +7,19 @@ const Contact: React.FC = () => {
     <div className="container contact-page">
       <SEO
         title="Contact zStudio"
-        description="Get in touch with zStudio. Ask about Studio Team or Enterprise plans, or get help with the editor and AI setup."
+        description="Get in touch with zStudio. Ask about commercial licences, support, or help with the editor and AI setup."
         canonical="/contact"
       />
 
       <h1><span className="title-gradient">Talk to Us</span></h1>
       <p className="contact-intro">
-        Questions about zStudio, the AI setup, or plans for your studio? Email us directly.
+        Questions about zStudio, the AI setup, or a commercial licence for your studio? Email us directly.
       </p>
 
       <div className="contact-card">
         <h2>Email</h2>
         <a className="contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-        <p>Support, licensing, billing and partnership questions.</p>
+        <p>Support, billing and partnership questions.</p>
       </div>
     </div>
   );
