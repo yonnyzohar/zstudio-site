@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CONTACT_EMAIL } from './site';
+import { CONTACT_EMAIL, DISCORD_URL } from './site';
 
 const Footer: React.FC = () => {
   return (
@@ -20,6 +20,11 @@ const Footer: React.FC = () => {
         <li className="repeater-item has-link" style={{ display: 'inline-block' }}>
           <a href="https://www.youtube.com/@zStudio-f9r" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', transition: 'background 0.3s ease, transform 0.3s ease' }}>
             <i className="fab fa-youtube icon" style={{ color: '#e5e7eb', fontSize: '20px' }}></i>
+          </a>
+        </li>
+        <li className="repeater-item has-link" style={{ display: 'inline-block' }}>
+          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" aria-label="Join us on Discord" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)', transition: 'background 0.3s ease, transform 0.3s ease' }}>
+            <i className="fab fa-discord icon" style={{ color: '#e5e7eb', fontSize: '20px' }}></i>
           </a>
         </li>
       </ul>
