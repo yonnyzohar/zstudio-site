@@ -15,6 +15,11 @@ const Tutorials: React.FC = () => {
       url: "https://youtu.be/_o0K_543AzY"
     },
     {
+      title: "Generating Timeline Animations with AI",
+      description: "This video shows how to have AI create timeline animations in zStudio. Describe the animation you want and the AI builds it on the timeline, ready to review, adjust and export with your scene.",
+      url: "https://youtu.be/TZ7_ME94w2E"
+    },
+    {
       title: "AI image generation",
       description: "This video demonstrates how to use AI image generation within zStudio. It covers the process of generating images using AI models, integrating them into your scenes, and customizing the generated assets to fit your project's needs.",
       url:"https://youtu.be/VEHzjlx2sxo"
