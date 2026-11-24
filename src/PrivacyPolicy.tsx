@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
         canonical="/privacy"
       />
       <h1>Privacy Notice</h1>
-      <p style={{ color: '#9ca3af', fontSize: '0.9rem' }}>Last updated: April 2026</p>
+      <p style={{ color: '#9ca3af', fontSize: '0.9rem' }}>Last updated: November 2026</p>
 
       <p>
         This notice explains what personal data zStudios Ltd collects about you, why we collect it, who we share
@@ -65,7 +65,7 @@ const PrivacyPolicy: React.FC = () => {
         <strong>Lawful basis:</strong> Performance of a contract and Legal obligation (payment regulations).
       </p>
 
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>AI image generation (optional feature)</h3>
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>AI features (optional)</h3>
       <ul style={{ marginLeft: '2rem' }}>
         <li>
           <strong>AI credit balance and transaction history</strong> — we record credit purchases, credits spent
@@ -78,9 +78,20 @@ const PrivacyPolicy: React.FC = () => {
           or source images on our servers after the request completes. Please review each provider's own privacy
           policy before use.
         </li>
+        <li>
+          <strong>AI Chat messages</strong> — when you use the built-in AI Chat assistant, your messages and the
+          scene information the assistant needs to carry out your request are sent to Anthropic, which runs the
+          Claude models that power AI Chat. We do not retain copies of your chat messages on our servers after the
+          request completes.
+        </li>
+        <li>
+          <strong>Content screening</strong> — AI providers may automatically screen prompts and images for
+          safety and block requests that break their policies. Your use of the AI features must also follow the{' '}
+          <a href="/terms#acceptable-use">acceptable use rules in our Terms of Use</a>.
+        </li>
       </ul>
       <p>
-        <strong>Lawful basis:</strong> Performance of a contract (providing the AI generation service you
+        <strong>Lawful basis:</strong> Performance of a contract (providing the AI services you
         purchased credits for).
       </p>
 
@@ -155,6 +166,11 @@ const PrivacyPolicy: React.FC = () => {
           <strong>OpenAI</strong> (openai.com) — AI image generation providers. Your prompts and source images
           are transmitted to whichever provider you select when using the AI feature. Each provider's own privacy
           policy governs how they handle that data.
+        </li>
+        <li>
+          <strong>Anthropic</strong> (anthropic.com) — AI Chat provider. Your chat messages and the scene
+          information needed to answer them are sent to Anthropic when you use AI Chat. Anthropic's own privacy
+          policy governs how it handles that data.
         </li>
         <li>
           <strong>Google Analytics</strong> (google.com) — website analytics and anonymous desktop app usage

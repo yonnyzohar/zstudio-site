@@ -11,7 +11,7 @@ const Terms: React.FC = () => {
       />
       <h1>zStudio</h1>
 
-      <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>Copyright 2025 zStudios Ltd</h2>
+      <h2 style={{ color: '#fbbb1a', marginTop: '2rem', marginBottom: '1rem' }}>Copyright 2025–2026 zStudios Ltd</h2>
 
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>License</h3>
       <p>
@@ -33,10 +33,46 @@ const Terms: React.FC = () => {
         <li>Claim ownership or authorship of this software.</li>
       </ul>
 
-      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Future Versions</h3>
+      <h3 id="acceptable-use" style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+        Acceptable use of AI features
+      </h3>
       <p>
-        Future versions of zStudio (v2 and beyond) may require a paid license. Users of v1.x do not automatically
-        receive a license for future versions.
+        zStudio includes optional AI features: the built-in AI Chat assistant, cloud image generation through
+        zStudio Cloud, and support for AI models you run on your own computer. When using these features you
+        must not create, request, or try to create:
+      </p>
+      <ul style={{ marginLeft: '2rem' }}>
+        <li>Any content that sexualises minors, or sexual content involving anyone under 18.</li>
+        <li>Sexually explicit or pornographic content.</li>
+        <li>Content that is illegal in the United Kingdom or where you live.</li>
+        <li>
+          Content that infringes the copyright, trademarks, or other rights of others, such as copying a
+          protected character, artwork, logo, or brand you do not have the rights to use.
+        </li>
+        <li>
+          Content that harasses, threatens, defames, or impersonates a real person, or shows a real person
+          without their consent.
+        </li>
+        <li>Content that promotes terrorism, violence, hatred, or discrimination.</li>
+        <li>Malware, or content designed to deceive, defraud, or mislead others.</li>
+      </ul>
+      <p>
+        You are responsible for the prompts and images you submit and for how you use anything the AI features
+        produce. Cloud requests are processed by third-party AI providers (such as Leonardo AI), which apply their
+        own content filters and may block requests that break their policies. AI models you run locally are under
+        your sole control, and you are fully responsible for their use and output.
+      </p>
+      <p>
+        If you break these rules we may suspend or end your access to zStudio Cloud and your zStudio account. To
+        report misuse or harmful AI output, email{' '}
+        <a href="mailto:jonzohar@zstudiosltd.com">jonzohar@zstudiosltd.com</a>. If you got zStudio through Steam,
+        you can also report content using the Steam overlay.
+      </p>
+
+      <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Pricing</h3>
+      <p>
+        zStudio is free to download and use. Optional zStudio Cloud features (the built-in AI Chat and cloud image
+        generation) are paid for with AI credits, which you can buy from within the app.
       </p>
 
       <h3 style={{ color: '#fbbb1a', marginTop: '1.5rem', marginBottom: '0.5rem' }}>Disclaimer</h3>
