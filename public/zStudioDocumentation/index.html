@@ -1170,11 +1170,13 @@
     <h2 class="c6" id="h.mcp-server"><span class="c0">MCP Server <span class="free-badge">FREE</span></span></h2>
     <p class="c4"><span class="c1">zStudio runs a local MCP (Model Context Protocol) server that enables full programmatic control of the editor. It powers two distinct AI workflows:</span></p>
     <ul class="c18 lst-kix_mcp-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool (free): </span><span class="c1">Connect any AI tool that supports MCP. You use your own AI subscription, so zStudio credits are not used. Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Your own AI tool (free): </span><span class="c1">Connect any AI tool that supports MCP. The AI runs on your own AI subscription, so the conversation costs no zStudio credits. Cloud images it generates for you are the one exception: they are paid with zStudio credits, like any cloud image (local models stay free). Open <span class="c14">Help &rarr; Connect AI (MCP)</span> for the server address and a ready-to-paste setup snippet for each tool.</span></li>
         <li class="c4 c13 li-bullet-0"><span class="c14">Built-in Chat (credits): </span><span class="c1">The integrated chat panel inside zStudio also runs over the MCP server. It needs a free zStudio account and uses zStudio credits, with no external setup &mdash; see the AI Panel section below for details.</span></li>
     </ul>
     <p class="c4"><span class="c1">Through MCP the AI can do almost anything you can do in the editor: create and arrange containers, import images, Spine animations and particles, set positions for portrait and landscape, anchor elements, edit text, build buttons and other components, animate on the timeline, generate images, and save or export the scene. It reads zStudio's built-in guides as it works, and you can add your own &mdash; see <a class="c26" href="#h.skill-libraries">AI Skill Libraries</a> below.</span></p>
     <p class="c4"><span class="c36">Without an account you can connect your own AI tool, and image generation over MCP uses your <a class="c26" href="#h.local-image-models">local image models</a>. The built-in chat and cloud image models need a free zStudio account and credits.</span></p>
+    <p class="c4"><span class="c1">If your AI asks for a cloud image while you are signed out or out of credits, nothing is charged. It comes back to you with the options: buy credits, use a free local model (if you have one), or use its own image generation if your AI tool has any. You decide.</span></p>
+    <p class="c4"><span class="c1">For tips on getting good results, see <a class="c26" href="#h.working-with-ai">Working with AI</a> below.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.skill-libraries"><span class="c10">AI Skill Libraries <span class="free-badge">FREE</span></span></h3>
     <p class="c4"><span class="c1">Skills teach the AI your own conventions &mdash; for example, the container hierarchy your studio uses for a slot machine, how you name templates, or how your popups are built. zStudio already gives the AI built-in skills for its own features; your libraries are added to that list, and the AI loads only the skills it needs for the current task.</span></p>
@@ -1207,15 +1209,44 @@ description: The container hierarchy we use for slot machines. Load before build
     <p class="c4"><span class="c1">The AI panel has two distinct capabilities: <span class="c14">scene generation via chat</span> and <span class="c14">image generation</span>.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.ai-chat"><span class="c10">AI Chat (Scene Editing) <span class="paid-badge">CREDITS</span></span></h3>
-    <p class="c4"><span class="c1">The built-in chat interface lets you create, modify, and rearrange your entire scene using natural language. You can ask it to import assets, set positions, create animations, wrap elements, rename things, and more &mdash; all without touching the UI manually.</span></p>
+    <p class="c4"><span class="c1">The built-in chat interface lets you create, modify, and rearrange your entire scene using natural language. You can ask it to import assets, set positions, create animations, wrap elements, rename things, generate images and more &mdash; all without touching the UI manually. Open it from <span class="c14">Panels &rarr; Show AI Chat</span> or the <span class="c14">Open AI Chat</span> button in the AI panel.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <p class="c4"><span>A <span class="c14">model selector</span> at the top of the chat lets you choose between three AI models:</span></p>
     <ul class="c18 lst-kix_ai-models-0 start">
-        <li class="c4 c13 li-bullet-0"><span class="c14">Haiku (fast)</span><span class="c1"> &mdash; quickest responses, lower cost per operation. Good for simple tasks.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Sonnet (balanced)</span><span class="c1"> &mdash; the recommended default. Strong reasoning at reasonable speed.</span></li>
-        <li class="c4 c13 li-bullet-0"><span class="c14">Opus (powerful)</span><span class="c1"> &mdash; most capable for complex multi-step instructions. Slower and higher cost.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Haiku (fast)</span><span class="c1"> &mdash; quickest and cheapest. Good for single, simple edits.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Sonnet (balanced)</span><span class="c1"> &mdash; the recommended default. Strong reasoning at reasonable speed and cost.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Opus (powerful)</span><span class="c1"> &mdash; most capable for large, multi-step builds. Slower and costs more.</span></li>
     </ul>
-    <p class="c4"><span class="c1">Your current credit balance is shown in the chat panel header. Credits are consumed per request based on the model used.</span></p>
+    <p class="c4"><span class="c1">The list comes from zStudio's server, so it updates as newer models become available. Your choice is remembered.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c14">How credits are used</span></p>
+    <p class="c4"><span class="c1">The AI works in steps: each time it reads or changes your scene is one step, and one message usually takes several. You pay for what each step actually uses &mdash; the number next to each model is a typical step &mdash; and never more than you have. Your balance is shown in the chat header. See the <a class="c26" href="https://zstudiosltd.com/pricing">Pricing page</a> for current prices.</span></p>
+    <p class="c4"><span class="c1">The whole conversation goes to the AI with every step, so a long chat costs a little more per step. Click <span class="c14">New Chat</span> when you start on something unrelated.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c14">How it works</span></p>
+    <ul class="c18 lst-kix_ai-models-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Plans, then acts: </span><span class="c1">the AI reads the scene first. For layout work it tells you its plan, and it asks when your request could mean more than one thing.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Checks its work: </span><span class="c1">after a visual change it looks at the stage and tells you what it changed and what it checked.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Never saves on its own: </span><span class="c1">it only saves or tests the scene when you ask. Every change it makes can be undone with Cmd+Z.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Stop: </span><span class="c1">the Stop button ends the current reply.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Select All: </span><span class="c1">click in the chat and press Cmd+A to select the conversation text (Cmd+A on the stage still selects scene elements).</span></li>
+    </ul>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c14">Attachments</span></p>
+    <p class="c4"><span class="c1">Add files with the paperclip button, by dragging them onto the chat, or by pasting with Cmd+V &mdash; a copied file, or an image such as a screenshot.</span></p>
+    <ul class="c18 lst-kix_ai-models-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Images: </span><span class="c1">PNG, JPG, GIF and WebP. The AI sees the image and also knows where the file is, so it can match a mockup, bring the file into the scene, or use it as a reference for image generation. Pasted images are saved for you first.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Text files: </span><span class="c1">TXT, MD, JSON, CSV, XML, YAML, HTML, CSS, JS and TS, up to 200 KB each &mdash; specs, layout data, notes.</span></li>
+    </ul>
+    <p class="c2"><span class="c1"></span></p>
+    <p class="c4"><span class="c14">Images from the chat</span></p>
+    <p class="c4"><span class="c1">Ask in plain words. The AI picks the model, size and transparency to suit the image unless you say otherwise, tells you which model it used and what it cost, and asks before generating several at once. It uses the same three modes as the <a class="c26" href="#h.ai-image">AI Image panel</a>:</span></p>
+    <ul class="c18 lst-kix_ai-models-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">&ldquo;Make a gold coin icon&rdquo; </span><span class="c1">&mdash; a new image from text, added to the scene.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">&ldquo;Another symbol in the style of this one&rdquo; </span><span class="c1">&mdash; a new image using existing ones as reference; the originals stay as they are.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">&ldquo;Reskin these as a winter version&rdquo; </span><span class="c1">&mdash; replaces the existing images in place.</span></li>
+    </ul>
+    <p class="c4"><span class="c1">&ldquo;This&rdquo; and &ldquo;these&rdquo; mean what you have selected on the stage.</span></p>
     <p class="c2"><span class="c1"></span></p>
     <h3 class="c22" id="h.ai-image"><span class="c10">AI Image Generation</span></h3>
     <table class="c21">
@@ -1223,9 +1254,9 @@ description: The container hierarchy we use for slot machines. Load before build
             <td class="c12" colspan="1" rowspan="1">
                 <p class="c16"><span class="c1">zStudio allows for AI image generation in 3 modes:</span></p>
                 <ul class="c18 lst-kix_7ble1psbtmzx-0 start">
-                    <li class="c16 c13 li-bullet-0"><span class="c1">Text to image</span></li>
-                    <li class="c16 c13 li-bullet-0"><span class="c1">Image to Image</span></li>
-                    <li class="c16 c13 li-bullet-0"><span class="c1">Image replacement</span></li>
+                    <li class="c16 c13 li-bullet-0"><span class="c1">Image from text &mdash; a new image from a prompt</span></li>
+                    <li class="c16 c13 li-bullet-0"><span class="c1">Image from image &mdash; a new image based on selected images</span></li>
+                    <li class="c16 c13 li-bullet-0"><span class="c1">Reskin image &mdash; restyles selected images in place</span></li>
                 </ul>
                 <p class="c9"><span class="c1"></span></p>
                 <p class="c16"><span class="c1">To use this you must first sign up to the service. You can also do this
@@ -1243,17 +1274,18 @@ description: The container hierarchy we use for slot machines. Load before build
                             href="#h.local-image-models">Local Image Models</a> below.</span></p>
                 <p class="c9"><span class="c1"></span></p>
                 <p class="c16"><span class="c1">You can set whether the image will have a transparent background
-                        (important for game assets) and select your model. Gemini Flash and GPT IMage 1.5 are terrific
+                        (important for game assets) and select your model. Gemini Flash and GPT Image 2.6 are terrific
                         for game assets.</span></p>
                 <p class="c9"><span class="c1"></span></p>
-                <p class="c16"><span>For </span><span class="c14">Image to Image</span><span class="c1">, select one or
+                <p class="c16"><span>For </span><span class="c14">Image from image</span><span class="c1">, select one or
                         more images and select this mode. The newly generated image will take inspiration from the
                         selected images and from the prompt.</span></p>
                 <p class="c9"><span class="c1"></span></p>
-                <p class="c16"><span>For </span><span class="c14">Image in Place</span><span class="c1">&nbsp;(reskin)
-                        the new image will replace the old one, you can set the degree of inspiration the image itself
-                        will have aside from the prompt. The new image will replace the old one and scale and resize to
-                        its dimensions.</span></p>
+                <p class="c16"><span>For </span><span class="c14">Reskin image</span><span class="c1">
+                        the new image replaces the old one. The slider sets how much the original guides the result
+                        aside from the prompt; <em>Ignore source completely</em> keeps only its size. The new image is
+                        scaled to the old one's on-screen size, and every sprite in the scene that uses the same image
+                        file switches to it.</span></p>
                 <p class="c9"><span class="c1"></span></p>
                 <p class="c16"><span class="c1">You can undo this process with Cmd+z</span></p>
                 <p class="c9"><span class="c1"></span></p>
@@ -1281,6 +1313,18 @@ description: The container hierarchy we use for slot machines. Load before build
         <li class="c4 c13 li-bullet-0"><span class="c14">Licenses: </span><span class="c1">check each model's license before using its images commercially &mdash; some, such as FLUX.1-dev, do not allow it.</span></li>
     </ul>
     <p class="c4"><span class="c1">AI tools connected over MCP can use your local models too: they appear in the model list as <code>local:&hellip;</code>.</span></p>
+    <p class="c2"><span class="c1"></span></p>
+    <h2 class="c6" id="h.working-with-ai"><span class="c0">Working with AI</span></h2>
+    <p class="c4"><span class="c1">These tips apply to the built-in chat and to your own AI tool connected over MCP.</span></p>
+    <ul class="c18 lst-kix_mcp-0 start">
+        <li class="c4 c13 li-bullet-0"><span class="c14">Explain your structure once: </span><span class="c1">the AI reads your scene, but some things only you know &mdash; for example &ldquo;the reel area is 5 columns &times; 3 rows; reel1_layer1&ndash;5 are depth layers, not rows&rdquo;. Better still, put it in an <a class="c26" href="#h.skill-libraries">AI skill library</a> so you never have to repeat it.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Point at things: </span><span class="c1">select elements on the stage and say &ldquo;this&rdquo; or &ldquo;these&rdquo;, use the names shown in the Hierarchy panel, or attach a mockup to match.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Say what should stay as it is: </span><span class="c1">for example &ldquo;don&rsquo;t move the placeholders&rdquo; or &ldquo;keep the originals off-stage&rdquo;.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">One task per chat: </span><span class="c1">start a New Chat for unrelated work. It keeps the AI focused, and shorter conversations cost less per step.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Pick the model for the job: </span><span class="c1">Haiku for a single quick edit, Sonnet for most work, Opus for large builds from scratch.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Review, then save: </span><span class="c1">look over the result in both orientations before saving. Cmd+Z undoes anything you don&rsquo;t like, and you can ask the AI to adjust.</span></li>
+        <li class="c4 c13 li-bullet-0"><span class="c14">Images for game assets: </span><span class="c1">ask for a transparent background for anything that sits on top of other art (symbols, characters, icons, buttons); backgrounds don&rsquo;t need one.</span></li>
+    </ul>
     <p class="c2"><span class="c1"></span></p>
     <h1 class="c25" id="h.tsvsdbee04vd"><span class="c19">Testing a Scene</span></h1>
     <p class="c4"><span>From the top menu you can test your scene. The test is simply a regular export that places the
